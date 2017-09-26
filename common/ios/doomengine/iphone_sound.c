@@ -28,7 +28,7 @@
 
 
 #include "doomiphone.h"
-#include <AudioToolbox/AudioServices.h>
+// #include <AudioToolbox/AudioServices.h>
 
 
 typedef struct  {
@@ -88,31 +88,32 @@ int SysIPhoneOtherAudioIsPlaying() {
 	return otherAudioIsPlaying;
 }
 
-void interruptionListener( void *inUserData, UInt32 inInterruption)
-{
-	printf("Session interrupted! --- %s ---\n", inInterruption == kAudioSessionBeginInterruption ? "Begin Interruption" : "End Interruption");
+//void interruptionListener( void *inUserData, UInt32 inInterruption)
+//{
+//    printf("Session interrupted! ---\n");
+//	printf("Session interrupted! --- %s ---\n", inInterruption == kAudioSessionBeginInterruption ? "Begin Interruption" : "End Interruption");
 	
-	if ( inInterruption == kAudioSessionBeginInterruption ) {
-		printf("Audio interrupted.\n" );
-		iphonePauseMusic();			
-		alcMakeContextCurrent( NULL );
-		AudioSessionSetActive( false );
-	} else if ( inInterruption == kAudioSessionEndInterruption ) {
-		printf("Audio restored.\n" );
-		
-		OSStatus r = AudioSessionSetActive( true );
-		if ( r != kAudioSessionNoError ) {
-			printf( "AudioSessionSetActive( true ) failed: 0x%x\n", (unsigned int)r );
-		} else {
-			printf( "AudioSessionSetActive( true ) succeeded.\n" );
-		}
-		alcMakeContextCurrent( Context );
-		if( alcGetError( Device ) != ALC_NO_ERROR ) {
-			Com_Error( "Failed to alcMakeContextCurrent\n" );
-		}
-		iphoneResumeMusic();
-	}
-}
+//    if ( inInterruption == kAudioSessionBeginInterruption ) {
+//        printf("Audio interrupted.\n" );
+//        iphonePauseMusic();
+//        alcMakeContextCurrent( NULL );
+//        // AudioSessionSetActive( false );
+//    } else if ( inInterruption == kAudioSessionEndInterruption ) {
+//        printf("Audio restored.\n" );
+//
+//        // OSStatus r = AudioSessionSetActive( true );
+//        // if ( r != kAudioSessionNoError ) {
+//        //    printf( "AudioSessionSetActive( true ) failed: 0x%x\n", (unsigned int)r );
+//        // } else {
+//        //    printf( "AudioSessionSetActive( true ) succeeded.\n" );
+//        // }
+//        alcMakeContextCurrent( Context );
+//        if( alcGetError( Device ) != ALC_NO_ERROR ) {
+//            Com_Error( "Failed to alcMakeContextCurrent\n" );
+//        }
+//        iphoneResumeMusic();
+//    }
+//}
 
 void Sound_Init( void ) {
 
@@ -124,24 +125,24 @@ void Sound_Init( void ) {
 	
 	// make sure background ipod music mixes with our sound effects
 	Com_Printf( "...Initializing AudioSession\n" );
-	OSStatus status = 0;
-	status = AudioSessionInitialize(NULL, NULL, interruptionListener, NULL);	// else "couldn't initialize audio session"
+	// OSStatus status = 0;
+	// status = AudioSessionInitialize(NULL, NULL, interruptionListener, NULL);	// else "couldn't initialize audio session"
 	
 	// if there is iPod music playing in the background, we want to use
 	// the AmbientSound catagory, otherwise we will leave it at the default.
 	// If we always set it to AmbientSound, then the mp3 background music
 	// playback goes to software on 3.0 for a huge slowdown.
-	UInt32  propOtherAudioIsPlaying = kAudioSessionProperty_OtherAudioIsPlaying;
-	UInt32  size = sizeof( otherAudioIsPlaying );
-	AudioSessionGetProperty( propOtherAudioIsPlaying, &size, &otherAudioIsPlaying );
+	// UInt32  propOtherAudioIsPlaying = kAudioSessionProperty_OtherAudioIsPlaying;
+	// UInt32  size = sizeof( otherAudioIsPlaying );
+	// AudioSessionGetProperty( propOtherAudioIsPlaying, &size, &otherAudioIsPlaying );
 	Com_Printf("OtherAudioIsPlaying = %d\n", otherAudioIsPlaying );
 	
 	if ( otherAudioIsPlaying ) {
-		UInt32 audioCategory = kAudioSessionCategory_AmbientSound;
-		status = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(audioCategory), &audioCategory);
+		// UInt32 audioCategory = kAudioSessionCategory_AmbientSound;
+		// status = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(audioCategory), &audioCategory);
 	}
 	
-	status = AudioSessionSetActive(true);                                       // else "couldn't set audio session active\n"	
+	// status = AudioSessionSetActive(true);                                       // else "couldn't set audio session active\n"
 	
 	Com_Printf( "...Initializing OpenAL subsystem\n" );
 	
@@ -231,7 +232,7 @@ int I_GetSfxLumpNum (sfxinfo_t *sfx) {
 	*d = 0;
 	pkWav_t *pkwav = PK_FindWav( va( "newsfx/DS%s.wav", upper ) );	
 	
-	return pkwav - pkWavs;
+	return (int)(pkwav - pkWavs);
 }
 
 // Starts a sound in a particular sound channel.
@@ -275,14 +276,15 @@ void I_StopSound(int handle) {}
 // Returns 0 if no longer playing, 1 if playing.
 boolean I_SoundIsPlaying(int handle) { 
 
-	channel_t *ch = (channel_t *)handle;
-	if ( !ch ) {
-		return false;
-	}
-	int state;
-	alGetSourcei( ch->sourceName, AL_SOURCE_STATE, &state );
-	
-	return state == AL_PLAYING;
+	// channel_t *ch = (channel_t *)handle;
+//	if ( !ch ) {
+//		return false;
+//	}
+//	int state;
+//	alGetSourcei( ch->sourceName, AL_SOURCE_STATE, &state );
+//	
+//	return state == AL_PLAYING;
+    return 0;
 }
 
 // Called by m_menu.c to let the quit sound play and quit right after it stops

@@ -61,7 +61,7 @@ void Com_Error( const char *fmt, ... ) {
 	
 	// drop into the editor
 	abort(); 
-	exit( 1 );
+	// exit( 1 );
 }
 
 char *va( const char *format, ... ) {

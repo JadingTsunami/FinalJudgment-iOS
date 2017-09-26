@@ -99,7 +99,7 @@ void CalculateBytesForTime (AudioStreamBasicDescription & inDesc, UInt32 inMaxPa
 	
 	if (inDesc.mFramesPerPacket) {
 		Float64 numPacketsForTime = inDesc.mSampleRate / inDesc.mFramesPerPacket * inSeconds;
-		*outBufferSize = (long unsigned int)numPacketsForTime * inMaxPacketSize;
+		*outBufferSize = (unsigned int)((long unsigned int)numPacketsForTime * inMaxPacketSize);
 	} else {
 		// if frames per packet is zero, then the codec has no predictable packet == time
 		// so we can't tailor this (we don't know how many Packets represent a time period
@@ -278,8 +278,8 @@ void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, A
 		while (nPackets == 0) {
 			// if loadAtOnce, get all packets in the file, otherwise ~.5 seconds of data
 			nPackets = THIS->mNumPacketsToRead;					
-			result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets, 
-										  inCompleteAQBuffer->mAudioData);
+			// result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets,
+			//							  inCompleteAQBuffer->mAudioData);
 			AssertNoError("Error reading file data", end);
 			
 			inCompleteAQBuffer->mAudioDataByteSize = numBytes;	
@@ -518,16 +518,16 @@ void iphoneStartMusic() {
 	
 	printf( "Starting music '%s'\n", fullName );
 
-	iphoneStopMusic();
-	sBackgroundTrackMgr.LoadTrack( fullName, false, true);
-	sBackgroundTrackMgr.Start();
-	
-	if ( !strcmp( currentMusicName, "intro" ) ) {
-		// stop the intro music at end, don't loop
-		sBackgroundTrackMgr.mStopAtEnd = true;
-	} else {
-		sBackgroundTrackMgr.mStopAtEnd = false;
-	}
+//    iphoneStopMusic();
+//    sBackgroundTrackMgr.LoadTrack( fullName, false, true);
+//    sBackgroundTrackMgr.Start();
+//    
+//    if ( !strcmp( currentMusicName, "intro" ) ) {
+//        // stop the intro music at end, don't loop
+//        sBackgroundTrackMgr.mStopAtEnd = true;
+//    } else {
+//        sBackgroundTrackMgr.mStopAtEnd = false;
+//    }
 }
 
 void iphonePlayMusic( const char *name ) {

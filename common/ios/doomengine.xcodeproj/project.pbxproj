@@ -13,8 +13,6 @@
 		3D2EC247148EBA8300273241 /* EASGlue.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D2EC245148EBA8300273241 /* EASGlue.c */; };
 		3D460D2914BCA5430078262C /* iphone_async.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D460D2814BCA5430078262C /* iphone_async.cpp */; };
 		3D460D4F14BCFBD40078262C /* iphone_glViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D460D4E14BCFBD40078262C /* iphone_glViewController.mm */; };
-		3D5BB94A14B79BFE00A9A7FB /* DoomGameCenterMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */; };
-		3D5BB94B14B79BFE00A9A7FB /* DoomGameCenterMatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */; };
 		3D7D555D14D1C53A00A0F1FF /* iphone_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D555C14D1C53900A0F1FF /* iphone_start.cpp */; };
 		3D80889A1492E2E8002D6CC3 /* iphone_common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D8088991492E2E7002D6CC3 /* iphone_common.mm */; };
 		3D80889C1492E378002D6CC3 /* iphone_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D80889B1492E378002D6CC3 /* iphone_common.h */; };
@@ -52,6 +50,8 @@
 		C86CA85914B4F3C40057FF54 /* iphone_delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = C86CA85314B4F3C40057FF54 /* iphone_delegate.mm */; };
 		C86CA85A14B4F3C40057FF54 /* iphone_glViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C86CA85414B4F3C40057FF54 /* iphone_glViewController.h */; };
 		C8DB8AD014BDFBE80006467C /* iphone_sys.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8DB8ACF14BDFBE80006467C /* iphone_sys.mm */; };
+		DA91D8B01F764D3B0077E63D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA91D8AF1F764D3B0077E63D /* GameController.framework */; };
+		DA91D8B31F764E040077E63D /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA91D8B21F764E040077E63D /* GameController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +100,6 @@
 		3D2EC245148EBA8300273241 /* EASGlue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EASGlue.c; sourceTree = "<group>"; };
 		3D460D2814BCA5430078262C /* iphone_async.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_async.cpp; sourceTree = "<group>"; };
 		3D460D4E14BCFBD40078262C /* iphone_glViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_glViewController.mm; sourceTree = "<group>"; };
-		3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomGameCenterMatch.h; sourceTree = "<group>"; };
-		3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoomGameCenterMatch.cpp; sourceTree = "<group>"; };
 		3D7D555C14D1C53900A0F1FF /* iphone_start.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_start.cpp; sourceTree = "<group>"; };
 		3D8088991492E2E7002D6CC3 /* iphone_common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_common.mm; sourceTree = "<group>"; };
 		3D80889B1492E378002D6CC3 /* iphone_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_common.h; sourceTree = "<group>"; };
@@ -140,6 +138,9 @@
 		C86CA85314B4F3C40057FF54 /* iphone_delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_delegate.mm; sourceTree = "<group>"; };
 		C86CA85414B4F3C40057FF54 /* iphone_glViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_glViewController.h; sourceTree = "<group>"; };
 		C8DB8ACF14BDFBE80006467C /* iphone_sys.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_sys.mm; sourceTree = "<group>"; };
+		DA91D8AF1F764D3B0077E63D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		DA91D8B11F764E030077E63D /* GameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		DA91D8B21F764E040077E63D /* GameController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +151,7 @@
 				3DC1CAF814B641CC00680D02 /* libprboom.a in Frameworks */,
 				3DC1C84814B627E600680D02 /* libEmbeddedAudioSynthesis.a in Frameworks */,
 				3D15600C14B51250000D33AA /* libtess.a in Frameworks */,
+				DA91D8B01F764D3B0077E63D /* GameController.framework in Frameworks */,
 				3DE6943D1489AFDE0049CAA4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +244,7 @@
 		3DE6943B1489AFDE0049CAA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA91D8AF1F764D3B0077E63D /* GameController.framework */,
 				3DE6943C1489AFDE0049CAA4 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -250,6 +253,8 @@
 		3DE6943E1489AFDE0049CAA4 /* doomengine */ = {
 			isa = PBXGroup;
 			children = (
+				DA91D8B11F764E030077E63D /* GameController.h */,
+				DA91D8B21F764E040077E63D /* GameController.mm */,
 				C8DB8ACF14BDFBE80006467C /* iphone_sys.mm */,
 				C86CA85214B4F3C40057FF54 /* iphone_delegate.h */,
 				C86CA85314B4F3C40057FF54 /* iphone_delegate.mm */,
@@ -285,8 +290,6 @@
 				3DE694681489B0850049CAA4 /* prboomInterface.c */,
 				3DE694691489B0850049CAA4 /* SoundEngine.cpp */,
 				3DE6946A1489B0850049CAA4 /* SoundEngine.h */,
-				3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */,
-				3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */,
 			);
 			path = doomengine;
 			sourceTree = "<group>";
@@ -313,7 +316,6 @@
 				3D80889C1492E378002D6CC3 /* iphone_common.h in Headers */,
 				C86CA85814B4F3C40057FF54 /* iphone_delegate.h in Headers */,
 				C86CA85A14B4F3C40057FF54 /* iphone_glViewController.h in Headers */,
-				3D5BB94A14B79BFE00A9A7FB /* DoomGameCenterMatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +346,7 @@
 		3DE694301489AFDE0049CAA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0900;
 			};
 			buildConfigurationList = 3DE694331489AFDE0049CAA4 /* Build configuration list for PBXProject "doomengine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -430,13 +432,13 @@
 				3DE694881489B0850049CAA4 /* SoundEngine.cpp in Sources */,
 				3DE69620148C28810049CAA4 /* iphone_render.c in Sources */,
 				3DF31FB0148C3A3600C66CD7 /* hud.c in Sources */,
+				DA91D8B31F764E040077E63D /* GameController.mm in Sources */,
 				3DF31FB4148C3B5100C66CD7 /* iphone_sound.c in Sources */,
 				3DDA6FD1148DA2C800C834C7 /* SDL_Mixer.m in Sources */,
 				3D2EC247148EBA8300273241 /* EASGlue.c in Sources */,
 				3D80889A1492E2E8002D6CC3 /* iphone_common.mm in Sources */,
 				C82EE118149958A0003B9C74 /* BackgroundMusic.cpp in Sources */,
 				C86CA85914B4F3C40057FF54 /* iphone_delegate.mm in Sources */,
-				3D5BB94B14B79BFE00A9A7FB /* DoomGameCenterMatch.cpp in Sources */,
 				3D460D2914BCA5430078262C /* iphone_async.cpp in Sources */,
 				3D460D4F14BCFBD40078262C /* iphone_glViewController.mm in Sources */,
 				C8DB8AD014BDFBE80006467C /* iphone_sys.mm in Sources */,
@@ -461,12 +463,30 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -475,8 +495,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -491,11 +512,11 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../embeddedaudiosynthesis/arm-wt-22k/host_src ../ ../../../idTechM/idTechM/shared/idmobilelib ../prboom";
-				VALID_ARCHS = "armv7 armv7s";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -504,11 +525,28 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IPHONE,
 					NDEBUG,
@@ -516,8 +554,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -533,11 +572,12 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../embeddedaudiosynthesis/arm-wt-22k/host_src ../ ../../../idTechM/idTechM/shared/idmobilelib ../prboom";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -551,6 +591,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../embeddedaudiosynthesis/arm-wt-22k/lib\"",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -569,6 +610,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../embeddedaudiosynthesis/arm-wt-22k/lib\"",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

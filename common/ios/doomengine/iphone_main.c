@@ -399,7 +399,7 @@ void iphoneStartup() {
 	// load the binary config file
 	FILE *f = fopen( va( "%s/binaryConfig.bin", SysIphoneGetDocDir() ), "rb" );
 	if ( f ) {
-		int version;
+		unsigned int version;
 		
 		version = 0;
 		fread( &version, 1, sizeof( version ), f );

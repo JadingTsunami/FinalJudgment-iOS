@@ -897,6 +897,8 @@ void iphoneDrawHudControl( ibutton_t *hud ) {
 	float x = hud->x + ( hud->drawWidth - w ) * 0.5f;
 	float y = hud->y + ( hud->drawHeight - w ) * 0.5f;
 	
+    // printf("Button: %f %f %f %f %s", x, y, w, h, hud->title);
+    
 	if ( centerSticks->value && hud->touch ) {
 		// reposiition the control after each touch
 		x = hud->touch->x - w*0.5f;
@@ -1543,14 +1545,14 @@ void iphoneFrame() {
 	// If we just loaded a level, do the texture precaching after we
 	// have drawn and displayed the first frame, so the user has
 	// something to look at while it is loading.
-	if ( false ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
-		int	start = SysIphoneMilliseconds();
-		gld_Precache();
-		int end = SysIphoneMilliseconds();
-		Com_Printf( "%3.1f seconds to gld_Precache()\n", (end-start)*0.001f );
-		timeDemoStart = end;
-		timeDemoFrames = 0;
-	}
+//    if ( false ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
+//        int start = SysIphoneMilliseconds();
+//        gld_Precache();
+//        int end = SysIphoneMilliseconds();
+//        Com_Printf( "%3.1f seconds to gld_Precache()\n", (end-start)*0.001f );
+//        timeDemoStart = end;
+//        timeDemoFrames = 0;
+//    }
 }
 
 int	pacifierCycle;
@@ -1638,10 +1640,10 @@ void iphoneDrawScreen() {
 				
 		glBegin( GL_TRIANGLE_STRIP );
 		
-		glTexCoord2f( 0, 0 );	glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
-		glTexCoord2f( 1, 0 );	glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
-		glTexCoord2f( 0, 1 );	glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
-		glTexCoord2f( 1, 1 );	glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
+        glTexCoord2f( 0, 0 );    glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
+        glTexCoord2f( 1, 0 );    glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
+        glTexCoord2f( 0, 1 );    glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
+        glTexCoord2f( 1, 1 );    glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
 		
 		glEnd();
 	} else {
@@ -1701,11 +1703,11 @@ void iphoneDrawScreen() {
 				DrawWeaponSelect();
 			} else {
 				if ( drawControls->value ) {
-					iphoneDrawHudControl( &huds.forwardStick );
-					iphoneDrawHudControl( &huds.sideStick );
-					iphoneDrawHudControl( &huds.turnStick );
-					iphoneDrawRotorControl( &huds.turnRotor );
-//					iphoneDrawHudControl( &huds.fire );
+//                    iphoneDrawHudControl( &huds.forwardStick );
+//                    iphoneDrawHudControl( &huds.sideStick );
+//                    iphoneDrawHudControl( &huds.turnStick );
+//                    iphoneDrawRotorControl( &huds.turnRotor );
+//                    iphoneDrawHudControl( &huds.fire );
 				}
 				
 				if ( HandleButton( &huds.menu ) ) {

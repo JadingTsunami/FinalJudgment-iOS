@@ -18,7 +18,7 @@
  
  */
 
-#include "DoomGameCenterMatch.h"
+// #include "DoomGameCenterMatch.h"
 #include "doomiphone.h"
 #include "ios/ios_interface.h"
 

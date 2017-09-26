@@ -343,7 +343,7 @@ void CalculateBytesForTime (AudioStreamBasicDescription & inDesc, UInt32 inMaxPa
 
 	if (inDesc.mFramesPerPacket) {
 		Float64 numPacketsForTime = inDesc.mSampleRate / inDesc.mFramesPerPacket * inSeconds;
-		*outBufferSize = (long unsigned int)numPacketsForTime * inMaxPacketSize;
+		*outBufferSize = (unsigned int)((long unsigned int)numPacketsForTime * inMaxPacketSize);
 	} else {
 		// if frames per packet is zero, then the codec has no predictable packet == time
 		// so we can't tailor this (we don't know how many Packets represent a time period
@@ -642,8 +642,8 @@ void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, A
 		while (nPackets == 0) {
 			// if loadAtOnce, get all packets in the file, otherwise ~.5 seconds of data
 			nPackets = THIS->GetNumPacketsToRead(CurFileInfo);					
-			result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets, 
-										  inCompleteAQBuffer->mAudioData);
+			// result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets,
+			//							  inCompleteAQBuffer->mAudioData);
 			AssertNoError("Error reading file data", end);
 			
 			inCompleteAQBuffer->mAudioDataByteSize = numBytes;	
@@ -1244,7 +1244,7 @@ class SoundEngineEffectMap
 
 	iterator GetIterator() { return begin(); }
 	
-    UInt32 Size () const { return size(); }
+    UInt32 Size () const { return (unsigned int)size(); }
     bool Empty () const { return empty(); }
 };
 
@@ -1508,7 +1508,7 @@ OSStatus  SoundEngine_Initialize(Float32 inMixerOutputRate)
 
 	if( !isInitialized ) 
 	{
- 		AudioSessionInitialize( NULL, NULL, interruptionCallback, NULL );
+ 		// AudioSessionInitialize( NULL, NULL, interruptionCallback, NULL );
 //		UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
 //		AudioSessionSetProperty( kAudioSessionProperty_AudioCategory, sizeof( sessionCategory ), &sessionCategory );
  		isInitialized = true;

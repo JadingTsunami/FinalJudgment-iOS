@@ -141,7 +141,7 @@ void StartSaveGame() {
  */ 
 void StartSinglePlayerGame( mapStart_t map ) {
 	// Disconnect from a multiplayer game
-	idGameCenter::DisconnectFromMatch();
+	// idGameCenter::DisconnectFromMatch();
 
 	playState.map = map;
 	playState.saveGameIsValid = true;	// assume we will save the game on exit

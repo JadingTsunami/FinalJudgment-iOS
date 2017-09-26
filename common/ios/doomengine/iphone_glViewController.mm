@@ -67,13 +67,16 @@ static bool inTransition = false;
         
         // Create the OpenGL View.
         EAGLView *glView = [[EAGLView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+        // EAGLView *glView = [[EAGLView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.view = glView;
         [glView release];
         
         
         // Setup the Display Link
         CADisplayLink *aDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runFrame)];
-        [ aDisplayLink setFrameInterval: DISPLAY_LINK_FRAME_INTERVAL];
+        // [ aDisplayLink setFrameInterval: DISPLAY_LINK_FRAME_INTERVAL];
+        // [ aDisplayLink preferredFramesPerSecond: DISPLAY_LINK_FRAME_INTERVAL];
+        aDisplayLink.preferredFramesPerSecond = 30; // DISPLAY_LINK_FRAME_INTERVAL;
         [ aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         [ self setDisplayLink: aDisplayLink ];
         
@@ -120,9 +123,9 @@ shouldAutorotateToInterfaceOrientation
  viewDidUnload
  ========================
  */
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
+// - (void)viewDidUnload {
+//    [super viewDidUnload];
+//}
 
 /*
  ========================
