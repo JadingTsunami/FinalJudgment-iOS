@@ -19,12 +19,10 @@
 		133F3E7017F21C8700A12635 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F3E6F17F21C8700A12635 /* MainNavController.m */; };
 		138FC9B817F07DAF00D94C5F /* Nightmare.png in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9B717F07DAF00D94C5F /* Nightmare.png */; };
 		138FC9BB17F0813400D94C5F /* doom_wads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 138FC9B917F0813400D94C5F /* doom_wads.cpp */; };
-		138FC9C917F216C300D94C5F /* base.iPack in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C617F2165D00D94C5F /* base.iPack */; };
 		138FC9CA17F216C300D94C5F /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C717F2165D00D94C5F /* doom.wad */; };
 		138FC9CB17F216C300D94C5F /* prboom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C817F2165D00D94C5F /* prboom.wad */; };
 		1391CE151882E5A30049671C /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1391CE141882E5A30049671C /* libidmobilelib.a */; };
-		1391CE171882E5F40049671C /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1391CE161882E5F40049671C /* libprboom.a */; };
-		13E3CC5F17F236840075D40A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E3CC5E17F236840075D40A /* GameKit.framework */; };
+		1391CE171882E5F40049671C /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1391CE161882E5F40049671C /* libprboom.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		13E3CC6417F237B80075D40A /* DOOM_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6017F237B80075D40A /* DOOM_76.png */; };
 		13E3CC6517F237B80075D40A /* DOOM_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6117F237B80075D40A /* DOOM_120.png */; };
 		13E3CC6617F237B80075D40A /* DOOM_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6217F237B80075D40A /* DOOM_144.png */; };
@@ -36,7 +34,6 @@
 		43CF02FF0F56974E00E4A23D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CF02FE0F56974E00E4A23D /* Default.png */; };
 		43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */; };
 		720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EBBAD0F82E0BB003F989A /* QuartzCore.framework */; };
-		C8011C6614BF8BA2007AC5C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8011C6814BF8BA2007AC5C5 /* Localizable.strings */; };
 		C8012E5114B5122700B0E213 /* MainMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */; };
 		C8012E5214B5122700B0E213 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E5014B5122700B0E213 /* MainMenuView.xib */; };
 		C8012E6E14B6389B00B0E213 /* EpisodeMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E6C14B6389B00B0E213 /* EpisodeMenuViewController.mm */; };
@@ -115,6 +112,13 @@
 		C8DB8A5E14BB88AC0006467C /* MissionMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5614BB88AC0006467C /* MissionMenuView~ipad.xib */; };
 		C8DB8A5F14BB88AC0006467C /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */; };
 		C8DB8A6014BB88AC0006467C /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */; };
+		DA45D4BC1F75E63200C06A50 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA45D4BB1F75E63200C06A50 /* GameKit.framework */; };
+		DA45D4BE1F75E67C00C06A50 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA45D4BD1F75E67C00C06A50 /* libstdc++.6.tbd */; };
+		DA45D4C01F75E7A300C06A50 /* base.iPack in Resources */ = {isa = PBXBuildFile; fileRef = DA45D4BF1F75E7A300C06A50 /* base.iPack */; };
+		DA91D8A31F764ADE0077E63D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA91D8A21F764ADE0077E63D /* GameController.framework */; };
+		DAF7C4541F7292180083B30A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAF7C4531F7292180083B30A /* Localizable.strings */; };
+		DAF7C4581F7294E10083B30A /* libtess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF7C4571F7294E10083B30A /* libtess.a */; };
+		DAF7C4591F7294EF0083B30A /* libEmbeddedAudioSynthesis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF7C4551F7294CC0083B30A /* libEmbeddedAudioSynthesis.a */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		EDD2760911C2B19E004A9B9B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
@@ -153,12 +157,10 @@
 		138FC9B717F07DAF00D94C5F /* Nightmare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nightmare.png; path = "../../IB Images/Nightmare.png"; sourceTree = "<group>"; };
 		138FC9B917F0813400D94C5F /* doom_wads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = doom_wads.cpp; sourceTree = "<group>"; };
 		138FC9BA17F0813400D94C5F /* doom_wads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doom_wads.h; sourceTree = "<group>"; };
-		138FC9C617F2165D00D94C5F /* base.iPack */ = {isa = PBXFileReference; lastKnownFileType = file; name = base.iPack; path = ../../base/base.iPack; sourceTree = "<group>"; };
 		138FC9C717F2165D00D94C5F /* doom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = doom.wad; path = ../../base/doom.wad; sourceTree = "<group>"; };
 		138FC9C817F2165D00D94C5F /* prboom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = prboom.wad; path = ../../base/prboom.wad; sourceTree = "<group>"; };
 		1391CE141882E5A30049671C /* libidmobilelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libidmobilelib.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libidmobilelib.a"; sourceTree = "<group>"; };
 		1391CE161882E5F40049671C /* libprboom.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprboom.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libprboom.a"; sourceTree = "<group>"; };
-		13E3CC5E17F236840075D40A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		13E3CC6017F237B80075D40A /* DOOM_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_76.png; sourceTree = "<group>"; };
 		13E3CC6117F237B80075D40A /* DOOM_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_120.png; sourceTree = "<group>"; };
 		13E3CC6217F237B80075D40A /* DOOM_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_144.png; sourceTree = "<group>"; };
@@ -173,11 +175,6 @@
 		43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = /System/Library/Frameworks/OpenAL.framework; sourceTree = "<absolute>"; };
 		720EBBAD0F82E0BB003F989A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8011C6714BF8BA2007AC5C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6914BF8BAB007AC5C5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6A14BF8BB1007AC5C5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6B14BF8BB4007AC5C5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6C14BF8BBC007AC5C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8012E4E14B5122700B0E213 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenuViewController.mm; sourceTree = "<group>"; };
 		C8012E5014B5122700B0E213 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
@@ -264,6 +261,15 @@
 		C8DB8A5614BB88AC0006467C /* MissionMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MissionMenuView~ipad.xib"; sourceTree = "<group>"; };
 		C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "OpenGLView~ipad.xib"; sourceTree = "<group>"; };
 		C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		DA45D4B71F75E2C300C06A50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		DA45D4B91F75E32000C06A50 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		DA45D4BB1F75E63200C06A50 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		DA45D4BD1F75E67C00C06A50 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		DA45D4BF1F75E7A300C06A50 /* base.iPack */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base.iPack; path = ../base.iPack; sourceTree = "<group>"; };
+		DA91D8A21F764ADE0077E63D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		DAF7C4531F7292180083B30A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DAF7C4551F7294CC0083B30A /* libEmbeddedAudioSynthesis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEmbeddedAudioSynthesis.a; path = "../../../../../Library/Developer/Xcode/DerivedData/DoomClassics-fpdodjzkcqyvxrbrenfkvagzhwbg/Build/Products/Debug-iphonesimulator/libEmbeddedAudioSynthesis.a"; sourceTree = "<group>"; };
+		DAF7C4571F7294E10083B30A /* libtess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtess.a; path = "../../../../../Library/Developer/Xcode/DerivedData/DoomClassics-fpdodjzkcqyvxrbrenfkvagzhwbg/Build/Products/Debug-iphonesimulator/libtess.a"; sourceTree = "<group>"; };
 		EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDD2760611C2B19E004A9B9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDD2760811C2B19E004A9B9B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -275,9 +281,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA45D4BE1F75E67C00C06A50 /* libstdc++.6.tbd in Frameworks */,
 				1391CE171882E5F40049671C /* libprboom.a in Frameworks */,
 				1391CE151882E5A30049671C /* libidmobilelib.a in Frameworks */,
-				13E3CC5F17F236840075D40A /* GameKit.framework in Frameworks */,
+				DAF7C4581F7294E10083B30A /* libtess.a in Frameworks */,
+				DAF7C4591F7294EF0083B30A /* libEmbeddedAudioSynthesis.a in Frameworks */,
+				DA45D4BC1F75E63200C06A50 /* GameKit.framework in Frameworks */,
+				DA91D8A31F764ADE0077E63D /* GameController.framework in Frameworks */,
 				3DF31FA3148C336400C66CD7 /* libdoomengine.a in Frameworks */,
 				43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */,
 				4333CCE80F5CC23E00AE2B6F /* AudioToolbox.framework in Frameworks */,
@@ -341,7 +351,7 @@
 		29B97317FDCFA39411CA2CEA /* App Resources */ = {
 			isa = PBXGroup;
 			children = (
-				138FC9C617F2165D00D94C5F /* base.iPack */,
+				DA45D4BF1F75E7A300C06A50 /* base.iPack */,
 				138FC9C717F2165D00D94C5F /* doom.wad */,
 				138FC9C817F2165D00D94C5F /* prboom.wad */,
 				C86CA86714B502C90057FF54 /* Icons & Defaults */,
@@ -350,7 +360,7 @@
 				C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */,
 				43CF02FE0F56974E00E4A23D /* Default.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				C8011C6814BF8BA2007AC5C5 /* Localizable.strings */,
+				DAF7C4531F7292180083B30A /* Localizable.strings */,
 			);
 			name = "App Resources";
 			sourceTree = "<group>";
@@ -358,9 +368,15 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA91D8A21F764ADE0077E63D /* GameController.framework */,
+				DA45D4BD1F75E67C00C06A50 /* libstdc++.6.tbd */,
+				DA45D4BB1F75E63200C06A50 /* GameKit.framework */,
+				DA45D4B91F75E32000C06A50 /* libstdc++.tbd */,
+				DA45D4B71F75E2C300C06A50 /* libc++.tbd */,
+				DAF7C4571F7294E10083B30A /* libtess.a */,
+				DAF7C4551F7294CC0083B30A /* libEmbeddedAudioSynthesis.a */,
 				1391CE161882E5F40049671C /* libprboom.a */,
 				1391CE141882E5A30049671C /* libidmobilelib.a */,
-				13E3CC5E17F236840075D40A /* GameKit.framework */,
 				4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */,
 				EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */,
 				EDD2760611C2B19E004A9B9B /* Foundation.framework */,
@@ -588,10 +604,11 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0900;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = VH3C8HCNLH;
+						DevelopmentTeam = 96MW2MVPWL;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -647,7 +664,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
 				138FC9CA17F216C300D94C5F /* doom.wad in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
@@ -701,6 +717,7 @@
 				C87930E813F5EC1B003D834F /* Episode4Background_Highlighted.png in Resources */,
 				132AC2E01802F15C00884E11 /* CreditsMenuViewi5.xib in Resources */,
 				C87931EC13F610B9003D834F /* AdvancedButton_Highlighted.png in Resources */,
+				DA45D4C01F75E7A300C06A50 /* base.iPack in Resources */,
 				C87931ED13F610B9003D834F /* AdvancedButton.png in Resources */,
 				C87931EE13F610B9003D834F /* Divide.png in Resources */,
 				C87931EF13F610B9003D834F /* LayoutDualButton_Highlighted.png in Resources */,
@@ -733,10 +750,10 @@
 				C8DB8A5B14BB88AC0006467C /* EpisodeMenuView~ipad.xib in Resources */,
 				C8DB8A5C14BB88AC0006467C /* LegalMenuView~ipad.xib in Resources */,
 				C8DB8A5D14BB88AC0006467C /* MainMenuView~ipad.xib in Resources */,
+				DAF7C4541F7292180083B30A /* Localizable.strings in Resources */,
 				C8DB8A5E14BB88AC0006467C /* MissionMenuView~ipad.xib in Resources */,
 				C8DB8A5F14BB88AC0006467C /* OpenGLView~ipad.xib in Resources */,
 				C8DB8A6014BB88AC0006467C /* SettingsMenuView~ipad.xib in Resources */,
-				C8011C6614BF8BA2007AC5C5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,21 +805,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		C8011C6814BF8BA2007AC5C5 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C8011C6714BF8BA2007AC5C5 /* en */,
-				C8011C6914BF8BAB007AC5C5 /* fr */,
-				C8011C6A14BF8BB1007AC5C5 /* it */,
-				C8011C6B14BF8BB4007AC5C5 /* de */,
-				C8011C6C14BF8BBC007AC5C5 /* es */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -810,7 +812,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -824,14 +828,17 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Work/DerivedData/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.therohans.freelancer;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -844,7 +851,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -855,14 +864,17 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Work/DerivedData/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.therohans.freelancer;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -872,16 +884,28 @@
 		4364BF480F5CB27300F29317 /* AdHocDist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -909,7 +933,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "";
@@ -930,7 +954,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -941,14 +967,17 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Work/DerivedData/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.therohans.freelancer;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -958,15 +987,28 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -994,7 +1036,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Doom;
@@ -1013,15 +1055,27 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					NDEBUG,
@@ -1052,7 +1106,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "";
@@ -1070,15 +1124,27 @@
 		ED06595B1087C51800E5450B /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: id Software";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					NDEBUG,
@@ -1109,7 +1175,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "31C73095-0DD9-4ABA-BB25-8D23F661F10F";
@@ -1130,7 +1196,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1141,14 +1209,17 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Work/DerivedData/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.therohans.freelancer;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CF005E47-190F-43B8-B89D-59AD4EF04B31";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
