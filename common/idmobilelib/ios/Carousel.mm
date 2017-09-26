@@ -105,6 +105,7 @@ static CGRect  LerpRect( CGRect a, CGRect b, CGFloat t ) {
     
     // Allocate our Items Array
     carouselItems = [[ NSMutableArray alloc ] init ];
+    [super awakeFromNib];
 }
 
 /*
@@ -159,7 +160,7 @@ static CGRect  LerpRect( CGRect a, CGRect b, CGFloat t ) {
         
     } else {    // Going the left.
         
-        percentage = fabsf( percentage );
+        percentage = fabsf( (float)percentage );
 
         CGRect newMainRect = LerpRect( mainRect, prevRect , percentage );
         CGRect newNextRect = LerpRect( nextRect, mainRect , percentage );
