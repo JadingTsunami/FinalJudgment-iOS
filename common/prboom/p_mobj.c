@@ -81,9 +81,9 @@ boolean P_SetMobjState(mobj_t* mobj,statenum_t state)
 
     st = &states[state];
     mobj->state = st;
-    mobj->tics = st->tics;
+    mobj->tics = (int)st->tics;
     mobj->sprite = st->sprite;
-    mobj->frame = st->frame;
+    mobj->frame = (int)st->frame;
 
     // Modified handling.
     // Call action functions when the state is set
