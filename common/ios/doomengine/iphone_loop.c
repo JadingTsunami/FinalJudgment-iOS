@@ -420,9 +420,21 @@ boolean HandleButton( ibutton_t *button ) {
 		glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE );
 		glTexEnvf( GL_TEXTURE_ENV, GL_RGB_SCALE, 2.0 );
 	}
+    /* JDS attempt scale conversion
 	PK_StretchTexture( button->texture, button->x+button->drawWidth/2 - button->drawWidth/2 * button->scale, 
 					  button->y + button->drawHeight/2 - button->drawHeight/2 * button->scale, 
 					  button->drawWidth * button->scale, button->drawHeight * button->scale );
+     */
+    /* JDS stretch attempt using computed scale factors */
+    float xScale = ((float)displaywidth)/((float)displayheight);
+    float yScale = ((float)displayheight)/((float)displaywidth);
+    PK_StretchTexture( button->texture,
+                      xScale*(button->x+button->drawWidth/2 - button->drawWidth/2 * button->scale),
+                      yScale*(button->y + button->drawHeight/2 - button->drawHeight/2 * button->scale),
+                      xScale*(button->drawWidth * button->scale),
+                      yScale*(button->drawHeight * button->scale)
+                      );
+    
 	if ( button->buttonFlags & BF_GLOW ) {
 		glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
 		glColor4f( 1, 1, 1, 1 );
@@ -831,7 +843,10 @@ void iphoneHighlightPicWhenTouched( pkTexture_t *texture, int x, int y, int w, i
 	} else {
 		glColor4f(1,1,1,0.5);
 	}
-	PK_StretchTexture( texture, x, y, w, h );
+    /* JDS stretch attempt using computed scale factors */
+    float xScale = ((float)displaywidth)/((float)displayheight);
+    float yScale = ((float)displayheight)/((float)displaywidth);
+	PK_StretchTexture( texture, x*xScale, y*yScale, w*xScale, h*yScale );
 	glColor4f(1,1,1,1);
 }
 
@@ -894,11 +909,14 @@ void iphoneDrawRotorControl( ibutton_t *hud ) {
 	pkTexture_t *tex = hud->texture;
 	PK_BindTexture( tex );
 
-	float	cx = hud->x + hud->drawWidth / 2;
-	float	cy = hud->y + hud->drawHeight / 2;
+    float xScale = ((float)displaywidth)/((float)displayheight);
+    float yScale = ((float)displayheight)/((float)displaywidth);
+    
+	float	cx = (hud->x + hud->drawWidth / 2)*xScale;
+	float	cy = (hud->y + hud->drawHeight / 2)*yScale;
 	float	as = sin( hud->drawState );
 	float	ac = cos( hud->drawState );
-	float	sz = hud->drawWidth / 2;
+	float	sz = (hud->drawWidth / 2)*xScale;
 	
 	float	xv[2] = { sz*ac, sz*as };
 	float	yv[2] = { -sz*as, sz*ac };
@@ -950,7 +968,10 @@ void iphoneDrawHudControl( ibutton_t *hud ) {
 		y = hud->touch->y - h*0.5f;
 	}
     
-	PK_StretchTexture( hud->texture, x, y, w, h );
+    /* JDS stretch attempt using computed scale factors */
+    float xScale = ((float)displaywidth)/((float)displayheight);
+    float yScale = ((float)displayheight)/((float)displaywidth);
+	PK_StretchTexture( hud->texture, x*xScale, y*yScale, w*xScale, h*yScale );
 	glColor4f(1,1,1,1);
 }
 

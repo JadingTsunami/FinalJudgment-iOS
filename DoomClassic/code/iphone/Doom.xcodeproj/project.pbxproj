@@ -597,7 +597,8 @@
 				LastUpgradeCheck = 0910;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = VH3C8HCNLH;
+						DevelopmentTeam = 5FY5X3VR3E;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -816,7 +817,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 5FY5X3VR3E;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -836,10 +839,11 @@
 					"/Work/DerivedData/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.Doom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -853,7 +857,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 5FY5X3VR3E;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -870,10 +876,11 @@
 					"/Work/DerivedData/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.Doom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -943,7 +950,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 5FY5X3VR3E;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -960,10 +969,11 @@
 					"/Work/DerivedData/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.Doom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";
@@ -1150,7 +1160,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 5FY5X3VR3E;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1167,10 +1179,11 @@
 					"/Work/DerivedData/Build/Products/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.Doom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CF005E47-190F-43B8-B89D-59AD4EF04B31";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../../common/ios/doomengine ../../../common ../../../common/idmobilelib";

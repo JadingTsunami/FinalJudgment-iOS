@@ -231,7 +231,10 @@ void HudEditFrame() {
 		if ( hud->buttonFlags & BF_IGNORE ) {
 			continue;
 		}
-		PK_StretchTexture( hud->texture, hud->x, hud->y, hud->drawWidth, hud->drawHeight );
+        /* JDS stretch attempt using computed scale factors */
+        float xScale = ((float)displaywidth)/((float)displayheight);
+        float yScale = ((float)displayheight)/((float)displaywidth);
+		PK_StretchTexture( hud->texture, hud->x*xScale, hud->y*yScale, hud->drawWidth*xScale, hud->drawHeight*yScale );
 	}
 	
 	// draw the done button
