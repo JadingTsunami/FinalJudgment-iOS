@@ -1227,9 +1227,10 @@ void DrawWeapon(int weaponlump, int x, int y, int w, int h, int lightlevel)
     */
     
     
+    
     // JDS FIXME: Correct this
-    if( displaywidth >= 960 ) {
-        weaponSelectDrawScale = 1.25f;
+    if( hud_displayheight >= 960 ) {
+        weaponSelectDrawScale = 0.90f; // JDS Hack
     } else {
         weaponSelectDrawScale = 0.75f;
     }
@@ -1247,7 +1248,7 @@ void DrawWeapon(int weaponlump, int x, int y, int w, int h, int lightlevel)
 		return;
 
 	float	scaledWidth = gltexture->width * weaponSelectDrawScale;
-	float	scaledHeight = gltexture->height * weaponSelectDrawScale;
+	float	scaledHeight = gltexture->height * weaponSelectDrawScale * 2.0f; // JDS Hack
 	
 	// pin the middle bottom of the patch to the middle bottom of
 	// the draw rectangle, then let everything else scale as needed
