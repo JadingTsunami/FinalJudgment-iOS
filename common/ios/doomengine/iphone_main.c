@@ -408,10 +408,9 @@ void iphoneStartup() {
 		} else {
 			fread( &playState, 1, sizeof( playState ), f );
             //JDS FIXME: Uncomment when hud code is ready
-            //fread( &huds, 1, sizeof( huds ), f );
-            hud_t fakehuds;
-            
-            fread( &fakehuds, 1, sizeof(fakehuds), f );
+            fread( &huds, 1, sizeof( huds ), f );
+            //hud_t fakehuds;
+            //fread( &fakehuds, 1, sizeof(fakehuds), f );
 
 			version = 0;
 			fread( &version, 1, sizeof( version ), f );
