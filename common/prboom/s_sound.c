@@ -71,7 +71,7 @@ typedef struct
 {
   sfxinfo_t *sfxinfo;  // sound information (if null, channel avail.)
   void *origin;        // origin of sound
-  int handle;          // handle of the sound being played
+  long int handle;          // handle of the sound being played (JDS: 64-bit)
   int is_pickup;       // killough 4/25/98: whether sound is a player's weapon
 	int volume;			// JDC: perform overrides based on dynamic volume instead of static priority
 } channel_t;
@@ -355,7 +355,8 @@ void S_StartSoundAtVolume(void *origin_p, int sfx_id, int volume)
 
   // Assigns the handle to one of the channels in the mix/output buffer.
   { // e6y: [Fix] Crash with zero-length sounds.
-    int h = I_StartSound(sfx_id, cnum, volume, sep, pitch, priority);
+    // JDS 64-bit handles
+      long int h = I_StartSound(sfx_id, cnum, volume, sep, pitch, priority);
     if (h != -1) channels[cnum].handle = h;
   }
 }

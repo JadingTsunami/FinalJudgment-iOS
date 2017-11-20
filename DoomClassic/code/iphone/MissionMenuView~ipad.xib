@@ -1,9 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <deployment version="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_MissionMenuViewController">
             <connections>
@@ -71,14 +81,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M1: Hanger">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M1" destination="-1" eventType="touchUpInside" id="90"/>
@@ -90,14 +100,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M2: Nuclear Plant">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M2" destination="-1" eventType="touchUpInside" id="91"/>
@@ -109,14 +119,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M3: Toxin Refinery">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M3" destination="-1" eventType="touchUpInside" id="92"/>
@@ -128,14 +138,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M4: Command Control">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M4" destination="-1" eventType="touchUpInside" id="93"/>
@@ -147,14 +157,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M5: Phobos Lab ">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M5" destination="-1" eventType="touchUpInside" id="94"/>
@@ -166,14 +176,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M6: Central Processing">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M6" destination="-1" eventType="touchUpInside" id="95"/>
@@ -185,14 +195,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M7: Computer Station">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M7" destination="-1" eventType="touchUpInside" id="96"/>
@@ -204,14 +214,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M8: Phobos Anomaly">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M8" destination="-1" eventType="touchUpInside" id="97"/>
@@ -223,21 +233,21 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E1M9: Military Base">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E1M9" destination="-1" eventType="touchUpInside" id="104"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="contentInset" minX="0.0" minY="1" maxX="0.0" maxY="100"/>
                 </scrollView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" indicatorStyle="white" id="16" userLabel="Map Selection Scroll">
@@ -250,14 +260,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M1: Deimos Anomaly">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M1" destination="-1" eventType="touchUpInside" id="105"/>
@@ -269,14 +279,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M2: Containment Area">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M2" destination="-1" eventType="touchUpInside" id="106"/>
@@ -288,14 +298,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M3: Refinery ">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M3" destination="-1" eventType="touchUpInside" id="107"/>
@@ -307,14 +317,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M4: Deimos Lab">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M4" destination="-1" eventType="touchUpInside" id="108"/>
@@ -326,14 +336,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M5: Command Center">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M5" destination="-1" eventType="touchUpInside" id="109"/>
@@ -345,14 +355,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M6: Halls of the Damned">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M6" destination="-1" eventType="touchUpInside" id="110"/>
@@ -364,14 +374,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M7: Spawning Vats">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M7" destination="-1" eventType="touchUpInside" id="111"/>
@@ -383,14 +393,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M8: Tower of Babel">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M8" destination="-1" eventType="touchUpInside" id="112"/>
@@ -402,21 +412,21 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E2M9: Fortress of Mystery">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E2M9" destination="-1" eventType="touchUpInside" id="113"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="contentInset" minX="0.0" minY="1" maxX="0.0" maxY="100"/>
                 </scrollView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" indicatorStyle="white" id="5" userLabel="Map Selection Scroll">
@@ -429,14 +439,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M1: Hell Keep ">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M1" destination="-1" eventType="touchUpInside" id="114"/>
@@ -448,14 +458,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M2: Slough of Despair">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M2" destination="-1" eventType="touchUpInside" id="115"/>
@@ -467,14 +477,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M3: Pandemonium">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M3" destination="-1" eventType="touchUpInside" id="116"/>
@@ -486,14 +496,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M4: House of Pain ">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M4" destination="-1" eventType="touchUpInside" id="117"/>
@@ -505,14 +515,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M5: Unholy Cathedral">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M5" destination="-1" eventType="touchUpInside" id="118"/>
@@ -524,14 +534,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M6: Mt. Erebus">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M6" destination="-1" eventType="touchUpInside" id="119"/>
@@ -543,14 +553,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M7: Limbo">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M7" destination="-1" eventType="touchUpInside" id="120"/>
@@ -562,14 +572,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M8: Dis">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M8" destination="-1" eventType="touchUpInside" id="121"/>
@@ -581,21 +591,21 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E3M9: Warrens">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E3M9" destination="-1" eventType="touchUpInside" id="122"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="contentInset" minX="0.0" minY="1" maxX="0.0" maxY="100"/>
                 </scrollView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" indicatorStyle="white" id="13" userLabel="Map Selection Scroll">
@@ -608,14 +618,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M1: Hell Beneath">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M1" destination="-1" eventType="touchUpInside" id="123"/>
@@ -627,14 +637,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M2: Perfect Hatred">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M2" destination="-1" eventType="touchUpInside" id="124"/>
@@ -646,14 +656,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M3: Sever The Wicked ">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M3" destination="-1" eventType="touchUpInside" id="125"/>
@@ -665,14 +675,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M4: Unruly Evil">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M4" destination="-1" eventType="touchUpInside" id="126"/>
@@ -684,14 +694,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M5: They Will Repent">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M5" destination="-1" eventType="touchUpInside" id="127"/>
@@ -703,14 +713,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M6: Against Thee Wickedly">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M6" destination="-1" eventType="touchUpInside" id="128"/>
@@ -722,14 +732,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M7: And Hell Followed">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M7" destination="-1" eventType="touchUpInside" id="129"/>
@@ -741,14 +751,14 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M8: Unto The Cruel">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M8" destination="-1" eventType="touchUpInside" id="130"/>
@@ -760,21 +770,21 @@
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                             <size key="titleShadowOffset" width="1" height="2"/>
                             <state key="normal" title="E4M9: Fear">
-                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="E4M9" destination="-1" eventType="touchUpInside" id="131"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="contentInset" minX="0.0" minY="1" maxX="0.0" maxY="100"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6" customClass="idLabelButton">
@@ -782,11 +792,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="DownArrow.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted" image="DownArrow_Highlighted.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="DownMission" destination="-1" eventType="touchUpInside" id="89"/>
@@ -797,11 +807,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="BackButton.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="BackPressed" destination="-1" eventType="touchUpInside" id="88"/>
@@ -813,11 +823,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="NextButton.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted" image="NextButton_Highlighted.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="Play" destination="-1" eventType="touchUpInside" id="102"/>
@@ -829,11 +839,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="UpArrow.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted" image="UpArrow_Highlighted.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="UpMission" destination="-1" eventType="touchUpInside" id="103"/>
@@ -844,11 +854,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" backgroundImage="Easy.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="EasyPressed" destination="-1" eventType="touchUpInside" id="98"/>
@@ -859,11 +869,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" backgroundImage="Medium.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="MediumPressed" destination="-1" eventType="touchUpInside" id="100"/>
@@ -874,11 +884,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" backgroundImage="Hard.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="HardPressed" destination="-1" eventType="touchUpInside" id="99"/>
@@ -889,11 +899,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" backgroundImage="Nightmare.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="NightmarePressed" destination="-1" eventType="touchUpInside" id="101"/>
@@ -903,61 +913,62 @@
                     <rect key="frame" x="200" y="98" width="104" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Difficulty" lineBreakMode="tailTruncation" minimumFontSize="10" id="19" customClass="idLabel">
                     <rect key="frame" x="200" y="502" width="94" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Play" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="27" customClass="idLabel">
                     <rect key="frame" x="930" y="14" width="48" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Back" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="8" customClass="idLabel">
                     <rect key="frame" x="38" y="14" width="55" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Hurt_Me_Plenty." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22" customClass="idLabel">
                     <rect key="frame" x="635" y="682" width="190" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Ultra-Violence." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="11" customClass="idLabel">
                     <rect key="frame" x="625" y="682" width="200" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#I'm_Too_Young_To_Die." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="12" customClass="idLabel">
                     <rect key="frame" x="558" y="682" width="267" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#Hey,_Not_Too_Rough." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="4" customClass="idLabel">
                     <rect key="frame" x="544" y="682" width="281" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </label>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>

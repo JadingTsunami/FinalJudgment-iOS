@@ -59,16 +59,14 @@ CAEAGLLayer *eaglLayer;
 	self.multipleTouchEnabled = true;
 	
     // Double the resolution on iPhone 4.
-    if ( [[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
-        [self respondsToSelector:@selector(setContentScaleFactor:)] ) {
-
+	if ( [[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+		[self respondsToSelector:@selector(setContentScaleFactor:)] ) {	
+        
         screenResolutionScale = [UIScreen mainScreen].scale;
         
-        // set scaling factor
-        [self setContentScaleFactor:[UIScreen mainScreen].scale];
-    }
-    
-    // CGRect screenRectangle = [[UIScreen mainScreen] bounds];
+		// set scaling factor
+		[self setContentScaleFactor:[UIScreen mainScreen].scale];
+	}
     
 	// Get the layer
 	eaglLayer = (CAEAGLLayer *)self.layer;
@@ -113,8 +111,6 @@ CAEAGLLayer *eaglLayer;
     
     displaywidth = backingHeight;
     displayheight = backingWidth;
-    // displaywidth =  screenRectangle.size.height;
-    // displayheight = screenRectangle.size.width;
     
     glGenRenderbuffersOES(1, &mDepthRenderbuffer);
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mDepthRenderbuffer);
@@ -158,7 +154,7 @@ CAEAGLLayer *eaglLayer;
 	memset( touchThisSequence, 0, sizeof( touchThisSequence ) );
 	
 	NSSet *theTouches = [event allTouches];
-    //printf( "count: %i\n", (int)[touches count] );
+//	printf( "count: %i\n", [touches count] );
 	
     for (UITouch *myTouch in theTouches)
     {
@@ -170,7 +166,7 @@ CAEAGLLayer *eaglLayer;
         
 		const int x = touchLocation.x;
 		const int y = touchLocation.y;
-        printf( "%i, %i\n", x, y );
+		printf( "%i, %i\n", x, y );
 		touchCount++;
     
         
@@ -200,19 +196,19 @@ CAEAGLLayer *eaglLayer;
 				if ( sysTouches[minIndex].stateCount == 1 ) {
 					// leave it in the down state with a special count
 					sysTouches[minIndex].stateCount = -1;
-                    printf( "Tap release touch on a reuse\n" );
+//					printf( "Tap release touch on a reuse\n" );
 				} else {
 					sysTouches[minIndex].down = false;
 					sysTouches[minIndex].stateCount = 1;
-                    printf( "Release touch on a reuse\n" );
+//					printf( "Release touch on a reuse\n" );
 				}
 			} else {
 				if (myTouch.phase == UITouchPhaseBegan) {
 					sysTouches[minIndex].stateCount = 1;
 					sysTouches[minIndex].controlOwner = NULL;
-                    printf( "Begin touch on a reuse\n" );
+//					printf( "Begin touch on a reuse\n" );
 				} else {
-                    printf( "Drag touch on a reuse\n" );
+//					printf( "Drag touch on a reuse\n" );
 				}
 				sysTouches[minIndex].down = true;
 			}
@@ -239,7 +235,7 @@ CAEAGLLayer *eaglLayer;
 					memset( sysTouches, 0, sizeof( sysTouches ) );
 					continue;
 				}
-                printf( "new touch down\n" );
+//				printf( "new touch down\n" );
 				t2->x = x;
 				t2->y = y;
 				t2->down = true;

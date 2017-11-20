@@ -23,7 +23,7 @@
 #import <AudioToolbox/AudioServices.h>
 #include "doomiphone.h"
 #include "iphone_common.h"
-// #include "ios/InAppStore.h"
+#include "ios/InAppStore.h"
 #include "ios/GameCenter.h"
 
 
@@ -39,7 +39,7 @@ touch_t		sysTouches[MAX_TOUCHES];
 touch_t		gameTouches[MAX_TOUCHES];
 
 #define FRAME_HERTZ 30.0f
-// const static float ACCELEROMETER_UPDATE_INTERVAL = 1.0f / FRAME_HERTZ;
+//FIXME: JadingTsunami (fix) const static float ACCELEROMETER_UPDATE_INTERVAL = 1.0f / FRAME_HERTZ;
 
 /*
  ========================
@@ -59,12 +59,14 @@ touch_t		gameTouches[MAX_TOUCHES];
     [[ UIApplication sharedApplication] setIdleTimerDisabled: YES ];
     
     // Initial Application Style config.
-    // [ application setStatusBarHidden: YES ];
+    [ application setStatusBarHidden: YES ];
 	
 	// start the flow of accelerometer events
-//	UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
-//    [ accelerometer setDelegate: self ];
-//    [ accelerometer setUpdateInterval: ACCELEROMETER_UPDATE_INTERVAL ];
+    /* //FIXME: JadingTsunami (fix) 
+	UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+    [ accelerometer setDelegate: self ];
+    [ accelerometer setUpdateInterval: ACCELEROMETER_UPDATE_INTERVAL ];
+     */
     
     [self InitializeInterfaceBuilder ];
 
@@ -89,7 +91,7 @@ touch_t		gameTouches[MAX_TOUCHES];
 - (void)applicationWillResignActive:(UIApplication *)application {
     inBackgroundProcess = YES;
     
-	// idGameCenter::HandleMoveToBackground();
+	idGameCenter::HandleMoveToBackground();
 	
 	// If we're in a multiplater game, and showing the OpenGL view,
 	// go back to the main menu since the multiplayer game is hosed.
@@ -146,19 +148,19 @@ touch_t		gameTouches[MAX_TOUCHES];
  ========================
  accelerometer 
  ========================
- */
-//- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
-//{	
-//	float acc[4];
-//	acc[0] = acceleration.x;
-//	acc[1] = acceleration.y;
-//	acc[2] = acceleration.z;
-//	acc[3] = acceleration.timestamp;
-//    
-//    
-//	iphoneTiltEvent( acc );
-//}
-
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{	
+	float acc[4];
+	acc[0] = acceleration.x;
+	acc[1] = acceleration.y;
+	acc[2] = acceleration.z;
+	acc[3] = acceleration.timestamp;
+    
+    
+	iphoneTiltEvent( acc );
+}
+*/
+ 
 /*
  ========================
  HACK_PushController  - Removes Flicker from Loading Wads.

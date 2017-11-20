@@ -10,11 +10,15 @@
 		3D7D557F14D21FEC00A0F1FF /* ios_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D7D557E14D21FEC00A0F1FF /* ios_interface.h */; };
 		3D7D558214D2201E00A0F1FF /* ios_interface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D558114D2201E00A0F1FF /* ios_interface.mm */; };
 		3D80884B14928766002D6CC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D80884A14928766002D6CC3 /* Foundation.framework */; };
+		3D80885E149287EB002D6CC3 /* GameCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D80885D149287EB002D6CC3 /* GameCenter.h */; };
+		3D80886D14928AED002D6CC3 /* GameCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D80886C14928AED002D6CC3 /* GameCenter.mm */; };
 		3D80886F14928C16002D6CC3 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D80886E14928C16002D6CC3 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3D8088721492B362002D6CC3 /* sys_defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8088711492B362002D6CC3 /* sys_defines.h */; };
 		3D8088741492CA59002D6CC3 /* objectivec_utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8088731492CA59002D6CC3 /* objectivec_utilities.h */; };
 		3D8088761492CBCB002D6CC3 /* objectivec_utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D8088751492CBCB002D6CC3 /* objectivec_utilities.mm */; };
 		3DCB047B1498279D00E986AF /* LocalizationObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DCB04781498279D00E986AF /* LocalizationObjectiveC.h */; };
+		C8011C8D14C0EB7A007AC5C5 /* InAppStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C8011C8B14C0EB7A007AC5C5 /* InAppStore.h */; };
+		C8011C8E14C0EB7A007AC5C5 /* InAppStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8011C8C14C0EB7A007AC5C5 /* InAppStore.mm */; };
 		C8011C9414C0EC70007AC5C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8011C9314C0EC70007AC5C5 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C8012E5F14B61D4900B0E213 /* AnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = C8012E5314B61D4900B0E213 /* AnimatedImage.h */; };
 		C8012E6014B61D4900B0E213 /* AnimatedImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E5414B61D4900B0E213 /* AnimatedImage.mm */; };
@@ -43,11 +47,15 @@
 		3D7D558114D2201E00A0F1FF /* ios_interface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_interface.mm; sourceTree = "<group>"; };
 		3D80884714928766002D6CC3 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D80884A14928766002D6CC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D80885D149287EB002D6CC3 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
+		3D80886C14928AED002D6CC3 /* GameCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenter.mm; sourceTree = "<group>"; };
 		3D80886E14928C16002D6CC3 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3D8088711492B362002D6CC3 /* sys_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sys_defines.h; path = ../sys/sys_defines.h; sourceTree = "<group>"; };
 		3D8088731492CA59002D6CC3 /* objectivec_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objectivec_utilities.h; sourceTree = "<group>"; };
 		3D8088751492CBCB002D6CC3 /* objectivec_utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = objectivec_utilities.mm; sourceTree = "<group>"; };
 		3DCB04781498279D00E986AF /* LocalizationObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationObjectiveC.h; sourceTree = "<group>"; };
+		C8011C8B14C0EB7A007AC5C5 /* InAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppStore.h; sourceTree = "<group>"; };
+		C8011C8C14C0EB7A007AC5C5 /* InAppStore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InAppStore.mm; sourceTree = "<group>"; };
 		C8011C9314C0EC70007AC5C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C8012E5314B61D4900B0E213 /* AnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImage.h; sourceTree = "<group>"; };
 		C8012E5414B61D4900B0E213 /* AnimatedImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimatedImage.mm; sourceTree = "<group>"; };
@@ -69,7 +77,6 @@
 		C8A629661497F510002EF3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8A6296814980C5B002EF3F5 /* RenderContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderContext.h; sourceTree = "<group>"; };
 		C8A6296A14980C6E002EF3F5 /* RenderContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderContext.mm; sourceTree = "<group>"; };
-		DA91D8A71F764B830077E63D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +115,6 @@
 		3D80884914928766002D6CC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA91D8A71F764B830077E63D /* GameController.framework */,
 				C8011C9314C0EC70007AC5C5 /* StoreKit.framework */,
 				C8A629661497F510002EF3F5 /* QuartzCore.framework */,
 				C8A629641497F508002EF3F5 /* OpenGLES.framework */,
@@ -131,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				C8A6295E1497F2A6002EF3F5 /* Interface Builder */,
+				3D80885D149287EB002D6CC3 /* GameCenter.h */,
+				3D80886C14928AED002D6CC3 /* GameCenter.mm */,
 				3D8088731492CA59002D6CC3 /* objectivec_utilities.h */,
 				3D8088751492CBCB002D6CC3 /* objectivec_utilities.mm */,
 				C8A6294414969EEE002EF3F5 /* Localization.h */,
@@ -138,6 +146,8 @@
 				3DCB04781498279D00E986AF /* LocalizationObjectiveC.h */,
 				C8A6296814980C5B002EF3F5 /* RenderContext.h */,
 				C8A6296A14980C6E002EF3F5 /* RenderContext.mm */,
+				C8011C8B14C0EB7A007AC5C5 /* InAppStore.h */,
+				C8011C8C14C0EB7A007AC5C5 /* InAppStore.mm */,
 				3D7D557E14D21FEC00A0F1FF /* ios_interface.h */,
 				3D7D558114D2201E00A0F1FF /* ios_interface.mm */,
 			);
@@ -180,6 +190,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D80885E149287EB002D6CC3 /* GameCenter.h in Headers */,
 				3D8088721492B362002D6CC3 /* sys_defines.h in Headers */,
 				3D8088741492CA59002D6CC3 /* objectivec_utilities.h in Headers */,
 				C8A6294514969EEE002EF3F5 /* Localization.h in Headers */,
@@ -192,6 +203,7 @@
 				C8012E6514B61D4900B0E213 /* LabelButton.h in Headers */,
 				C8012E6714B61D4900B0E213 /* Slider.h in Headers */,
 				C8012E6914B61D4900B0E213 /* Switch.h in Headers */,
+				C8011C8D14C0EB7A007AC5C5 /* InAppStore.h in Headers */,
 				3D7D557F14D21FEC00A0F1FF /* ios_interface.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +234,7 @@
 		3D80883E14928766002D6CC3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 			};
 			buildConfigurationList = 3D80884114928766002D6CC3 /* Build configuration list for PBXProject "idmobilelib" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -246,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D80886D14928AED002D6CC3 /* GameCenter.mm in Sources */,
 				3D8088761492CBCB002D6CC3 /* objectivec_utilities.mm in Sources */,
 				C8A6294814969F07002EF3F5 /* Localization.mm in Sources */,
 				C8A629611497F318002EF3F5 /* View.mm in Sources */,
@@ -256,6 +269,7 @@
 				C8012E6614B61D4900B0E213 /* LabelButton.mm in Sources */,
 				C8012E6814B61D4900B0E213 /* Slider.mm in Sources */,
 				C8012E6A14B61D4900B0E213 /* Switch.mm in Sources */,
+				C8011C8E14C0EB7A007AC5C5 /* InAppStore.mm in Sources */,
 				3D7D558214D2201E00A0F1FF /* ios_interface.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,26 +282,15 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -318,10 +321,11 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = ../;
+				VALID_ARCHS = arm64;
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Wextra",
@@ -335,24 +339,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -378,11 +371,12 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = ../;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = arm64;
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Wextra",

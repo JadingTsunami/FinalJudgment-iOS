@@ -32,13 +32,11 @@
 void ShowSystemAlert( const std::string & title, const std::string & message ) {
 	NSString * nsTitle = idLocalization_GetNSString( StdStringToNSString( title ) );
 	NSString * nsMessage = idLocalization_GetNSString( StdStringToNSString( message ) );
-	// NSString * nsCancelButton = idLocalization_GetNSString( @"#OK" );
+	NSString * nsCancelButton = idLocalization_GetNSString( @"#OK" );
 	
-    NSLog(@"Sys Error %@ %@", nsTitle, nsMessage);
-    
-//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nsTitle message:nsMessage delegate:nil cancelButtonTitle:nsCancelButton otherButtonTitles:nil];
-//
-//    [alert show];
-//    [alert release];
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nsTitle message:nsMessage delegate:nil cancelButtonTitle:nsCancelButton otherButtonTitles:nil];
+
+	[alert show];
+	[alert release];
 }
 

@@ -18,11 +18,11 @@
  
  */
 
-#define HAVE_UNISTD_H 1
-// #import <AudioToolbox/AudioServices.h>
+
+#include "doomiphone.h"
+#import <AudioToolbox/AudioServices.h>
 #import <UIKit/UIKit.h>
 #import "ios/View.h"
-#include "doomiphone.h"
 
 char	consoleCommand[1024];
 
@@ -34,7 +34,7 @@ int SysIphoneMicroseconds() {
 	gettimeofday( &tp, &tzp );
 	
 	if( ! secbase ) {
-		secbase = (int)tp.tv_sec;
+		secbase = (int) tp.tv_sec;
 		return tp.tv_usec;
 	}
 	
@@ -65,15 +65,15 @@ const char *SysIphoneGetTempDir() {
 }
 
 void SysIPhoneVibrate() {
-	// AudioServicesPlaySystemSound( kSystemSoundID_Vibrate );
+	AudioServicesPlaySystemSound( kSystemSoundID_Vibrate );
 }
 
 
 void SysIPhoneOpenURL( const char *url ) {
 	Com_Printf( "OpenURL char *: %s\n", url );
 	
-	// NSString *nss = [NSString stringWithCString: url encoding: NSASCIIStringEncoding];
-	// [[UIApplication sharedApplication] openURL:[NSURL URLWithString: nss]];
+	NSString *nss = [NSString stringWithCString: url encoding: NSASCIIStringEncoding];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: nss]];
 }
 
 int SysIPhoneIsDeviceLandscapeRight( void ) {

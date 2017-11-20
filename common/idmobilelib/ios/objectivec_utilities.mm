@@ -59,10 +59,9 @@ void DisplayNSErrorMessage( NSString * title, NSError * error ) {
 		messageString = [NSString stringWithFormat:@"%@", messageString];
 	}
  
-    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:idLocalization_GetNSString( title )
-    //    message:messageString delegate:nil
-    //    cancelButtonTitle:idLocalization_GetNSString(@"OK") otherButtonTitles:nil];
-    NSLog(@"!!Error %@ %@", title, messageString);
-    // [alertView show];
-    // [alertView release];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:idLocalization_GetNSString( title )
+        message:messageString delegate:nil
+        cancelButtonTitle:idLocalization_GetNSString(@"OK") otherButtonTitles:nil];
+    [alertView show];
+    [alertView release];
 }

@@ -125,8 +125,14 @@ touch_t *TouchInBounds( int x, int y, int w, int h ) {
 		}
 		if ( t->x >= x && t->x < x + w
 			&& t->y >= y && t->y < y + h ) {
+            // JDS Debug
+            printf("Touch HIT! %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
 			return t;
 		}
+        // JDS Debug
+        else {
+            printf("Touch missed %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
+        }
 	}
 	return NULL;
 }
@@ -153,6 +159,17 @@ touch_t *UpdateHudTouch( ibutton_t *hud ) {
 		// hud element isn't active
 		return NULL;
 	}
+    
+    int hud_displaywidth;
+    int hud_displayheight;
+    
+    if( displaywidth < displayheight ) {
+        hud_displaywidth = displayheight;
+        hud_displayheight = displaywidth;
+    } else {
+        hud_displaywidth = displaywidth;
+        hud_displayheight = displayheight;
+    }
 	
 	if ( !hud->touch ) {
 		// see if a free touch was just made in, or dragged into the bounds
@@ -163,6 +180,7 @@ touch_t *UpdateHudTouch( ibutton_t *hud ) {
 		int h = hud->drawHeight << 1;
 		
 		hud->touch = TouchInBounds( x, y, w, h );
+        //printf("TIB: %d %d %d %d -> %s\n",x,y,w,h,(hud->touch == NULL) ? "none" : "found" );
 		if ( hud->touch ) {
 			// claim this touch so it won't activate anything else
 			hud->touch->controlOwner = hud;
@@ -183,14 +201,14 @@ touch_t *UpdateHudTouch( ibutton_t *hud ) {
 			if ( hud->downX < width ) {
 				hud->downX = width;
 			}
-			if ( hud->downX + width > displaywidth ) {
-				hud->downX = displaywidth - width;
+            if ( hud->downX + width > hud_displaywidth ) {
+                hud->downX = hud_displaywidth - width;
 			}
 			if ( hud->downY < height ) {
 				hud->downY = height;
 			}
-			if ( hud->downY > displayheight - height ) {
-				hud->downY = displayheight - height;
+            if ( hud->downY > hud_displayheight - height ) {
+                hud->downY = hud_displayheight - height;
 			}
 		}
 	}
@@ -212,12 +230,22 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
 	button->texture = PK_FindTexture( picBase );	
 	button->scale = 1.0f;
 	button->title = title;
-	button->x = x * ((float)displaywidth) / 480.0f;
-	button->y = y * ((float)displayheight) / 320.0f;
     
     float xRatio = ((float)displaywidth) / 480.0f;
     float yRatio = ((float)displayheight) / 320.0f;
     
+    /* float themin = MIN( xRatio, yRatio ); */
+    
+    /* JDS width/height are swapped if we start up in landscape orientation? */
+    if( displaywidth < displayheight ) {
+        xRatio = ((float)displayheight) / 480.0f;
+        yRatio = ((float)displaywidth) / 320.0f;
+    }
+    
+    button->x *= xRatio;
+    button->y *= yRatio;
+    
+    /* JDS: Can't assume proportional scaling anymore */
     float themin = MIN( xRatio, yRatio );
     
 	button->drawWidth = button->texture->textureData->srcWidth * themin;
@@ -227,10 +255,16 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
 void SetButtonPicsAndSizes( ibutton_t *button, const char *picBase, const char *title, int x, int y, int w, int h ) {	
 	SetButtonPics( button, picBase, title, x, y );
     
-    
     float xRatio = ((float)displaywidth) / 480.0f;
     float yRatio = ((float)displayheight) / 320.0f;
+ 
+    /* JDS width/height are swapped if we start up in landscape orientation? */
+    if( displaywidth < displayheight ) {
+        xRatio = ((float)displayheight) / 480.0f;
+        yRatio = ((float)displaywidth) / 320.0f;
+    }
     
+    /* JDS: Can't assume proportional scaling anymore */
     float themin = MIN( xRatio, yRatio );
     
 	button->drawWidth = w  * themin;
@@ -401,7 +435,7 @@ boolean HandleButton( ibutton_t *button ) {
 		if ( x < 0 ) {
 			x = 0;
 		} else if ( x + length > displaywidth ) {
-			x = displaywidth - length;
+			x = displaywidth - length; //JDS FIXME
 		}
 		float y;
 		float textScale = 0.75;
@@ -550,6 +584,19 @@ int	TouchPressed( int x, int y, int w, int h ) {
     y *= ((float)displayheight) / 320.0f;
     w *= ((float)displaywidth) / 480.0f;
     h *= ((float)displayheight) / 320.0f;
+    
+    //JDS: Landscape fix?
+    if( displayheight > displaywidth ) {
+        x *= ((float)displayheight) / 480.0f;
+        y *= ((float)displaywidth) / 320.0f;
+        w *= ((float)displayheight) / 480.0f;
+        h *= ((float)displaywidth) / 320.0f;
+    } else {
+        x *= ((float)displaywidth) / 480.0f;
+        y *= ((float)displayheight) / 320.0f;
+        w *= ((float)displaywidth) / 480.0f;
+        h *= ((float)displayheight) / 320.0f;
+    }
     
 	for ( int i = 0 ; i < MAX_TOUCHES ; i++ ) {
 		touch_t *t = &gameTouches[i];
@@ -897,13 +944,12 @@ void iphoneDrawHudControl( ibutton_t *hud ) {
 	float x = hud->x + ( hud->drawWidth - w ) * 0.5f;
 	float y = hud->y + ( hud->drawHeight - w ) * 0.5f;
 	
-    // printf("Button: %f %f %f %f %s", x, y, w, h, hud->title);
-    
 	if ( centerSticks->value && hud->touch ) {
 		// reposiition the control after each touch
 		x = hud->touch->x - w*0.5f;
 		y = hud->touch->y - h*0.5f;
 	}
+    
 	PK_StretchTexture( hud->texture, x, y, w, h );
 	glColor4f(1,1,1,1);
 }
@@ -1073,7 +1119,7 @@ void AutomapControls() {
 			prevY = t->y;
 		}
 		m_x -= ( t->x - prevX ) * (float)m_w / displaywidth;
-		m_y += ( t->y - prevY ) * (float)m_w / displaywidth;					
+		m_y += ( t->y - prevY ) * (float)m_w / displaywidth;
 		m_x2 = m_x + m_w;
 		m_y2 = m_y + m_h;
 		
@@ -1145,16 +1191,32 @@ void DrawWeapon(int weaponlump, int x, int y, int w, int h, int lightlevel)
 	float fU1,fU2,fV1,fV2;
 	int x1,y1,x2,y2;
 	
+    int hud_displaywidth = displaywidth;
+    int hud_displayheight = displayheight;
+    
+    //JDS FIXME Draw-related so skip height/width inversion
+    /*
+    if( displaywidth < displayheight ) {
+        hud_displaywidth = displayheight;
+        hud_displayheight = displaywidth;
+    } else {
+        hud_displaywidth = displaywidth;
+        hud_displayheight = displayheight;
+    }
+    */
+    
+    
+    // JDS FIXME: Correct this
     if( displaywidth >= 960 ) {
         weaponSelectDrawScale = 1.25f;
     } else {
         weaponSelectDrawScale = 0.75f;
     }
     
-    x *= ((float)displaywidth) / 480.0f;
-    y *= ((float)displayheight) / 320.0f;
-    w *= ((float)displaywidth) / 480.0f;
-    h *= ((float)displayheight) / 320.0f;
+    x *= ((float)hud_displaywidth) / 480.0f;
+    y *= ((float)hud_displayheight) / 320.0f;
+    w *= ((float)hud_displaywidth) / 480.0f;
+    h *= ((float)hud_displayheight) / 320.0f;
     
 	// force doom to rebind, since we have changed the active GL_TEXTURE_2D
 	last_gltexture = NULL;
@@ -1224,6 +1286,18 @@ SPR_SHT2
 void DrawWeaponSelect() {
 	player_t *player = &players[consoleplayer];
 	
+    int hud_displaywidth;
+    int hud_displayheight;
+    
+    if( displaywidth < displayheight ) {
+        hud_displaywidth = displayheight;
+        hud_displayheight = displaywidth;
+    } else {
+        hud_displaywidth = displaywidth;
+        hud_displayheight = displayheight;
+    }
+    
+    
 	for ( int i = wp_fist ; i <= wp_supershotgun ; i++ ) {
 		int bx = i % 3;
 		int by = i / 3;
@@ -1269,10 +1343,16 @@ void DrawWeaponSelect() {
 		int w = 120;
 		int h = 80;
 		
-        float nx = x * ((float)displaywidth) / 480.0f;
-        float ny = y * ((float)displayheight) / 320.0f;
-        float nw = w * ((float)displaywidth) / 480.0f;
-        float nh = h * ((float)displayheight) / 320.0f;
+        float nx = x * ((float)hud_displaywidth) / 480.0f;
+        float ny = y * ((float)hud_displayheight) / 320.0f;
+        float nw = w * ((float)hud_displaywidth) / 480.0f;
+        float nh = h * ((float)hud_displayheight) / 320.0f;
+        
+        /* JDS FIXME */
+        float pnx = x * ((float)displaywidth) / 480.0f;
+        float pny = y * ((float)displayheight) / 320.0f;
+        float pnw = w * ((float)displaywidth) / 480.0f;
+        float pnh = h * ((float)displayheight) / 320.0f;
         
 		if ( selectable && TouchDown( nx, ny, nw, nh ) ) {
 			color[0] = 128;
@@ -1285,7 +1365,7 @@ void DrawWeaponSelect() {
         
 
 
-		PK_StretchTexture( PK_FindTexture( "iphone/multi_backdrop.tga" ), nx, ny, nw, nh );
+		PK_StretchTexture( PK_FindTexture( "iphone/multi_backdrop.tga" ), pnx, pny, pnw, pnh );
 //		R_Draw_Blend( x, y, w, h, color );
 		
 		glColor4ubv( textColor );
@@ -1320,7 +1400,7 @@ void iphoneFrame() {
 	loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].numGameTics = 0;
 	loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].afterSleep =
 	loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].enterFrame = SysIphoneMicroseconds();
-
+    
 	//-------------------------------------------------
 	// grabs the console command under mutex.
 	//-------------------------------------------------
@@ -1545,14 +1625,14 @@ void iphoneFrame() {
 	// If we just loaded a level, do the texture precaching after we
 	// have drawn and displayed the first frame, so the user has
 	// something to look at while it is loading.
-//    if ( false ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
-//        int start = SysIphoneMilliseconds();
-//        gld_Precache();
-//        int end = SysIphoneMilliseconds();
-//        Com_Printf( "%3.1f seconds to gld_Precache()\n", (end-start)*0.001f );
-//        timeDemoStart = end;
-//        timeDemoFrames = 0;
-//    }
+	if ( false ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
+		int	start = SysIphoneMilliseconds();
+		gld_Precache();
+		int end = SysIphoneMilliseconds();
+		Com_Printf( "%3.1f seconds to gld_Precache()\n", (end-start)*0.001f );
+		timeDemoStart = end;
+		timeDemoFrames = 0;
+	}
 }
 
 int	pacifierCycle;
@@ -1629,8 +1709,20 @@ void iphoneDrawScreen() {
 		PK_BindTexture( PK_FindTexture( "iphone/loading.tga" ) );
 		glColor4f( 1, 1, 1, 1 );
 
-		float	cx = 240 * ((float)displaywidth) / 480.0f;
-		float	cy = 160 * ((float)displayheight) / 320.0f;
+        //JDS Needed?
+        int hud_displaywidth;
+        int hud_displayheight;
+        
+        if( displaywidth < displayheight ) {
+            hud_displaywidth = displayheight;
+            hud_displayheight = displaywidth;
+        } else {
+            hud_displaywidth = displaywidth;
+            hud_displayheight = displayheight;
+        }
+        
+		float	cx = 240 * ((float)hud_displaywidth) / 480.0f;
+		float	cy = 160 * ((float)hud_displayheight) / 320.0f;
 		float	as = sin( pacifierCycle * M_PI / 4 );
 		float	ac = cos( pacifierCycle * M_PI / 4 );
 		float	sz = 64;
@@ -1640,10 +1732,10 @@ void iphoneDrawScreen() {
 				
 		glBegin( GL_TRIANGLE_STRIP );
 		
-        glTexCoord2f( 0, 0 );    glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
-        glTexCoord2f( 1, 0 );    glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
-        glTexCoord2f( 0, 1 );    glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
-        glTexCoord2f( 1, 1 );    glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
+		glTexCoord2f( 0, 0 );	glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
+		glTexCoord2f( 1, 0 );	glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
+		glTexCoord2f( 0, 1 );	glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
+		glTexCoord2f( 1, 1 );	glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
 		
 		glEnd();
 	} else {
@@ -1703,11 +1795,11 @@ void iphoneDrawScreen() {
 				DrawWeaponSelect();
 			} else {
 				if ( drawControls->value ) {
-//                    iphoneDrawHudControl( &huds.forwardStick );
-//                    iphoneDrawHudControl( &huds.sideStick );
-//                    iphoneDrawHudControl( &huds.turnStick );
-//                    iphoneDrawRotorControl( &huds.turnRotor );
-//                    iphoneDrawHudControl( &huds.fire );
+					iphoneDrawHudControl( &huds.forwardStick );
+					iphoneDrawHudControl( &huds.sideStick );
+					iphoneDrawHudControl( &huds.turnStick );
+					iphoneDrawRotorControl( &huds.turnRotor );
+//					iphoneDrawHudControl( &huds.fire );
 				}
 				
 				if ( HandleButton( &huds.menu ) ) {

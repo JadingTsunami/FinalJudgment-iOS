@@ -118,7 +118,7 @@ void Cmd_AddCommand( const char *cmd_name, xcommand_t function ) {
 }
 
 void	Cmd_ExecuteString( const char *str ) {	
-	int l = (int)strlen( str );
+	int l = (int) strlen( str );
 	if ( str[l-1] == '\n' ) {
 		char *stripped = alloca( l+1 );
 		strcpy( stripped, str );

@@ -75,7 +75,7 @@
 
 #define HAVE_IPv6 1
 
-#define HAVE_UNISTD_H
+#define HAVE_UNISTD_H 1
 #define HAVE_SYS_WAIT_H
 #define HAVE_GETOPT
 /* causes a duplicate define warning

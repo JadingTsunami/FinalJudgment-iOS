@@ -28,10 +28,9 @@
 
 
 #include "doomiphone.h"
-// #include "DoomGameCenterMatch.h"
+#include "DoomGameCenterMatch.h"
 
-// #include "ios/GameCenter.h"
-#include "GameController.h"
+#include "ios/GameCenter.h"
 
 typedef struct {
 	int	msecFromLast;
@@ -361,7 +360,7 @@ void SendSetupPacketIfNecessary() {
 		if ( setupPacket.playerID[i] == 0 ) {
 			continue;
 		}
-		int r = (int)sendto( gameSocket, &setupPacket, sizeof( setupPacket ), 0,
+		long int r = sendto( gameSocket, &setupPacket, sizeof( setupPacket ), 0,
 					   &netPlayers[i].peer.address, sizeof( netPlayers[i].peer.address ) );
 		if ( r == -1 ) {
 			Com_Printf( "UDP sendTo failed: %s\n", strerror( errno ) );
@@ -511,7 +510,7 @@ float RotorControl( ibutton_t *hud ) {
 	return deltaAngle / (2*M_PI);	
 }
 
-// #define TURBOTHRESHOLD  0x32
+#define TURBOTHRESHOLD  0x32
 static int ClampMove( int v ) {
 	if ( v > TURBOTHRESHOLD ) {
 		return TURBOTHRESHOLD;
@@ -646,7 +645,7 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 	sidemove = TURBOTHRESHOLD * AxisHit( &huds.sideStick );
 	
 	huds.turnStick.scale = stickTurn->value / 128.0f;
-	cmd->angleturn = -ROTATETHRESHOLD * AxisHit( &huds.turnStick );
+	cmd->angleturn = -1500.0f * AxisHit( &huds.turnStick );
 	
 	// rotary wheel
 	cmd->angleturn -= rotorTurn->value * RotorControl( &huds.turnRotor );
@@ -698,8 +697,6 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 			cmd->buttons |= newweapon<<BT_WEAPONSHIFT;
 		}
 	}
-    
-    iphoneControllerInput(cmd);
 }
 
 /*
@@ -842,7 +839,7 @@ void iphoneAsyncTic() {
 				cp.gametic = gametic;
 				cp.cmd = cmd;
 				
-				// idGameCenter::SendPacketToPlayerUnreliable( serverGameCenterID, &cp, sizeof ( cp ) );
+				//idGameCenter::SendPacketToPlayerUnreliable( serverGameCenterID, &cp, sizeof ( cp ) );
 			}
 		}
 	} else {
@@ -922,7 +919,7 @@ void iphoneAsyncTic() {
 							}
 						}
 					}
-					int	packetSize = (int)((byte *)cmd_p - (byte *)&gp);
+					long int	packetSize = (byte *)cmd_p - (byte *)&gp;
 					(void)packetSize;
 					
 					// use the most recent tic that both the client and
@@ -938,8 +935,8 @@ void iphoneAsyncTic() {
 					gp.milliseconds = SysIphoneMilliseconds();
 					
 					// transmit the packet				
-					// const std::string theClient = playerIndexToIDMap[i];
-					// idGameCenter::SendPacketToPlayerUnreliable( theClient, &gp, packetSize );
+					const std::string theClient = playerIndexToIDMap[i];
+					//idGameCenter::SendPacketToPlayerUnreliable( theClient, &gp, packetSize );
 				}
 			}
 		}

@@ -3,7 +3,13 @@ base.iPack
 doom.wad
 xcuserdata
 
+*.png
+*.otf
+*.odf
 
+*.plist
+*.lproj
+music
 
 #####
 # OS X temporary files that should never be committed

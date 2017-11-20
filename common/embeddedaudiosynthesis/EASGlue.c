@@ -37,8 +37,8 @@ static EAS_BOOL EASLibraryCheck (const S_EAS_LIB_CONFIG *pLibConfig);
 
 static EAS_DATA_HANDLE pEASData;
 static const S_EAS_LIB_CONFIG *pLibConfig;
-static int polyphony;
-static int bufferSize;
+static long int polyphony;
+static long int bufferSize;
 
 static EAS_FILE file;
 static EAS_HANDLE handle;
@@ -51,11 +51,11 @@ void EASGlueInit(void) {
 	assert( EASLibraryCheck(pLibConfig) );
 	
     if (polyphony > pLibConfig->maxVoices)
-        polyphony = (int)pLibConfig->maxVoices;
+        polyphony = pLibConfig->maxVoices;
 		
 	EAS_I32 mixSize = pLibConfig->mixBufferSize;
 	
-	bufferSize = (int)(mixSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS);
+	bufferSize = mixSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS;
 	
     /* calculate buffer size */
     //bufferSize = pLibConfig->mixBufferSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS;

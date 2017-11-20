@@ -26,7 +26,7 @@
 #include "ios/Localization.h"
 #import "ios/LocalizationObjectiveC.h"
 #include "iphone_delegate.h"
-// #include "DoomGameCenterMatch.h"
+#include "DoomGameCenterMatch.h"
 #import "ios/objectivec_utilities.h"
 
 @class UIViewController;
@@ -41,8 +41,8 @@ Called in each game's didFinishLaunching method.
 void CommonSystemSetup( UIViewController * gameViewController ) {
 
 	// Authenticate the Game Center player.
-	// idGameCenter::Initialize();
-	// idGameCenter::AuthenticateLocalPlayer( gameViewController, &gDoomGameCenterMatch );
+	idGameCenter::Initialize();
+	//idGameCenter::AuthenticateLocalPlayer( gameViewController, &gDoomGameCenterMatch );
 
 	// get the documents directory, where we will write configs and save games
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

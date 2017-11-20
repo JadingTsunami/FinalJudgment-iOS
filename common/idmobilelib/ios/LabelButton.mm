@@ -60,6 +60,7 @@
     if( self.label ) {
         labelColor = self.label.textColor;
     }
+
     [super awakeFromNib];
 }
 

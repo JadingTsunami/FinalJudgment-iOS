@@ -39,7 +39,7 @@ void Com_Printf( const char *fmt, ... ) {
 	vsnprintf( buffer, sizeof( buffer ), fmt, argptr );
 	AppendConsoleBuffer(buffer);
 	
-	vprintf( fmt, argptr );
+    printf( "%s\n", buffer );
 	va_end( argptr );
 }
 
@@ -61,7 +61,7 @@ void Com_Error( const char *fmt, ... ) {
 	
 	// drop into the editor
 	abort(); 
-	// exit( 1 );
+	exit( 1 );
 }
 
 char *va( const char *format, ... ) {

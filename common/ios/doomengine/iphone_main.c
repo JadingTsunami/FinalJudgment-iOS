@@ -399,7 +399,7 @@ void iphoneStartup() {
 	// load the binary config file
 	FILE *f = fopen( va( "%s/binaryConfig.bin", SysIphoneGetDocDir() ), "rb" );
 	if ( f ) {
-		unsigned int version;
+		long int version;
 		
 		version = 0;
 		fread( &version, 1, sizeof( version ), f );
@@ -407,7 +407,11 @@ void iphoneStartup() {
 			Com_Printf( "Binary config file bad version.\n" );
 		} else {
 			fread( &playState, 1, sizeof( playState ), f );
-			fread( &huds, 1, sizeof( huds ), f );
+            //JDS FIXME: Uncomment when hud code is ready
+            //fread( &huds, 1, sizeof( huds ), f );
+            hud_t fakehuds;
+            
+            fread( &fakehuds, 1, sizeof(fakehuds), f );
 
 			version = 0;
 			fread( &version, 1, sizeof( version ), f );
@@ -504,7 +508,7 @@ void iphoneShutdown() {
 		return;
 	}
 	
-	int version = VERSION_BCONFIG;
+	long int version = VERSION_BCONFIG;
 	
 	fwrite( &version, 1, sizeof( version ), f );
 	

@@ -63,7 +63,7 @@ void I_SafeExit(int rc) {
 }
 
 void I_uSleep( unsigned long usec ) {
-	usleep( (unsigned int)usec );
+	usleep( (unsigned int) usec );
 }
 
 /*
@@ -181,7 +181,7 @@ void I_Read(int fd, void* vbuf, size_t sz)
 	unsigned char* buf = vbuf;
 	
 	while (sz) {
-		int rc = (int)read(fd,buf,sz); // ssize_t (long) to int
+		int rc = (int) read(fd,buf,sz);
 		if (rc <= 0) {
 			I_Error("I_Read: read failed: %s", rc ? strerror(errno) : "EOF");
 		}
