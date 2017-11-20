@@ -94,4 +94,53 @@
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
 }
 
+
+- (IBAction)loadDoomIwad:(id)sender {
+
+    char full_iwad[1024];
+    I_FindFile( "doom.wad", ".wad", full_iwad );
+    
+    iphoneDoomStartup( full_iwad, NULL );
+}
+
+- (IBAction)loadDoom2Iwad:(id)sender {
+    char full_iwad[1024];
+    I_FindFile( "doom2.wad", ".wad", full_iwad );
+    
+    iphoneDoomStartup( full_iwad, NULL );
+}
+
+- (IBAction)loadTNTIwad:(id)sender {
+    char full_iwad[1024];
+    I_FindFile( "tnt.wad", ".wad", full_iwad );
+    
+    iphoneDoomStartup( full_iwad, NULL );
+}
+
+- (IBAction)loadPlutoniaIwad:(id)sender {
+    
+    char full_iwad[1024];
+    I_FindFile( "plutonia.wad", ".wad", full_iwad );
+    
+    iphoneDoomStartup( full_iwad, NULL );
+}
+
+- (IBAction)xmasPwadOn:(id)sender {
+    
+    char full_iwad[1024];
+    char full_pwad[1024];
+    I_FindFile( "spritx.wad", ".wad", full_pwad );
+    I_FindFile( "tnt.wad", ".wad", full_iwad );
+    
+    iphoneDoomStartup( full_iwad, full_pwad );
+}
+
+- (IBAction)xmasPwadOff:(id)sender {
+    
+    char full_iwad[1024];
+    I_FindFile( "plutonia.wad", ".wad", full_iwad );
+    iphoneDoomStartup( full_iwad, NULL );
+}
+
+
 @end

@@ -114,6 +114,9 @@
 		C8DB8A5F14BB88AC0006467C /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */; };
 		C8DB8A6014BB88AC0006467C /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */; };
 		D05ECE651FC2992F0086978C /* doom2.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE641FC2992F0086978C /* doom2.wad */; };
+		D05ECE721FC2A6770086978C /* tnt.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE701FC2A6750086978C /* tnt.wad */; };
+		D05ECE731FC2A6770086978C /* plutonia.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE711FC2A6760086978C /* plutonia.wad */; };
+		D05ECE751FC2A73F0086978C /* spritx.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE741FC2A73F0086978C /* spritx.wad */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
@@ -266,6 +269,9 @@
 		C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "OpenGLView~ipad.xib"; sourceTree = "<group>"; };
 		C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsMenuView~ipad.xib"; sourceTree = "<group>"; };
 		D05ECE641FC2992F0086978C /* doom2.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = doom2.wad; sourceTree = "<group>"; };
+		D05ECE701FC2A6750086978C /* tnt.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = tnt.wad; sourceTree = "<group>"; };
+		D05ECE711FC2A6760086978C /* plutonia.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutonia.wad; sourceTree = "<group>"; };
+		D05ECE741FC2A73F0086978C /* spritx.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = spritx.wad; sourceTree = "<group>"; };
 		D080FADE1FC0BCB000E71FF7 /* libprboom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprboom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -349,6 +355,9 @@
 				138FC9C617F2165D00D94C5F /* base.iPack */,
 				138FC9C717F2165D00D94C5F /* doom.wad */,
 				D05ECE641FC2992F0086978C /* doom2.wad */,
+				D05ECE711FC2A6760086978C /* plutonia.wad */,
+				D05ECE701FC2A6750086978C /* tnt.wad */,
+				D05ECE741FC2A73F0086978C /* spritx.wad */,
 				138FC9C817F2165D00D94C5F /* prboom.wad */,
 				C86CA86714B502C90057FF54 /* Icons & Defaults */,
 				C86CA86114B4FD230057FF54 /* Menus */,
@@ -666,6 +675,7 @@
 				C8D1CF6813DE1EB600F0EAC6 /* DOOM_57.png in Resources */,
 				138FC9B817F07DAF00D94C5F /* Nightmare.png in Resources */,
 				C8D1CF6A13DE1EF500F0EAC6 /* DOOM_114.png in Resources */,
+				D05ECE731FC2A6770086978C /* plutonia.wad in Resources */,
 				C8D1CF6C13DE1F0600F0EAC6 /* DOOM_72.png in Resources */,
 				C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */,
 				C8D1CF8813DF79BC00F0EAC6 /* Default~ipad.png in Resources */,
@@ -712,6 +722,7 @@
 				C87930E813F5EC1B003D834F /* Episode4Background_Highlighted.png in Resources */,
 				132AC2E01802F15C00884E11 /* CreditsMenuViewi5.xib in Resources */,
 				C87931EC13F610B9003D834F /* AdvancedButton_Highlighted.png in Resources */,
+				D05ECE751FC2A73F0086978C /* spritx.wad in Resources */,
 				C87931ED13F610B9003D834F /* AdvancedButton.png in Resources */,
 				C87931EE13F610B9003D834F /* Divide.png in Resources */,
 				C87931EF13F610B9003D834F /* LayoutDualButton_Highlighted.png in Resources */,
@@ -728,6 +739,7 @@
 				C87931F913F610B9003D834F /* SliderSkull.png in Resources */,
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
 				C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */,
+				D05ECE721FC2A6770086978C /* tnt.wad in Resources */,
 				C8012E5214B5122700B0E213 /* MainMenuView.xib in Resources */,
 				C8012E6F14B6389B00B0E213 /* EpisodeMenuView.xib in Resources */,
 				C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */,

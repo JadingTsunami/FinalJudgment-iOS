@@ -830,7 +830,8 @@ void P_DamageMobj(mobj_t *target,mobj_t *inflictor, mobj_t *source, int damage)
       player->damagecount += damage;  // add damage after armor / invuln
 #ifdef IPHONE
 		if ( player == &players[consoleplayer] && !demoplayback ) {	// vibe during demos is annoying
-			SysIPhoneVibrate();
+            // JDS: Stop vibration on pain
+            // SysIPhoneVibrate();
 		}
 #endif
       if (player->damagecount > 100)
