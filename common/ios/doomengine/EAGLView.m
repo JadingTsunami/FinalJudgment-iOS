@@ -166,7 +166,8 @@ CAEAGLLayer *eaglLayer;
         
 		const int x = touchLocation.x;
 		const int y = touchLocation.y;
-		printf( "%i, %i\n", x, y );
+        // JDS Debug
+		//printf( "%i, %i\n", x, y );
 		touchCount++;
     
         

@@ -126,12 +126,12 @@ touch_t *TouchInBounds( int x, int y, int w, int h ) {
 		if ( t->x >= x && t->x < x + w
 			&& t->y >= y && t->y < y + h ) {
             // JDS Debug
-            printf("Touch HIT! %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
+            //printf("Touch HIT! %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
 			return t;
 		}
         // JDS Debug
         else {
-            printf("Touch missed %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
+            //printf("Touch missed %d vs. %d / %d vs. %d (%d %d)\n",x,t->x,y,t->y,w,h);
         }
 	}
 	return NULL;
