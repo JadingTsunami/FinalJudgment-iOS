@@ -242,8 +242,8 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
         yRatio = ((float)displaywidth) / 320.0f;
     }
     
-    button->x *= xRatio;
-    button->y *= yRatio;
+    button->x = (int)((float)x*xRatio);
+    button->y = (int)((float)y*yRatio);
     
     /* JDS: Can't assume proportional scaling anymore */
     float themin = MIN( xRatio, yRatio );
@@ -441,16 +441,20 @@ boolean HandleButton( ibutton_t *button ) {
 	}
 	
 	if ( button->title ) {
-		float	length = StringFontWidth( button->title ) * 0.75;
-		float	x = button->x + button->drawWidth/2 - length/2;
+        int hud_displaywidth;
+        if( displaywidth < displayheight ) {
+            hud_displaywidth = displayheight;
+        }
+        float textScale = 0.75f;
+		float	length = (StringFontWidth( button->title ) * textScale);
+		float	x = button->x + (button->drawWidth/2)*xScale - (length/2)*xScale;
 		// don't push the text off the edge of the screen
 		if ( x < 0 ) {
 			x = 0;
-		} else if ( x + length > displaywidth ) {
-			x = displaywidth - length; //JDS FIXME
+		} else if ( x + length > hud_displaywidth ) {
+			x = hud_displaywidth - length;
 		}
 		float y;
-		float textScale = 0.75;
 		if ( button->buttonFlags & BF_CENTERTEXT ) {
 			glColor4f( 1, 1, 1, 1 );	// !@# remove when we get a button background that doesn't need dimming
 			y = button->y + button->drawHeight / 2 + 8;
@@ -458,7 +462,8 @@ boolean HandleButton( ibutton_t *button ) {
 		} else {
 			y = button->y + button->drawHeight + 16;
 		}
-		iphoneDrawText( x, y, textScale, button->title );
+		iphoneDrawText( xScale*x, yScale*y, textScale, button->title );
+
 	}
 	
 	glColor4f( 1, 1, 1, 1 );
@@ -500,6 +505,10 @@ float iphoneDrawText( float x, float y, float scale, const char *str ) {
 	float	fx = x;
 	float	fy = y;
 
+    /* JDS test */
+    //float xScale = (float)displayheight/displaywidth;
+    //float yScale = (float)displaywidth/displayheight;
+    
 	PK_BindTexture( arialFontTexture );
 	glBegin( GL_QUADS );
 	
@@ -516,10 +525,10 @@ float iphoneDrawText( float x, float y, float scale, const char *str ) {
 			
 			float	width = ( x1 - x0 ) * 256 * scale;
 			float	height = ( y1 - y0 ) * 256 * scale;
-			
+            
 			float	xoff = ( glyph->xoff - 1 ) * scale;
 			float	yoff = ( glyph->yoff - 1 ) * scale;
-			
+            
 			glTexCoord2f( x0, y0 );
 			glVertex2f( fx + xoff, fy + yoff );
 			
