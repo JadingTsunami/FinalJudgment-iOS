@@ -29,6 +29,7 @@
 #include "doomiphone.h"
 #include <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVAudioSession.h>
+#import <Foundation/Foundation.h>
 
 typedef struct  {
 	unsigned			sourceName;		// OpenAL sourceName
@@ -38,6 +39,59 @@ typedef struct  {
 
 static ALCcontext *Context;
 static ALCdevice *Device;
+
+@interface AudioInterruptionListener : NSObject  {
+}
+- (void)handleAudioSessionInterruption:(NSNotification *)notification;
+- (void)registerInterruptionListener;
+@end
+
+@implementation AudioInterruptionListener {
+}
+- (void)registerInterruptionListener {
+    
+[[NSNotificationCenter defaultCenter] addObserver:self
+                                         selector:@selector(handleAudioSessionInterruption:)
+                                             name:AVAudioSessionInterruptionNotification
+                                           object:[AVAudioSession sharedInstance]];
+
+}
+
+- (void)handleAudioSessionInterruption:(NSNotification *)notification {
+    NSDictionary *interruptionDict = notification.userInfo;
+    NSInteger interruptionType = [[interruptionDict valueForKey:AVAudioSessionInterruptionTypeKey] integerValue];
+    printf("Session interrupted! --- %s ---\n", interruptionType == AVAudioSessionInterruptionTypeBegan ? "Begin Interruption" : "End Interruption");
+    
+    
+    NSError* error = nil;
+    switch (interruptionType) {
+        case AVAudioSessionInterruptionTypeBegan:
+            printf("Audio interrupted.\n" );
+            iphonePauseMusic();
+            alcMakeContextCurrent( NULL );
+            
+            [[AVAudioSession sharedInstance] setActive:NO error:&error];
+            if( error != nil ) {
+                NSLog(@"%@", error);
+            }
+            break;
+            
+        case AVAudioSessionInterruptionTypeEnded:
+            printf("Audio restored.\n" );
+            
+
+            [[AVAudioSession sharedInstance] setActive:YES error:&error];
+            if( error != nil ) {
+                NSLog(@"%@", error);
+            }
+            alcMakeContextCurrent( Context );
+            if( alcGetError( Device ) != ALC_NO_ERROR ) {
+                Com_Error( "Failed to alcMakeContextCurrent\n" );
+            }
+            iphoneResumeMusic();
+    }
+}
+@end
 
 #define MAX_CHANNELS		16
 static channel_t	s_channels[ MAX_CHANNELS ];
@@ -87,38 +141,6 @@ int SysIPhoneOtherAudioIsPlaying() {
 	return otherAudioIsPlaying;
 }
 
-void interruptionListener( void *inUserData, UInt32 inInterruption)
-{
-	printf("Session interrupted! --- %s ---\n", inInterruption == kAudioSessionBeginInterruption ? "Begin Interruption" : "End Interruption");
-
-	if ( inInterruption == kAudioSessionBeginInterruption ) {
-		printf("Audio interrupted.\n" );
-		iphonePauseMusic();			
-		alcMakeContextCurrent( NULL );
-        NSError* error = nil;
-		[[AVAudioSession sharedInstance] setActive:YES error:&error];
-        if( error != nil ) {
-            NSLog(@"%@", error);
-        }
-        //JDS deprecated AudioSessionSetActive( false );
-	} else if ( inInterruption == kAudioSessionEndInterruption ) {
-		printf("Audio restored.\n" );
-		
-        NSError* error = nil;
-		// JDS deprecated OSStatus r = AudioSessionSetActive( true );
-        [[AVAudioSession sharedInstance] setActive:YES error:&error];
-        if( error != nil ) {
-            NSLog(@"%@", error);
-        }
-		alcMakeContextCurrent( Context );
-		if( alcGetError( Device ) != ALC_NO_ERROR ) {
-			Com_Error( "Failed to alcMakeContextCurrent\n" );
-		}
-		iphoneResumeMusic();
-	}
-
-}
-
 void Sound_Init(void) {
 
 	Com_Printf( "\n------- Sound Initialization -------\n" );
@@ -132,10 +154,12 @@ void Sound_Init(void) {
    
 	//OSStatus status = 0;
     
-   
     /* JDS FIXME [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptionListener:)
                                                  name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
      */
+    AudioInterruptionListener *listener = [[AudioInterruptionListener alloc] init];
+    [listener registerInterruptionListener];
+    
      // JDS deprecated status = AudioSessionInitialize(NULL, NULL, interruptionListener, NULL);	// else "couldn't initialize audio session"
 
     // if there is iPod music playing in the background, we want to use
@@ -234,6 +258,7 @@ void ShowSound() {
 		R_Draw_Fill( i*16, 0, 12, 12, color );		
 	}
 }
+
 
 
 /*
