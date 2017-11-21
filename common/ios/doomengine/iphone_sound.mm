@@ -28,6 +28,7 @@
 
 #include "doomiphone.h"
 #include <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVAudioSession.h>
 
 typedef struct  {
 	unsigned			sourceName;		// OpenAL sourceName
@@ -90,66 +91,83 @@ void interruptionListener( void *inUserData, UInt32 inInterruption)
 {
 	printf("Session interrupted! --- %s ---\n", inInterruption == kAudioSessionBeginInterruption ? "Begin Interruption" : "End Interruption");
 
-    /*
 	if ( inInterruption == kAudioSessionBeginInterruption ) {
 		printf("Audio interrupted.\n" );
 		iphonePauseMusic();			
 		alcMakeContextCurrent( NULL );
-		AudioSessionSetActive( false );
+        NSError* error = nil;
+		[[AVAudioSession sharedInstance] setActive:YES error:&error];
+        if( error != nil ) {
+            NSLog(@"%@", error);
+        }
+        //JDS deprecated AudioSessionSetActive( false );
 	} else if ( inInterruption == kAudioSessionEndInterruption ) {
 		printf("Audio restored.\n" );
 		
-		OSStatus r = AudioSessionSetActive( true );
-		if ( r != kAudioSessionNoError ) {
-			printf( "AudioSessionSetActive( true ) failed: 0x%x\n", (unsigned int)r );
-		} else {
-			printf( "AudioSessionSetActive( true ) succeeded.\n" );
-		}
+        NSError* error = nil;
+		// JDS deprecated OSStatus r = AudioSessionSetActive( true );
+        [[AVAudioSession sharedInstance] setActive:YES error:&error];
+        if( error != nil ) {
+            NSLog(@"%@", error);
+        }
 		alcMakeContextCurrent( Context );
 		if( alcGetError( Device ) != ALC_NO_ERROR ) {
 			Com_Error( "Failed to alcMakeContextCurrent\n" );
 		}
 		iphoneResumeMusic();
 	}
-    */
 
 }
 
-void Sound_Init( void ) {
+void Sound_Init(void) {
 
 	Com_Printf( "\n------- Sound Initialization -------\n" );
 	
-	s_sfxVolume		= Cvar_Get( "s_sfxVolume", "1.0", 0 );
+    s_sfxVolume		= Cvar_Get( "s_sfxVolume", "1.0", static_cast<CVARFlags>(0) );
 	
 	Cmd_AddCommand( "play", Sound_Play_f );
 	
 	// make sure background ipod music mixes with our sound effects
 	Com_Printf( "...Initializing AudioSession\n" );
    
-     /*JDS FIXME
-	OSStatus status = 0;
+	//OSStatus status = 0;
     
    
-     status = AudioSessionInitialize(NULL, NULL, interruptionListener, NULL);	// else "couldn't initialize audio session"
+    /* JDS FIXME [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptionListener:)
+                                                 name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
+     */
+     // JDS deprecated status = AudioSessionInitialize(NULL, NULL, interruptionListener, NULL);	// else "couldn't initialize audio session"
 
     // if there is iPod music playing in the background, we want to use
 	// the AmbientSound catagory, otherwise we will leave it at the default.
 	// If we always set it to AmbientSound, then the mp3 background music
 	// playback goes to software on 3.0 for a huge slowdown.
-	UInt32  propOtherAudioIsPlaying = kAudioSessionProperty_OtherAudioIsPlaying;
-	UInt32  size = sizeof( otherAudioIsPlaying );
+	UInt32 otherAudioIsPlaying = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+    //JDS deprecated UInt32  propOtherAudioIsPlaying = kAudioSessionProperty_OtherAudioIsPlaying;
+	//JDS deprecated UInt32  size = sizeof( otherAudioIsPlaying );
     //AudioServicesGetProperty( propOtherAudioIsPlaying, &size, &otherAudioIsPlaying );
-    
     
 	Com_Printf("OtherAudioIsPlaying = %d\n", otherAudioIsPlaying );
 	
 	if ( otherAudioIsPlaying ) {
-		UInt32 audioCategory = kAudioSessionCategory_AmbientSound;
-		status = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(audioCategory), &audioCategory);
+		//UInt32 audioCategory = kAudioSessionCategory_AmbientSound;
+        
+        NSError *error = nil;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+        
+        if( error != nil ) {
+            NSLog(@"%@", error);
+        }
+
+		//status = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(audioCategory), &audioCategory);
 	}
 	
-	status = AudioSessionSetActive(true);                                       // else "couldn't set audio session active\n"	
-	*/
+    NSError* error = nil;
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
+    if( error != nil ) {
+        NSLog(@"%@", error);
+    }
+	//JDS deprecated status = AudioSessionSetActive(true);                                       // else "couldn't set audio session active\n"
     
 	Com_Printf( "...Initializing OpenAL subsystem\n" );
 	
@@ -212,7 +230,7 @@ void ShowSound() {
 		if ( v > 255 ) {
 			v = 255;
 		}
-		color4_t color = { v, v, v, 255 };
+        color4_t color = { static_cast<unsigned char>(v), static_cast<unsigned char>(v), static_cast<unsigned char>(v), 255 };
 		R_Draw_Fill( i*16, 0, 12, 12, color );		
 	}
 }
@@ -289,7 +307,6 @@ boolean I_SoundIsPlaying(long int handle) {
 	}
 	int state;
     
-    //FIXME: JDS: Channel not always valid.
 	alGetSourcei( ch->sourceName, AL_SOURCE_STATE, &state );
 	
 	return state == AL_PLAYING;

@@ -1507,6 +1507,7 @@ OSStatus  SoundEngine_Initialize(Float32 inMixerOutputRate)
 
 	if( !isInitialized ) 
 	{
+        printf("WARNING! Sound engine was not initialized!\n");
  		//FIXME: JadingTsunami (fix) AudioSessionInitialize( NULL, NULL, interruptionCallback, NULL );
 //		UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
 //		AudioSessionSetProperty( kAudioSessionProperty_AudioCategory, sizeof( sessionCategory ), &sessionCategory );

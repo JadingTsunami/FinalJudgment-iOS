@@ -119,6 +119,7 @@
 		D05ECE751FC2A73F0086978C /* spritx.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE741FC2A73F0086978C /* spritx.wad */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
+		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		EDD2760911C2B19E004A9B9B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
@@ -292,6 +293,7 @@
 				3DF31FA3148C336400C66CD7 /* libdoomengine.a in Frameworks */,
 				43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */,
 				4333CCE80F5CC23E00AE2B6F /* AudioToolbox.framework in Frameworks */,
+				D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */,
 				720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */,
 				EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */,
 				EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */,
