@@ -2229,6 +2229,7 @@ void P_PlayerInSpecialSector (player_t* player)
       case 9:
         // Tally player in secret sector, clear secret special
         player->secretcount++;
+        player->message = s_GOTSECRET;
         sector->special = 0;
         break;
 

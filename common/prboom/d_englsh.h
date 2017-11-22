@@ -97,6 +97,8 @@
 #define GOTYELWSKUL "Picked up a yellow skull key."
 #define GOTREDSKULL "Picked up a red skull key."
 
+#define GOTSECRET   "Secret found."
+
 #define GOTINVUL    "Invulnerability!"
 #define GOTBERSERK  "Berserk!"
 #define GOTINVIS    "Partial Invisibility"

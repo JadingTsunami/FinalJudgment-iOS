@@ -169,6 +169,7 @@ const char *s_GOTREDCARD  = GOTREDCARD;
 const char *s_GOTBLUESKUL = GOTBLUESKUL;
 const char *s_GOTYELWSKUL = GOTYELWSKUL;
 const char *s_GOTREDSKULL = GOTREDSKULL;
+const char *s_GOTSECRET   = GOTSECRET;
 const char *s_GOTINVUL    = GOTINVUL;
 const char *s_GOTBERSERK  = GOTBERSERK;
 const char *s_GOTINVIS    = GOTINVIS;
@@ -508,6 +509,7 @@ static const deh_strs deh_strlookup[] = {
   {&s_GOTBLUESKUL,"GOTBLUESKUL"},
   {&s_GOTYELWSKUL,"GOTYELWSKUL"},
   {&s_GOTREDSKULL,"GOTREDSKULL"},
+  {&s_GOTSECRET,"GOTSECRET"},
   {&s_GOTINVUL,"GOTINVUL"},
   {&s_GOTBERSERK,"GOTBERSERK"},
   {&s_GOTINVIS,"GOTINVIS"},
