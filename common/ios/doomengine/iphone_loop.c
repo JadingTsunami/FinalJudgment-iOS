@@ -447,7 +447,7 @@ boolean HandleButton( ibutton_t *button ) {
         }
         float textScale = 0.75f;
 		float	length = (StringFontWidth( button->title ) * textScale);
-		float	x = button->x + (button->drawWidth/2) - (length/2);
+		float	x = button->x + (button->drawWidth/2) - (length*yScale/2);
 		// don't push the text off the edge of the screen
 		if ( x < 0 ) {
 			x = 0;
@@ -555,98 +555,6 @@ glEnd();
 return fx - x;
 }
 
-
-/*
-float iphoneDrawText( float x, float y, float scale, const char *str ) {
-    
-
-    float xScale = (float)displayheight/displaywidth;
-    float yScale = (float)displaywidth/displayheight;
-    
-	float	fx = x;
-	float	fy = y;
-    
-	PK_BindTexture( arialFontTexture );
-	glBegin( GL_QUADS );
-	
-    const char* strorig = str;
-    
-    int trials = 5;
-    
-    for( int j = 0; j < trials; j++ ) {
-        str = strorig;
-        fx = x;
-        fy = y;
-        int first = 0;
-        fy += 64*j; // move drawing down a bit
-        while ( *str ) {
-            int i = *str;
-            if ( i >= ' ' && i < 128 ) {
-                // changed to j to write out the experiment number
-                GlyphRect *glyph = &glyphRects[('0'+j)-32];
-                
-                if( first == 0 ) {
-                    first = 1;
-                } else {
-                    glyph = &glyphRects[i-32];
-                }
-                
-                // the glyphRects don't include the shadow outline
-                float	x0 = ( glyph->x0 - 1 ) / 256.0;
-                float	y0 = ( glyph->y0 - 1 ) / 256.0;
-                float	x1 = ( glyph->x1 + 2 ) / 256.0;
-                float	y1 = ( glyph->y1 + 2 ) / 256.0;
-                
-                float	width = ( x1 - x0 ) * 256 * scale;
-                float	height = ( y1 - y0 ) * 256 * scale;
-                
-                float	xoff = ( glyph->xoff - 1 ) * scale;
-                float	yoff = ( glyph->yoff - 1 ) * scale;
-                
-                if( j == 0 ) {
-                    height *= xScale;
- 
-                } else if( j == 1 ) {
-                    height *= xScale;
-                    yoff *= xScale;
-                } else if( j == 2 ) {
-                    height *= yScale;
-                    yoff *= yScale;
-                } else if( j == 3 ) {
-                    width *= xScale;
-                    xoff *= xScale;
-                } else if( j == 4 ) {
-                    height *= xScale;
-                    width *= yScale;
-                    xoff *= yScale;
-                    yoff *= xScale;
-                }
-                
-                glTexCoord2f( x0, y0 );
-                glVertex2f( fx + xoff, fy + yoff );
-                
-                glTexCoord2f( x1, y0 );
-                glVertex2f( fx + xoff + width, fy + yoff );
-                
-                glTexCoord2f( x1, y1 );
-                glVertex2f( fx + xoff + width, fy + yoff + height );
-                
-                glTexCoord2f( x0, y1 );
-                glVertex2f( fx + xoff, fy + yoff + height );
-                
-                // with our default texture, the difference is negligable
-                fx += glyph->xadvance * scale;
-                //			fx += ceil(glyph->xadvance);	// with the outline, ceil is probably the right thing
-            }
-            str++;
-        }
-    }
-    
-	glEnd();
-	
-	return fx - x;
-}
-*/
 
 /*
  ==================
