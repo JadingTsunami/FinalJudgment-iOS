@@ -120,6 +120,7 @@
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
+		D08D08511FC51920003F09CB /* music in Resources */ = {isa = PBXBuildFile; fileRef = D08D08501FC51920003F09CB /* music */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		EDD2760911C2B19E004A9B9B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
@@ -276,6 +277,7 @@
 		D080FADE1FC0BCB000E71FF7 /* libprboom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprboom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D08D08501FC51920003F09CB /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; name = music; path = ../../base/music; sourceTree = "<group>"; };
 		EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDD2760611C2B19E004A9B9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDD2760811C2B19E004A9B9B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -354,6 +356,7 @@
 		29B97317FDCFA39411CA2CEA /* App Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D08D08501FC51920003F09CB /* music */,
 				138FC9C617F2165D00D94C5F /* base.iPack */,
 				138FC9C717F2165D00D94C5F /* doom.wad */,
 				D05ECE641FC2992F0086978C /* doom2.wad */,
@@ -720,6 +723,7 @@
 				C87930E513F5EC1B003D834F /* Episode1Background_Highlighted.png in Resources */,
 				132AC2E21802F15C00884E11 /* LegalMenuViewi5.xib in Resources */,
 				C87930E613F5EC1B003D834F /* Episode2Background_Highlighted.png in Resources */,
+				D08D08511FC51920003F09CB /* music in Resources */,
 				C87930E713F5EC1B003D834F /* Episode3Background_Highlighted.png in Resources */,
 				C87930E813F5EC1B003D834F /* Episode4Background_Highlighted.png in Resources */,
 				132AC2E01802F15C00884E11 /* CreditsMenuViewi5.xib in Resources */,

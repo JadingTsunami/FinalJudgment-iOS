@@ -79,6 +79,28 @@ static ALCdevice *Device;
         case AVAudioSessionInterruptionTypeEnded:
             printf("Audio restored.\n" );
             
+            UInt32 otherAudioIsPlaying = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+            Com_Printf("OtherAudioIsPlaying = %d\n", otherAudioIsPlaying );
+            
+            // If other audio is playing now, switch to the Ambient category so it
+            // can continue in the background. If not, use the default category.
+            if ( otherAudioIsPlaying ) {
+                
+                NSError *error = nil;
+                [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+                
+                if( error != nil ) {
+                    NSLog(@"%@", error);
+                }
+
+            } else {
+                NSError *error = nil;
+                [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
+                
+                if( error != nil ) {
+                    NSLog(@"%@", error);
+                }
+            }
 
             [[AVAudioSession sharedInstance] setActive:YES error:&error];
             if( error != nil ) {
