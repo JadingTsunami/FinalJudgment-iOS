@@ -447,7 +447,7 @@ boolean HandleButton( ibutton_t *button ) {
         }
         float textScale = 0.75f;
 		float	length = (StringFontWidth( button->title ) * textScale);
-		float	x = button->x + (button->drawWidth/2)*xScale - (length/2)*xScale;
+		float	x = button->x + (button->drawWidth/2) - (length/2);
 		// don't push the text off the edge of the screen
 		if ( x < 0 ) {
 			x = 0;
@@ -502,12 +502,12 @@ float	StringFontWidth( const char *str ) {
  */
 float iphoneDrawText( float x, float y, float scale, const char *str ) {
     
-	float	fx = x;
-	float	fy = y;
-
     /* JDS test */
     //float xScale = (float)displayheight/displaywidth;
     //float yScale = (float)displaywidth/displayheight;
+    
+	float	fx = x;
+	float	fy = y;
     
 	PK_BindTexture( arialFontTexture );
 	glBegin( GL_QUADS );

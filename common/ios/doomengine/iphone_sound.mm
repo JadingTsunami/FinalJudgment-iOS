@@ -62,7 +62,7 @@ static ALCdevice *Device;
     NSInteger interruptionType = [[interruptionDict valueForKey:AVAudioSessionInterruptionTypeKey] integerValue];
     printf("Session interrupted! --- %s ---\n", interruptionType == AVAudioSessionInterruptionTypeBegan ? "Begin Interruption" : "End Interruption");
     
-    
+    /* JDS Log interruption for now but don't do anything with it yet
     NSError* error = nil;
     switch (interruptionType) {
         case AVAudioSessionInterruptionTypeBegan:
@@ -71,9 +71,30 @@ static ALCdevice *Device;
             alcMakeContextCurrent( NULL );
             
             [[AVAudioSession sharedInstance] setActive:NO error:&error];
-            if( error != nil ) {
-                NSLog(@"%@", error);
+            
+            UInt32 otherAudioIsPlaying = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+            Com_Printf("OtherAudioIsPlaying = %d\n", otherAudioIsPlaying );
+            
+            // If other audio is playing now, switch to the Ambient category so it
+            // can continue in the background. If not, use the default category.
+            if ( otherAudioIsPlaying ) {
+                
+                NSError *error = nil;
+                [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+                
+                if( error != nil ) {
+                    NSLog(@"%@", error);
+                }
+                
+            } else {
+                NSError *error = nil;
+                [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
+                
+                if( error != nil ) {
+                    NSLog(@"%@", error);
+                }
             }
+
             break;
             
         case AVAudioSessionInterruptionTypeEnded:
@@ -112,6 +133,7 @@ static ALCdevice *Device;
             }
             iphoneResumeMusic();
     }
+     */
 }
 @end
 
@@ -194,10 +216,12 @@ void Sound_Init(void) {
     //AudioServicesGetProperty( propOtherAudioIsPlaying, &size, &otherAudioIsPlaying );
     
 	Com_Printf("OtherAudioIsPlaying = %d\n", otherAudioIsPlaying );
-	
-	if ( otherAudioIsPlaying ) {
+    
+    // JDS FIXME
+	if ( 1 ) {
 		//UInt32 audioCategory = kAudioSessionCategory_AmbientSound;
         
+        // Allow sound to play in the background
         NSError *error = nil;
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
         
