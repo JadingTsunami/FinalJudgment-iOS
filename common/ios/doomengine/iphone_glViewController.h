@@ -33,4 +33,9 @@
 - (void) StopDisplay;
 - (bool) IsDisplaying;
 
+// JDS revised orientation code
+-(BOOL)shouldAutorotate;
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation;
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations;
+
 @end
