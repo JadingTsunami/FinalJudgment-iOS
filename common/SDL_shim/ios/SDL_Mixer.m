@@ -243,7 +243,7 @@ AudioStreamBasicDescription getStreamFormat( void ) {
     // Fill the application audio format struct's fields to define a linear PCM, 
     //        stereo, noninterleaved stream at the hardware sample rate.
     streamFormat.mFormatID          = kAudioFormatLinearPCM;
-    streamFormat.mFormatFlags       = kAudioFormatFlagIsFloat;
+    streamFormat.mFormatFlags       = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked | kAudioFormatFlagIsNonInterleaved | (kAudioUnitSampleFractionBits << kLinearPCMFormatFlagsSampleFractionShift);
     streamFormat.mBytesPerPacket    = (UInt32) bytesPerSample;
     streamFormat.mFramesPerPacket   = 1;
     streamFormat.mBytesPerFrame     = (UInt32) bytesPerSample;
