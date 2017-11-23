@@ -468,20 +468,21 @@ void iphoneWadSelect( const char* iwad, const char* pwad  ) {
     
     if( full_iwad[0] == '\0' ) {
         // fall back to vanilla Doom IWAD.
-        // JDS fixme: Reset cvar also?
+        
         I_FindFile( "doom.wad", ".wad", full_iwad );
-    } else {
-        Cvar_Set( "iwadSelection", iwad );
+        iwad = "doom.wad";
     }
     
     // if PWAD is not found, skip it.
     // Must set variable too, in case we're only loading an iwad
     if( full_pwad[0] == '\0' || strcmp( pwad, "" ) == 0 ) {
-        Cvar_Set( "pwadSelection", "" );
         iphoneDoomStartup( full_iwad, NULL );
+        Cvar_Set( "iwadSelection", iwad );
+        Cvar_Set( "pwadSelection", "" );
     } else {
-        Cvar_Set( "pwadSelection", pwad );
         iphoneDoomStartup( full_iwad, full_pwad );
+        Cvar_Set( "iwadSelection", iwad );
+        Cvar_Set( "pwadSelection", pwad );
     }
 }
 
