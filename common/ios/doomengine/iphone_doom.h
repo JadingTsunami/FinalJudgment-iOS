@@ -156,6 +156,9 @@ extern cvar_t	*throttle;
 extern cvar_t	*centerSticks;
 extern cvar_t	*rampTurn;
 extern cvar_t	*netBuffer;
+extern cvar_t   *iwadSelection;
+extern cvar_t   *pwadSelection;
+    
 
 extern int	numTouches;
 extern int	touches[5][2];	// [0] = x, [1] = y in landscape mode, raster order with y = 0 at top
@@ -540,6 +543,7 @@ void iphonePlayMusic( const char *name );
 void iphonePauseMusic();
 void iphoneResumeMusic();
 void iphoneDoomStartup( const char * iwad, const char * pwad );
+void iphoneWadSelect( const char* iwad, const char* pwad  );
 void iphoneLoadMissionPack(void);
 void iphoneAddPWADFiles(void);
 	

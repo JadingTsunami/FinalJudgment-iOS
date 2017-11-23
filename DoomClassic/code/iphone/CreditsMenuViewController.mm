@@ -96,50 +96,39 @@
 
 
 - (IBAction)loadDoomIwad:(id)sender {
-
-    char full_iwad[1024];
-    I_FindFile( "doom.wad", ".wad", full_iwad );
     
-    iphoneDoomStartup( full_iwad, NULL );
+    iphoneWadSelect("doom.wad",NULL);
+
 }
 
 - (IBAction)loadDoom2Iwad:(id)sender {
-    char full_iwad[1024];
-    I_FindFile( "doom2.wad", ".wad", full_iwad );
     
-    iphoneDoomStartup( full_iwad, NULL );
+    iphoneWadSelect("doom2.wad",NULL);
+    
 }
 
 - (IBAction)loadTNTIwad:(id)sender {
-    char full_iwad[1024];
-    I_FindFile( "tnt.wad", ".wad", full_iwad );
     
-    iphoneDoomStartup( full_iwad, NULL );
+    iphoneWadSelect("tnt.wad",NULL);
+    
 }
 
 - (IBAction)loadPlutoniaIwad:(id)sender {
     
-    char full_iwad[1024];
-    I_FindFile( "plutonia.wad", ".wad", full_iwad );
+    iphoneWadSelect("plutonia.wad",NULL);
     
-    iphoneDoomStartup( full_iwad, NULL );
 }
 
 - (IBAction)xmasPwadOn:(id)sender {
     
-    char full_iwad[1024];
-    char full_pwad[1024];
-    I_FindFile( "spritx.wad", ".wad", full_pwad );
-    I_FindFile( "tnt.wad", ".wad", full_iwad );
-    
-    iphoneDoomStartup( full_iwad, full_pwad );
+    iphoneWadSelect("tnt.wad","spritx.wad");
+
 }
 
 - (IBAction)xmasPwadOff:(id)sender {
     
-    char full_iwad[1024];
-    I_FindFile( "plutonia.wad", ".wad", full_iwad );
-    iphoneDoomStartup( full_iwad, NULL );
+    iphoneWadSelect("plutonia.wad","spritx.wad");
+
 }
 
 

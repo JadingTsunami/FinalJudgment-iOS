@@ -232,6 +232,8 @@ cvar_t	*throttle;
 cvar_t	*centerSticks;
 cvar_t	*rampTurn;
 cvar_t	*netBuffer;
+cvar_t   *iwadSelection;
+cvar_t   *pwadSelection;
 
 #define VERSION_BCONFIG	( 0x89490000 + sizeof( huds ) + sizeof( playState ) )
 
@@ -370,6 +372,10 @@ void iphoneStartup() {
 	mpMap = Cvar_Get( "mpMap", "1", CVAR_ARCHIVE );
 	mpExpansion = Cvar_Get( "mpExpansion", "0", CVAR_ARCHIVE | CVAR_NOSET );
 	
+    // WADs to load
+    iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+    pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
+    
 	// debug tools
 	showTilt = Cvar_Get( "showTilt", "-1", 0 );
 	showTime = Cvar_Get( "showTime", "0", 0 );
@@ -448,6 +454,39 @@ void iphoneStartup() {
 
 /*
  ==================
+ iphoneWadSelect
+ 
+ Apply WAD file selection
+ ==================
+*/
+void iphoneWadSelect( const char* iwad, const char* pwad  ) {
+    char full_iwad[1024];
+    char full_pwad[1024];
+    
+    I_FindFile( iwad, ".wad", full_iwad );
+    I_FindFile( pwad, ".wad", full_pwad );
+    
+    if( full_iwad[0] == '\0' ) {
+        // fall back to vanilla Doom IWAD.
+        // JDS fixme: Reset cvar also?
+        I_FindFile( "doom.wad", ".wad", full_iwad );
+    } else {
+        Cvar_Set( "iwadSelection", iwad );
+    }
+    
+    // if PWAD is not found, skip it.
+    // Must set variable too, in case we're only loading an iwad
+    if( full_pwad[0] == '\0' ) {
+        Cvar_Set( "pwadSelection", "" );
+        iphoneDoomStartup( full_iwad, NULL );
+    } else {
+        Cvar_Set( "pwadSelection", pwad );
+        iphoneDoomStartup( full_iwad, full_pwad );
+    }
+}
+
+/*
+ ==================
  iphoneDoomSetup
  
  Run the Doom game setup functions. This was made seperate from iphoneStartup so that the user
@@ -456,6 +495,7 @@ void iphoneStartup() {
  */
 void iphoneDoomStartup( const char * iwad, const char * pwad ) {
 	Com_Printf( "---------- D_DoomMain ----------\n" );
+    
 	D_DoomMainSetup( iwad, pwad );
 	
 	// put savegames here

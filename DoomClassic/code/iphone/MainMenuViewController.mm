@@ -46,10 +46,23 @@
 - (void)awakeFromNib {
     isHidden = YES;
     
-    char full_iwad[1024]; 
-    I_FindFile( "doom.wad", ".wad", full_iwad );
-	
-	iphoneDoomStartup( full_iwad, NULL );
+    char full_iwad[1024];
+    char full_pwad[1024];
+    
+    char* iwad_name = Cvar_VariableString("iwadSelection");
+    char* pwad_name = Cvar_VariableString("pwadSelection");
+    
+    
+    I_FindFile( iwad_name, ".wad", full_iwad );
+	I_FindFile( pwad_name, ".wad", full_pwad );
+    
+    // if PWAD is not found, skip it.
+    if( full_pwad[0] == '\0' || strcmp( pwad_name, "" ) == 0 ) {
+        iphoneDoomStartup( full_iwad, NULL );
+    } else {
+        iphoneDoomStartup( full_iwad, full_pwad );
+    }
+    
 }
 
 /*
