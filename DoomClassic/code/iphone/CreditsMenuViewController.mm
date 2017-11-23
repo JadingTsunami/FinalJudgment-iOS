@@ -121,13 +121,15 @@
 
 - (IBAction)xmasPwadOn:(id)sender {
     
-    iphoneWadSelect("tnt.wad","spritx.wad");
+    const char* iwad = Cvar_VariableString("iwadSelection");
+    iphoneWadSelect(iwad,"spritx.wad");
 
 }
 
 - (IBAction)xmasPwadOff:(id)sender {
     
-    iphoneWadSelect("plutonia.wad","spritx.wad");
+    const char* iwad = Cvar_VariableString("iwadSelection");
+    iphoneWadSelect(iwad,"");
 
 }
 

@@ -476,7 +476,7 @@ void iphoneWadSelect( const char* iwad, const char* pwad  ) {
     
     // if PWAD is not found, skip it.
     // Must set variable too, in case we're only loading an iwad
-    if( full_pwad[0] == '\0' ) {
+    if( full_pwad[0] == '\0' || strcmp( pwad, "" ) == 0 ) {
         Cvar_Set( "pwadSelection", "" );
         iphoneDoomStartup( full_iwad, NULL );
     } else {
