@@ -31,8 +31,11 @@
     IBOutlet UIScrollView *     scrollView;
     IBOutlet UILabel *          lastItem;
     
+    IBOutlet UILabel *iwadLabel;
+    IBOutlet UILabel *pwadLabel;
 }
 
 - (IBAction) BackToMain;
+- (void) updateWadLabels;
 
 @end

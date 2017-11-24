@@ -64,11 +64,18 @@
     
     if( scrollView != nil ) {
         
+        [self updateWadLabels];
+        
         [scrollView setContentSize:CGSizeMake(
                                               scrollView.bounds.size.width,
                                               CGRectGetMaxY(lastItem.frame)
                                               )];
     }
+}
+
+- (void)updateWadLabels {
+    iwadLabel.text = [NSString stringWithUTF8String:Cvar_VariableString("iwadSelection")];
+    pwadLabel.text = [NSString stringWithUTF8String:Cvar_VariableString("pwadSelection")];
 }
 
 /*
@@ -98,24 +105,28 @@
 - (IBAction)loadDoomIwad:(id)sender {
     
     iphoneWadSelect("doom.wad",NULL);
+    [self updateWadLabels];
 
 }
 
 - (IBAction)loadDoom2Iwad:(id)sender {
     
     iphoneWadSelect("doom2.wad",NULL);
+    [self updateWadLabels];
     
 }
 
 - (IBAction)loadTNTIwad:(id)sender {
     
     iphoneWadSelect("tnt.wad",NULL);
+    [self updateWadLabels];
     
 }
 
 - (IBAction)loadPlutoniaIwad:(id)sender {
     
     iphoneWadSelect("plutonia.wad",NULL);
+    [self updateWadLabels];
     
 }
 
@@ -123,6 +134,7 @@
     
     const char* iwad = Cvar_VariableString("iwadSelection");
     iphoneWadSelect(iwad,"spritx.wad");
+    [self updateWadLabels];
 
 }
 
@@ -130,8 +142,14 @@
     
     const char* iwad = Cvar_VariableString("iwadSelection");
     iphoneWadSelect(iwad,"");
+    [self updateWadLabels];
 
 }
 
 
+- (void)dealloc {
+    [pwadLabel release];
+    [iwadLabel release];
+    [super dealloc];
+}
 @end
