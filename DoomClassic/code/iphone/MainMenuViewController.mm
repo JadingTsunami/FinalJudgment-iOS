@@ -461,15 +461,18 @@
  */
 - (void) ShowExtrasBanner {
     
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: NO ];
+    Doom_CreditsMenuViewController *vc = nil;
     
-    [ mExtrasSubMenu Show ];
-    [ mPlaySubMenu Hide ];
-    [ mSettingsSubMenu Hide ];
-    [ mAboutSubMenu Hide ];
+    if ( IS_IPHONE_5 ) {
+        vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuViewi5" bundle:nil];
+    } else {
+        vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuView" bundle:nil];
+    }
+    
+    [self.navigationController pushViewController:vc animated:NO];
+    [vc release];
+    
+    Sound_StartLocalSound( "iphone/baborted_01.wav" );
 }
 
 
