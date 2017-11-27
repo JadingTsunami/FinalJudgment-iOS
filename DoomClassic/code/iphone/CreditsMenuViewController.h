@@ -29,13 +29,15 @@
 @interface Doom_CreditsMenuViewController : UIViewController {
     
     IBOutlet UIScrollView *     scrollView;
-    IBOutlet UILabel *          lastItem;
     
     IBOutlet UILabel *iwadLabel;
     IBOutlet UILabel *pwadLabel;
+    IBOutlet UIScrollView *pwadScroller;
 }
 
 - (IBAction) BackToMain;
 - (void) updateWadLabels;
+- (void) updatePwadList;
+- (IBAction)pwadButtonPressed:(id)sender;
 
 @end

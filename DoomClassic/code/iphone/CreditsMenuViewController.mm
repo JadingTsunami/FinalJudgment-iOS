@@ -66,16 +66,49 @@
         
         [self updateWadLabels];
         
-        [scrollView setContentSize:CGSizeMake(
-                                              scrollView.bounds.size.width,
-                                              CGRectGetMaxY(lastItem.frame)
-                                              )];
+        [self updatePwadList];
+        
     }
 }
 
 - (void)updateWadLabels {
     iwadLabel.text = [NSString stringWithUTF8String:Cvar_VariableString("iwadSelection")];
-    pwadLabel.text = [NSString stringWithUTF8String:Cvar_VariableString("pwadSelection")];
+    NSString *pwadfile = [[NSString stringWithUTF8String:Cvar_VariableString("pwadSelection")] lastPathComponent];
+    pwadLabel.text = pwadfile;
+}
+
+- (void)updatePwadList {
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSArray *dirFiles = [filemgr contentsOfDirectoryAtPath:documentsDirectory error:nil];
+    
+    UIButton *button;
+    int y = 5;
+    for (id dir in dirFiles) {
+        
+        NSString *value = (NSString *)dir;
+        
+        if ([[value pathExtension] caseInsensitiveCompare:@"wad"]==NSOrderedSame){
+            button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [button setTitle:value forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
+            [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+        
+            button.frame = CGRectMake(15, y, 270, 22.0);
+            [pwadScroller addSubview:button];
+            y += 25;
+        }
+    }
+    
+    [pwadScroller setContentSize:CGSizeMake(
+                                            pwadScroller.bounds.size.width,
+                                            CGRectGetMaxY(button.frame)
+                                            )];
+
 }
 
 /*
@@ -146,6 +179,16 @@
 
 }
 
+- (IBAction)pwadButtonPressed:(id)sender {
+    const char* iwad = Cvar_VariableString("iwadSelection");
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
+    printf("PWAD: %s\n", [full_pwad UTF8String]);
+    iphoneWadSelect(iwad,[full_pwad UTF8String]);
+    [self updateWadLabels];
+}
 
 - (void)dealloc {
     [pwadLabel release];

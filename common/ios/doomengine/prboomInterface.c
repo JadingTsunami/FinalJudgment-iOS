@@ -78,8 +78,8 @@ boolean HasTrailingSlash(const char* dn)
 }
 
 void I_FindFile(const char* wfname, const char* ext, char * returnFileName )
-{	
-	sprintf( returnFileName, "%s/%s", SysIphoneGetAppDir(), wfname );
+{
+    sprintf( returnFileName, "%s/%s", SysIphoneGetAppDir(), wfname );
 	if (access(returnFileName,F_OK))
 		strcat(returnFileName, ext);	// try adding the extension
 	if (!access(returnFileName,F_OK)) {
@@ -88,6 +88,18 @@ void I_FindFile(const char* wfname, const char* ext, char * returnFileName )
         // Found the file.
         return;
 	}
+    
+    // JDS: try assuming it's a full path instead
+    sprintf( returnFileName, "%s", wfname );
+    if (access(returnFileName,F_OK))
+        strcat(returnFileName, ext);    // try adding the extension
+    if (!access(returnFileName,F_OK)) {
+        lprintf(LO_INFO, " found %s\n", returnFileName);
+        
+        // Found the file.
+        return;
+    }
+    
     // did not find the file.
     returnFileName[0] = '\0';
     lprintf(LO_INFO, " NOT found %s\n", wfname );
