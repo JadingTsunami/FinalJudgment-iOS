@@ -26,16 +26,24 @@
  
  ================================================================================================
  */
-@interface Doom_CreditsMenuViewController : UIViewController {
+@interface Doom_CreditsMenuViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> {
     
     IBOutlet UIScrollView *     scrollView;
     
     IBOutlet UILabel *iwadLabel;
     IBOutlet UILabel *pwadLabel;
     IBOutlet UIScrollView *pwadScroller;
+    IBOutlet UIPickerView *levelPicker;
+    IBOutlet UIPickerView *skillPicker;
+    
+    NSArray *skillLevels;
+    NSArray *doomEpisodes;
+    NSArray *doomLevels;
+    NSArray *doom2Levels;
 }
 
 - (IBAction) BackToMain;
+- (IBAction)playButtonPressed:(UIButton *)sender;
 - (void) updateWadLabels;
 - (void) updatePwadList;
 - (IBAction)pwadButtonPressed:(id)sender;
