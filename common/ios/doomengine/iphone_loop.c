@@ -924,11 +924,11 @@ void iphoneDrawRotorControl( ibutton_t *hud ) {
     float xScale = ((float)displaywidth)/((float)displayheight);
     float yScale = ((float)displayheight)/((float)displaywidth);
     
-	float	cx = (hud->x + hud->drawWidth / 2)*xScale;
-	float	cy = (hud->y + hud->drawHeight / 2)*yScale;
+    float	cx = (hud->x + hud->drawWidth / 2);
+	float	cy = (hud->y + hud->drawHeight / 2);
 	float	as = sin( hud->drawState );
 	float	ac = cos( hud->drawState );
-	float	sz = (hud->drawWidth / 2)*xScale;
+    float	sz = (hud->drawWidth / 2);
 	
 	float	xv[2] = { sz*ac, sz*as };
 	float	yv[2] = { -sz*as, sz*ac };
@@ -937,11 +937,18 @@ void iphoneDrawRotorControl( ibutton_t *hud ) {
 	
 	glBegin( GL_TRIANGLE_STRIP );
 	
-	glTexCoord2f( 0.0f, 0.0f );	glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
-	glTexCoord2f( tex->textureData->maxS, 0.0f );	glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
-	glTexCoord2f( 0.0f, tex->textureData->maxT );	glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
-	glTexCoord2f( tex->textureData->maxS, tex->textureData->maxT );	glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
-	
+	glTexCoord2f( 0.0f, 0.0f );	glVertex2f( (cx - xv[0] - yv[0])*xScale, (cy - xv[1] - yv[1])*yScale );
+	glTexCoord2f( tex->textureData->maxS, 0.0f );	glVertex2f( (cx + xv[0] - yv[0])*xScale, (cy + xv[1] - yv[1])*yScale );
+	glTexCoord2f( 0.0f, tex->textureData->maxT );	glVertex2f( (cx - xv[0] + yv[0])*xScale, (cy - xv[1] + yv[1])*yScale );
+	glTexCoord2f( tex->textureData->maxS, tex->textureData->maxT );	glVertex2f( (cx + xv[0] + yv[0])*xScale, (cy + xv[1] + yv[1])*yScale );
+
+    /*
+    glTexCoord2f( 0.0f, 0.0f );    glVertex2f( cx - xv[0] - yv[0], cy - xv[1] - yv[1] );
+    glTexCoord2f( tex->textureData->maxS, 0.0f );    glVertex2f( cx + xv[0] - yv[0], cy + xv[1] - yv[1] );
+    glTexCoord2f( 0.0f, tex->textureData->maxT );    glVertex2f( cx - xv[0] + yv[0], cy - xv[1] + yv[1] );
+    glTexCoord2f( tex->textureData->maxS, tex->textureData->maxT );    glVertex2f( cx + xv[0] + yv[0], cy + xv[1] + yv[1] );
+    */
+    
 	glEnd();
 }
 

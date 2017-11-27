@@ -53,7 +53,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Osz-fv-uUB">
-                            <rect key="frame" x="88" y="120" width="30" height="30"/>
+                            <rect key="frame" x="96" y="93" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="TNT"/>
                             <connections>
@@ -61,27 +61,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0qT-oL-eZc">
-                            <rect key="frame" x="179" y="120" width="56" height="30"/>
+                            <rect key="frame" x="179" y="93" width="56" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Plutonia"/>
                             <connections>
                                 <action selector="loadPlutoniaIwad:" destination="-1" eventType="touchUpInside" id="5u2-dy-PYE"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iii-DX-e6G">
-                            <rect key="frame" x="109" y="198" width="100" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="XmasPwad On"/>
-                            <connections>
-                                <action selector="xmasPwadOn:" destination="-1" eventType="touchUpInside" id="PVm-vb-bd5"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="giH-AM-DJ2">
-                            <rect key="frame" x="107" y="236" width="102" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="XmasPwad Off"/>
-                            <connections>
-                                <action selector="xmasPwadOff:" destination="-1" eventType="touchUpInside" id="cGa-Gj-MvA"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pwadLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxt-XY-kXk">
@@ -118,6 +102,22 @@
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="giH-AM-DJ2">
+                            <rect key="frame" x="179" y="127" width="102" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="XmasPwad Off"/>
+                            <connections>
+                                <action selector="xmasPwadOff:" destination="-1" eventType="touchUpInside" id="cGa-Gj-MvA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iii-DX-e6G">
+                            <rect key="frame" x="26" y="127" width="100" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="XmasPwad On"/>
+                            <connections>
+                                <action selector="xmasPwadOn:" destination="-1" eventType="touchUpInside" id="PVm-vb-bd5"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <connections>
                         <outlet property="delegate" destination="xxt-XY-kXk" id="gUE-Ry-pIE"/>
