@@ -128,7 +128,7 @@
 
 - (void)updateWadLabels {
     iwadLabel.text = [[NSString stringWithUTF8String:doom_iwad] lastPathComponent];
-    pwadLabel.text = [[NSString stringWithUTF8String:doom_pwads] lastPathComponent];
+    pwadLabel.text = [[[NSString stringWithUTF8String:doom_pwads] lastPathComponent] stringByReplacingOccurrencesOfString:@":" withString:@""];
     
     [levelPicker reloadAllComponents];
     [levelPicker selectRow:0 inComponent:0 animated:NO];
