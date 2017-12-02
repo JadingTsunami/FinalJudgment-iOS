@@ -413,8 +413,9 @@ void iphoneStartup() {
 			Com_Printf( "Binary config file bad version.\n" );
 		} else {
 			fread( &playState, 1, sizeof( playState ), f );
-            //JDS FIXME: Uncomment when hud code is ready
+            
             fread( &huds, 1, sizeof( huds ), f );
+
             //hud_t fakehuds;
             //fread( &fakehuds, 1, sizeof(fakehuds), f );
 

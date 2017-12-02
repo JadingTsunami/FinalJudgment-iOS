@@ -240,9 +240,18 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
-    printf("PWAD: %s\n", [full_pwad UTF8String]);
-    iphoneWadSelect(iwad,[full_pwad UTF8String]);
+    if( [(UIButton*)sender isSelected]) {
+        NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
+        [(UIButton*)sender setSelected:NO];
+        printf("PWAD: %s\n", [full_pwad UTF8String]);
+        // TODO: WAD remove iphoneWadSelect(iwad,[full_pwad UTF8String]);
+    } else {
+        NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
+        [(UIButton*)sender setSelected:YES];
+        printf("PWAD: %s\n", [full_pwad UTF8String]);
+        // TODO: WAD add
+        iphoneWadSelect(iwad,[full_pwad UTF8String]);
+    }
     [self updateWadLabels];
 }
 
