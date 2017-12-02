@@ -589,6 +589,66 @@ void iphoneClearPWADs() {
 
 /*
  ==================
+ iphoneSanitizePWADs
+ 
+ Ensure all PWADs from the current selection actually exist.
+ Useful when resuming from shutdown and checking for changed paths.
+ ==================
+ */
+void iphoneSanitizePWADs() {
+    if( strlen(doom_pwads) == 0 ) return;
+    char* pwad_local = strdup(doom_pwads);
+    if(!pwad_local) return;
+    
+    char* pwad_final = (char*)malloc( sizeof(char)*(1+strlen(doom_pwads)));
+    if(!pwad_final) {
+        free(pwad_local);
+        return;
+    }
+    
+    pwad_final[0] = '\0'; // start with blank string
+    char delim[2] = { PWAD_LIST_SEPARATOR, '\0' };
+    char* pwad = strtok(pwad_local, delim );
+    
+    while( pwad != NULL ) {
+        char pwad_path[1024] = { 0 };
+        char pwad_doc_path[1024];
+        char* pwad_file = strrchr(pwad,'/');
+        pwad_file++;
+        if( pwad_file ) {
+            strcpy( pwad_doc_path, SysIphoneGetDocDir() );
+            strcat( pwad_doc_path, "/" );
+            strcat( pwad_doc_path, pwad_file );
+            I_FindFile(pwad_doc_path,".wad",pwad_path);
+            
+            // try the app dir
+            if( !pwad_path || !*pwad_path ) {
+                strcpy( pwad_doc_path, SysIphoneGetAppDir() );
+                strcat( pwad_doc_path, "/" );
+                strcat( pwad_doc_path, pwad_file );
+                I_FindFile(pwad_doc_path,".wad",pwad_path);
+            }
+        }
+        
+        if( pwad_path && *pwad_path ) {
+            // keep this pwad
+            strcat(pwad_final, pwad_path);
+            strcat(pwad_final, delim);
+            Com_Printf("PWAD Retained: %s\n", pwad);
+        } else {
+            Com_Printf("PWAD Lost: %s\n", pwad);
+        }
+        
+        pwad = strtok( NULL, delim );
+    }
+   
+    if( doom_pwads ) free(doom_pwads);
+    doom_pwads = pwad_final;
+    free(pwad_local);
+}
+
+/*
+ ==================
  iphoneDoomSetup
  
  Run the Doom game setup functions. This was made seperate from iphoneStartup so that the user
@@ -607,6 +667,8 @@ void iphoneDoomStartup() {
         
         I_FindFile( "doom.wad", ".wad", full_iwad );
     }
+    
+    iphoneSanitizePWADs();
     
 	D_DoomMainSetup( full_iwad, doom_pwads );
     
