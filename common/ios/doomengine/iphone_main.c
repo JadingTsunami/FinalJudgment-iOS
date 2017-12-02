@@ -235,6 +235,9 @@ cvar_t	*netBuffer;
 cvar_t   *iwadSelection;
 cvar_t   *pwadSelection;
 
+char* doom_iwad;
+char* doom_pwads;
+
 #define VERSION_BCONFIG	( 0x89490000 + sizeof( huds ) + sizeof( playState ) )
 
 void Sys_Error( const char *format, ... )
@@ -391,6 +394,22 @@ void iphoneStartup() {
 	// load the archived cvars
 	Cmd_ExecuteFile( va( "%s/config.cfg", SysIphoneGetDocDir() ) );
 	
+    // Check if our WADs were bad last time.
+    {
+        FILE    *fp;
+        char    path[1024];
+        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        fp = fopen( path, "r" );
+        if( fp ) {
+            Cvar_Set( "iwadSelection", "doom.wad" );
+            Cvar_Set( "pwadSelection", "" );
+            // remove canary
+            if( remove(path) != 0 ) {
+                Com_Printf("Could not remove canary. This is bad!\n");
+            }
+        }
+    }
+    
 	// start the intro music if it wasn't disabled with the music cvar
 	iphonePlayMusic( "intro" );
 //	iphonePlayMusic( "e1m1" );
@@ -427,7 +446,6 @@ void iphoneStartup() {
 		}
 		fclose( f );
 	}
-
 	
 	Com_Printf( "startup time: %i msec\n", SysIphoneMilliseconds() - start );
 
@@ -460,12 +478,10 @@ void iphoneStartup() {
  Apply WAD file selection
  ==================
 */
-void iphoneWadSelect( const char* iwad, const char* pwad  ) {
+void iphoneIWADSelect( const char* iwad ) {
     char full_iwad[1024];
-    char full_pwad[1024];
     
     I_FindFile( iwad, ".wad", full_iwad );
-    I_FindFile( pwad, ".wad", full_pwad );
     
     if( full_iwad[0] == '\0' ) {
         // fall back to vanilla Doom IWAD.
@@ -474,17 +490,101 @@ void iphoneWadSelect( const char* iwad, const char* pwad  ) {
         iwad = "doom.wad";
     }
     
-    // if PWAD is not found, skip it.
-    // Must set variable too, in case we're only loading an iwad
-    if( full_pwad[0] == '\0' || strcmp( pwad, "" ) == 0 ) {
-        iphoneDoomStartup( full_iwad, NULL );
-        Cvar_Set( "iwadSelection", iwad );
-        Cvar_Set( "pwadSelection", "" );
+    if( doom_iwad ) free(doom_iwad);
+    
+    // IWAD is part of bundle, do NOT store 
+    doom_iwad = strdup( iwad );
+}
+
+/*
+ ==================
+ iphonePWADAdd
+ 
+ Add a PWAD file selection
+ ==================
+ */
+void iphonePWADAdd( const char* pwad  ) {
+    
+    char full_pwad[1024];
+    
+    I_FindFile( pwad, ".wad", full_pwad );
+    
+    if( full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
+        // +2, 1 for separator and 1 for null terminator
+        char* pwadlist = (char*)malloc( sizeof(char)*(strlen(doom_pwads)+strlen(full_pwad)+2) );
+        strcpy( pwadlist, doom_pwads);
+        strcat( pwadlist, full_pwad);
+        unsigned long len = strlen(pwadlist);
+        pwadlist[len] = PWAD_LIST_SEPARATOR;
+        pwadlist[len+1] = '\0';
+        if( doom_pwads ) free(doom_pwads);
+        doom_pwads = pwadlist;
+        Com_Printf("Added PWAD: %s (%s)\n", pwad, doom_pwads);
     } else {
-        iphoneDoomStartup( full_iwad, full_pwad );
-        Cvar_Set( "iwadSelection", iwad );
-        Cvar_Set( "pwadSelection", pwad );
+        Com_Printf("Failed to add PWAD: %s (%s)\n", pwad, doom_pwads);
     }
+    
+}
+
+/*
+ ==================
+ iphonePWADRemove
+ 
+ Remove a PWAD from the current selection
+ ==================
+ */
+void iphonePWADRemove( const char* pwad  ) {
+    char full_pwad[1024];
+    
+    I_FindFile( pwad, ".wad", full_pwad );
+    
+    char* pwadloc_start = strstr( doom_pwads, full_pwad );
+    char* pwadloc_end = strchr( pwadloc_start, PWAD_LIST_SEPARATOR );
+    
+    // if this is the only PWAD...
+    if( pwadloc_start == doom_pwads && pwadloc_end == (doom_pwads + (strlen(doom_pwads) - 1)) ) {
+        if( doom_pwads ) free(doom_pwads);
+        doom_pwads = strdup("");
+        Com_Printf("Removed only PWAD: %s (%s)\n", pwad, doom_pwads);
+    } else if( pwadloc_start && pwadloc_end && full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
+    
+        // remove pwad and its separator, hence +1
+        unsigned long i = 0;
+        unsigned long pwadlist_len = (strlen(doom_pwads)-(strlen(full_pwad)+1) );
+        char* pwadlist = (char*)malloc( sizeof(char)*pwadlist_len );
+        
+        char* pwadlocal = doom_pwads;
+        
+        
+        while( pwadlocal != pwadloc_start && i < pwadlist_len ) {
+            pwadlist[i++] = *pwadlocal++;
+        }
+        
+        pwadlocal = pwadloc_end+1; // advance past the separator
+        while( *pwadlocal && i < pwadlist_len ) {
+            pwadlist[i++] = *pwadlocal++;
+        }
+        
+        pwadlist[i] = '\0';
+        
+        if( doom_pwads ) free(doom_pwads);
+        doom_pwads = pwadlist;
+        Com_Printf("Removed PWAD: %s (%s)\n", pwad, doom_pwads);
+    } else {
+        Com_Printf("Failed to remove PWAD: %s (%X,%X %s)\n", pwad,pwadloc_start,pwadloc_end,doom_pwads);
+    }
+}
+
+/*
+ ==================
+ iphoneClearPWADs
+ 
+ Remove all PWADs from the current selection
+ ==================
+ */
+void iphoneClearPWADs() {
+    if( doom_pwads ) free(doom_pwads);
+    doom_pwads = strdup("");
 }
 
 /*
@@ -495,10 +595,29 @@ void iphoneWadSelect( const char* iwad, const char* pwad  ) {
  could select a mission pack first.
  ==================
  */
-void iphoneDoomStartup( const char * iwad, const char * pwad ) {
+void iphoneDoomStartup() {
 	Com_Printf( "---------- D_DoomMain ----------\n" );
     
-	D_DoomMainSetup( iwad, pwad );
+    char full_iwad[1024];
+    
+    I_FindFile( doom_iwad, ".wad", full_iwad );
+    
+    if( full_iwad[0] == '\0' ) {
+        // fall back to vanilla Doom IWAD.
+        
+        I_FindFile( "doom.wad", ".wad", full_iwad );
+    }
+    
+	D_DoomMainSetup( full_iwad, doom_pwads );
+    
+    // upon successful setup, save CVARs for future use
+    // ensure we never save a NULL string (this should never happen)
+    if( doom_pwads == NULL ) {
+        doom_pwads = strdup("");
+    }
+    
+    Cvar_Set( "iwadSelection", doom_iwad );
+    Cvar_Set( "pwadSelection", doom_pwads );
 	
 	// put savegames here
     strcpy( basesavegame, SysIphoneGetDocDir() );

@@ -127,9 +127,9 @@
 }
 
 - (void)updateWadLabels {
-    iwadLabel.text = [NSString stringWithUTF8String:Cvar_VariableString("iwadSelection")];
-    NSString *pwadfile = [[NSString stringWithUTF8String:Cvar_VariableString("pwadSelection")] lastPathComponent];
-    pwadLabel.text = pwadfile;
+    iwadLabel.text = [[NSString stringWithUTF8String:doom_iwad] lastPathComponent];
+    pwadLabel.text = [[NSString stringWithUTF8String:doom_pwads] lastPathComponent];
+    
     [levelPicker reloadAllComponents];
     [levelPicker selectRow:0 inComponent:0 animated:NO];
 }
@@ -154,8 +154,12 @@
             [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
             [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
-        
+            
+            if( [[NSString stringWithUTF8String:doom_pwads] rangeOfString:dir options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                [button setSelected:(YES)];
+            }
             button.frame = CGRectMake(15, y, 175, 22.0);
+            
             [pwadScroller addSubview:button];
             y += 25;
         }
@@ -193,50 +197,55 @@
 
 - (IBAction)loadDoomIwad:(id)sender {
     
-    iphoneWadSelect("doom.wad",NULL);
+    iphoneIWADSelect("doom.wad");
     [self updateWadLabels];
 
 }
 
 - (IBAction)loadDoom2Iwad:(id)sender {
     
-    iphoneWadSelect("doom2.wad",NULL);
+    iphoneIWADSelect("doom2.wad");
     [self updateWadLabels];
     
 }
 
 - (IBAction)loadTNTIwad:(id)sender {
     
-    iphoneWadSelect("tnt.wad",NULL);
+    iphoneIWADSelect("tnt.wad");
     [self updateWadLabels];
     
 }
 
 - (IBAction)loadPlutoniaIwad:(id)sender {
     
-    iphoneWadSelect("plutonia.wad",NULL);
+    iphoneIWADSelect("plutonia.wad");
     [self updateWadLabels];
     
 }
 
 - (IBAction)xmasPwadOn:(id)sender {
     
-    const char* iwad = Cvar_VariableString("iwadSelection");
-    iphoneWadSelect(iwad,"spritx.wad");
+    iphonePWADAdd("spritx.wad");
     [self updateWadLabels];
 
 }
 
-- (IBAction)xmasPwadOff:(id)sender {
+- (IBAction)clearPWADs:(id)sender {
     
-    const char* iwad = Cvar_VariableString("iwadSelection");
-    iphoneWadSelect(iwad,"");
+    iphoneClearPWADs();
+    
+    if ([[pwadScroller subviews] count] > 0) {
+        for( UIView* subview in [pwadScroller subviews]) {
+            if ([subview isKindOfClass:[UIButton class]]) {
+                [(UIButton*)subview setSelected:NO];
+            }
+        }
+    }
     [self updateWadLabels];
 
 }
 
 - (IBAction)pwadButtonPressed:(id)sender {
-    const char* iwad = Cvar_VariableString("iwadSelection");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
@@ -244,13 +253,12 @@
         NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
         [(UIButton*)sender setSelected:NO];
         printf("PWAD: %s\n", [full_pwad UTF8String]);
-        // TODO: WAD remove iphoneWadSelect(iwad,[full_pwad UTF8String]);
+        iphonePWADRemove([full_pwad UTF8String]);
     } else {
         NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
         [(UIButton*)sender setSelected:YES];
         printf("PWAD: %s\n", [full_pwad UTF8String]);
-        // TODO: WAD add
-        iphoneWadSelect(iwad,[full_pwad UTF8String]);
+        iphonePWADAdd([full_pwad UTF8String]);
     }
     [self updateWadLabels];
 }
@@ -270,6 +278,8 @@
     localStartmap.dataset = 0;
     localStartmap.skill = (int) [skillPicker selectedRowInComponent:0];
 
+    // load our selected IWAD and PWADs
+    iphoneDoomStartup();
     StartSinglePlayerGame( localStartmap );
     
     [ gAppDelegate ShowGLView ];

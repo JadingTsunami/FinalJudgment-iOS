@@ -36,6 +36,7 @@
 @public
     
     BOOL isHidden;
+    BOOL didInit;
 }
 
 - (void) Hide;

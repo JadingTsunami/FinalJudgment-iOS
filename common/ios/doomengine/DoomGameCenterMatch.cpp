@@ -142,7 +142,7 @@ void DoomGameCenterMatch::receivedDataImpl( std::string fromPlayerID, const void
 		
 		// check for game start in a received setup packet
 		if ( !netgame && setupPacket.startGame ) {
-			StartupWithCorrectWads( setupPacket.map.dataset );
+			//StartupWithCorrectWads( setupPacket.map.dataset );
 		
 			ShowGLView();
 		
@@ -206,7 +206,7 @@ void DoomGameCenterMatch::receivedDataImpl( std::string fromPlayerID, const void
 			// Got the join packet from everyone, start the game!
 			setupPacket.startGame = 1;
 			
-			StartupWithCorrectWads( setupPacket.map.dataset );
+			//StartupWithCorrectWads( setupPacket.map.dataset );
 			
 			StartNetGame();
 			ShowGLView();

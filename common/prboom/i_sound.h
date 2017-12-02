@@ -47,6 +47,8 @@
 // Init at program start...
 void I_InitSound(void);
 
+void I_OverwriteSoundBuffersWithLumps(void);
+
 // ... shut down and relase at program termination.
 void I_ShutdownSound(void);
 

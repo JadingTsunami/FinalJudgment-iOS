@@ -82,6 +82,7 @@
 #include "d_deh.h"  // Ty 04/08/98 - Externalizations
 #include "lprintf.h"  // jff 08/03/98 - declaration of lprintf
 #include "am_map.h"
+#include "doomiphone.h"
 
 void GetFirstMap(int *ep, int *map); // Ty 08/29/98 - add "-warp x" functionality
 static void D_PageDrawer(void);
@@ -1507,10 +1508,23 @@ void iphoneAddPWADFiles(void);
     }
 
 	// Add any iphone pwads (for example, No Rest for the Living is a pwad).
-	if ( pwad != NULL ) {
-		D_AddFile( pwad, source_pwad );
+    while(pwad && *pwad) {
+        char pwad_to_add[1024];
+        char* pwadloc_end = strchr(pwad,PWAD_LIST_SEPARATOR);
+        unsigned long i = 0;
+        if( pwadloc_end ) {
+            while( pwad != pwadloc_end ) {
+                pwad_to_add[i++] = *pwad++;
+            }
+            pwad_to_add[i] = '\0';
+            pwad++; // advance past separator
+            D_AddFile( pwad_to_add, source_pwad );
+        } else {
+            Com_Printf("Error processing PWADs: %s (%X)", pwad,pwadloc_end);
+            break;
+        }
 	}
-
+    
   if (!(p = M_CheckParm("-playdemo")) || p >= myargc-1) {   /* killough */
     if ((p = M_CheckParm ("-fastdemo")) && p < myargc-1)    /* killough */
       fastdemo = true;             // run at fastest speed possible
@@ -1556,6 +1570,9 @@ void iphoneAddPWADFiles(void);
 
   V_InitColorTranslation(); //jff 4/24/98 load color translation lumps
 
+    // JDS: replace sounds with lumps
+    //I_OverwriteSoundBuffersWithLumps();
+    
   // killough 2/22/98: copyright / "modified game" / SPA banners removed
 
   // Ty 04/08/98 - Add 5 lines of misc. data, only if nonblank

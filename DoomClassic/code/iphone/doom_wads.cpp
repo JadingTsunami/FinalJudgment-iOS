@@ -157,30 +157,3 @@ int GetNumberOfMapsInExpansion( iphoneMissionPack_t expansion ) {
 	return 0;
 }
 
-
-/*
- =======================
- StartupWithIWADandPWAD
- =======================
- */
-void StartupWithCorrectWads( int mission ) {
-	// Look for the iwad file corresponding to the current mission.
-	char iwad[ 1024 ]; 
-	char expansion[ 1024 ];
-	iphoneFindIWADFile( static_cast<iphoneMissionPack_t>(mission), expansion );
-	I_FindFile( expansion, ".wad", iwad );
-	
-	// Look for the pwad corresponding to the current mission. Will be NULL if we don't
-	// need a pwad for the mission.
-	char mission_pwad[ 1024 ];
-	iphoneFindPWADFile( static_cast<iphoneMissionPack_t>(mission), mission_pwad );
-	
-	char full_pwad[ 1024 ];
-	
-	if ( mission_pwad[0] != '\0' ) {
-		I_FindFile( mission_pwad, ".wad", full_pwad );
-		iphoneDoomStartup( iwad, full_pwad );
-	}	else {
-		iphoneDoomStartup( iwad, NULL );
-	}
-}

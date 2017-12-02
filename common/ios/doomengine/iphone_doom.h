@@ -175,6 +175,9 @@ extern	int		weaponSelected;				// -1 for no change
 typedef unsigned char color4_t[4];
 typedef unsigned char color3_t[3];
 
+extern char* doom_iwad;
+extern char* doom_pwads;
+    
 // networking
 typedef enum {
 	PACKET_VERSION_BASE = 0x24350010,
@@ -529,7 +532,6 @@ boolean StartNetGame();
 void StartSaveGame();
 void StartSinglePlayerGame( mapStart_t	map );
 void StartDemoGame( boolean timeDemoMode );
-void StartupWithCorrectWads( int mission );
 
 //---------------------------------------
 // interfaces from the original game code
@@ -542,8 +544,11 @@ void iphoneStopMusic();
 void iphonePlayMusic( const char *name );
 void iphonePauseMusic();
 void iphoneResumeMusic();
-void iphoneDoomStartup( const char * iwad, const char * pwad );
-void iphoneWadSelect( const char* iwad, const char* pwad  );
+void iphoneDoomStartup();
+void iphoneIWADSelect( const char* iwad );
+void iphonePWADAdd( const char* pwad  );
+void iphonePWADRemove( const char* pwad  );
+void iphoneClearPWADs();
 void iphoneLoadMissionPack(void);
 void iphoneAddPWADFiles(void);
 	

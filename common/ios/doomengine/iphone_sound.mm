@@ -27,6 +27,7 @@
  */
 
 #include "doomiphone.h"
+#include "w_wad.h"
 #include <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVAudioSession.h>
 #import <Foundation/Foundation.h>
@@ -389,3 +390,51 @@ boolean I_AnySoundStillPlaying(void) { return false; }
 // Updates the volume, separation,
 //  and pitch of a sound channel.
 void I_UpdateSoundParams(int handle, int vol, int sep, int pitch) {}
+
+// This function overwrites the audio data loaded from the iPack file
+// with the lumps from the loaded WAD files.
+void I_OverwriteSoundBuffersWithLumps() {
+    for ( int i = 0 ; i < pkHeader->wavs.count ; i++ ) {
+        pkWav_t *sfx = &pkWavs[i];
+        sfx->wavData = (pkWavData_t *)( (byte *)pkHeader + pkHeader->wavs.tableOfs + i * pkHeader->wavs.structSize );
+        
+        // get the lump instead of the normal sound effect
+        const char* sfxname = sfx->wavData->name.name;
+        
+        // strip off the path name
+        // JDS FIXME: clean this up
+        while(*sfxname && *sfxname != '/') sfxname++;
+        if( sfxname ) sfxname++;
+        
+        // If this is a Doom sound...
+        // JDS FIXME: clean this up
+        if( sfxname && tolower(sfxname[0]) == 'd' && tolower(sfxname[1]) == 's' ) {
+            char* sfxname_noext = strdup(sfxname);
+            char* sfxname_noext_s = sfxname_noext;
+            // strip off extension, convert to uppercase
+            // JDS FIXME: clean this up
+            while( *sfxname_noext && *sfxname_noext != '.' ) {
+                *sfxname_noext = toupper(*sfxname_noext);
+                sfxname_noext++;
+            }
+            *sfxname_noext = '\0';
+            sfxname_noext = sfxname_noext_s;
+            // extract the lump
+            // BUG! Need to parse the Doom sound header format vs.
+            // hardcoding all this
+            int lumpNum = (W_CheckNumForName)( sfxname_noext,0 );
+            free(sfxname_noext);
+            if( lumpNum != -1 ) {
+                int lumpSize = W_LumpLength( lumpNum );
+                byte* replacementSound = (byte*)malloc( lumpSize );
+                W_ReadLump( lumpNum, replacementSound );
+                replacementSound += 16; // skip header
+                alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound
+                     , lumpSize
+                     , 11025 );
+                // BUG! Memory leak if we reload new IWAD/PWAD files.
+                //free(replacementSound);
+            }
+        }
+    }
+}

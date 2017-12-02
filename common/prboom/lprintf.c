@@ -53,6 +53,7 @@
 #include "lprintf.h"
 #include "i_main.h"
 #include "m_argv.h"
+#include "doomiphone.h"
 #include <assert.h>
 
 int cons_error_mask = -1-LO_INFO; /* all but LO_INFO when redir'd */
@@ -382,6 +383,19 @@ void I_Error(const char *error, ...)
  
     while( true ) {
         printf( " SAFE EXIT \n" );
+        // it's likely our WADs are bad. Wipe them out next time.
+        FILE    *fp;
+        char    path[1024];
+        char    buffer[1024];
+        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        fp = fopen( path, "w" );
+        if( ! fp ) {
+            printf( "Could not write canary. This is very bad!\n" );
+            return;
+        }
+        snprintf( buffer, sizeof( buffer ), "ABANDON SHIP!\n" );
+        fprintf( fp, "%s", buffer );
+        fclose(fp);
         assert( false );
         usleep(1000);
     }

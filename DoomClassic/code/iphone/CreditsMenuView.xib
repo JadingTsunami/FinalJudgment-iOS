@@ -106,11 +106,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-AM-DJ2">
-                    <rect key="frame" x="263" y="74" width="102" height="30"/>
+                    <rect key="frame" x="263" y="74" width="118" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="XmasPwad Off"/>
+                    <state key="normal" title="Remove PWADs"/>
                     <connections>
-                        <action selector="xmasPwadOff:" destination="-1" eventType="touchUpInside" id="cGa-Gj-MvA"/>
+                        <action selector="clearPWADs:" destination="-1" eventType="touchUpInside" id="g0I-vi-V9X"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iii-DX-e6G">
