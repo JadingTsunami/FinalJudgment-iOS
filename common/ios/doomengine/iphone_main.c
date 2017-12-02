@@ -401,6 +401,7 @@ void iphoneStartup() {
         snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
         fp = fopen( path, "r" );
         if( fp ) {
+            Com_Printf("Last exit was fatal (ship abandoned). Recovering...\n");
             Cvar_Set( "iwadSelection", "doom.wad" );
             Cvar_Set( "pwadSelection", "" );
             // remove canary
