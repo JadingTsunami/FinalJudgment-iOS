@@ -427,13 +427,12 @@ void I_OverwriteSoundBuffersWithLumps() {
             if( lumpNum != -1 ) {
                 int lumpSize = W_LumpLength( lumpNum );
                 byte* replacementSound = (byte*)malloc( lumpSize );
-                W_ReadLump( lumpNum, replacementSound );
-                replacementSound += 16; // skip header
-                alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound
-                     , lumpSize
-                     , 11025 );
-                // BUG! Memory leak if we reload new IWAD/PWAD files.
-                //free(replacementSound);
+                replacementSound = (byte*)W_CacheLumpNum( lumpNum );
+                uint16_t sampleRate = *((uint16_t*)(replacementSound + 2));
+                uint32_t numSamples = (*((uint32_t*)(replacementSound + 4)) - 32); // remove 32 bytes of padding
+                alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound + 0x18
+                     , numSamples
+                     , sampleRate );
             }
         }
     }

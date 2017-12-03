@@ -1571,7 +1571,7 @@ void iphoneAddPWADFiles(void);
   V_InitColorTranslation(); //jff 4/24/98 load color translation lumps
 
     // JDS: replace sounds with lumps
-    //I_OverwriteSoundBuffersWithLumps();
+    I_OverwriteSoundBuffersWithLumps();
     
   // killough 2/22/98: copyright / "modified game" / SPA banners removed
 
