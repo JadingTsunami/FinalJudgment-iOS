@@ -615,8 +615,9 @@ void iphoneSanitizePWADs() {
         char pwad_path[1024] = { 0 };
         char pwad_doc_path[1024];
         char* pwad_file = strrchr(pwad,'/');
-        pwad_file++;
-        if( pwad_file ) {
+        
+        if( pwad_file && *pwad_file ) {
+            pwad_file++;
             strcpy( pwad_doc_path, SysIphoneGetDocDir() );
             strcat( pwad_doc_path, "/" );
             strcat( pwad_doc_path, pwad_file );
