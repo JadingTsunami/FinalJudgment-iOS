@@ -402,8 +402,13 @@ void iphoneStartup() {
         fp = fopen( path, "r" );
         if( fp ) {
             Com_Printf("Last exit was fatal (ship abandoned). Recovering...\n");
+
             Cvar_Set( "iwadSelection", "doom.wad" );
             Cvar_Set( "pwadSelection", "" );
+
+            iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+            pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
+            
             // remove canary
             if( remove(path) != 0 ) {
                 Com_Printf("Could not remove canary. This is bad!\n");

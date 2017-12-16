@@ -140,7 +140,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSArray *dirFiles = [filemgr contentsOfDirectoryAtPath:documentsDirectory error:nil];
     
-    UIButton *button;
+    UIButton *button = NULL;
     int y = 5;
     for (id dir in dirFiles) {
         
@@ -165,11 +165,12 @@
         }
     }
     
-    
-    [pwadScroller setContentSize:CGSizeMake(
+    if( button ) {
+        [pwadScroller setContentSize:CGSizeMake(
                                             pwadScroller.bounds.size.width,
                                             CGRectGetMaxY(button.frame)
                                             )];
+    }
 }
 
 /*
