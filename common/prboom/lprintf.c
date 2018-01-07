@@ -374,6 +374,8 @@ void I_Error(const char *error, ...)
 #endif
   va_end(argptr);
   lprintf(LO_ERROR, "%s\n", errmsg);
+  iphoneNSLog(errmsg);
+  iphoneNSLog("ABANDON SHIP!");
 #ifdef _MSC_VER
   if (!M_CheckParm ("-nodraw")) {
     //Init_ConsoleWin();

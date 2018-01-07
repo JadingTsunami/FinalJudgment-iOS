@@ -102,4 +102,7 @@ void iphonePopGL() {
 	menuState = IPM_MAIN;
 }
 
+void iphoneNSLog(const char* message) {
+    NSLog( @"%@", [NSString stringWithUTF8String:message] );
+}
 

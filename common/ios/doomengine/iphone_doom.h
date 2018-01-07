@@ -587,7 +587,8 @@ void iphoneFrame();
 void iphoneAsyncTic();
 void iphoneTiltEvent( float *tilts );
 void iphoneMainMenu();
-void iphonePopGL();    
+void iphonePopGL();
+void iphoneNSLog(const char* message);
 
 #ifdef __cplusplus
 }
