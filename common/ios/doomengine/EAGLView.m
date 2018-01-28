@@ -109,8 +109,9 @@ CAEAGLLayer *eaglLayer;
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
     
-    displaywidth = backingHeight;
-    displayheight = backingWidth;
+    /* JDS proper fix for landscape orientation */
+    displaywidth = backingWidth;
+    displayheight = backingHeight;
     
     glGenRenderbuffersOES(1, &mDepthRenderbuffer);
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mDepthRenderbuffer);

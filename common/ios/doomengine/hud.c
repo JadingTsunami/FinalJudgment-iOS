@@ -49,12 +49,6 @@ void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
     float xRatio = ((float)displaywidth) / 480.0f;
     float yRatio = ((float)displayheight) / 320.0f;
     
-    /* JDS width/height are swapped if we start up in landscape orientation? */
-    if( displaywidth < displayheight ) {
-        xRatio = ((float)displayheight) / 480.0f;
-        yRatio = ((float)displaywidth) / 320.0f;
-    }
-    
     x *= xRatio;
     y *= yRatio;
     
@@ -70,8 +64,6 @@ void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
 	hp->buttonFlags = 0;
 	hp->scale = 1.0f;
     
-    //JDS debug
-    printf("Button registered at iPhone coordinates: %d %d %d %d dispw: %f disph: %f, xRatio %f yRatio %f\n",hp->x,hp->y,hp->drawWidth,hp->drawHeight,(float)displaywidth,(float)displayheight,xRatio,yRatio);
 }
 
 void HudSetTexnums() {
@@ -92,13 +84,6 @@ void HudSetForScheme( int schemeNum ) {
 	}
 	int STICK_SIZE = 128;
 	int HALF_STICK = 128/2;
-    
-    // JDS: Possible issue when started in landscape orientation? (width/height reversed)
-    if( displaywidth >= 1024 ) {
-        STICK_SIZE = 64;
-        HALF_STICK = 64/2;
-    }
-
     
 	static const int BOTTOM = 320 - 44;	// above the status bar
 	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 40 );	// the touch area is doubled
@@ -231,10 +216,8 @@ void HudEditFrame() {
 		if ( hud->buttonFlags & BF_IGNORE ) {
 			continue;
 		}
-        /* JDS stretch attempt using computed scale factors */
-        float xScale = ((float)displaywidth)/((float)displayheight);
-        float yScale = ((float)displayheight)/((float)displaywidth);
-		PK_StretchTexture( hud->texture, hud->x*xScale, hud->y*yScale, hud->drawWidth*xScale, hud->drawHeight*yScale );
+
+		PK_StretchTexture( hud->texture, hud->x, hud->y, hud->drawWidth, hud->drawHeight );
 	}
 	
 	// draw the done button
