@@ -460,7 +460,7 @@ void iphoneStartup() {
 	// the texnums might have been different in the savegame
 	HudSetTexnums();
 	
-	arialFontTexture = PK_FindTexture( "iphone/arialImageLAL.tga" );
+	fontTexture = PK_FindTexture( "iphone/fontimage.tga" );
 	
 	Com_Printf( "preloadBeforePlay(): %i msec\n", SysIphoneMilliseconds() - start );	
 

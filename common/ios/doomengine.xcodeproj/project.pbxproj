@@ -23,7 +23,7 @@
 		3DDA6FCE148D765100C834C7 /* SDL_Mixer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DDA6FCD148D765100C834C7 /* SDL_Mixer.h */; };
 		3DDA6FD1148DA2C800C834C7 /* SDL_Mixer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA6FD0148DA2C800C834C7 /* SDL_Mixer.m */; };
 		3DE6943D1489AFDE0049CAA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE6943C1489AFDE0049CAA4 /* Foundation.framework */; };
-		3DE6946D1489B0850049CAA4 /* arialGlyphRects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE6944E1489B0850049CAA4 /* arialGlyphRects.h */; };
+		3DE6946D1489B0850049CAA4 /* fontGlyphRects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE6944E1489B0850049CAA4 /* fontGlyphRects.h */; };
 		3DE6946F1489B0850049CAA4 /* cmd.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE694501489B0850049CAA4 /* cmd.c */; };
 		3DE694701489B0850049CAA4 /* cvar.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE694511489B0850049CAA4 /* cvar.c */; };
 		3DE694711489B0850049CAA4 /* cvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE694521489B0850049CAA4 /* cvar.h */; };
@@ -111,7 +111,7 @@
 		3DDA6FD0148DA2C800C834C7 /* SDL_Mixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDL_Mixer.m; path = ../SDL_shim/ios/SDL_Mixer.m; sourceTree = "<group>"; };
 		3DE694391489AFDE0049CAA4 /* libdoomengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdoomengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6943C1489AFDE0049CAA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3DE6944E1489B0850049CAA4 /* arialGlyphRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arialGlyphRects.h; sourceTree = "<group>"; };
+		3DE6944E1489B0850049CAA4 /* fontGlyphRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontGlyphRects.h; sourceTree = "<group>"; };
 		3DE694501489B0850049CAA4 /* cmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmd.c; sourceTree = "<group>"; };
 		3DE694511489B0850049CAA4 /* cvar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cvar.c; sourceTree = "<group>"; };
 		3DE694521489B0850049CAA4 /* cvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvar.h; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 				C86CA85314B4F3C40057FF54 /* iphone_delegate.mm */,
 				C86CA85414B4F3C40057FF54 /* iphone_glViewController.h */,
 				C82EE117149958A0003B9C74 /* BackgroundMusic.cpp */,
-				3DE6944E1489B0850049CAA4 /* arialGlyphRects.h */,
+				3DE6944E1489B0850049CAA4 /* fontGlyphRects.h */,
 				3DE694501489B0850049CAA4 /* cmd.c */,
 				3DE694511489B0850049CAA4 /* cvar.c */,
 				3DE694521489B0850049CAA4 /* cvar.h */,
@@ -298,7 +298,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE6946D1489B0850049CAA4 /* arialGlyphRects.h in Headers */,
+				3DE6946D1489B0850049CAA4 /* fontGlyphRects.h in Headers */,
 				3DE694711489B0850049CAA4 /* cvar.h in Headers */,
 				3DE694731489B0850049CAA4 /* doomiphone.h in Headers */,
 				3DE694741489B0850049CAA4 /* EAGLView.h in Headers */,

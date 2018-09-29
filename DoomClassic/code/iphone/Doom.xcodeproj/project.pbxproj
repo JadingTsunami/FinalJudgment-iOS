@@ -34,7 +34,6 @@
 		43CF02FF0F56974E00E4A23D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CF02FE0F56974E00E4A23D /* Default.png */; };
 		43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */; };
 		720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EBBAD0F82E0BB003F989A /* QuartzCore.framework */; };
-		C8011C6614BF8BA2007AC5C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8011C6814BF8BA2007AC5C5 /* Localizable.strings */; };
 		C8012E5114B5122700B0E213 /* MainMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */; };
 		C8012E5214B5122700B0E213 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E5014B5122700B0E213 /* MainMenuView.xib */; };
 		C8012E6E14B6389B00B0E213 /* EpisodeMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E6C14B6389B00B0E213 /* EpisodeMenuViewController.mm */; };
@@ -178,11 +177,6 @@
 		43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = /System/Library/Frameworks/OpenAL.framework; sourceTree = "<absolute>"; };
 		720EBBAD0F82E0BB003F989A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8011C6714BF8BA2007AC5C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6914BF8BAB007AC5C5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6A14BF8BB1007AC5C5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6B14BF8BB4007AC5C5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8011C6C14BF8BBC007AC5C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8012E4E14B5122700B0E213 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenuViewController.mm; sourceTree = "<group>"; };
 		C8012E5014B5122700B0E213 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
@@ -367,7 +361,6 @@
 				C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */,
 				43CF02FE0F56974E00E4A23D /* Default.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				C8011C6814BF8BA2007AC5C5 /* Localizable.strings */,
 			);
 			name = "App Resources";
 			sourceTree = "<group>";
@@ -761,7 +754,6 @@
 				C8DB8A5E14BB88AC0006467C /* MissionMenuView~ipad.xib in Resources */,
 				C8DB8A5F14BB88AC0006467C /* OpenGLView~ipad.xib in Resources */,
 				C8DB8A6014BB88AC0006467C /* SettingsMenuView~ipad.xib in Resources */,
-				C8011C6614BF8BA2007AC5C5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,21 +804,6 @@
 			targetProxy = 3DACFC1B148C591500EB17BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C8011C6814BF8BA2007AC5C5 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C8011C6714BF8BA2007AC5C5 /* en */,
-				C8011C6914BF8BAB007AC5C5 /* fr */,
-				C8011C6A14BF8BB1007AC5C5 /* it */,
-				C8011C6B14BF8BB4007AC5C5 /* de */,
-				C8011C6C14BF8BBC007AC5C5 /* es */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {

@@ -104,7 +104,7 @@ extern playState_t playState;
 
 extern boolean	levelHasBeenLoaded;	// determines if "resume game" does a loadGame and exiting does a saveGame
 
-extern pkTexture_t *arialFontTexture;
+extern pkTexture_t *fontTexture;
 
 // set to 1 when app is exiting to cause game thread to do a save game,
 // which would not be safe to do from the event thread

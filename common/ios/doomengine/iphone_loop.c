@@ -57,7 +57,7 @@ int		tiltHistoryNum;
 boolean	drawWeaponSelect;
 int		weaponSelected = -1;
 
-pkTexture_t *arialFontTexture;
+pkTexture_t *fontTexture;
 
 
 logTime_t	loggedTimes[MAX_LOGGED_TIMES];	// indexed by iphoneFrameNum
@@ -438,7 +438,7 @@ typedef struct {
 	float	xoff, yoff, xadvance;
 } GlyphRect;
 
-#include "arialGlyphRects.h"	// precalculated offsets in the font image
+#include "fontGlyphRects.h"	// precalculated offsets in the font image
 
 float	StringFontWidth( const char *str ) {
 	float	len = 0;
@@ -464,7 +464,7 @@ float iphoneDrawText( float x, float y, float scale, const char *str ) {
 float    fx = x;
 float    fy = y;
 
-PK_BindTexture( arialFontTexture );
+PK_BindTexture( fontTexture );
 glBegin( GL_QUADS );
 
 while ( *str ) {

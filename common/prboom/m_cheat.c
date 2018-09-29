@@ -445,7 +445,7 @@ static void cheat_clev(char buf[3])
 
   idmusnum = -1; //jff 3/17/98 revert to normal level music on IDCLEV
 
-  plyr->message = s_STSTR_CLEV; // Ty 03/27/98 - externalized
+  plyr->message = s_STSTR_CLEV; // Ty 03/27/98 - externalized   
 
   G_DeferedInitNew(gameskill, epsd, map);
 }
@@ -454,11 +454,15 @@ static void cheat_clev(char buf[3])
 // killough 2/7/98: simplified using dprintf and made output more user-friendly
 static void cheat_mypos()
 {
-  doom_printf("Position (%d,%d,%d)\tAngle %-.0f",
+    doom_printf("(%d,%d,%d) %-.0f, K: %d/%d, S: %d/%d",
           players[consoleplayer].mo->x >> FRACBITS,
           players[consoleplayer].mo->y >> FRACBITS,
           players[consoleplayer].mo->z >> FRACBITS,
-          players[consoleplayer].mo->angle * (90.0/ANG90));
+          players[consoleplayer].mo->angle * (90.0/ANG90),
+          players[consoleplayer].killcount,
+          totalkills,
+          players[consoleplayer].secretcount,
+          totalsecret);
 }
 
 // cph - cheat to toggle frame rate/rendering stats display
