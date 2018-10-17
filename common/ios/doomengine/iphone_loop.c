@@ -472,17 +472,16 @@ while ( *str ) {
     if ( i >= ' ' && i < 128 ) {
         GlyphRect *glyph = &glyphRects[i-32];
         
-        // the glyphRects don't include the shadow outline
-        float    x0 = ( glyph->x0 - 1 ) / 256.0;
-        float    y0 = ( glyph->y0 - 1 ) / 256.0;
-        float    x1 = ( glyph->x1 + 2 ) / 256.0;
-        float    y1 = ( glyph->y1 + 2 ) / 256.0;
+        float    x0 = ( glyph->x0 ) / 256.0;
+        float    y0 = ( glyph->y0 ) / 256.0;
+        float    x1 = ( glyph->x1 ) / 256.0;
+        float    y1 = ( glyph->y1 ) / 256.0;
         
         float    width = ( x1 - x0 ) * 256 * scale;
         float    height = ( y1 - y0 ) * 256 * scale;
         
-        float    xoff = ( glyph->xoff - 1 ) * scale;
-        float    yoff = ( glyph->yoff - 1 ) * scale;
+        float    xoff = ( glyph->xoff ) * scale;
+        float    yoff = ( glyph->yoff ) * scale;
         
         glTexCoord2f( x0, y0 );
         glVertex2f( fx + xoff, fy + yoff );
