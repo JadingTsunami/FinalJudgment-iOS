@@ -750,6 +750,26 @@ void HU_Drawer(void)
     // map title
     HUlib_drawTextLine(&w_title, false);
 
+    // JDS draw secrets and kills
+      // clear the internal widget text buffer
+      HUlib_clearTextLine(&w_monsec);
+      //jff 3/26/98 use ESC not '\' for paths
+      // build the init string with fixed colors
+      sprintf
+      (
+       hud_monsecstr,
+       "STS \x1b\x36K \x1b\x33%d \x1b\x36M \x1b\x33%d \x1b\x37I \x1b\x33%d/%d \x1b\x35S \x1b\x33%d/%d",
+       player->killcount,totallive,
+       player->itemcount,totalitems,
+       player->secretcount,totalsecret
+       );
+      // transfer the init string to the widget
+      s = hud_monsecstr;
+      while (*s)
+          HUlib_addCharToTextLine(&w_monsec, *(s++));
+      HUlib_drawTextLine(&w_monsec, false);
+    // JDS end
+    
     //jff 2/16/98 output new coord display
     // x-coord
     if (map_point_coordinates)

@@ -5,6 +5,6 @@
       location = "group:common/ios/doomengine.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:DoomClassic/code/iphone/Doom.xcodeproj">
+      location = "group:/Users/justin/Code/ios_doom/FinalJudgment-iOS/DoomClassic/code/iphone/Final Judgment.xcodeproj">
    </FileRef>
 </Workspace>

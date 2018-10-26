@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132AC2D01801D2E600884E11 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 132AC2CF1801D2E600884E11 /* Default-568h@2x.png */; };
 		132AC2DF1802F15C00884E11 /* ControlsMenuViewi5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132AC2D71802F15C00884E11 /* ControlsMenuViewi5.xib */; };
 		132AC2E01802F15C00884E11 /* CreditsMenuViewi5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132AC2D81802F15C00884E11 /* CreditsMenuViewi5.xib */; };
 		132AC2E11802F15C00884E11 /* EpisodeMenuViewi5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132AC2D91802F15C00884E11 /* EpisodeMenuViewi5.xib */; };
@@ -23,10 +22,10 @@
 		138FC9CA17F216C300D94C5F /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C717F2165D00D94C5F /* doom.wad */; };
 		138FC9CB17F216C300D94C5F /* prboom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C817F2165D00D94C5F /* prboom.wad */; };
 		13E3CC5F17F236840075D40A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E3CC5E17F236840075D40A /* GameKit.framework */; };
-		13E3CC6417F237B80075D40A /* DOOM_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6017F237B80075D40A /* DOOM_76.png */; };
-		13E3CC6517F237B80075D40A /* DOOM_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6117F237B80075D40A /* DOOM_120.png */; };
-		13E3CC6617F237B80075D40A /* DOOM_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6217F237B80075D40A /* DOOM_144.png */; };
-		13E3CC6717F237B80075D40A /* DOOM_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6317F237B80075D40A /* DOOM_152.png */; };
+		13E3CC6417F237B80075D40A /* FJ_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6017F237B80075D40A /* FJ_76.png */; };
+		13E3CC6517F237B80075D40A /* FJ_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6117F237B80075D40A /* FJ_120.png */; };
+		13E3CC6617F237B80075D40A /* FJ_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6217F237B80075D40A /* FJ_144.png */; };
+		13E3CC6717F237B80075D40A /* FJ_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6317F237B80075D40A /* FJ_152.png */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		3DF31FA3148C336400C66CD7 /* libdoomengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF31F8A148C30F100C66CD7 /* libdoomengine.a */; };
 		4333CCE80F5CC23E00AE2B6F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */; };
@@ -97,9 +96,9 @@
 		C87931F513F610B9003D834F /* SettingsButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E713F610B9003D834F /* SettingsButton_Highlighted.png */; };
 		C87931F613F610B9003D834F /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E813F610B9003D834F /* SettingsButton.png */; };
 		C87931F913F610B9003D834F /* SliderSkull.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931EB13F610B9003D834F /* SliderSkull.png */; };
-		C8D1CF6813DE1EB600F0EAC6 /* DOOM_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */; };
-		C8D1CF6A13DE1EF500F0EAC6 /* DOOM_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */; };
-		C8D1CF6C13DE1F0600F0EAC6 /* DOOM_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */; };
+		C8D1CF6813DE1EB600F0EAC6 /* FJ_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6713DE1EB600F0EAC6 /* FJ_57.png */; };
+		C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */; };
+		C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */; };
 		C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */; };
 		C8D1CF8813DF79BC00F0EAC6 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */; };
 		C8D1CFA813E1CDBD00F0EAC6 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */; };
@@ -112,10 +111,12 @@
 		C8DB8A5E14BB88AC0006467C /* MissionMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5614BB88AC0006467C /* MissionMenuView~ipad.xib */; };
 		C8DB8A5F14BB88AC0006467C /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */; };
 		C8DB8A6014BB88AC0006467C /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */; };
+		D03C3050217AD7DA009EA420 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03C304F217AD7DA009EA420 /* Default-568h@2x.png */; };
 		D05ECE651FC2992F0086978C /* doom2.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE641FC2992F0086978C /* doom2.wad */; };
 		D05ECE721FC2A6770086978C /* tnt.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE701FC2A6750086978C /* tnt.wad */; };
 		D05ECE731FC2A6770086978C /* plutonia.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE711FC2A6760086978C /* plutonia.wad */; };
 		D05ECE751FC2A73F0086978C /* spritx.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE741FC2A73F0086978C /* spritx.wad */; };
+		D06068DA217AE8AF004F88D9 /* FinalJudgmentMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
@@ -143,7 +144,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		132AC2CF1801D2E600884E11 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		132AC2D71802F15C00884E11 /* ControlsMenuViewi5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlsMenuViewi5.xib; sourceTree = "<group>"; };
 		132AC2D81802F15C00884E11 /* CreditsMenuViewi5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsMenuViewi5.xib; sourceTree = "<group>"; };
 		132AC2D91802F15C00884E11 /* EpisodeMenuViewi5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeMenuViewi5.xib; sourceTree = "<group>"; };
@@ -163,11 +163,11 @@
 		1391CE141882E5A30049671C /* libidmobilelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libidmobilelib.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libidmobilelib.a"; sourceTree = "<group>"; };
 		1391CE161882E5F40049671C /* libprboom.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprboom.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libprboom.a"; sourceTree = "<group>"; };
 		13E3CC5E17F236840075D40A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		13E3CC6017F237B80075D40A /* DOOM_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_76.png; sourceTree = "<group>"; };
-		13E3CC6117F237B80075D40A /* DOOM_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_120.png; sourceTree = "<group>"; };
-		13E3CC6217F237B80075D40A /* DOOM_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_144.png; sourceTree = "<group>"; };
-		13E3CC6317F237B80075D40A /* DOOM_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_152.png; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Doom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E3CC6017F237B80075D40A /* FJ_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_76.png; sourceTree = "<group>"; };
+		13E3CC6117F237B80075D40A /* FJ_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_120.png; sourceTree = "<group>"; };
+		13E3CC6217F237B80075D40A /* FJ_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_144.png; sourceTree = "<group>"; };
+		13E3CC6317F237B80075D40A /* FJ_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_152.png; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Final Judgment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Judgment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF31F85148C30F100C66CD7 /* doomengine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = doomengine.xcodeproj; path = ../../../common/ios/doomengine.xcodeproj; sourceTree = "<group>"; };
 		4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
@@ -248,9 +248,9 @@
 		C87931E713F610B9003D834F /* SettingsButton_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsButton_Highlighted.png; path = "../../IB Images/SettingsButton_Highlighted.png"; sourceTree = SOURCE_ROOT; };
 		C87931E813F610B9003D834F /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsButton.png; path = "../../IB Images/SettingsButton.png"; sourceTree = SOURCE_ROOT; };
 		C87931EB13F610B9003D834F /* SliderSkull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SliderSkull.png; path = "../../IB Images/SliderSkull.png"; sourceTree = SOURCE_ROOT; };
-		C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_57.png; sourceTree = "<group>"; };
-		C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_114.png; sourceTree = "<group>"; };
-		C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_72.png; sourceTree = "<group>"; };
+		C8D1CF6713DE1EB600F0EAC6 /* FJ_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_57.png; sourceTree = "<group>"; };
+		C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_114.png; sourceTree = "<group>"; };
+		C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_72.png; sourceTree = "<group>"; };
 		C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
 		C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -263,10 +263,12 @@
 		C8DB8A5614BB88AC0006467C /* MissionMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MissionMenuView~ipad.xib"; sourceTree = "<group>"; };
 		C8DB8A5714BB88AC0006467C /* OpenGLView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "OpenGLView~ipad.xib"; sourceTree = "<group>"; };
 		C8DB8A5814BB88AC0006467C /* SettingsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		D03C304F217AD7DA009EA420 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D05ECE641FC2992F0086978C /* doom2.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = doom2.wad; sourceTree = "<group>"; };
 		D05ECE701FC2A6750086978C /* tnt.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = tnt.wad; sourceTree = "<group>"; };
 		D05ECE711FC2A6760086978C /* plutonia.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutonia.wad; sourceTree = "<group>"; };
 		D05ECE741FC2A73F0086978C /* spritx.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = spritx.wad; sourceTree = "<group>"; };
+		D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinalJudgmentMainView.xib; sourceTree = "<group>"; };
 		D080FADE1FC0BCB000E71FF7 /* libprboom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprboom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -317,7 +319,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Doom.app */,
+				1D6058910D05DD3D006BFB54 /* Final Judgment.app */,
 				4364BF3E0F5CB25900F29317 /* dist.plist */,
 			);
 			name = Products;
@@ -326,7 +328,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				132AC2CF1801D2E600884E11 /* Default-568h@2x.png */,
+				D03C304F217AD7DA009EA420 /* Default-568h@2x.png */,
 				3DF31F85148C30F100C66CD7 /* doomengine.xcodeproj */,
 				29B97315FDCFA39411CA2CEA /* Source */,
 				29B97317FDCFA39411CA2CEA /* App Resources */,
@@ -402,6 +404,7 @@
 				C8012E7C14B6704400B0E213 /* ControlsMenuView.xib */,
 				C8012E7714B649DA00B0E213 /* CreditsMenuView.xib */,
 				C8012E6D14B6389B00B0E213 /* EpisodeMenuView.xib */,
+				D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */,
 				C8012E5014B5122700B0E213 /* MainMenuView.xib */,
 				C8012E7214B646BD00B0E213 /* OpenGLView.xib */,
 			);
@@ -515,17 +518,17 @@
 		C86CA86714B502C90057FF54 /* Icons & Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				13E3CC6017F237B80075D40A /* DOOM_76.png */,
-				13E3CC6117F237B80075D40A /* DOOM_120.png */,
-				13E3CC6217F237B80075D40A /* DOOM_144.png */,
-				13E3CC6317F237B80075D40A /* DOOM_152.png */,
+				13E3CC6017F237B80075D40A /* FJ_76.png */,
+				13E3CC6117F237B80075D40A /* FJ_120.png */,
+				13E3CC6217F237B80075D40A /* FJ_144.png */,
+				13E3CC6317F237B80075D40A /* FJ_152.png */,
 				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
 				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
 				C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */,
 				C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */,
-				C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */,
-				C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */,
-				C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */,
+				C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */,
+				C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */,
+				C8D1CF6713DE1EB600F0EAC6 /* FJ_57.png */,
 			);
 			name = "Icons & Defaults";
 			sourceTree = "<group>";
@@ -576,9 +579,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* Doom */ = {
+		1D6058900D05DD3D006BFB54 /* Final Judgment */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Doom" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Final Judgment" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -590,9 +593,9 @@
 			dependencies = (
 				3DACFC1C148C591500EB17BA /* PBXTargetDependency */,
 			);
-			name = Doom;
+			name = "Final Judgment";
 			productName = Doom;
-			productReference = 1D6058910D05DD3D006BFB54 /* Doom.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Final Judgment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -617,7 +620,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doom" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Final Judgment" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -641,7 +644,7 @@
 			);
 			projectRoot = ../..;
 			targets = (
-				1D6058900D05DD3D006BFB54 /* Doom */,
+				1D6058900D05DD3D006BFB54 /* Final Judgment */,
 			);
 		};
 /* End PBXProject section */
@@ -663,15 +666,15 @@
 			files = (
 				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
 				138FC9CA17F216C300D94C5F /* doom.wad in Resources */,
+				D06068DA217AE8AF004F88D9 /* FinalJudgmentMainView.xib in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
 				4364BF3F0F5CB25900F29317 /* dist.plist in Resources */,
-				132AC2D01801D2E600884E11 /* Default-568h@2x.png in Resources */,
-				C8D1CF6813DE1EB600F0EAC6 /* DOOM_57.png in Resources */,
+				C8D1CF6813DE1EB600F0EAC6 /* FJ_57.png in Resources */,
 				138FC9B817F07DAF00D94C5F /* Nightmare.png in Resources */,
-				C8D1CF6A13DE1EF500F0EAC6 /* DOOM_114.png in Resources */,
+				C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */,
 				D05ECE731FC2A6770086978C /* plutonia.wad in Resources */,
-				C8D1CF6C13DE1F0600F0EAC6 /* DOOM_72.png in Resources */,
+				C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */,
 				C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */,
 				C8D1CF8813DF79BC00F0EAC6 /* Default~ipad.png in Resources */,
 				C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */,
@@ -679,6 +682,7 @@
 				C81E104D13E1CCA000B1049A /* Button.png in Resources */,
 				C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */,
 				C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */,
+				D03C3050217AD7DA009EA420 /* Default-568h@2x.png in Resources */,
 				C81E105013E1CCA000B1049A /* Easy.png in Resources */,
 				C81E105113E1CCA000B1049A /* Hard.png in Resources */,
 				C81E105213E1CCA000B1049A /* MapOverlay.png in Resources */,
@@ -690,7 +694,7 @@
 				C8D1CFA813E1CDBD00F0EAC6 /* Default-Portrait~ipad.png in Resources */,
 				C8D1CFAA13E1CDC600F0EAC6 /* Default-Landscape~ipad.png in Resources */,
 				C8792ED813F5AFE5003D834F /* BackButton_Highlighted.png in Resources */,
-				13E3CC6617F237B80075D40A /* DOOM_144.png in Resources */,
+				13E3CC6617F237B80075D40A /* FJ_144.png in Resources */,
 				C8792ED913F5AFE6003D834F /* Button_Highlighted.png in Resources */,
 				C8792EDA13F5AFE6003D834F /* NextButton_Highlighted.png in Resources */,
 				C8792EDB13F5AFE6003D834F /* NextButton.png in Resources */,
@@ -709,7 +713,7 @@
 				C879309613F5D8AA003D834F /* MissonBackground.png in Resources */,
 				C879309713F5D8AA003D834F /* UpArrow_Highlighted.png in Resources */,
 				C879309813F5D8AA003D834F /* UpArrow.png in Resources */,
-				13E3CC6517F237B80075D40A /* DOOM_120.png in Resources */,
+				13E3CC6517F237B80075D40A /* FJ_120.png in Resources */,
 				C87930E513F5EC1B003D834F /* Episode1Background_Highlighted.png in Resources */,
 				132AC2E21802F15C00884E11 /* LegalMenuViewi5.xib in Resources */,
 				C87930E613F5EC1B003D834F /* Episode2Background_Highlighted.png in Resources */,
@@ -730,7 +734,7 @@
 				132AC2E11802F15C00884E11 /* EpisodeMenuViewi5.xib in Resources */,
 				C87931F513F610B9003D834F /* SettingsButton_Highlighted.png in Resources */,
 				C87931F613F610B9003D834F /* SettingsButton.png in Resources */,
-				13E3CC6417F237B80075D40A /* DOOM_76.png in Resources */,
+				13E3CC6417F237B80075D40A /* FJ_76.png in Resources */,
 				C87931F913F610B9003D834F /* SliderSkull.png in Resources */,
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
 				C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */,
@@ -739,7 +743,7 @@
 				C8012E6F14B6389B00B0E213 /* EpisodeMenuView.xib in Resources */,
 				C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */,
 				C8012E7914B649DB00B0E213 /* CreditsMenuView.xib in Resources */,
-				13E3CC6717F237B80075D40A /* DOOM_152.png in Resources */,
+				13E3CC6717F237B80075D40A /* FJ_152.png in Resources */,
 				C8012E7E14B6704500B0E213 /* ControlsMenuView.xib in Resources */,
 				C8012E8314B6709C00B0E213 /* SettingsMenuView.xib in Resources */,
 				C8012E8814B6722B00B0E213 /* LegalMenuView.xib in Resources */,
@@ -835,6 +839,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
+				PRODUCT_NAME = "Final Judgment";
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -872,6 +877,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
+				PRODUCT_NAME = "Final Judgment";
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -965,6 +971,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
+				PRODUCT_NAME = "Final Judgment";
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1175,6 +1182,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadingTsunami.FinalJudgment;
+				PRODUCT_NAME = "Final Judgment";
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CF005E47-190F-43B8-B89D-59AD4EF04B31";
@@ -1189,7 +1197,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Doom" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Final Judgment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -1200,7 +1208,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doom" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Final Judgment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
