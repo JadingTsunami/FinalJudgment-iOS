@@ -392,13 +392,13 @@ void iphoneStartup() {
 	netBuffer = Cvar_Get( "netBuffer", "12", 0 );	// max tics to buffer ahead
 	
 	// load the archived cvars
-	Cmd_ExecuteFile( va( "%s/config.cfg", SysIphoneGetDocDir() ) );
+	Cmd_ExecuteFile( va( "%s/.config.cfg", SysIphoneGetDocDir() ) );
 	
     // Check if our WADs were bad last time.
     {
         FILE    *fp;
         char    path[1024];
-        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        snprintf( path, sizeof( path ), "%s/.abandon.ship", SysIphoneGetDocDir() );
         fp = fopen( path, "r" );
         if( fp ) {
             Com_Printf("Last exit was fatal (ship abandoned). Recovering...\n");
@@ -428,7 +428,7 @@ void iphoneStartup() {
 	HudSetForScheme( 0 );
 	
 	// load the binary config file
-	FILE *f = fopen( va( "%s/binaryConfig.bin", SysIphoneGetDocDir() ), "rb" );
+	FILE *f = fopen( va( "%s/.binaryConfig.bin", SysIphoneGetDocDir() ), "rb" );
 	if ( f ) {
 		long int version;
 		
@@ -711,7 +711,7 @@ void iphoneShutdown() {
     }
     
 	// write the ascii config file
-	snprintf( path, sizeof( path ), "%s/config.cfg", SysIphoneGetDocDir() );
+	snprintf( path, sizeof( path ), "%s/.config.cfg", SysIphoneGetDocDir() );
 	fp = fopen( path, "w" );
 	if( ! fp ) {
 		Com_Printf( "Could not write config.cfg.\n" );
@@ -731,7 +731,7 @@ void iphoneShutdown() {
 	
 
 	// write the binary config file
-	FILE *f = fopen( va( "%s/binaryConfig.bin", SysIphoneGetDocDir() ), "wb" );
+	FILE *f = fopen( va( "%s/.binaryConfig.bin", SysIphoneGetDocDir() ), "wb" );
 	if ( !f ) {
 		Com_Printf( "Could not write binaryConfig.cfg.\n" );
 		return;

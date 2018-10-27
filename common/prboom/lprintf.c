@@ -389,7 +389,7 @@ void I_Error(const char *error, ...)
         FILE    *fp;
         char    path[1024];
         char    buffer[1024];
-        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        snprintf( path, sizeof( path ), "%s/.abandon.ship", SysIphoneGetDocDir() );
         fp = fopen( path, "w" );
         if( ! fp ) {
             printf( "Could not write canary. This is very bad!\n" );
