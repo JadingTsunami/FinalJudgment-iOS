@@ -1842,7 +1842,8 @@ void G_SaveGameName(char *name, size_t size, int slot, boolean isDemoplayback)
     size_t wadIndex;
     for (wadIndex = 0; wadIndex<numwadfiles; wadIndex++)
       {
-        const char *const w = wadfiles[wadIndex].name;
+          /* JDS: Strip path and look at basename only */
+        const char *const w = strrchr( wadfiles[wadIndex].name, '/' );
         CheckSaveGame(strlen(w)+2);
         strcpy( (char*)save_p, w);
         save_p += strlen((char*)save_p);

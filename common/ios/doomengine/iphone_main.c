@@ -237,6 +237,7 @@ cvar_t   *pwadSelection;
 
 char* doom_iwad;
 char* doom_pwads;
+char* doom_pwad_paths;
 
 #define VERSION_BCONFIG	( 0x89490000 + sizeof( huds ) + sizeof( playState ) )
 
@@ -417,7 +418,7 @@ void iphoneStartup() {
     }
     
 	// start the intro music if it wasn't disabled with the music cvar
-	iphonePlayMusic( "intro" );
+//	iphonePlayMusic( "intro" );
 //	iphonePlayMusic( "e1m1" );
 	
 	// these should get overwritten by the config loading
@@ -512,14 +513,16 @@ void iphoneIWADSelect( const char* iwad ) {
 void iphonePWADAdd( const char* pwad  ) {
     
     char full_pwad[1024];
+    char* pwad_name;
     
     I_FindFile( pwad, ".wad", full_pwad );
     
     if( full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
         // +2, 1 for separator and 1 for null terminator
-        char* pwadlist = (char*)malloc( sizeof(char)*(strlen(doom_pwads)+strlen(full_pwad)+2) );
+        pwad_name = strrchr( full_pwad, '/' ); /* JDS: don't use full path */
+        char* pwadlist = (char*)malloc( sizeof(char)*(strlen(doom_pwads)+strlen(pwad_name)+2) );
         strcpy( pwadlist, doom_pwads);
-        strcat( pwadlist, full_pwad);
+        strcat( pwadlist, pwad_name);
         unsigned long len = strlen(pwadlist);
         pwadlist[len] = PWAD_LIST_SEPARATOR;
         pwadlist[len+1] = '\0';
@@ -606,7 +609,9 @@ void iphoneSanitizePWADs() {
     char* pwad_local = strdup(doom_pwads);
     if(!pwad_local) return;
     
-    char* pwad_final = (char*)malloc( sizeof(char)*(1+strlen(doom_pwads)));
+    /* this is always guaranteed to be long enough or too long */
+    unsigned long pwad_final_len = (sizeof(char)*(1+strlen(SysIphoneGetDocDir())+strlen(doom_pwads)));
+    char* pwad_final = (char*)malloc( pwad_final_len );
     if(!pwad_final) {
         free(pwad_local);
         return;
@@ -638,6 +643,10 @@ void iphoneSanitizePWADs() {
         }
         
         if( pwad_path && *pwad_path ) {
+            if( strlen(pwad_final)+strlen(pwad_path)+2 >= pwad_final_len ) {
+                pwad_final_len = strlen(pwad_final) + strlen(pwad_path) + 2;
+                pwad_final = realloc(pwad_final, pwad_final_len);
+            }
             // keep this pwad
             strcat(pwad_final, pwad_path);
             strcat(pwad_final, delim);
@@ -649,8 +658,8 @@ void iphoneSanitizePWADs() {
         pwad = strtok( NULL, delim );
     }
    
-    if( doom_pwads ) free(doom_pwads);
-    doom_pwads = pwad_final;
+    if( doom_pwad_paths ) free(doom_pwad_paths);
+    doom_pwad_paths = pwad_final;
     free(pwad_local);
 }
 
@@ -677,7 +686,7 @@ void iphoneDoomStartup() {
     
     iphoneSanitizePWADs();
     
-	D_DoomMainSetup( full_iwad, doom_pwads );
+	D_DoomMainSetup( full_iwad, doom_pwad_paths );
     
     // upon successful setup, save CVARs for future use
     // ensure we never save a NULL string (this should never happen)
@@ -721,7 +730,8 @@ void iphoneShutdown() {
 	// write out commands to set the archived cvars
 	for( var = cvar_vars ; var ; var = var->next ) {
 		if( var->flags & CVAR_ARCHIVE ) {
-			snprintf( buffer, sizeof( buffer ), "%s %s\n", var->name, var->string );
+            /* JDS use tabs, not spaces */
+			snprintf( buffer, sizeof( buffer ), "%s\t%s\n", var->name, var->string );
 			fprintf( fp, "%s", buffer );
 			Com_Printf( "%s", buffer );
 		}

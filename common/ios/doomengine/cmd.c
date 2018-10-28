@@ -75,7 +75,7 @@ void Cmd_TokenizeString( const char *text ) {
 	char *strval = stringCopy;
 	
 	while( 1 ) {
-		char *start = strsep( &strval," \t\r\n");
+        char *start = strsep( &strval,"\t\r\n");
 		if ( !start ) {
 			break;
 		}
