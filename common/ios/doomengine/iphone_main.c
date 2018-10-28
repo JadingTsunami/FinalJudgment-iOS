@@ -644,7 +644,7 @@ void iphoneSanitizePWADs() {
         
         if( pwad_path && *pwad_path ) {
             if( strlen(pwad_final)+strlen(pwad_path)+2 >= pwad_final_len ) {
-                pwad_final_len = strlen(pwad_final) + strlen(pwad_path) + 2;
+                pwad_final_len = (strlen(pwad_final) + strlen(pwad_path) + 2)*sizeof(char);
                 pwad_final = realloc(pwad_final, pwad_final_len);
             }
             // keep this pwad
