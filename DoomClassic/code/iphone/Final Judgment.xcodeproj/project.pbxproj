@@ -54,7 +54,7 @@
 		C81E104C13E1CCA000B1049A /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104013E1CCA000B1049A /* BackButton.png */; };
 		C81E104D13E1CCA000B1049A /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104113E1CCA000B1049A /* Button.png */; };
 		C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */; };
-		C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104313E1CCA000B1049A /* DoomLogo.png */; };
+		C81E104F13E1CCA000B1049A /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104313E1CCA000B1049A /* Logo.png */; };
 		C81E105013E1CCA000B1049A /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104413E1CCA000B1049A /* Easy.png */; };
 		C81E105113E1CCA000B1049A /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104513E1CCA000B1049A /* Hard.png */; };
 		C81E105213E1CCA000B1049A /* MapOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104613E1CCA000B1049A /* MapOverlay.png */; };
@@ -205,7 +205,7 @@
 		C81E104013E1CCA000B1049A /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton.png; path = "../../IB Images/BackButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104113E1CCA000B1049A /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button.png; path = "../../IB Images/Button.png"; sourceTree = SOURCE_ROOT; };
 		C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DOOM_sigil_decal.png; path = "../../IB Images/DOOM_sigil_decal.png"; sourceTree = SOURCE_ROOT; };
-		C81E104313E1CCA000B1049A /* DoomLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoomLogo.png; path = "../../IB Images/DoomLogo.png"; sourceTree = SOURCE_ROOT; };
+		C81E104313E1CCA000B1049A /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = "../../IB Images/Logo.png"; sourceTree = SOURCE_ROOT; };
 		C81E104413E1CCA000B1049A /* Easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Easy.png; path = "../../IB Images/Easy.png"; sourceTree = SOURCE_ROOT; };
 		C81E104513E1CCA000B1049A /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = "../../IB Images/Hard.png"; sourceTree = SOURCE_ROOT; };
 		C81E104613E1CCA000B1049A /* MapOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapOverlay.png; path = "../../IB Images/MapOverlay.png"; sourceTree = SOURCE_ROOT; };
@@ -468,7 +468,7 @@
 				C81E104013E1CCA000B1049A /* BackButton.png */,
 				C81E104113E1CCA000B1049A /* Button.png */,
 				C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */,
-				C81E104313E1CCA000B1049A /* DoomLogo.png */,
+				C81E104313E1CCA000B1049A /* Logo.png */,
 				C81E104413E1CCA000B1049A /* Easy.png */,
 				C81E104513E1CCA000B1049A /* Hard.png */,
 				C81E104613E1CCA000B1049A /* MapOverlay.png */,
@@ -681,7 +681,7 @@
 				C81E104C13E1CCA000B1049A /* BackButton.png in Resources */,
 				C81E104D13E1CCA000B1049A /* Button.png in Resources */,
 				C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */,
-				C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */,
+				C81E104F13E1CCA000B1049A /* Logo.png in Resources */,
 				D03C3050217AD7DA009EA420 /* Default-568h@2x.png in Resources */,
 				C81E105013E1CCA000B1049A /* Easy.png in Resources */,
 				C81E105113E1CCA000B1049A /* Hard.png in Resources */,
