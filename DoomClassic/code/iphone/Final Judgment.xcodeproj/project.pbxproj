@@ -34,7 +34,6 @@
 		43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */; };
 		720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EBBAD0F82E0BB003F989A /* QuartzCore.framework */; };
 		C8012E5114B5122700B0E213 /* MainMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */; };
-		C8012E5214B5122700B0E213 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E5014B5122700B0E213 /* MainMenuView.xib */; };
 		C8012E6E14B6389B00B0E213 /* EpisodeMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8012E6C14B6389B00B0E213 /* EpisodeMenuViewController.mm */; };
 		C8012E6F14B6389B00B0E213 /* EpisodeMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E6D14B6389B00B0E213 /* EpisodeMenuView.xib */; };
 		C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E7214B646BD00B0E213 /* OpenGLView.xib */; };
@@ -116,10 +115,10 @@
 		D05ECE721FC2A6770086978C /* tnt.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE701FC2A6750086978C /* tnt.wad */; };
 		D05ECE731FC2A6770086978C /* plutonia.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE711FC2A6760086978C /* plutonia.wad */; };
 		D05ECE751FC2A73F0086978C /* spritx.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE741FC2A73F0086978C /* spritx.wad */; };
-		D06068DA217AE8AF004F88D9 /* FinalJudgmentMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
+		D0D75343218E287000EB569E /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D75345218E287000EB569E /* MainMenuView.xib */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		EDD2760911C2B19E004A9B9B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
@@ -179,7 +178,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8012E4E14B5122700B0E213 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		C8012E4F14B5122700B0E213 /* MainMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenuViewController.mm; sourceTree = "<group>"; };
-		C8012E5014B5122700B0E213 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
 		C8012E6B14B6389B00B0E213 /* EpisodeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeMenuViewController.h; sourceTree = "<group>"; };
 		C8012E6C14B6389B00B0E213 /* EpisodeMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EpisodeMenuViewController.mm; sourceTree = "<group>"; };
 		C8012E6D14B6389B00B0E213 /* EpisodeMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeMenuView.xib; sourceTree = "<group>"; };
@@ -268,10 +266,10 @@
 		D05ECE701FC2A6750086978C /* tnt.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = tnt.wad; sourceTree = "<group>"; };
 		D05ECE711FC2A6760086978C /* plutonia.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutonia.wad; sourceTree = "<group>"; };
 		D05ECE741FC2A73F0086978C /* spritx.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = spritx.wad; sourceTree = "<group>"; };
-		D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinalJudgmentMainView.xib; sourceTree = "<group>"; };
 		D080FADE1FC0BCB000E71FF7 /* libprboom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprboom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D0D75344218E287000EB569E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuView.xib; sourceTree = "<group>"; };
 		EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDD2760611C2B19E004A9B9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDD2760811C2B19E004A9B9B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -404,8 +402,7 @@
 				C8012E7C14B6704400B0E213 /* ControlsMenuView.xib */,
 				C8012E7714B649DA00B0E213 /* CreditsMenuView.xib */,
 				C8012E6D14B6389B00B0E213 /* EpisodeMenuView.xib */,
-				D06068D9217AE8AF004F88D9 /* FinalJudgmentMainView.xib */,
-				C8012E5014B5122700B0E213 /* MainMenuView.xib */,
+				D0D75345218E287000EB569E /* MainMenuView.xib */,
 				C8012E7214B646BD00B0E213 /* OpenGLView.xib */,
 			);
 			name = iPhone;
@@ -666,7 +663,6 @@
 			files = (
 				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
 				138FC9CA17F216C300D94C5F /* doom.wad in Resources */,
-				D06068DA217AE8AF004F88D9 /* FinalJudgmentMainView.xib in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
 				4364BF3F0F5CB25900F29317 /* dist.plist in Resources */,
@@ -739,7 +735,7 @@
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
 				C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */,
 				D05ECE721FC2A6770086978C /* tnt.wad in Resources */,
-				C8012E5214B5122700B0E213 /* MainMenuView.xib in Resources */,
+				D0D75343218E287000EB569E /* MainMenuView.xib in Resources */,
 				C8012E6F14B6389B00B0E213 /* EpisodeMenuView.xib in Resources */,
 				C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */,
 				C8012E7914B649DB00B0E213 /* CreditsMenuView.xib in Resources */,
@@ -808,6 +804,17 @@
 			targetProxy = 3DACFC1B148C591500EB17BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0D75345218E287000EB569E /* MainMenuView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0D75344218E287000EB569E /* en */,
+			);
+			name = MainMenuView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
