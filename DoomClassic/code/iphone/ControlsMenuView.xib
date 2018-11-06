@@ -29,6 +29,58 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw9-Al-Y2X" userLabel="SliderView">
+                    <rect key="frame" x="0.0" y="96" width="480" height="128"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Move Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="40" userLabel="MoveStickSizeLabel" customClass="idLabel">
+                            <rect key="frame" x="343.5" y="75" width="100" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Turn Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="44" userLabel="TurnStickSizeLabel" customClass="idLabel">
+                            <rect key="frame" x="349.5" y="20" width="94" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.20000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="30" customClass="idSlider">
+                            <rect key="frame" x="34.5" y="98.5" width="411" height="31"/>
+                            <color key="backgroundColor" red="0.0054347827099999997" green="0.0054347827099999997" blue="0.0054347827099999997" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="MoveStickValChanged" destination="-1" eventType="valueChanged" id="67"/>
+                            </connections>
+                        </slider>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.20000000000000001" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="37" customClass="idSlider">
+                            <rect key="frame" x="34.5" y="36.5" width="411" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="407" id="Kfq-6C-4Va"/>
+                                <constraint firstAttribute="height" constant="30" id="che-q4-VZt"/>
+                            </constraints>
+                            <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="TurnStickValChanged" destination="-1" eventType="valueChanged" id="71"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="44" firstAttribute="top" secondItem="dw9-Al-Y2X" secondAttribute="top" constant="20" symbolic="YES" id="2ch-ZP-DxE"/>
+                        <constraint firstItem="30" firstAttribute="top" secondItem="40" secondAttribute="bottom" constant="7" id="3qJ-Hg-gxY"/>
+                        <constraint firstItem="40" firstAttribute="trailing" secondItem="30" secondAttribute="trailing" id="7dU-Vr-b4r"/>
+                        <constraint firstItem="44" firstAttribute="trailing" secondItem="37" secondAttribute="trailing" id="E8Q-FE-OLT"/>
+                        <constraint firstItem="37" firstAttribute="top" secondItem="44" secondAttribute="bottom" id="Pj4-MP-oiF"/>
+                        <constraint firstItem="30" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="32" id="Qgn-hV-tu3"/>
+                        <constraint firstItem="30" firstAttribute="width" secondItem="37" secondAttribute="width" id="eFh-bx-F3D"/>
+                        <constraint firstItem="30" firstAttribute="height" secondItem="37" secondAttribute="height" id="oVI-76-SJ4"/>
+                        <constraint firstItem="30" firstAttribute="centerX" secondItem="37" secondAttribute="centerX" id="qBg-o1-bzC"/>
+                        <constraint firstItem="37" firstAttribute="centerX" secondItem="dw9-Al-Y2X" secondAttribute="centerX" id="wwW-Vw-Owo"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31" userLabel="AdvancedButton" customClass="idLabelButton">
                     <rect key="frame" x="414" y="254" width="50" height="50"/>
                     <constraints>
@@ -137,23 +189,6 @@
                         <outlet property="label" destination="32" id="53"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.20000000000000001" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="37" customClass="idSlider">
-                    <rect key="frame" x="34" y="156" width="411" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="TurnStickValChanged" destination="-1" eventType="valueChanged" id="71"/>
-                    </connections>
-                </slider>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.20000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="30" customClass="idSlider">
-                    <rect key="frame" x="34" y="123" width="411" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0054347827099999997" green="0.0054347827099999997" blue="0.0054347827099999997" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="MoveStickValChanged" destination="-1" eventType="valueChanged" id="67"/>
-                    </connections>
-                </slider>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47" userLabel="AdvancedLabel" customClass="idLabel">
                     <rect key="frame" x="407.5" y="238" width="63" height="16.5"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
@@ -194,24 +229,6 @@
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Move Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="40" userLabel="MoveStickSizeLabel" customClass="idLabel">
-                    <rect key="frame" x="36" y="141" width="407" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Turn Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="44" userLabel="TurnStickSizeLabel" customClass="idLabel">
-                    <rect key="frame" x="36" y="175" width="407" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -220,13 +237,17 @@
                 <constraint firstItem="29" firstAttribute="centerX" secondItem="43" secondAttribute="centerX" id="94W-KJ-qxv"/>
                 <constraint firstItem="35" firstAttribute="centerY" secondItem="46" secondAttribute="centerY" id="9Yq-fd-ih6"/>
                 <constraint firstItem="39" firstAttribute="top" secondItem="D5V-c7-rfD" secondAttribute="top" id="B61-Y4-7qb"/>
+                <constraint firstItem="dw9-Al-Y2X" firstAttribute="centerX" secondItem="D5V-c7-rfD" secondAttribute="centerX" id="DeS-oU-Tne"/>
+                <constraint firstItem="dw9-Al-Y2X" firstAttribute="leading" secondItem="D5V-c7-rfD" secondAttribute="leading" id="Dny-M4-bnk"/>
                 <constraint firstItem="33" firstAttribute="leading" secondItem="35" secondAttribute="trailing" constant="31.5" id="FWD-nf-C3x"/>
                 <constraint firstItem="34" firstAttribute="centerX" secondItem="33" secondAttribute="centerX" id="HoF-oD-k9P"/>
                 <constraint firstItem="D5V-c7-rfD" firstAttribute="bottom" secondItem="31" secondAttribute="bottom" constant="16" id="KB0-jZ-22C"/>
                 <constraint firstItem="39" firstAttribute="leading" secondItem="D5V-c7-rfD" secondAttribute="leading" id="Rcd-K2-p2J"/>
+                <constraint firstItem="D5V-c7-rfD" firstAttribute="trailing" secondItem="dw9-Al-Y2X" secondAttribute="trailing" id="VnF-Jx-adA"/>
                 <constraint firstItem="35" firstAttribute="leading" secondItem="46" secondAttribute="trailing" constant="27.5" id="WSL-Gs-gff"/>
                 <constraint firstItem="D5V-c7-rfD" firstAttribute="trailing" secondItem="31" secondAttribute="trailing" constant="16" id="XqA-d5-m2r"/>
                 <constraint firstItem="33" firstAttribute="centerY" secondItem="35" secondAttribute="centerY" id="Zmj-iW-oap"/>
+                <constraint firstItem="dw9-Al-Y2X" firstAttribute="top" secondItem="35" secondAttribute="bottom" constant="4" id="ZpW-7N-TSy"/>
                 <constraint firstItem="39" firstAttribute="bottom" secondItem="D5V-c7-rfD" secondAttribute="bottom" id="aCr-Rw-5qP"/>
                 <constraint firstItem="29" firstAttribute="top" secondItem="43" secondAttribute="top" constant="-16" id="dAr-rF-w2V"/>
                 <constraint firstItem="32" firstAttribute="top" secondItem="46" secondAttribute="top" id="dYa-OP-fvO"/>
@@ -235,6 +256,7 @@
                 <constraint firstItem="47" firstAttribute="top" secondItem="31" secondAttribute="top" constant="-16" id="g5s-Js-Cz5"/>
                 <constraint firstItem="36" firstAttribute="centerX" secondItem="35" secondAttribute="centerX" id="jaq-YA-d7C"/>
                 <constraint firstItem="47" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="jtw-d7-ez5"/>
+                <constraint firstItem="29" firstAttribute="top" secondItem="dw9-Al-Y2X" secondAttribute="bottom" constant="14" id="kV4-m6-iWG"/>
                 <constraint firstItem="36" firstAttribute="top" secondItem="35" secondAttribute="top" id="qof-pw-9eA"/>
                 <constraint firstItem="35" firstAttribute="top" secondItem="D5V-c7-rfD" secondAttribute="top" constant="7" id="sQl-Q5-h8A"/>
                 <constraint firstItem="35" firstAttribute="centerX" secondItem="39" secondAttribute="centerX" id="z4N-Xx-OuS"/>
