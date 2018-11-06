@@ -102,7 +102,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33" customClass="idLabelButton">
-                    <rect key="frame" x="333" y="7" width="123" height="85"/>
+                    <rect key="frame" x="329" y="7" width="123" height="85"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="gXc-bP-8fK"/>
                         <constraint firstAttribute="width" constant="123" id="qxu-9x-pYg" userLabel="width = 170"/>
@@ -214,7 +214,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dir &amp; Wheel" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="34" userLabel="DirWheelLabel" customClass="idLabel">
-                    <rect key="frame" x="357" y="7" width="75" height="16.5"/>
+                    <rect key="frame" x="353" y="7" width="75" height="16.5"/>
                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                     <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,7 +239,7 @@
                 <constraint firstItem="39" firstAttribute="top" secondItem="D5V-c7-rfD" secondAttribute="top" id="B61-Y4-7qb"/>
                 <constraint firstItem="dw9-Al-Y2X" firstAttribute="centerX" secondItem="D5V-c7-rfD" secondAttribute="centerX" id="DeS-oU-Tne"/>
                 <constraint firstItem="dw9-Al-Y2X" firstAttribute="leading" secondItem="D5V-c7-rfD" secondAttribute="leading" id="Dny-M4-bnk"/>
-                <constraint firstItem="33" firstAttribute="leading" secondItem="35" secondAttribute="trailing" constant="31.5" id="FWD-nf-C3x"/>
+                <constraint firstItem="33" firstAttribute="leading" secondItem="35" secondAttribute="trailing" constant="27.5" id="FWD-nf-C3x"/>
                 <constraint firstItem="34" firstAttribute="centerX" secondItem="33" secondAttribute="centerX" id="HoF-oD-k9P"/>
                 <constraint firstItem="D5V-c7-rfD" firstAttribute="bottom" secondItem="31" secondAttribute="bottom" constant="16" id="KB0-jZ-22C"/>
                 <constraint firstItem="39" firstAttribute="leading" secondItem="D5V-c7-rfD" secondAttribute="leading" id="Rcd-K2-p2J"/>
