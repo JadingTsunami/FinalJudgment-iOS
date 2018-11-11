@@ -235,6 +235,8 @@ cvar_t	*netBuffer;
 cvar_t   *iwadSelection;
 cvar_t   *pwadSelection;
 
+extern bool mus_on;
+
 char* doom_iwad;
 char* doom_pwads;
 char* doom_pwad_paths;
@@ -416,7 +418,7 @@ void iphoneStartup() {
             }
         }
     }
-    
+        
 	// start the intro music if it wasn't disabled with the music cvar
 //	iphonePlayMusic( "intro" );
 //	iphonePlayMusic( "e1m1" );

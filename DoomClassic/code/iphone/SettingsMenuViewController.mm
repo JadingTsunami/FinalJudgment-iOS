@@ -152,6 +152,13 @@
  */
 - (IBAction) TouchClickChanged {
     Cvar_SetValue( touchClick->name, !touchClick->value );
+    if ( !SysIPhoneOtherAudioIsPlaying() ) {
+        if ( touchClick->value == 0 ) {
+            S_SetSfxVolume(0);
+        } else {
+            S_SetSfxVolume(127);
+        }
+    }
 }
 
 /*

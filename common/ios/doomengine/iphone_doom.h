@@ -158,7 +158,6 @@ extern cvar_t	*rampTurn;
 extern cvar_t	*netBuffer;
 extern cvar_t   *iwadSelection;
 extern cvar_t   *pwadSelection;
-    
 
 extern int	numTouches;
 extern int	touches[5][2];	// [0] = x, [1] = y in landscape mode, raster order with y = 0 at top
