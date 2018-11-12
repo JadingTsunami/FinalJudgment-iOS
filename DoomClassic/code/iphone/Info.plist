@@ -28,12 +28,14 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>idGinzaNar-Md2.otf</string>
+		<string>GALS.otf</string>
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIInterfaceOrientation</key>
 	<string>UIInterfaceOrientationLandscapeLeft</string>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

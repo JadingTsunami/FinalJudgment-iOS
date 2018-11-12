@@ -49,7 +49,6 @@
 		C8012E8E14B6750D00B0E213 /* MissionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8012E8C14B6750B00B0E213 /* MissionMenuView.xib */; };
 		C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */; };
 		C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */; };
-		C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */ = {isa = PBXBuildFile; fileRef = C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */; };
 		C81E104C13E1CCA000B1049A /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104013E1CCA000B1049A /* BackButton.png */; };
 		C81E104D13E1CCA000B1049A /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104113E1CCA000B1049A /* Button.png */; };
 		C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */; };
@@ -118,6 +117,8 @@
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
 		D0C9049D2199427700FDC81A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C9049C2199427700FDC81A /* Images.xcassets */; };
+		D0C9049F21994D9F00FDC81A /* GALS.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0C9049E21994D9F00FDC81A /* GALS.otf */; };
+		D0C904A3219951DF00FDC81A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */; };
 		D0D75343218E287000EB569E /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D75345218E287000EB569E /* MainMenuView.xib */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
@@ -199,7 +200,6 @@
 		C8012E8C14B6750B00B0E213 /* MissionMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MissionMenuView.xib; sourceTree = "<group>"; };
 		C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SliderSkull@2x.png"; path = "../../IB Images/SliderSkull@2x.png"; sourceTree = SOURCE_ROOT; };
 		C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SliderSkull~ipad.png"; path = "../../IB Images/SliderSkull~ipad.png"; sourceTree = SOURCE_ROOT; };
-		C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "idGinzaNar-Md2.otf"; path = "../../idGinzaNar-Md2.otf"; sourceTree = SOURCE_ROOT; };
 		C81E104013E1CCA000B1049A /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton.png; path = "../../IB Images/BackButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104113E1CCA000B1049A /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button.png; path = "../../IB Images/Button.png"; sourceTree = SOURCE_ROOT; };
 		C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DOOM_sigil_decal.png; path = "../../IB Images/DOOM_sigil_decal.png"; sourceTree = SOURCE_ROOT; };
@@ -269,6 +269,8 @@
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D0C9049C2199427700FDC81A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Final Judgment/Images.xcassets"; sourceTree = "<group>"; };
+		D0C9049E21994D9F00FDC81A /* GALS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GALS.otf; sourceTree = "<group>"; };
+		D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D0D75344218E287000EB569E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuView.xib; sourceTree = "<group>"; };
 		EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDD2760611C2B19E004A9B9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -358,7 +360,7 @@
 				C86CA86714B502C90057FF54 /* Icons & Defaults */,
 				C86CA86114B4FD230057FF54 /* Menus */,
 				C84F820613D73D28006D01AB /* Images */,
-				C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */,
+				D0C9049E21994D9F00FDC81A /* GALS.otf */,
 				43CF02FE0F56974E00E4A23D /* Default.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
@@ -496,6 +498,7 @@
 				132AC2D61802F12200884E11 /* iPhone4Inch */,
 				C8012E4C14B510C600B0E213 /* iPad */,
 				C8012E4B14B510BA00B0E213 /* iPhone */,
+				D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -673,7 +676,6 @@
 				C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */,
 				C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */,
 				C8D1CF8813DF79BC00F0EAC6 /* Default~ipad.png in Resources */,
-				C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */,
 				C81E104C13E1CCA000B1049A /* BackButton.png in Resources */,
 				C81E104D13E1CCA000B1049A /* Button.png in Resources */,
 				C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */,
@@ -697,6 +699,7 @@
 				C8792EDC13F5AFE6003D834F /* SubMenuBackground.png in Resources */,
 				C8792EDD13F5AFE6003D834F /* SubMenuButton_Highlighted.png in Resources */,
 				C8792EDE13F5AFE6003D834F /* SubMenuButton.png in Resources */,
+				D0C9049F21994D9F00FDC81A /* GALS.otf in Resources */,
 				C879308F13F5D8AA003D834F /* DifficultyBackground.png in Resources */,
 				C879309013F5D8AA003D834F /* DownArrow_Highlighted.png in Resources */,
 				C879309113F5D8AA003D834F /* DownArrow.png in Resources */,
@@ -709,6 +712,7 @@
 				C879309613F5D8AA003D834F /* MissonBackground.png in Resources */,
 				C879309713F5D8AA003D834F /* UpArrow_Highlighted.png in Resources */,
 				C879309813F5D8AA003D834F /* UpArrow.png in Resources */,
+				D0C904A3219951DF00FDC81A /* Launch Screen.storyboard in Resources */,
 				13E3CC6517F237B80075D40A /* FJ_120.png in Resources */,
 				C87930E513F5EC1B003D834F /* Episode1Background_Highlighted.png in Resources */,
 				132AC2E21802F15C00884E11 /* LegalMenuViewi5.xib in Resources */,
