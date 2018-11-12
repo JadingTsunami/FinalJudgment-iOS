@@ -89,6 +89,17 @@ void I_FindFile(const char* wfname, const char* ext, char * returnFileName )
         return;
 	}
     
+    // JDS: Try the doc dir
+    sprintf( returnFileName, "%s/%s", SysIphoneGetDocDir(), wfname );
+    if (access(returnFileName,F_OK))
+        strcat(returnFileName, ext);    // try adding the extension
+    if (!access(returnFileName,F_OK)) {
+        lprintf(LO_INFO, " found %s\n", returnFileName);
+        
+        // Found the file.
+        return;
+    }
+    
     // JDS: try assuming it's a full path instead
     sprintf( returnFileName, "%s", wfname );
     if (access(returnFileName,F_OK))

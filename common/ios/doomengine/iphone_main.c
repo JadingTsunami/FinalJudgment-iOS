@@ -235,8 +235,6 @@ cvar_t	*netBuffer;
 cvar_t   *iwadSelection;
 cvar_t   *pwadSelection;
 
-extern bool mus_on;
-
 char* doom_iwad;
 char* doom_pwads;
 char* doom_pwad_paths;
@@ -418,7 +416,7 @@ void iphoneStartup() {
             }
         }
     }
-        
+    
 	// start the intro music if it wasn't disabled with the music cvar
 //	iphonePlayMusic( "intro" );
 //	iphonePlayMusic( "e1m1" );
@@ -521,7 +519,7 @@ void iphonePWADAdd( const char* pwad  ) {
     
     if( full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
         // +2, 1 for separator and 1 for null terminator
-        pwad_name = strrchr( full_pwad, '/' ); /* JDS: don't use full path */
+        pwad_name = strrchr( full_pwad, '/' )+1; /* JDS: don't use full path */
         char* pwadlist = (char*)malloc( sizeof(char)*(strlen(doom_pwads)+strlen(pwad_name)+2) );
         strcpy( pwadlist, doom_pwads);
         strcat( pwadlist, pwad_name);
@@ -545,11 +543,8 @@ void iphonePWADAdd( const char* pwad  ) {
  ==================
  */
 void iphonePWADRemove( const char* pwad  ) {
-    char full_pwad[1024];
-    
-    I_FindFile( pwad, ".wad", full_pwad );
-    
-    char* pwadloc_start = strstr( doom_pwads, full_pwad );
+
+    char* pwadloc_start = strstr( doom_pwads, pwad );
     char* pwadloc_end = strchr( pwadloc_start, PWAD_LIST_SEPARATOR );
     
     // if this is the only PWAD...
@@ -557,11 +552,11 @@ void iphonePWADRemove( const char* pwad  ) {
         if( doom_pwads ) free(doom_pwads);
         doom_pwads = strdup("");
         Com_Printf("Removed only PWAD: %s (%s)\n", pwad, doom_pwads);
-    } else if( pwadloc_start && pwadloc_end && full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
+    } else if( pwadloc_start && pwadloc_end && pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
     
         // remove pwad and its separator, hence +1
         unsigned long i = 0;
-        unsigned long pwadlist_len = (strlen(doom_pwads)-(strlen(full_pwad)+1) );
+        unsigned long pwadlist_len = (strlen(doom_pwads)-(strlen(pwad)+1) );
         char* pwadlist = (char*)malloc( sizeof(char)*pwadlist_len );
         
         char* pwadlocal = doom_pwads;
@@ -628,8 +623,12 @@ void iphoneSanitizePWADs() {
         char pwad_doc_path[1024];
         char* pwad_file = strrchr(pwad,'/');
         
+        /* no path */
+        if( !pwad_file ) pwad_file = pwad;
+        else pwad_file++; /* skip over last slash */
+        
         if( pwad_file && *pwad_file ) {
-            pwad_file++;
+
             strcpy( pwad_doc_path, SysIphoneGetDocDir() );
             strcat( pwad_doc_path, "/" );
             strcat( pwad_doc_path, pwad_file );

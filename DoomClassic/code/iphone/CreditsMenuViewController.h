@@ -45,7 +45,8 @@
 - (IBAction) BackToMain;
 - (IBAction)playButtonPressed:(UIButton *)sender;
 - (void) updateWadLabels;
-- (void) updatePwadList;
+- (void) updateWadList;
+- (void) addWAD:(NSString*)pwad wadScroller:(UIScrollView*)scroller offset:(int) y;
 - (IBAction)pwadButtonPressed:(id)sender;
 
 @end

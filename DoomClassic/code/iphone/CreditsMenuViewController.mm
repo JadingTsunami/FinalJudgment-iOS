@@ -21,6 +21,7 @@
 #import "CreditsMenuViewController.h"
 #include "doomiphone.h"
 #include "iphone_delegate.h"
+#include <stdio.h>
 
 @implementation Doom_CreditsMenuViewController
 
@@ -63,7 +64,7 @@
     [super viewDidLoad];
     
     [self updateWadLabels];
-    [self updatePwadList];
+    [self updateWadList];
     
     //maximumSpeed =[[NSArray alloc] initWithObjects:@"Running",@"Crying",@"Boring",@"Working",nil];
     //warningTime = [[NSArray alloc] initWithObjects: @"Happy", @"Sad" , @"Good", @"joyce",nil];
@@ -112,7 +113,7 @@
                     @"Easy",
                     @"Medium",
                     @"Hard",
-                    @"Nightmare!",
+                    @"Fatal!",
                     nil
                    ];
     
@@ -134,44 +135,73 @@
     [levelPicker selectRow:0 inComponent:0 animated:NO];
 }
 
-- (void)updatePwadList {
+- (void)updateWadList {
     NSFileManager *filemgr = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSArray *dirFiles = [filemgr contentsOfDirectoryAtPath:documentsDirectory error:nil];
     
-    UIButton *button = NULL;
-    int y = 5;
+    int pwadOffset = 5;
+    int iwadOffset = 5;
+    
     for (id dir in dirFiles) {
         
         NSString *value = (NSString *)dir;
         
         if ([[value pathExtension] caseInsensitiveCompare:@"wad"]==NSOrderedSame){
-            button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [button setTitle:value forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
-            [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+            /* Sort out IWADs */
+            NSString *path = [documentsDirectory stringByAppendingPathComponent:value];
             
-            if( [[NSString stringWithUTF8String:doom_pwads] rangeOfString:dir options:NSCaseInsensitiveSearch].location != NSNotFound) {
-                [button setSelected:(YES)];
+            FILE *f = fopen([path UTF8String],"r");
+            
+            char wadtype[4];
+            if( f && fread( wadtype, sizeof(char), 4, f ) ) {
+                if ( memcmp( "IWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
+                    /* found an IWAD */
+                    /*tbd[self addWAD:value:iwadScroller];*/
+                } else if ( memcmp( "PWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
+                    /* PWAD, keep going */
+                    [self addWAD:value wadScroller:pwadScroller offset:pwadOffset];
+                    pwadOffset += 25;
+                } else {
+                    /* neither IWAD nor PWAD; skip */
+                    NSLog(@"Did not recognize the WAD: %@",value);
+                }
+                fclose(f);
+            } else {
+                NSLog(@"Failed to open: %@; %d",value, errno);
             }
-            button.frame = CGRectMake(15, y, 175, 22.0);
-            
-            [pwadScroller addSubview:button];
-            y += 25;
         }
     }
+}
+
+- (void)addWAD:(NSString*)pwad wadScroller:(UIScrollView*)scroller offset:(int) y {
     
+    UIButton *button = NULL;
+    
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:pwad forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+    
+    if( [[NSString stringWithUTF8String:doom_pwads] rangeOfString:pwad options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        [button setSelected:(YES)];
+    }
+    button.frame = CGRectMake(15, y, 175, 22.0);
+    
+    [scroller addSubview:button];
+
     if( button ) {
-        [pwadScroller setContentSize:CGSizeMake(
-                                            pwadScroller.bounds.size.width,
-                                            CGRectGetMaxY(button.frame)
-                                            )];
+        [scroller setContentSize:CGSizeMake(
+                                                scroller.bounds.size.width,
+                                                CGRectGetMaxY(button.frame)
+                                                )];
     }
 }
+
 
 /*
  ========================
@@ -254,7 +284,7 @@
         NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
         [(UIButton*)sender setSelected:NO];
         printf("PWAD: %s\n", [full_pwad UTF8String]);
-        iphonePWADRemove([full_pwad UTF8String]);
+        iphonePWADRemove([[[(UIButton*)sender titleLabel] text] UTF8String]);
     } else {
         NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
         [(UIButton*)sender setSelected:YES];
