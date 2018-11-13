@@ -43,7 +43,7 @@
     
     CGFloat points = self.titleLabel.font.pointSize;
     
-    self.titleLabel.font = [UIFont fontWithName:@"idGinza Narrow" size:points];
+    self.titleLabel.font = [UIFont fontWithName:@"Galiver Sans" size:points];
     
     // Localize the text.
     NSString * unLocText = self.titleLabel.text;

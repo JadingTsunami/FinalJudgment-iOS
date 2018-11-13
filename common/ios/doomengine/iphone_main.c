@@ -377,7 +377,7 @@ void iphoneStartup() {
 	mpExpansion = Cvar_Get( "mpExpansion", "0", CVAR_ARCHIVE | CVAR_NOSET );
 	
     // WADs to load
-    iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+    iwadSelection = Cvar_Get( "iwadSelection", DEFAULT_IWAD, CVAR_ARCHIVE );
     pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
     
 	// debug tools
@@ -404,10 +404,10 @@ void iphoneStartup() {
         if( fp ) {
             Com_Printf("Last exit was fatal (ship abandoned). Recovering...\n");
 
-            Cvar_Set( "iwadSelection", "doom.wad" );
+            Cvar_Set( "iwadSelection", DEFAULT_IWAD );
             Cvar_Set( "pwadSelection", "" );
 
-            iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+            iwadSelection = Cvar_Get( "iwadSelection", DEFAULT_IWAD, CVAR_ARCHIVE );
             pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
             
             // remove canary
@@ -493,8 +493,8 @@ void iphoneIWADSelect( const char* iwad ) {
     if( full_iwad[0] == '\0' ) {
         // fall back to vanilla Doom IWAD.
         
-        I_FindFile( "doom.wad", ".wad", full_iwad );
-        iwad = "doom.wad";
+        I_FindFile( DEFAULT_IWAD, ".wad", full_iwad );
+        iwad = DEFAULT_IWAD;
     }
     
     if( doom_iwad ) free(doom_iwad);
@@ -682,7 +682,7 @@ void iphoneDoomStartup() {
     if( full_iwad[0] == '\0' ) {
         // fall back to vanilla Doom IWAD.
         
-        I_FindFile( "doom.wad", ".wad", full_iwad );
+        I_FindFile( DEFAULT_IWAD, ".wad", full_iwad );
     }
     
     iphoneSanitizePWADs();

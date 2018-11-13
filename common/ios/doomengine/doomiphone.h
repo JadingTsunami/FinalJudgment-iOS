@@ -34,6 +34,7 @@
 #define IS_IPHONE_5 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0f)
 
 #define PWAD_LIST_SEPARATOR ':'
+#define DEFAULT_IWAD "doom.wad"
 
 #include <string.h>
 #include <stdarg.h>

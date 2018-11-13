@@ -56,7 +56,7 @@
         
         // fall back to default DOOM wad
         if( full_iwad[0] == '\0' ) {
-            I_FindFile( "doom.wad", ".wad", full_iwad );
+            I_FindFile( DEFAULT_IWAD, ".wad", full_iwad );
             if( doom_iwad ) free(doom_iwad);
             doom_iwad = strdup(full_iwad);
         } else if( strcmp(doom_iwad,full_iwad) != 0 ) {
