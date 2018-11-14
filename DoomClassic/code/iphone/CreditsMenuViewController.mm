@@ -63,11 +63,6 @@
 {
     [super viewDidLoad];
     
-    [self updateWadLabels];
-    [self updateWadList];
-    
-    episodic = true;
-    
     doomEpisodes = [[NSArray alloc] initWithObjects:@"E1", @"E2", @"E3", @"E4",nil ];
     doomLevels = [[NSArray alloc] initWithObjects:@"M1", @"M2", @"M3", @"M4", @"M5", @"M6", @"M7", @"M8", @"M9", nil ];
     
@@ -137,7 +132,11 @@
                     nil
                    ];
     
+    /* check if our IWAD is episodic */
+    episodic = [episodicIWADs containsObject: [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] lowercaseString]];
     
+    [self updateWadLabels];
+    [self updateWadList];
     
     self->skillPicker.dataSource = self;
     self->skillPicker.delegate = self;
@@ -216,9 +215,12 @@
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
     
+    /* FIXME: BUG: If a PWAD is a substring of another, it will show up as highlighted even though it shouldn't be.
+     This is because the PWAD string is tokenized before comparison. Note this means the name needs the same suffix only so
+     it's a realistic bug. */
     if( !isIWAD && [[NSString stringWithUTF8String:doom_pwads] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
         [button setSelected:(YES)];
-    } else if ( [[NSString stringWithUTF8String:doom_iwad] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
+    } else if ( [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] compare:wad options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             [button setSelected:(YES)];
     }
     button.frame = CGRectMake(15, y, 175, 22.0);
@@ -308,16 +310,18 @@
 }
 
 - (IBAction)pwadButtonPressed:(id)sender {
+/*
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
+*/
+    NSString* full_pwad = [[(UIButton*)sender titleLabel] text];
     
     if( [(UIButton*)sender isSelected]) {
-        NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
+        /*NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];*/
         [(UIButton*)sender setSelected:NO];
         printf("PWAD: %s\n", [full_pwad UTF8String]);
-        iphonePWADRemove([[[(UIButton*)sender titleLabel] text] UTF8String]);
+        iphonePWADRemove([full_pwad UTF8String]);
     } else {
-        NSString* full_pwad = [NSString pathWithComponents:[NSArray arrayWithObjects:documentsDirectory,[[(UIButton*)sender titleLabel] text], nil]];
         [(UIButton*)sender setSelected:YES];
         printf("PWAD: %s\n", [full_pwad UTF8String]);
         iphonePWADAdd([full_pwad UTF8String]);
@@ -338,7 +342,7 @@
     
     NSString *newIWAD = [[(UIButton*)sender titleLabel] text];
     
-    episodic = [episodicIWADs containsObject: newIWAD];
+    episodic = [episodicIWADs containsObject: [newIWAD lowercaseString]];
     
     /* select the new IWAD */
     [(UIButton*)sender setSelected:YES];
