@@ -645,6 +645,8 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 	sidemove = TURBOTHRESHOLD * AxisHit( &huds.sideStick );
 	
 	huds.turnStick.scale = stickTurn->value / 128.0f;
+    /* JDS: Scale rotor same as turn stick */
+    huds.turnRotor.scale = stickTurn->value / 128.0f;
 	cmd->angleturn = -1500.0f * AxisHit( &huds.turnStick );
 	
 	// rotary wheel

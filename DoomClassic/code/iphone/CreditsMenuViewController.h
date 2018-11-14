@@ -29,24 +29,30 @@
 @interface Doom_CreditsMenuViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> {
     
     IBOutlet UIScrollView *     scrollView;
+    IBOutlet UIScrollView *iwadScroller;
     
-    IBOutlet UILabel *iwadLabel;
-    IBOutlet UILabel *pwadLabel;
     IBOutlet UIScrollView *pwadScroller;
     IBOutlet UIPickerView *levelPicker;
     IBOutlet UIPickerView *skillPicker;
+    IBOutlet UIView *iwadView;
+    IBOutlet UIView *pwadView;
     
     NSArray *skillLevels;
     NSArray *doomEpisodes;
     NSArray *doomLevels;
     NSArray *doom2Levels;
+    NSArray *episodicIWADs;
+    NSArray *builtinIWADs;
+    
+    Boolean episodic;
 }
 
 - (IBAction) BackToMain;
 - (IBAction)playButtonPressed:(UIButton *)sender;
 - (void) updateWadLabels;
 - (void) updateWadList;
-- (void) addWAD:(NSString*)pwad wadScroller:(UIScrollView*)scroller offset:(int) y;
+- (void) addWAD:(NSString*)wad wadScroller:(UIScrollView*)scroller offset:(int) y iwad:(bool) isIWAD;
 - (IBAction)pwadButtonPressed:(id)sender;
+- (IBAction)iwadButtonPressed:(id)sender;
 
 @end

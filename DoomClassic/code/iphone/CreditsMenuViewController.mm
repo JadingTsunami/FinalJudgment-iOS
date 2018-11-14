@@ -66,12 +66,32 @@
     [self updateWadLabels];
     [self updateWadList];
     
-    //maximumSpeed =[[NSArray alloc] initWithObjects:@"Running",@"Crying",@"Boring",@"Working",nil];
-    //warningTime = [[NSArray alloc] initWithObjects: @"Happy", @"Sad" , @"Good", @"joyce",nil];
-
+    episodic = true;
     
     doomEpisodes = [[NSArray alloc] initWithObjects:@"E1", @"E2", @"E3", @"E4",nil ];
     doomLevels = [[NSArray alloc] initWithObjects:@"M1", @"M2", @"M3", @"M4", @"M5", @"M6", @"M7", @"M8", @"M9", nil ];
+    
+    episodicIWADs = [[NSArray alloc] initWithObjects:
+                     @"freedoom.wad",
+                     @"freedoom1.wad",
+                     @"freedoomu.wad",
+                     @"doom.wad",
+                     @"udoom.wad",
+                     @"doomu.wad",
+                     @"bfgdoom.wad",
+                     @"doombfg.wad",
+                     @"doom1.wad",
+                     @"chex.wad",
+                     @"chex2.wad",
+                     @"chex3.wad",
+                     nil];
+    
+    builtinIWADs = [[NSArray alloc] initWithObjects:
+                    @"doom.wad",
+                    @"doom2.wad",
+                    @"tnt.wad",
+                    @"plutonia.wad",
+                    nil];
     
     doom2Levels = [[NSArray alloc] initWithObjects:
                     @"MAP01",
@@ -128,8 +148,6 @@
 }
 
 - (void)updateWadLabels {
-    iwadLabel.text = [[NSString stringWithUTF8String:doom_iwad] lastPathComponent];
-    pwadLabel.text = [[[NSString stringWithUTF8String:doom_pwads] lastPathComponent] stringByReplacingOccurrencesOfString:@":" withString:@""];
     
     [levelPicker reloadAllComponents];
     [levelPicker selectRow:0 inComponent:0 animated:NO];
@@ -143,6 +161,12 @@
     
     int pwadOffset = 5;
     int iwadOffset = 5;
+    
+    /* add built-in IWADs first */
+    for(id biwad in builtinIWADs) {
+        [self addWAD:biwad wadScroller:iwadScroller offset:iwadOffset iwad:true];
+        iwadOffset += 25;
+    }
     
     for (id dir in dirFiles) {
         
@@ -158,10 +182,11 @@
             if( f && fread( wadtype, sizeof(char), 4, f ) ) {
                 if ( memcmp( "IWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
                     /* found an IWAD */
-                    /*tbd[self addWAD:value:iwadScroller];*/
+                    [self addWAD:value wadScroller:iwadScroller offset:iwadOffset iwad:true];
+                    iwadOffset += 25;
                 } else if ( memcmp( "PWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
                     /* PWAD, keep going */
-                    [self addWAD:value wadScroller:pwadScroller offset:pwadOffset];
+                    [self addWAD:value wadScroller:pwadScroller offset:pwadOffset iwad:false];
                     pwadOffset += 25;
                 } else {
                     /* neither IWAD nor PWAD; skip */
@@ -175,20 +200,26 @@
     }
 }
 
-- (void)addWAD:(NSString*)pwad wadScroller:(UIScrollView*)scroller offset:(int) y {
+- (void)addWAD:(NSString*)wad wadScroller:(UIScrollView*)scroller offset:(int) y iwad:(bool) isIWAD {
     
     UIButton *button = NULL;
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:pwad forState:UIControlStateNormal];
+    if( isIWAD ) {
+        [button addTarget:self action:@selector(iwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [button setTitle:wad forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
     
-    if( [[NSString stringWithUTF8String:doom_pwads] rangeOfString:pwad options:NSCaseInsensitiveSearch].location != NSNotFound) {
+    if( !isIWAD && [[NSString stringWithUTF8String:doom_pwads] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
         [button setSelected:(YES)];
+    } else if ( [[NSString stringWithUTF8String:doom_iwad] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            [button setSelected:(YES)];
     }
     button.frame = CGRectMake(15, y, 175, 22.0);
     
@@ -294,6 +325,28 @@
     [self updateWadLabels];
 }
 
+- (IBAction)iwadButtonPressed:(id)sender {
+    
+    /* IWADs are single-selection only */
+    if ([[iwadScroller subviews] count] > 0) {
+        for( UIView* subview in [iwadScroller subviews]) {
+            if ([subview isKindOfClass:[UIButton class]]) {
+                [(UIButton*)subview setSelected:NO];
+            }
+        }
+    }
+    
+    NSString *newIWAD = [[(UIButton*)sender titleLabel] text];
+    
+    episodic = [episodicIWADs containsObject: newIWAD];
+    
+    /* select the new IWAD */
+    [(UIButton*)sender setSelected:YES];
+    iphoneIWADSelect([newIWAD UTF8String]);
+    
+    [self updateWadLabels];
+}
+
 - (IBAction)playButtonPressed:(UIButton *)sender {
     
     mapStart_t localStartmap;
@@ -321,7 +374,7 @@
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
    
-    if( pickerView == levelPicker && [ iwadLabel.text caseInsensitiveCompare:@"doom.wad"] == NSOrderedSame ) {
+    if( pickerView == levelPicker && episodic ) {
         return 2; // episode, map
     }
     
@@ -333,7 +386,7 @@
 {
  
     if( pickerView == levelPicker ) {
-        if( [ iwadLabel.text caseInsensitiveCompare:@"doom.wad"] == NSOrderedSame ) {
+        if( episodic ) {
             if( component == 0 ) {
                 return (NSInteger) doomEpisodes.count;
             } else if( component == 1 ) {
@@ -355,7 +408,7 @@
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if( pickerView == levelPicker ) {
-        if( [ iwadLabel.text caseInsensitiveCompare:@"doom.wad"] == NSOrderedSame ) {
+        if( episodic ) {
             if( component == 0 ) {
                 return doomEpisodes[ (NSUInteger) row];
             } else if( component == 1 ) {
@@ -375,10 +428,11 @@
 
 
 - (void)dealloc {
-    [pwadLabel release];
-    [iwadLabel release];
     [levelPicker release];
     [skillPicker release];
+    [iwadScroller release];
+    [iwadView release];
+    [pwadView release];
     [super dealloc];
 }
 @end
