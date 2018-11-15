@@ -641,7 +641,7 @@
 		3DC1C84C14B63E1B00680D02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 3DC1C84F14B63E1B00680D02 /* Build configuration list for PBXProject "prboom" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -765,7 +765,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../doomengine ../../SDL_shim";
 			};
@@ -798,6 +798,7 @@
 		3DC1C86314B63E1B00680D02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/prboom.dst;
 				GCC_VERSION = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -811,6 +812,7 @@
 		3DC1C86414B63E1B00680D02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/prboom.dst;
 				GCC_VERSION = "";
 				ONLY_ACTIVE_ARCH = NO;

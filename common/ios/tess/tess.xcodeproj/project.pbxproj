@@ -168,7 +168,7 @@
 		3D155FB814B51127000D33AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 3D155FBB14B51127000D33AA /* Build configuration list for PBXProject "tess" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -254,6 +254,7 @@
 		3D155FCF14B51127000D33AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/tess.dst;
 				GCC_VERSION = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -267,6 +268,7 @@
 		3D155FD014B51127000D33AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/tess.dst;
 				GCC_VERSION = "";
 				ONLY_ACTIVE_ARCH = NO;

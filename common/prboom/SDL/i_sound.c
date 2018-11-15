@@ -60,7 +60,7 @@
 #endif // ID_DISABLE_SDL_SOUND
 
 #ifdef HAVE_MIXER
-#include "SDL_mixer.h"
+#include "SDL_Mixer.h"
 #endif
 
 #include "z_zone.h"

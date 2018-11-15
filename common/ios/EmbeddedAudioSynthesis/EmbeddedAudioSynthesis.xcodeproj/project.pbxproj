@@ -421,7 +421,7 @@
 		3DC1C5CD14B624ED00680D02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 3DC1C5D014B624ED00680D02 /* Build configuration list for PBXProject "EmbeddedAudioSynthesis" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -517,7 +517,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../../embeddedaudiosynthesis/arm-wt-22k";
 				VALID_ARCHS = arm64;
@@ -558,6 +558,7 @@
 		3DC1C5E414B624ED00680D02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/EmbeddedAudioSynthesis.dst;
 				GCC_VERSION = "";
 				LIBRARY_SEARCH_PATHS = (
@@ -575,6 +576,7 @@
 		3DC1C5E514B624ED00680D02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				DSTROOT = /tmp/EmbeddedAudioSynthesis.dst;
 				GCC_VERSION = "";
 				LIBRARY_SEARCH_PATHS = (
