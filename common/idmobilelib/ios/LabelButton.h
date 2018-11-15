@@ -26,6 +26,9 @@
     
     UIColor *               labelColor;
     UIColor *               label2Color;
+    UIImage * enabledImage;
+    UIImage * disabledImage;
+    
 }
 
 

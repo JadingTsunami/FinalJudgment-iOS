@@ -75,8 +75,8 @@ void EAS_CalcPanControl (EAS_INT pan, EAS_I16 *pGainLeft, EAS_I16 *pGainRight)
     netAngle = netAngle << 8;
 
     /* calculate sin */
-    temp = EG1_ONE + FMUL_15x15(COEFF_PAN_G2, netAngle);
-    temp = COEFF_PAN_G0 + FMUL_15x15(temp, netAngle);
+    temp = (int) EG1_ONE + FMUL_15x15(COEFF_PAN_G2, netAngle);
+    temp = (int) COEFF_PAN_G0 + FMUL_15x15(temp, netAngle);
 
     if (temp > SYNTH_FULL_SCALE_EG1_GAIN)
         temp = SYNTH_FULL_SCALE_EG1_GAIN;

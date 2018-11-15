@@ -21,7 +21,6 @@
 #import "MainMenuViewController.h"
 #include "iphone_delegate.h"
 #include "doomiphone.h"
-#import "EpisodeMenuViewController.h"
 #import "CreditsMenuViewController.h"
 #import "SettingsMenuViewController.h"
 #import "ControlsMenuViewController.h"
@@ -44,6 +43,7 @@
  ========================
  */
 - (void)awakeFromNib {
+    [super awakeFromNib];
     isHidden = YES;
     
     if( !didInit ) {
@@ -187,20 +187,6 @@
 
 /*
  ========================
- MainMenuViewController::viewDidUnload
- ========================
- */
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-
-/*
- ========================
  MainMenuViewController::ResumeGamePressed
  ========================
  */
@@ -216,70 +202,6 @@
 
 /*
  ========================
- MainMenuViewController::NewGamePressed
- ========================
- */
-- (IBAction) NewGamePressed {
-    
-    // Switch to episode view menu.
-    Doom_EpisodeMenuViewController *vc = nil;
-	
-	if ( IS_IPHONE_5 ) {
-		vc = [[Doom_EpisodeMenuViewController alloc] initWithNibName:@"EpisodeMenuViewi5" bundle:nil];
-	} else {
-		vc = [[Doom_EpisodeMenuViewController alloc] initWithNibName:@"EpisodeMenuView" bundle:nil];
-	}
-	
-	
-    [self.navigationController pushViewController:vc animated:NO];
-    [vc release];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-    
-}
-
-/*
- ========================
- MainMenuViewController::MultiplayerPressed
- ========================
- */
-- (IBAction) MultiplayerPressed {
-    
-	
-	//ShowMatchmaker( self, 2, 4 );
-	return;
-	
-    // Go to the MP Menu.
-    // get the address for the local service, which may
-    // start up a bluetooth personal area network
-    //bool serverResolved = ResolveNetworkServer( &netServer.address );
-    
-    // open our socket now that the network interfaces have been configured
-    // Explicitly open on interface 1, which is en0.  If bluetooth ever starts
-    // working better, we can handle multiple interfaces.
-    if ( gameSocket <= 0 ) {
-        gameSocket = UDPSocket( "en0", DOOM_PORT );
-    }
-    
-	/*
-    // get the address for the local service
-    if ( !serverResolved ) {
-        // nobody else is acting as a server, so start one here
-        RegisterGameService();
-        SetupEmptyNetGame();
-    }
-	*/	
-	
-    menuState = IPM_MULTIPLAYER;
-    
-    [gAppDelegate ShowGLView];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-    
-}
-
-/*
- ========================
  MainMenuViewController::CreditsPressed
  ========================
  */
@@ -287,26 +209,11 @@
     
     Doom_CreditsMenuViewController *vc = nil;
 	
-	if ( IS_IPHONE_5 ) {
-		vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuViewi5" bundle:nil];
-	} else {
-		vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuView" bundle:nil];
-	}
+
+    vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuView" bundle:nil];
 	
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-}
-
-/*
- ========================
- MainMenuViewController::SupportPressed
- ========================
- */
-- (IBAction) SupportPressed {
-    
-    SysIPhoneOpenURL("http://www.idsoftware.com/doom-classic/index.html");
     
     Sound_StartLocalSound( "iphone/baborted_01.wav" );
 }
@@ -320,41 +227,12 @@
     
     Doom_LegalMenuViewController *vc = nil;
 	
-	if ( IS_IPHONE_5 ) {
-		vc = [[Doom_LegalMenuViewController alloc] initWithNibName:@"LegalMenuViewi5" bundle:nil];
-	} else {
-		vc = [[Doom_LegalMenuViewController alloc] initWithNibName:@"LegalMenuView" bundle:nil];
-	}
+
+    vc = [[Doom_LegalMenuViewController alloc] initWithNibName:@"LegalMenuView" bundle:nil];
 	
 	
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-}
-
-/*
- ========================
- MainMenuViewController::DemoPressed
- ========================
- */
-- (IBAction) DemoPressed {
-   
-    StartDemoGame( false );
-    
-    [gAppDelegate ShowGLView];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-}
-
-/*
- ========================
- MainMenuViewController::OtherIdGamesPressed
- ========================
- */
-- (IBAction) OtherIdGamesPressed {
-    
-    SysIPhoneOpenURL("http://itunes.com/apps/idsoftware");
     
     Sound_StartLocalSound( "iphone/baborted_01.wav" );
 }
@@ -368,11 +246,7 @@
     
     Doom_ControlsMenuViewController *vc = nil;
 	
-	if ( IS_IPHONE_5 ) {
-		vc = [[Doom_ControlsMenuViewController alloc] initWithNibName:@"ControlsMenuViewi5" bundle:nil];
-	} else {
-		vc = [[Doom_ControlsMenuViewController alloc] initWithNibName:@"ControlsMenuView" bundle:nil];
-	}
+    vc = [[Doom_ControlsMenuViewController alloc] initWithNibName:@"ControlsMenuView" bundle:nil];
 	
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
@@ -391,93 +265,12 @@
 
 	Doom_SettingsMenuViewController *vc = nil;
 	
-	if ( IS_IPHONE_5 ) {
-		vc = [[Doom_SettingsMenuViewController alloc] initWithNibName:@"SettingsMenuViewi5" bundle:nil];
-	} else {
-		vc = [[Doom_SettingsMenuViewController alloc] initWithNibName:@"SettingsMenuView" bundle:nil];
-	}
+    vc = [[Doom_SettingsMenuViewController alloc] initWithNibName:@"SettingsMenuView" bundle:nil];
 	
      [self.navigationController pushViewController:vc animated:NO];
      [vc release];
     
     Sound_StartLocalSound( "iphone/baborted_01.wav" );
 }
-
-/*
- ========================
- MainMenuViewController::ShowPlayBanner
- ========================
- */
-- (void) ShowPlayBanner {
-    
-    [ mPlayButton setEnabled: NO ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: YES ];
-    
-    [ mPlaySubMenu Show ];
-    [ mSettingsSubMenu Hide ];
-    [ mExtrasSubMenu Hide ];
-    [ mAboutSubMenu Hide ];
-    
-}
-
-/*
- ========================
- MainMenuViewController::ShowSettingsBanner
- ========================
- */
-- (void) ShowSettingsBanner {
-    
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: NO ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: YES ];
-    
-    [ mSettingsSubMenu Show ];
-    [ mPlaySubMenu Hide ];
-    [ mExtrasSubMenu Hide ];
-    [ mAboutSubMenu Hide ];
-}
-
-/*
- ========================
- MainMenuViewController::ShowAboutBanner
- ========================
- */
-- (void) ShowAboutBanner {
-    
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: NO ];
-    [ mExtrasButton setEnabled: YES ];
-    
-    [ mAboutSubMenu Show ];
-    [ mPlaySubMenu Hide ];
-    [ mSettingsSubMenu Hide ];
-    [ mExtrasSubMenu Hide ];
-}
-
-/*
- ========================
- MainMenuViewController::ShowExtrasBanner
- ========================
- */
-- (void) ShowExtrasBanner {
-    
-    Doom_CreditsMenuViewController *vc = nil;
-    
-    if ( IS_IPHONE_5 ) {
-        vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuViewi5" bundle:nil];
-    } else {
-        vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuView" bundle:nil];
-    }
-    
-    [self.navigationController pushViewController:vc animated:NO];
-    [vc release];
-    
-    Sound_StartLocalSound( "iphone/baborted_01.wav" );
-}
-
 
 @end

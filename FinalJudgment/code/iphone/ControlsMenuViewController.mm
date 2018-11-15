@@ -64,23 +64,12 @@
          maximumTrack:maximumTrackImageCapped
                 thumb:thumbImage];
     
-    
-	
-	[self SetupSlider:tiltMoveSpeed minimumTrack:minimumTrackImageCapped
-         maximumTrack:maximumTrackImageCapped
-                thumb:thumbImage];
-    
-    
-    
-    
-	[self SetupSlider:tiltTurnSpeed minimumTrack:minimumTrackImageCapped
-         maximumTrack:maximumTrackImageCapped
-                thumb:thumbImage];
-    
     movestickSize.value = stickMove->value / 255;
     turnstickSize.value = stickTurn->value / 255;
-    tiltMoveSpeed.value = tiltMove->value;
-    tiltTurnSpeed.value = tiltTurn->value;
+    
+    [singleThumbButton setImage:[UIImage imageNamed:@"LayoutSingleButton_Highlighted.png"] forState:UIControlStateDisabled];
+    [dualThumbButton setImage:[UIImage imageNamed:@"LayoutDualButton_Highlighted.png"] forState:UIControlStateDisabled];
+    [dirWheelButton setImage:[UIImage imageNamed:@"LayoutWheelButton_Highlighted.png"] forState:UIControlStateDisabled];
     
     if( controlScheme->value == 0 ) {
         singleThumbButton.enabled = NO;
@@ -140,23 +129,11 @@
 
 /*
  ========================
- Doom_ControlsMenuViewController::viewDidUnload
- ========================
- */
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-/*
- ========================
  Doom_ControlsMenuViewController::SetupSlider
  ========================
  */
-- (void) SetupSlider:(UISlider*)slider minimumTrack:(UIImage*)minImage
-        maximumTrack:(UIImage*)maxImage
+- (void) SetupSlider:(UISlider*)slider minimumTrack:(UIImage*) __unused minImage
+        maximumTrack:(UIImage*) __unused maxImage
                thumb:(UIImage*)thumbImage {
 	
 	//[slider setMinimumTrackImage:minImage forState:UIControlStateNormal];
@@ -285,48 +262,5 @@
     
     Cvar_SetValue( stickTurn->name, turnstickSize.value * 256.0f );
 }
-
-/*
- ========================
- Doom_ControlsMenuViewController::TiltMoveValChanged
- ========================
- */
-- (IBAction) TiltMoveValChanged {
-    Cvar_SetValue( tiltMove->name, tiltMoveSpeed.value );
-    
-    if ( tiltMove->value == 100 ) {
-		Cvar_SetValue( tiltMove->name, 0 );
-        tiltMoveSpeed.value = tiltMove->value;
-	}
-	if ( tiltMove->value ) {
-		Cvar_SetValue( tiltTurn->name, 0 );
-        tiltTurnSpeed.value = tiltTurn->value;
-	}
-    
-    
-    
-}
-
-/*
- ========================
- Doom_ControlsMenuViewController::TiltTurnValChanged
- ========================
- */
-- (IBAction) TiltTurnValChanged {
-    Cvar_SetValue( tiltTurn->name, tiltTurnSpeed.value );
-    
-    if ( tiltTurn->value == 1500 ) {
-		Cvar_SetValue( tiltTurn->name, 0 );
-        tiltTurnSpeed.value = tiltTurn->value;
-	}
-	if ( tiltTurn->value ) {
-		Cvar_SetValue( tiltMove->name, 0 );
-        tiltMoveSpeed.value = tiltMove->value;
-	}
-    
-    
-    
-}
-
 
 @end

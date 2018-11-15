@@ -132,6 +132,10 @@
                     nil
                    ];
     
+    /* for first start, set up some defaults */
+    if(!doom_iwad) doom_iwad = strdup(DEFAULT_IWAD);
+    if(!doom_pwads) doom_pwads = strdup("");
+    
     /* check if our IWAD is episodic */
     episodic = [episodicIWADs containsObject: [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] lowercaseString]];
     
@@ -218,7 +222,7 @@
     /* FIXME: BUG: If a PWAD is a substring of another, it will show up as highlighted even though it shouldn't be.
      This is because the PWAD string is tokenized before comparison. Note this means the name needs the same suffix only so
      it's a realistic bug. */
-    if( !isIWAD && [[NSString stringWithUTF8String:doom_pwads] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
+    if( !isIWAD && doom_pwads && [[NSString stringWithUTF8String:doom_pwads] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
         [button setSelected:(YES)];
     } else if ( [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] compare:wad options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             [button setSelected:(YES)];
@@ -238,18 +242,6 @@
 
 /*
  ========================
- Doom_CreditsMenuViewController::viewDidUnload
- ========================
- */
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-/*
- ========================
  Doom_CreditsMenuViewController::BackToMain
  ========================
  */
@@ -259,42 +251,7 @@
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
 }
 
-- (IBAction)loadDoomIwad:(id)sender {
-    
-    iphoneIWADSelect("doom.wad");
-    [self updateWadLabels];
-
-}
-
-- (IBAction)loadDoom2Iwad:(id)sender {
-    
-    iphoneIWADSelect("doom2.wad");
-    [self updateWadLabels];
-    
-}
-
-- (IBAction)loadTNTIwad:(id)sender {
-    
-    iphoneIWADSelect("tnt.wad");
-    [self updateWadLabels];
-    
-}
-
-- (IBAction)loadPlutoniaIwad:(id)sender {
-    
-    iphoneIWADSelect("plutonia.wad");
-    [self updateWadLabels];
-    
-}
-
-- (IBAction)xmasPwadOn:(id)sender {
-    
-    iphonePWADAdd("spritx.wad");
-    [self updateWadLabels];
-
-}
-
-- (IBAction)clearPWADs:(id)sender {
+- (IBAction)clearPWADs:(id) __unused sender {
     
     iphoneClearPWADs();
     
@@ -351,7 +308,7 @@
     [self updateWadLabels];
 }
 
-- (IBAction)playButtonPressed:(UIButton *)sender {
+- (IBAction)playButtonPressed:(UIButton *) __unused sender {
     
     mapStart_t localStartmap;
 

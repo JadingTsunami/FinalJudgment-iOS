@@ -29,10 +29,7 @@
     
     IBOutlet UISlider * movestickSize;
     IBOutlet UISlider * turnstickSize;
-    IBOutlet UISlider * tiltMoveSpeed;
-    IBOutlet UISlider * tiltTurnSpeed;
-    
-    
+
     IBOutlet UIButton * singleThumbButton;
     IBOutlet UIButton * dualThumbButton;
     IBOutlet UIButton * dirWheelButton;
@@ -52,7 +49,5 @@
 
 - (IBAction) MoveStickValChanged;
 - (IBAction) TurnStickValChanged;
-- (IBAction) TiltMoveValChanged;
-- (IBAction) TiltTurnValChanged;
 
 @end

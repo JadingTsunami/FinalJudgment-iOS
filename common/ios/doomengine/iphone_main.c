@@ -639,7 +639,7 @@ void iphoneSanitizePWADs() {
             I_FindFile(pwad_doc_path,".wad",pwad_path);
             
             // try the app dir
-            if( !pwad_path || !*pwad_path ) {
+            if( !*pwad_path ) {
                 strcpy( pwad_doc_path, SysIphoneGetAppDir() );
                 strcat( pwad_doc_path, "/" );
                 strcat( pwad_doc_path, pwad_file );
@@ -647,7 +647,7 @@ void iphoneSanitizePWADs() {
             }
         }
         
-        if( pwad_path && *pwad_path ) {
+        if( *pwad_path ) {
             if( strlen(pwad_final)+strlen(pwad_path)+2 >= pwad_final_len ) {
                 pwad_final_len = (strlen(pwad_final) + strlen(pwad_path) + 2)*sizeof(char);
                 pwad_final = realloc(pwad_final, pwad_final_len);

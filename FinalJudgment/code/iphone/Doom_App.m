@@ -29,11 +29,8 @@
     // Create the Main Menu View controller.
 	
     Doom_MainMenuViewController *rootController = nil;
-	if ( IS_IPHONE_5 ) {
-		rootController = [[Doom_MainMenuViewController alloc] initWithNibName:@"MainMenuViewi5" bundle:nil];
-	} else {
-		rootController = [[Doom_MainMenuViewController alloc] initWithNibName:@"MainMenuView" bundle:nil];
-	}
+
+    rootController = [[Doom_MainMenuViewController alloc] initWithNibName:@"MainMenuView" bundle:nil];
     
     // Create a Navigation Controller for Pushing/Popping Views.
     navigationController = [[MainNavController alloc] initWithRootViewController:rootController];
@@ -41,11 +38,7 @@
     [rootController release];
     
     // Create the OpenGLView so that our context is created. Don't push it on yet though.
-	if ( IS_IPHONE_5 ) {
-		openGLViewController = [ [ iphone_glViewController alloc] initWithNibName:@"OpenGLViewi5" bundle:nil ];
-	} else {
-		openGLViewController = [ [ iphone_glViewController alloc] initWithNibName:@"OpenGLView" bundle:nil ];
-	}
+    openGLViewController = [ [ iphone_glViewController alloc] initWithNibName:@"OpenGLView" bundle:nil ];
 	
     [ openGLViewController StopDisplay];
 }

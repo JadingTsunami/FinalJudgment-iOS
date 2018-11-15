@@ -1559,7 +1559,7 @@ void iphoneFrame() {
 	// If we just loaded a level, do the texture precaching after we
 	// have drawn and displayed the first frame, so the user has
 	// something to look at while it is loading.
-	if ( false ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
+    if ( /* DISABLES CODE */ (false) ) { // iphoneFrameNum == levelLoadFrameNum + 1 ) {
 		int	start = SysIphoneMilliseconds();
 		gld_Precache();
 		int end = SysIphoneMilliseconds();
