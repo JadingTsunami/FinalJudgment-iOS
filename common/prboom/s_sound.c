@@ -405,10 +405,15 @@ void S_ResumeSound(void)
   if (!mus_card || nomusicparm)
     return;
 
-  if (mus_playing && mus_paused)
-    {
-      I_ResumeSong(mus_playing->handle);
-      mus_paused = false;
+    if (mus_playing ) {
+      if( mus_paused) {
+          I_ResumeSong(mus_playing->handle);
+          mus_paused = false;
+      } else {
+          /* JDS: If the user started with music disabled, play the
+           song for the first time */
+          I_PlaySong(mus_playing->handle, 1);
+      }
     }
 }
 

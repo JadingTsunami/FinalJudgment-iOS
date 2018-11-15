@@ -191,7 +191,7 @@ void Sound_Init(void) {
 	Com_Printf( "\n------- Sound Initialization -------\n" );
 	
     s_sfxVolume		= Cvar_Get( "s_sfxVolume", "1.0", static_cast<CVARFlags>(0) );
-	
+    	
 	Cmd_AddCommand( "play", Sound_Play_f );
 	
 	// make sure background ipod music mixes with our sound effects

@@ -1608,6 +1608,12 @@ void iphoneAddPWADFiles(void);
 
   //jff 9/3/98 use logical output routine
   lprintf(LO_INFO,"S_Init: Setting up sound.\n");
+    
+    /* JDS: Persist sfx vol between restarts */
+    if ( touchClick->value == 0 ) {
+        snd_SfxVolume = 0;
+    }
+    
   S_Init(snd_SfxVolume /* *8 */, snd_MusicVolume /* *8*/ );
 
   //jff 9/3/98 use logical output routine

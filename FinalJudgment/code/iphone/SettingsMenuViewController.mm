@@ -100,8 +100,9 @@
     iphoneStartMusic();
     
 	mus_on = true;
-	mus_pause_opt = 1;
+    S_SetSfxVolume(127);
 	S_ResumeSound();
+    mus_pause_opt = 1;
 	
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
     
@@ -175,12 +176,12 @@ extern bool mus_on;
  ========================
  */
 - (IBAction) MusicChanged {
+    Cvar_SetValue( music->name, !music->value );
     if ( !SysIPhoneOtherAudioIsPlaying() ) {
-        Cvar_SetValue( music->name, !music->value );
         if ( music->value ) {
 			mus_on = true;
-			mus_pause_opt = 1;
 			S_ResumeSound();
+            mus_pause_opt = 1;
         } else {
 			mus_on = false;
 			mus_pause_opt = 1;

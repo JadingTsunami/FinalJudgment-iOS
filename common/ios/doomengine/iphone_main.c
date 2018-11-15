@@ -676,6 +676,9 @@ void iphoneSanitizePWADs() {
  could select a mission pack first.
  ==================
  */
+extern int mus_pause_opt; // From m_misc.c
+extern bool mus_on;
+
 void iphoneDoomStartup() {
 	Com_Printf( "---------- D_DoomMain ----------\n" );
     
@@ -690,6 +693,16 @@ void iphoneDoomStartup() {
     }
     
     iphoneSanitizePWADs();
+    
+    /* JDS: Bug fix for music/audio not working between reboots */    
+    if ( music->value ) {
+        mus_on = true;
+        mus_pause_opt = 1;
+    } else {
+        mus_on = false;
+        mus_pause_opt = 0; /* JDS: Start song if it wasn't started */
+    }
+    /* JDS */
     
 	D_DoomMainSetup( full_iwad, doom_pwad_paths );
     
