@@ -404,7 +404,8 @@ boolean HandleButton( ibutton_t *button ) {
 	}
 	
     if ( button->title ) {
-        float    length = StringFontWidth( button->title ) * 0.75;
+        float textScale = MAX(((float)displaywidth)/1777.0,0.75);
+        float    length = StringFontWidth( button->title ) * textScale;
         float    x = button->x + button->drawWidth/2 - length/2;
         // don't push the text off the edge of the screen
         if ( x < 0 ) {
@@ -413,7 +414,6 @@ boolean HandleButton( ibutton_t *button ) {
             x = displaywidth - length;
         }
         float y;
-        float textScale = MAX(((float)displaywidth)/1777.0,0.75);
         if ( button->buttonFlags & BF_CENTERTEXT ) {
             glColor4f( 1, 1, 1, 1 );    // !@# remove when we get a button background that doesn't need dimming
             y = button->y + button->drawHeight / 2 + 8;
