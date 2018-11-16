@@ -198,7 +198,8 @@ void HudEditFrame() {
 	// solid background color and some UI elements for context
 	R_Draw_Fill( 0, 0, 480, 320, gray );	
 	glColor4f( 1, 1, 1, 1 );
-	iphoneCenterText( 240, 20, 0.75, "Drag the controls" );
+    float scale = MAX(((float)displaywidth)/1777.0,0.75);
+	iphoneCenterText( 240, 20, scale, "Drag the controls" );
 
 	// draw the status bar
 	extern patchnum_t stbarbg;

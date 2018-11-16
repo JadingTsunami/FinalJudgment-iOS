@@ -107,8 +107,8 @@ typedef enum {
 // when multiple screen sizes are supported
 
 // proff 08/17/98: Changed for high-res
-#define MAX_SCREENWIDTH  2048
-#define MAX_SCREENHEIGHT 1536
+#define MAX_SCREENWIDTH  3072
+#define MAX_SCREENHEIGHT 2304
 
 
 // SCREENWIDTH and SCREENHEIGHT define the visible size

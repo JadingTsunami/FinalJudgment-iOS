@@ -413,7 +413,7 @@ boolean HandleButton( ibutton_t *button ) {
             x = displaywidth - length;
         }
         float y;
-        float textScale = 0.75;
+        float textScale = MAX(((float)displaywidth)/1777.0,0.75);
         if ( button->buttonFlags & BF_CENTERTEXT ) {
             glColor4f( 1, 1, 1, 1 );    // !@# remove when we get a button background that doesn't need dimming
             y = button->y + button->drawHeight / 2 + 8;
@@ -841,7 +841,8 @@ void iphoneDrawNotifyText() {
 	}
 	
 	glColor4f( 1, 1, 1, f );
-	iphoneCenterText( 240, 16, 0.75, notifyText );
+    float scale = MAX(((float)displaywidth)/1777.0,0.75);
+	iphoneCenterText( 240, 16, scale, notifyText );
 	glColor4f( 1, 1, 1, 1 );
 }
 
@@ -1303,7 +1304,8 @@ void DrawWeaponSelect() {
 //		R_Draw_Blend( x, y, w, h, color );
 		
 		glColor4ubv( textColor );
-		iphoneCenterText( x + w/2, y+16, 0.75, weaponNames[i] );
+        float scale = MAX(((float)displaywidth)/1777.0,0.75);
+		iphoneCenterText( x + w/2, y+16, scale, weaponNames[i] );
 
 		// draw the weapon sprite full color if available or black if not
 		
