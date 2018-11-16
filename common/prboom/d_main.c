@@ -110,6 +110,8 @@ boolean nomusicparm;
 //jff 4/18/98
 extern boolean inhelpscreens;
 
+extern boolean panic;
+
 skill_t startskill;
 int     startepisode;
 int     startmap;
@@ -1597,6 +1599,8 @@ void iphoneAddPWADFiles(void);
   //jff 9/3/98 use logical output routine
   lprintf(LO_INFO,"R_Init: Init DOOM refresh daemon - ");
   R_Init();
+    
+    if(panic) return;
 
   //jff 9/3/98 use logical output routine
   lprintf(LO_INFO,"\nP_Init: Init Playloop state.\n");

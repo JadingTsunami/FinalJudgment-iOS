@@ -70,6 +70,10 @@ void ResumeGame() {
 		map.skill = 1;
 		map.episode = 1;
 		map.map = 1;
+        map.dataset = 0;
+        if(!doom_iwad) doom_iwad = strdup(DEFAULT_IWAD);
+        if(!doom_pwads) doom_pwads = strdup("");
+        iphoneDoomStartup();
 		StartSinglePlayerGame( map );
         lastState = IPM_GAME;
 	} else {

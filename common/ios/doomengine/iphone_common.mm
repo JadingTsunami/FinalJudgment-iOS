@@ -31,6 +31,8 @@
 
 @class UIViewController;
 
+extern boolean panic;
+
 /*
 =======================
 CommonSystemSetup
@@ -87,6 +89,28 @@ void iphoneMainMenu() {
     
     [ gAppDelegate HideGLView];
 	menuState = IPM_MAIN;
+}
+
+void iphonePanic() {
+    
+    [ gAppDelegate HideGLView];
+    menuState = IPM_MAIN;
+    panic = true;
+    
+    UIWindow* overlay = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Oh no!" message:@"The wads loaded were incompatible. Reverting to a safe configuration. Please restart the app and load compatible wads." preferredStyle:UIAlertControllerStyleAlert];
+    
+    [panicPopup addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        overlay.hidden = YES;
+        assert(false);
+    }]];
+    
+    overlay.rootViewController = [UIViewController new];
+    overlay.windowLevel = UIWindowLevelAlert + 1;
+    
+    [overlay makeKeyAndVisible];
+    [overlay.rootViewController presentViewController:panicPopup animated:YES completion:nil];
+
 }
 
 /*

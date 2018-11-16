@@ -31,6 +31,8 @@ const static int   DISPLAY_LINK_FRAME_INTERVAL = 2;
 // frame has fired. 
 static bool inTransition = false;
 
+extern boolean panic;
+
 @implementation iphone_glViewController
 
 @synthesize displayLink;
@@ -49,6 +51,12 @@ static bool inTransition = false;
 		return;
 	}
 	
+    /* JDS: If we panic, don't try to render the frame */
+    if( panic ) {
+        menuState = IPM_MAIN;
+        return;
+    }
+    
     // Update the Game
     iphoneAsyncTic(); 
     

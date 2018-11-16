@@ -90,6 +90,9 @@
 void iphoneStartLevel();
 void iphoneIntermission();
 void iphoneMainMenu();
+void iphonePanic();
+
+boolean panic = false;
 
 #define SAVEGAMESIZE  0x20000
 #define SAVESTRINGSIZE  24

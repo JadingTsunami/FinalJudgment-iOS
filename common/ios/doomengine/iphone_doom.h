@@ -587,6 +587,7 @@ void iphoneFrame();
 void iphoneAsyncTic();
 void iphoneTiltEvent( float *tilts );
 void iphoneMainMenu();
+void iphonePanic();
 void iphonePopGL();
 void iphoneNSLog(const char* message);
 

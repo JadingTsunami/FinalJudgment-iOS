@@ -398,8 +398,8 @@ void I_Error(const char *error, ...)
         snprintf( buffer, sizeof( buffer ), "ABANDON SHIP!\n" );
         fprintf( fp, "%s", buffer );
         fclose(fp);
-        assert( false );
-        usleep(1000);
+        iphonePanic();
+        return;        
     }
     
 }

@@ -602,7 +602,7 @@ void iphoneClearPWADs() {
  ==================
  */
 void iphoneSanitizePWADs() {
-    if( strlen(doom_pwads) == 0 ) {
+    if( !doom_pwads || strlen(doom_pwads) == 0 ) {
         if( doom_pwad_paths ) free(doom_pwad_paths);
         doom_pwad_paths = strdup("");
         return;
