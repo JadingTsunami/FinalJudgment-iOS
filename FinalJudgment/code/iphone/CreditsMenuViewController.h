@@ -34,8 +34,6 @@
     IBOutlet UIScrollView *pwadScroller;
     IBOutlet UIPickerView *levelPicker;
     IBOutlet UIPickerView *skillPicker;
-    IBOutlet UIView *iwadView;
-    IBOutlet UIView *pwadView;
     
     NSArray *skillLevels;
     NSArray *doomEpisodes;

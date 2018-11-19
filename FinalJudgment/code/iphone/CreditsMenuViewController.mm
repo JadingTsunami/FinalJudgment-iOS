@@ -141,7 +141,7 @@
     
     [self updateWadLabels];
     [self updateWadList];
-    
+
     self->skillPicker.dataSource = self;
     self->skillPicker.delegate = self;
     
@@ -230,8 +230,8 @@
     } else if ( [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] compare:wad options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             [button setSelected:(YES)];
     }
-    button.frame = CGRectMake(15, y, 175, 22.0);
-    
+    button.frame = CGRectMake(15, y, ((float)scroller.bounds.size.width), 22.0);
+
     [scroller addSubview:button];
 
     if( button ) {
@@ -395,8 +395,6 @@
     [levelPicker release];
     [skillPicker release];
     [iwadScroller release];
-    [iwadView release];
-    [pwadView release];
     [super dealloc];
 }
 @end
