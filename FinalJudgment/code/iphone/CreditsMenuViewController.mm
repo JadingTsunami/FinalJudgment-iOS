@@ -219,11 +219,14 @@
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
     
-    /* FIXME: BUG: If a PWAD is a substring of another, it will show up as highlighted even though it shouldn't be.
-     This is because the PWAD string is tokenized before comparison. Note this means the name needs the same suffix only so
-     it's a realistic bug. */
-    if( !isIWAD && doom_pwads && [[NSString stringWithUTF8String:doom_pwads] rangeOfString:wad options:NSCaseInsensitiveSearch].location != NSNotFound) {
-        [button setSelected:(YES)];
+    if( !isIWAD && doom_pwads ) {
+        /* check if the PWAD is in the list */
+        for ( NSString* str in [[NSString stringWithUTF8String:doom_pwads] componentsSeparatedByString:[NSString stringWithFormat:@"%c", PWAD_LIST_SEPARATOR]] ) {
+            if( [str caseInsensitiveCompare:wad] == NSOrderedSame ) {
+                [button setSelected:(YES)];
+                break;
+            }
+        }
     } else if ( [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] compare:wad options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             [button setSelected:(YES)];
     }
