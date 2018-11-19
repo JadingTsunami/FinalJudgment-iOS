@@ -864,7 +864,7 @@ void iphoneDrawRotorControl( ibutton_t *hud ) {
 	float	cy = (hud->y + hud->drawHeight / 2);
 	float	as = sin( hud->drawState );
 	float	ac = cos( hud->drawState );
-    float	sz = (hud->drawWidth / 2);
+    float	sz = (hud->drawWidth / 2) * hud->scale;
 	
 	float	xv[2] = { sz*ac, sz*as };
 	float	yv[2] = { -sz*as, sz*ac };
