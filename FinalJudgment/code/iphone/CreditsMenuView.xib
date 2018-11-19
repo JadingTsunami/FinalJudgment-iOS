@@ -13,10 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_CreditsMenuViewController">
             <connections>
                 <outlet property="iwadScroller" destination="cLV-eE-1Po" id="gVZ-tS-mLq"/>
-                <outlet property="iwadView" destination="S9e-pf-GzM" id="wc6-zs-lJK"/>
+                <outlet property="iwadView" destination="S9e-pf-GzM" id="Gys-pZ-XxP"/>
                 <outlet property="levelPicker" destination="bCi-eE-tY9" id="HoQ-ZK-KKm"/>
                 <outlet property="pwadScroller" destination="43" id="Hnl-wD-Ddf"/>
-                <outlet property="pwadView" destination="CzU-ds-9Fz" id="4rW-tW-vO1"/>
+                <outlet property="pwadView" destination="CzU-ds-9Fz" id="fly-Bc-LH5"/>
                 <outlet property="scrollView" destination="43" id="83"/>
                 <outlet property="skillPicker" destination="t5G-0h-At3" id="tox-17-tUd"/>
                 <outlet property="view" destination="1" id="3"/>
