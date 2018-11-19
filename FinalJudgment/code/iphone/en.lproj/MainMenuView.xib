@@ -27,10 +27,10 @@
                     <rect key="frame" x="301" y="23" width="289" height="185"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ol1-rY-z90" userLabel="LegalButton">
-                    <rect key="frame" x="475" y="361" width="192" height="32"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ol1-rY-z90" userLabel="LegalButton">
+                    <rect key="frame" x="660" y="361" width="192" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="192" id="K7R-NF-4J4"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="192" id="K7R-NF-4J4"/>
                         <constraint firstAttribute="height" constant="32" id="lez-Gw-fZd"/>
                     </constraints>
                     <state key="normal" title="Legal Information"/>
@@ -173,9 +173,11 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ol1-rY-z90" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gk9-Ln-I84" secondAttribute="leading" constant="1" id="16n-xg-Sqp"/>
                 <constraint firstItem="443" firstAttribute="top" secondItem="Gk9-Ln-I84" secondAttribute="top" id="CzT-16-cCc"/>
                 <constraint firstItem="Gk9-Ln-I84" firstAttribute="trailing" secondItem="443" secondAttribute="trailing" id="JaE-H3-M3H"/>
                 <constraint firstItem="Gk9-Ln-I84" firstAttribute="bottom" secondItem="443" secondAttribute="bottom" id="Pvj-t0-0Aa"/>
+                <constraint firstItem="Gk9-Ln-I84" firstAttribute="trailing" secondItem="ol1-rY-z90" secondAttribute="trailing" id="QiN-LT-eZz"/>
                 <constraint firstItem="Gk9-Ln-I84" firstAttribute="bottom" secondItem="ol1-rY-z90" secondAttribute="bottom" id="S9t-ra-dsP"/>
                 <constraint firstItem="Aai-nc-H8Y" firstAttribute="centerX" secondItem="Gk9-Ln-I84" secondAttribute="centerX" id="SEt-I2-9YF"/>
                 <constraint firstItem="Aai-nc-H8Y" firstAttribute="top" secondItem="Gk9-Ln-I84" secondAttribute="top" id="UfL-1Q-Dv9"/>
