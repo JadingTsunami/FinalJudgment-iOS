@@ -428,11 +428,13 @@ void I_OverwriteSoundBuffersWithLumps() {
                 int lumpSize = W_LumpLength( lumpNum );
                 byte* replacementSound = (byte*)malloc( lumpSize );
                 replacementSound = (byte*)W_CacheLumpNum( lumpNum );
-                uint16_t sampleRate = *((uint16_t*)(replacementSound + 2));
-                uint32_t numSamples = (*((uint32_t*)(replacementSound + 4)) - 32); // remove 32 bytes of padding
-                alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound + 0x18
+                if( replacementSound ) {
+                    uint16_t sampleRate = *((uint16_t*)(replacementSound + 2));
+                    uint32_t numSamples = (*((uint32_t*)(replacementSound + 4)) - 32); // remove 32 bytes of padding
+                    alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound + 0x18
                      , numSamples
                      , sampleRate );
+                }
             }
         }
     }
