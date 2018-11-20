@@ -1587,13 +1587,15 @@ boolean G_SaveGameValid() {
     int  length;
     // CPhipps - do savegame filename stuff here
     char name[PATH_MAX+1];     // killough 3/22/98
+    char full_name[PATH_MAX+1];
     //int savegame_compatibility = -1;
     
     G_SaveGameName(name,sizeof(name),savegameslot, demoplayback);
     
     gameaction = ga_nothing;
-    
-    length = M_ReadFile(name, &savebuffer);
+    /* JDS: Use I_FindFile */
+    I_FindFile(name,".dsg",full_name);
+    length = M_ReadFile(full_name, &savebuffer);
     if (length<=0) {
         return false;
     }

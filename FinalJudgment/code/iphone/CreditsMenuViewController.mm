@@ -132,9 +132,6 @@
                     nil
                    ];
     
-    /* for first start, set up some defaults */
-    if(!doom_iwad) doom_iwad = strdup(DEFAULT_IWAD);
-    if(!doom_pwads) doom_pwads = strdup("");
     
     /* check if our IWAD is episodic */
     episodic = [episodicIWADs containsObject: [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] lowercaseString]];
@@ -330,6 +327,7 @@
     localStartmap.skill = (int) [skillPicker selectedRowInComponent:0];
 
     // load our selected IWAD and PWADs
+    iphoneSanitizePWADs();
     iphoneDoomStartup();
     StartSinglePlayerGame( localStartmap );
     

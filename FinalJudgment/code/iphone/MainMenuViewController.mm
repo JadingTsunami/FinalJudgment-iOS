@@ -48,10 +48,7 @@
     
     if( !didInit ) {
         char full_iwad[1024];
-        
-        doom_iwad = strdup(Cvar_VariableString("iwadSelection"));
-        doom_pwads = strdup(Cvar_VariableString("pwadSelection"));
-        
+                
         I_FindFile( doom_iwad, ".wad", full_iwad );
         
         // fall back to default DOOM wad

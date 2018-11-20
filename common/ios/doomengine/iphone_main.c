@@ -453,7 +453,7 @@ void iphoneStartup() {
 		}
 		fclose( f );
 	}
-	
+    
 	Com_Printf( "startup time: %i msec\n", SysIphoneMilliseconds() - start );
 
 	start = SysIphoneMilliseconds();
@@ -462,7 +462,12 @@ void iphoneStartup() {
 	HudSetTexnums();
 	
 	fontTexture = PK_FindTexture( "iphone/fontimage.tga" );
-	
+
+    /* initialize IWAD and PWAD paths */
+    iphoneIWADSelect(Cvar_VariableString("iwadSelection"));
+    doom_pwads = strdup(Cvar_VariableString("pwadSelection"));
+    iphoneSanitizePWADs();
+    
 	Com_Printf( "preloadBeforePlay(): %i msec\n", SysIphoneMilliseconds() - start );	
 
 	// prBoom seems to draw the static pic screens without setting up 2D, causing
@@ -682,18 +687,6 @@ extern bool mus_on;
 void iphoneDoomStartup() {
 	Com_Printf( "---------- D_DoomMain ----------\n" );
     
-    char full_iwad[1024];
-    
-    I_FindFile( doom_iwad, ".wad", full_iwad );
-    
-    if( full_iwad[0] == '\0' ) {
-        // fall back to vanilla Doom IWAD.
-        
-        I_FindFile( DEFAULT_IWAD, ".wad", full_iwad );
-    }
-    
-    iphoneSanitizePWADs();
-    
     /* JDS: Bug fix for music/audio not working between reboots */    
     if ( music->value ) {
         mus_on = true;
@@ -702,7 +695,15 @@ void iphoneDoomStartup() {
         mus_on = false;
         mus_pause_opt = 0; /* JDS: Start song if it wasn't started */
     }
-    /* JDS */
+    
+    /* JDS: get full IWAD path */
+    char full_iwad[PATH_MAX];
+    I_FindFile( doom_iwad, ".wad", full_iwad );
+    
+    // fall back to default DOOM wad
+    if( full_iwad[0] == '\0' ) {
+        I_FindFile( DEFAULT_IWAD, ".wad", full_iwad );
+    }
     
 	D_DoomMainSetup( full_iwad, doom_pwad_paths );
     

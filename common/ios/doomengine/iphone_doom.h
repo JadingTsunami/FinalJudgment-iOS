@@ -547,6 +547,7 @@ void iphoneResumeMusic();
 void iphoneDoomStartup();
 void iphoneIWADSelect( const char* iwad );
 void iphonePWADAdd( const char* pwad  );
+void iphoneSanitizePWADs();
 void iphonePWADRemove( const char* pwad  );
 void iphoneClearPWADs();
 void iphoneLoadMissionPack(void);

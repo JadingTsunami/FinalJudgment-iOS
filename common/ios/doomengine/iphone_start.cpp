@@ -71,12 +71,12 @@ void ResumeGame() {
 		map.episode = 1;
 		map.map = 1;
         map.dataset = 0;
-        if(!doom_iwad) doom_iwad = strdup(DEFAULT_IWAD);
-        if(!doom_pwads) doom_pwads = strdup("");
+        /* BUG: FIXME: Need to init iwad/pwad selection prior to this point */
         iphoneDoomStartup();
 		StartSinglePlayerGame( map );
         lastState = IPM_GAME;
 	} else {
+        iphoneDoomStartup();
 		StartSaveGame();
         lastState = IPM_GAME;
 	}
