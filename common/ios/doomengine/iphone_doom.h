@@ -177,7 +177,7 @@ typedef unsigned char color3_t[3];
 extern char* doom_iwad;
 extern char* doom_pwads;
 extern char* doom_pwad_paths;
-    
+
 // networking
 typedef enum {
 	PACKET_VERSION_BASE = 0x24350010,

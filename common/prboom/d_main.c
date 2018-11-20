@@ -89,6 +89,8 @@ static void D_PageDrawer(void);
 
 // CPhipps - removed wadfiles[] stuff
 
+boolean firstrun = true;
+
 boolean devparm;        // started game with -devparm
 
 // jff 1/24/98 add new versions of these variables to remember command line
@@ -1174,6 +1176,11 @@ void iphoneAddPWADFiles(void);
     R_FlushAllPatches();
     gld_CleanMemory();
     
+    if( firstrun ) {
+        firstrun = false;
+    } else {
+        W_ReleaseAllWads();
+    }
     
   L_SetupConsoleMasks();
 
@@ -1560,14 +1567,16 @@ void iphoneAddPWADFiles(void);
 
   //jff 9/3/98 use logical output routine
   lprintf(LO_INFO,"W_Init: Init WADfiles.\n");
+    
   W_Init(); // CPhipps - handling of wadfiles init changed
 
   lprintf(LO_INFO,"\n");     // killough 3/6/98: add a newline, by popular demand :)
 
   // e6y 
   // option to disable automatic loading of dehacked-in-wad lump
+    /* JDS: FIXME: Remove Dehacked support for now until it can be reversed safely. */
   if (!M_CheckParm ("-nodeh"))
-    if ((p = W_CheckNumForName("DEHACKED")) != -1) // cph - add dehacked-in-a-wad support
+    if (false && ((p = W_CheckNumForName("DEHACKED")) != -1)) // cph - add dehacked-in-a-wad support
       ProcessDehFile(NULL, D_dehout(), p);
 
   V_InitColorTranslation(); //jff 4/24/98 load color translation lumps
