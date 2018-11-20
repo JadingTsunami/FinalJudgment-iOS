@@ -98,7 +98,7 @@ void iphonePanic() {
     panic = true;
     
     UIWindow* overlay = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Oh no!" message:@"The wads loaded were incompatible. Reverting to a safe configuration. Please restart the app and load compatible wads." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Unable to load WADs" message:@"The WAD files loaded were either corrupt or invalid, or incompatible with the selected game. Reverting to a safe configuration. Please restart the app and load compatible WADs." preferredStyle:UIAlertControllerStyleAlert];
     
     [panicPopup addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         overlay.hidden = YES;

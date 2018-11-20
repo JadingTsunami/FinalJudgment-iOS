@@ -459,9 +459,11 @@ void I_OverwriteSoundBuffersWithLumps() {
                             printf("Unexpected OpenAL error (%d) replacing %s with lump %d (%d)\n",alError,sfxname,lumpNum,lumpSize);
                             break;
                         }
-                    } else {
-                        printf("Successfully replaced %s lump %d.\n",sfxname,lumpNum);
                     }
+                    //else {
+                        //printf("Successfully replaced %s lump %d.\n",sfxname,lumpNum);
+                    // JDS: Suppress output on success
+                    //}
                     free(replacementSound);
                 } else {
                     printf("Failed to malloc %d bytes for %s\n",lumpSize,sfxname);
