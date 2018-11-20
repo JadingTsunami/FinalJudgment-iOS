@@ -737,7 +737,7 @@ void gld_BindPatch(GLTexture *gltexture, int cm)
       }
   }
 #endif
-	printf( "bindPatch on lump: %i '%s' : %i\n", gltexture->index, lumpinfo[ gltexture->index ].name, cm );	// !@# JDC
+	//printf( "bindPatch on lump: %i '%s' : %i\n", gltexture->index, lumpinfo[ gltexture->index ].name, cm );	// !@# JDC
 	Z_Free(buffer);
   R_UnlockPatchNum(gltexture->index);
 }

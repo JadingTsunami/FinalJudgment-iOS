@@ -394,7 +394,16 @@ void I_UpdateSoundParams(int handle, int vol, int sep, int pitch) {}
 // This function overwrites the audio data loaded from the iPack file
 // with the lumps from the loaded WAD files.
 void I_OverwriteSoundBuffersWithLumps() {
-    for ( int i = 0 ; i < pkHeader->wavs.count ; i++ ) {
+    /* first, stop any playing or bound sounds */
+    channel_t    *ch;
+    int            i;
+    for( i = 0, ch = s_channels ; i < MAX_CHANNELS ; ++i, ++ch ) {
+        alSourceStop( ch->sourceName );
+        ALuint tmpbuffer = 0;
+        alSourceUnqueueBuffers(ch->sourceName, 1, &tmpbuffer);
+    }
+    
+    for ( i = 0 ; i < pkHeader->wavs.count ; i++ ) {
         pkWav_t *sfx = &pkWavs[i];
         sfx->wavData = (pkWavData_t *)( (byte *)pkHeader + pkHeader->wavs.tableOfs + i * pkHeader->wavs.structSize );
         
@@ -427,14 +436,39 @@ void I_OverwriteSoundBuffersWithLumps() {
             if( lumpNum != -1 ) {
                 int lumpSize = W_LumpLength( lumpNum );
                 byte* replacementSound = (byte*)malloc( lumpSize );
-                replacementSound = (byte*)W_CacheLumpNum( lumpNum );
-                if( replacementSound ) {
+                W_ReadLump( lumpNum, replacementSound );
+                if( replacementSound && *replacementSound ) {
                     uint16_t sampleRate = *((uint16_t*)(replacementSound + 2));
                     uint32_t numSamples = (*((uint32_t*)(replacementSound + 4)) - 32); // remove 32 bytes of padding
+                    alGetError(); // clear out old errors, if any
                     alBufferData( sfx->alBufferNum, AL_FORMAT_MONO8, replacementSound + 0x18
                      , numSamples
                      , sampleRate );
+                    ALenum alError = alGetError();
+                    if( alError != AL_NO_ERROR ) {
+                        switch ( alError ) {
+                        case AL_INVALID_VALUE:
+                            printf("Invalid value replacing %s with lump %d (%d)\n",sfxname,lumpNum,lumpSize);
+                            break;
+                        case AL_INVALID_ENUM:
+                            printf("Invalid enum replacing %s with lump %d (%d)\n",sfxname,lumpNum,lumpSize);
+                            break;
+                        case AL_OUT_OF_MEMORY:
+                            printf("Out of memory replacing %s with lump %d (%d)\n",sfxname,lumpNum,lumpSize);
+                        default:
+                            printf("Unexpected OpenAL error (%d) replacing %s with lump %d (%d)\n",alError,sfxname,lumpNum,lumpSize);
+                            break;
+                        }
+                    } else {
+                        printf("Successfully replaced %s lump %d.\n",sfxname,lumpNum);
+                    }
+                    free(replacementSound);
+                } else {
+                    printf("Failed to malloc %d bytes for %s\n",lumpSize,sfxname);
                 }
+                
+            } else {
+                printf("No lump with name \"%s\"\n", sfxname);
             }
         }
     }

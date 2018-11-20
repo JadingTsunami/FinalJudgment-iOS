@@ -151,7 +151,7 @@
                     <rect key="frame" x="50" y="245" width="380" height="75"/>
                     <subviews>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-0h-At3">
-                            <rect key="frame" x="78" y="7.5" width="131" height="40"/>
+                            <rect key="frame" x="54" y="7.5" width="131" height="40"/>
                             <color key="backgroundColor" red="0.99650771859999998" green="1" blue="0.99429207799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="131" id="OnU-QB-vJW"/>
@@ -159,7 +159,7 @@
                             </constraints>
                         </pickerView>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-eE-tY9">
-                            <rect key="frame" x="241" y="8" width="131" height="39"/>
+                            <rect key="frame" x="217" y="8" width="131" height="39"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="1" green="0.92247806813325783" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -168,7 +168,7 @@
                             </constraints>
                         </pickerView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7w-i7-e3P" userLabel="Skill Label">
-                            <rect key="frame" x="106" y="50.5" width="75" height="21"/>
+                            <rect key="frame" x="82" y="50.5" width="75" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="ZuV-Po-UUB"/>
                                 <constraint firstAttribute="height" constant="21" id="bl3-WY-YaD"/>
@@ -178,7 +178,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCz-xa-Ijz" userLabel="Map Label">
-                            <rect key="frame" x="289.5" y="50" width="34" height="21"/>
+                            <rect key="frame" x="265.5" y="50" width="34" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="bzd-3s-HWN"/>
                                 <constraint firstAttribute="width" constant="34" id="nWM-Hz-Yj9"/>
@@ -192,7 +192,7 @@
                         <constraint firstItem="t5G-0h-At3" firstAttribute="centerY" secondItem="bCi-eE-tY9" secondAttribute="centerY" id="DMJ-G7-Ae9"/>
                         <constraint firstItem="bCi-eE-tY9" firstAttribute="leading" secondItem="t5G-0h-At3" secondAttribute="trailing" constant="32" id="FE2-Ui-2au"/>
                         <constraint firstItem="nCz-xa-Ijz" firstAttribute="top" secondItem="bCi-eE-tY9" secondAttribute="bottom" constant="3" id="MTW-cF-mqO"/>
-                        <constraint firstAttribute="trailing" secondItem="bCi-eE-tY9" secondAttribute="trailing" constant="8" id="gWE-4a-Wnt"/>
+                        <constraint firstAttribute="trailing" secondItem="bCi-eE-tY9" secondAttribute="trailing" constant="32" id="gWE-4a-Wnt"/>
                         <constraint firstItem="s7w-i7-e3P" firstAttribute="centerX" secondItem="t5G-0h-At3" secondAttribute="centerX" id="imb-43-9Hg"/>
                         <constraint firstItem="bCi-eE-tY9" firstAttribute="top" secondItem="8xB-Nb-Uea" secondAttribute="top" constant="8" id="t4l-X1-wi9"/>
                         <constraint firstItem="nCz-xa-Ijz" firstAttribute="centerX" secondItem="bCi-eE-tY9" secondAttribute="centerX" id="tdL-9u-2lO"/>
