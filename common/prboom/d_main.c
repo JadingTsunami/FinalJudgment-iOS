@@ -1180,6 +1180,8 @@ void iphoneAddPWADFiles(void);
         firstrun = false;
     } else {
         W_ReleaseAllWads();
+        G_ClearSignature();
+        loadgame_err = false;
     }
     
   L_SetupConsoleMasks();

@@ -113,7 +113,7 @@ int             gameepisode;
 int             gamemap;
 boolean         paused;
 // CPhipps - moved *_loadgame vars here
-static boolean forced_loadgame = false;
+static boolean forced_loadgame = true;
 static boolean command_loadgame = false;
 
 boolean         usergame;      // ok to save / end game
@@ -1481,14 +1481,20 @@ static uint_64_t G_UpdateSignature(uint_64_t s, const char *name)
   return s;
 }
 
+static boolean computed = false;
+
+void G_ClearSignature(void) {
+    computed = false;
+}
+
 static uint_64_t G_Signature(void)
 {
   static uint_64_t s = 0;
-  static boolean computed = false;
   char name[9];
   int episode, map;
 
   if (!computed) {
+      s = 0;
    computed = true;
    if (gamemode == commercial)
     for (map = haswolflevels ? 32 : 30; map; map--)
@@ -1528,7 +1534,7 @@ void G_LoadGame(int slot, boolean command)
   } else {
     // Do the old thing, immediate load
     gameaction = ga_loadgame;
-    forced_loadgame = false;
+    forced_loadgame = true;
     savegameslot = slot;
     demoplayback = false;
     // Don't stay in netgame state if loading single player save
@@ -1634,6 +1640,8 @@ void G_DoLoadGame(void)
   if (savegame_compatibility == -1) {
     if (forced_loadgame) {
       savegame_compatibility = MAX_COMPATIBILITY_LEVEL-1;
+        loadgame_err = true;
+        return;
     } else {
       G_LoadGameErr("Unrecognised savegame version!\nAre you sure? (y/n) ");
       return;
@@ -1655,12 +1663,14 @@ void G_DoLoadGame(void)
         strcpy(msg,"Incompatible Savegame!!!\n");
         if (save_p[sizeof checksum])
           strcat(strcat(msg,"Wads expected:\n\n"), (char*)save_p + sizeof checksum);
-        strcat(msg, "\nAre you sure?");
+        strcat(msg, "\nWait 5 seconds to attempt loading...");
         G_LoadGameErr(msg);
         free(msg);
         return;
       } else
   lprintf(LO_WARN, "G_DoLoadGame: Incompatible savegame\n");
+        loadgame_err = true;
+        return;
     }
     save_p += sizeof checksum;
    }

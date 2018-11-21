@@ -78,6 +78,9 @@ void ResumeGame() {
 	} else {
         iphoneDoomStartup();
 		StartSaveGame();
+        if( loadgame_err ) {
+            iphonePanic();
+        }
         lastState = IPM_GAME;
 	}
 }

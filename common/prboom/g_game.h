@@ -81,6 +81,7 @@ void G_DoVictory(void);
 void G_BuildTiccmd (ticcmd_t* cmd); // CPhipps - move decl to header
 void G_ChangedPlayerColour(int pn, int cl); // CPhipps - On-the-fly player colour changing
 void G_MakeSpecialEvent(buttoncode_t bc, ...); /* cph - new event stuff */
+void G_ClearSignature(void);
 
 // killough 1/18/98: Doom-style printf;   killough 4/25/98: add gcc attributes
 // CPhipps - renames to doom_printf to avoid name collision with glibc
@@ -175,5 +176,7 @@ extern char savedescription[SAVEDESCLEN];  // Description to save in savegame
 
 /* cph - compatibility level strings */
 extern const char * comp_lev_str[];
+
+boolean loadgame_err = false;
 
 #endif
