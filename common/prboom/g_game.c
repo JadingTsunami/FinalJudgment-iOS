@@ -91,6 +91,8 @@ void iphoneStartLevel();
 void iphoneIntermission();
 void iphoneMainMenu();
 void iphonePanic();
+void iphoneAbandonWarn();
+void iphoneSavePanic();
 
 boolean panic = false;
 

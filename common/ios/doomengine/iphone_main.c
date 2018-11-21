@@ -414,6 +414,7 @@ void iphoneStartup() {
             if( remove(path) != 0 ) {
                 Com_Printf("Could not remove canary. This is bad!\n");
             }
+            iphoneAbandonWarn();
         }
     }
     
