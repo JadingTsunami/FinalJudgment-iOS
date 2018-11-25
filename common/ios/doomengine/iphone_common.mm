@@ -91,18 +91,22 @@ void iphoneMainMenu() {
 	menuState = IPM_MAIN;
 }
 
-void iphonePanic() {
-    
+void iphonePanicPopup( NSString* panicTitle, NSString* panicMessage, boolean abandonShip ) {
     [ gAppDelegate HideGLView];
+    
     menuState = IPM_MAIN;
-    panic = true;
+    if( abandonShip ) {
+        panic = true;
+    }
     
     UIWindow* overlay = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Unable to load WADs" message:@"The WAD files loaded were either corrupt or invalid, or incompatible with the selected game. Reverting to a safe configuration. Please restart the app and load compatible WADs." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:panicTitle message:panicMessage preferredStyle:UIAlertControllerStyleAlert];
     
     [panicPopup addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         overlay.hidden = YES;
-        assert(false);
+        if( abandonShip ) {
+            assert(false);
+        }
     }]];
     
     overlay.rootViewController = [UIViewController new];
@@ -113,49 +117,18 @@ void iphonePanic() {
 
 }
 
+void iphonePanic() {
+    iphonePanicPopup(@"Unable to load WADs", @"The WAD files loaded were either corrupt or invalid, or incompatible with the selected game. Reverting to a safe configuration. Please restart the app and load compatible WADs.", true);
+}
+
 void iphoneAbandonWarn() {
-    
-    [ gAppDelegate HideGLView];
-    menuState = IPM_MAIN;
-    panic = true;
-    
-    UIWindow* overlay = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Recovered safe settings" message:@"The last exit crashed. Final Judgment has recovered a safe configuration. Use the Play menu to start the game." preferredStyle:UIAlertControllerStyleAlert];
-    
-    [panicPopup addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        overlay.hidden = YES;
-    }]];
-    
-    overlay.rootViewController = [UIViewController new];
-    overlay.windowLevel = UIWindowLevelAlert + 1;
-    
-    [overlay makeKeyAndVisible];
-    [overlay.rootViewController presentViewController:panicPopup animated:YES completion:nil];
-    
+    iphonePanicPopup(@"Recovered safe settings",@"The last exit crashed. Final Judgment has recovered a safe configuration. Use the Play menu to start the game.", false );
 }
 
 
 
 void iphoneSavePanic() {
-    
-    [ gAppDelegate HideGLView];
-    menuState = IPM_MAIN;
-    panic = true;
-    
-    UIWindow* overlay = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIAlertController* panicPopup = [UIAlertController alertControllerWithTitle:@"Unable to load saved game" message:@"The WAD files loaded were incompatible with the saved game. Reverting to a safe configuration. Please restart the app and load compatible WADs." preferredStyle:UIAlertControllerStyleAlert];
-    
-    [panicPopup addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        overlay.hidden = YES;
-        assert(false);
-    }]];
-    
-    overlay.rootViewController = [UIViewController new];
-    overlay.windowLevel = UIWindowLevelAlert + 1;
-    
-    [overlay makeKeyAndVisible];
-    [overlay.rootViewController presentViewController:panicPopup animated:YES completion:nil];
-    
+    iphonePanicPopup(@"Unable to load saved game",@"The WAD files loaded were incompatible with the saved game. Reverting to a safe configuration. Please restart the app and load compatible WADs.",true);
 }
 
 /*
