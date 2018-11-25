@@ -39,6 +39,7 @@ extern int nodesVersion;
 
 extern byte *staticPlaypal;		// JDC: added to avoid the continuous lookup of PLAYPAL
 
+void gld_loadPalette();
 void gld_Init(int width, int height);
 void gld_InitCommandLine();
 

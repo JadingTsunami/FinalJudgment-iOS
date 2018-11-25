@@ -338,6 +338,14 @@ static void gld_InitExtensions(const char *_extensions)
   free(extensions);
 }
 
+void gld_loadPalette(void)
+{
+    int lumpNum = W_GetNumForName( "PLAYPAL" );
+    staticPlaypal = malloc( W_LumpLength( lumpNum ) );
+    W_ReadLump( lumpNum, staticPlaypal );
+}
+
+
 void gld_Init(int width, int height)
 {
   GLfloat params[4]={0.0f,0.0f,1.0f,0.0f};
@@ -345,11 +353,7 @@ void gld_Init(int width, int height)
 
 	// JDC: read PLAYPAL just once, instead of before every line / fill / texture build
 	// we are going to assume that this never gets changed in a wad file.
-	{
-		int lumpNum = W_GetNumForName( "PLAYPAL" );
-		staticPlaypal = malloc( W_LumpLength( lumpNum ) );
-		W_ReadLump( lumpNum, staticPlaypal );
-	}
+  gld_loadPalette();
 	
   lprintf(LO_INFO,"GL_VENDOR: %s\n",glGetString(GL_VENDOR));
   lprintf(LO_INFO,"GL_RENDERER: %s\n",glGetString(GL_RENDERER));

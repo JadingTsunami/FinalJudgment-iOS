@@ -707,6 +707,8 @@ void iphoneDoomStartup() {
     }
     
 	D_DoomMainSetup( full_iwad, doom_pwad_paths );
+    /* JDS: Reload palette for palette-swap WADs */
+    gld_loadPalette();
     
     // upon successful setup, save CVARs for future use
     // ensure we never save a NULL string (this should never happen)
