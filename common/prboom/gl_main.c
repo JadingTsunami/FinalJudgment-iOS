@@ -92,7 +92,7 @@ static float extra_green=0.0f;
 static float extra_blue=0.0f;
 static float extra_alpha=0.0f;
 
-byte	*staticPlaypal;		// JDC: this was being looked up for every line
+byte	*staticPlaypal = 0;		// JDC: this was being looked up for every line
 
 PFNGLCOLORTABLEEXTPROC gld_ColorTableEXT;
 
@@ -341,6 +341,10 @@ static void gld_InitExtensions(const char *_extensions)
 void gld_loadPalette(void)
 {
     int lumpNum = W_GetNumForName( "PLAYPAL" );
+    if( staticPlaypal ) {
+        free( staticPlaypal );
+        staticPlaypal = 0;
+    }
     staticPlaypal = malloc( W_LumpLength( lumpNum ) );
     W_ReadLump( lumpNum, staticPlaypal );
 }
