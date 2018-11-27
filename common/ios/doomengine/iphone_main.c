@@ -334,7 +334,6 @@ void iphoneStartup() {
 	Cmd_AddCommand( "listcmds", Cmd_ListCommands_f );
 	Cmd_AddCommand( "give", Give_f );
 	Cmd_AddCommand( "god", God_f );
-	Cmd_AddCommand( "mail", EmailConsole );  //gsh, mails the console to id
 
 	// register console variables
 	Cvar_Get( "version", va( "%3.1f %s %s", DOOM_IPHONE_VERSION, __DATE__, __TIME__ ), 0 );

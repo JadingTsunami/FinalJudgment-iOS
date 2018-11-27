@@ -37,7 +37,6 @@ void Com_Printf( const char *fmt, ... ) {
 	//gsh, send output to the console buffer
 	char buffer[1024];
 	vsnprintf( buffer, sizeof( buffer ), fmt, argptr );
-	AppendConsoleBuffer(buffer);
 	
     printf( "%s\n", buffer );
 	va_end( argptr );
@@ -51,14 +50,10 @@ void Com_Error( const char *fmt, ... ) {
 	//gsh, send output to the console buffer
 	char buffer[1024];
 	vsnprintf( buffer, sizeof( buffer ), fmt, argptr );
-	AppendConsoleBuffer(buffer);
 	
 	vprintf( fmt, argptr );
 	va_end( argptr );
-	
-	//gsh, email the console to id
-	EmailConsole();
-	
+		
 	// drop into the editor
 	abort(); 
 	/*(exit( 1 ));*/

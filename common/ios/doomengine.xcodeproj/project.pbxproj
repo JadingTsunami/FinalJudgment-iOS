@@ -35,8 +35,6 @@
 		3DE694781489B0850049CAA4 /* ipak.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE694591489B0850049CAA4 /* ipak.c */; };
 		3DE694791489B0850049CAA4 /* ipak.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE6945A1489B0850049CAA4 /* ipak.h */; };
 		3DE6947A1489B0850049CAA4 /* iphone_doom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE6945B1489B0850049CAA4 /* iphone_doom.h */; };
-		3DE6947B1489B0850049CAA4 /* iphone_email.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE6945C1489B0850049CAA4 /* iphone_email.h */; };
-		3DE6947C1489B0850049CAA4 /* iphone_email.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6945D1489B0850049CAA4 /* iphone_email.m */; };
 		3DE6947D1489B0850049CAA4 /* iphone_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6945E1489B0850049CAA4 /* iphone_main.c */; };
 		3DE6947E1489B0850049CAA4 /* iphone_mapSelect.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6945F1489B0850049CAA4 /* iphone_mapSelect.c */; };
 		3DE694851489B0850049CAA4 /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DE694661489B0850049CAA4 /* misc.c */; };
@@ -123,8 +121,6 @@
 		3DE694591489B0850049CAA4 /* ipak.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ipak.c; sourceTree = "<group>"; };
 		3DE6945A1489B0850049CAA4 /* ipak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipak.h; sourceTree = "<group>"; };
 		3DE6945B1489B0850049CAA4 /* iphone_doom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_doom.h; sourceTree = "<group>"; };
-		3DE6945C1489B0850049CAA4 /* iphone_email.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_email.h; sourceTree = "<group>"; };
-		3DE6945D1489B0850049CAA4 /* iphone_email.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iphone_email.m; sourceTree = "<group>"; };
 		3DE6945E1489B0850049CAA4 /* iphone_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_main.c; sourceTree = "<group>"; };
 		3DE6945F1489B0850049CAA4 /* iphone_mapSelect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_mapSelect.c; sourceTree = "<group>"; };
 		3DE694661489B0850049CAA4 /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = misc.c; sourceTree = "<group>"; };
@@ -271,8 +267,6 @@
 				3D80889B1492E378002D6CC3 /* iphone_common.h */,
 				3D8088991492E2E7002D6CC3 /* iphone_common.mm */,
 				3DE6945B1489B0850049CAA4 /* iphone_doom.h */,
-				3DE6945C1489B0850049CAA4 /* iphone_email.h */,
-				3DE6945D1489B0850049CAA4 /* iphone_email.m */,
 				3D460D4E14BCFBD40078262C /* iphone_glViewController.mm */,
 				3D2B137614BFB57E00C8D221 /* iphone_loop.c */,
 				3DE6945E1489B0850049CAA4 /* iphone_main.c */,
@@ -305,7 +299,6 @@
 				3DE694771489B0850049CAA4 /* gles_glue.h in Headers */,
 				3DE694791489B0850049CAA4 /* ipak.h in Headers */,
 				3DE6947A1489B0850049CAA4 /* iphone_doom.h in Headers */,
-				3DE6947B1489B0850049CAA4 /* iphone_email.h in Headers */,
 				3DE694861489B0850049CAA4 /* misc.h in Headers */,
 				3DE694891489B0850049CAA4 /* SoundEngine.h in Headers */,
 				3DDA6FCE148D765100C834C7 /* SDL_Mixer.h in Headers */,
@@ -422,7 +415,6 @@
 				3DE694751489B0850049CAA4 /* EAGLView.m in Sources */,
 				3DE694761489B0850049CAA4 /* gles_glue.c in Sources */,
 				3DE694781489B0850049CAA4 /* ipak.c in Sources */,
-				3DE6947C1489B0850049CAA4 /* iphone_email.m in Sources */,
 				3DE6947D1489B0850049CAA4 /* iphone_main.c in Sources */,
 				3DE6947E1489B0850049CAA4 /* iphone_mapSelect.c in Sources */,
 				3DE694851489B0850049CAA4 /* misc.c in Sources */,
