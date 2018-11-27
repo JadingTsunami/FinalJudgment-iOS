@@ -688,6 +688,8 @@ extern bool mus_on;
 void iphoneDoomStartup() {
 	Com_Printf( "---------- D_DoomMain ----------\n" );
     
+    loadgame_err = false;
+    
     /* JDS: Bug fix for music/audio not working between reboots */    
     if ( music->value ) {
         mus_on = true;

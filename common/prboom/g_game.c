@@ -95,6 +95,7 @@ void iphoneAbandonWarn();
 void iphoneSavePanic();
 
 boolean panic = false;
+boolean loadgame_err = false;
 
 #define SAVEGAMESIZE  0x20000
 #define SAVESTRINGSIZE  24

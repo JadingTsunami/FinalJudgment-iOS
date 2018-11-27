@@ -307,6 +307,7 @@ extern int				localGameID;	// change every time we take over as the sender of se
 // set after each game tic if a usable line is in front of the player
 extern boolean	autoUseActive;
 extern boolean respawnActive;
+extern boolean loadgame_err;
 
 typedef enum {
 	NF_NONE,

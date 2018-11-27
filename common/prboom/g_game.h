@@ -177,6 +177,6 @@ extern char savedescription[SAVEDESCLEN];  // Description to save in savegame
 /* cph - compatibility level strings */
 extern const char * comp_lev_str[];
 
-boolean loadgame_err = false;
+extern boolean loadgame_err;
 
 #endif
