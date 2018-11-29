@@ -296,6 +296,14 @@ void God_f() {
 		plyr->message = s_STSTR_DQDOFF; // Ty 03/27/98 - externalized
 }
 
+void Clip_f() {
+    plyr->message = (plyr->cheats ^= CF_NOCLIP) & CF_NOCLIP ? s_STSTR_NCON : s_STSTR_NCOFF;
+}
+
+void Map_f() {
+    plyr->powers[pw_allmap] = !(plyr->powers[pw_allmap]);
+}
+
 void ResetMaps_f() {
 	playState.numMapStats = 0;
 	memset( playState.mapStats, 0, sizeof( playState.mapStats ) );
@@ -334,6 +342,8 @@ void iphoneStartup() {
 	Cmd_AddCommand( "listcmds", Cmd_ListCommands_f );
 	Cmd_AddCommand( "give", Give_f );
 	Cmd_AddCommand( "god", God_f );
+    Cmd_AddCommand( "c", Clip_f );
+    Cmd_AddCommand( "m", Map_f );
 
 	// register console variables
 	Cvar_Get( "version", va( "%3.1f %s %s", DOOM_IPHONE_VERSION, __DATE__, __TIME__ ), 0 );
