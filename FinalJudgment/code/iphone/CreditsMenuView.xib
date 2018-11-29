@@ -76,10 +76,10 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="43">
-                    <rect key="frame" x="223" y="39" width="242" height="174.5"/>
+                    <rect key="frame" x="223" y="39" width="242" height="162"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzU-ds-9Fz" userLabel="PWADView">
-                            <rect key="frame" x="0.0" y="0.0" width="242" height="174.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="242" height="162"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.50338001943005184" green="0.0" blue="0.03427696423479154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,11 +111,11 @@
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-AM-DJ2">
-                    <rect key="frame" x="223" y="215" width="118" height="30"/>
+                    <rect key="frame" x="223" y="201" width="128" height="44"/>
                     <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="118" id="ZVG-l0-uYy"/>
-                        <constraint firstAttribute="height" constant="30" id="tgU-ex-Hb3"/>
+                        <constraint firstAttribute="width" constant="128" id="ZVG-l0-uYy"/>
+                        <constraint firstAttribute="height" constant="44" id="tgU-ex-Hb3"/>
                     </constraints>
                     <state key="normal" title="Remove PWADs"/>
                     <connections>
@@ -151,24 +151,24 @@
                     <rect key="frame" x="50" y="245" width="380" height="75"/>
                     <subviews>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-0h-At3">
-                            <rect key="frame" x="54" y="7.5" width="131" height="40"/>
+                            <rect key="frame" x="54" y="8" width="131" height="44"/>
                             <color key="backgroundColor" red="0.99650771859999998" green="1" blue="0.99429207799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="131" id="OnU-QB-vJW"/>
-                                <constraint firstAttribute="height" constant="40" id="flX-nj-Sag"/>
+                                <constraint firstAttribute="height" constant="44" id="flX-nj-Sag"/>
                             </constraints>
                         </pickerView>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-eE-tY9">
-                            <rect key="frame" x="217" y="8" width="131" height="39"/>
+                            <rect key="frame" x="217" y="8" width="131" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="1" green="0.92247806813325783" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="39" id="JLX-RH-yib"/>
+                                <constraint firstAttribute="height" constant="44" id="JLX-RH-yib"/>
                                 <constraint firstAttribute="width" constant="131" id="OoI-CZ-b6P"/>
                             </constraints>
                         </pickerView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7w-i7-e3P" userLabel="Skill Label">
-                            <rect key="frame" x="82" y="50.5" width="75" height="21"/>
+                            <rect key="frame" x="82" y="55" width="75" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="ZuV-Po-UUB"/>
                                 <constraint firstAttribute="height" constant="21" id="bl3-WY-YaD"/>
@@ -178,7 +178,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCz-xa-Ijz" userLabel="Map Label">
-                            <rect key="frame" x="265.5" y="50" width="34" height="21"/>
+                            <rect key="frame" x="265.5" y="55" width="34" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="bzd-3s-HWN"/>
                                 <constraint firstAttribute="width" constant="34" id="nWM-Hz-Yj9"/>
@@ -203,7 +203,7 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="43" firstAttribute="firstBaseline" secondItem="fd5-fi-4aw" secondAttribute="baseline" constant="12.5" symbolType="layoutAnchor" id="1pd-Dr-vNU"/>
-                <constraint firstItem="giH-AM-DJ2" firstAttribute="firstBaseline" secondItem="43" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="8EB-af-Fxy"/>
+                <constraint firstItem="giH-AM-DJ2" firstAttribute="top" secondItem="43" secondAttribute="bottom" id="8EB-af-Fxy"/>
                 <constraint firstItem="8xB-Nb-Uea" firstAttribute="leading" secondItem="45" secondAttribute="trailing" id="A0G-8n-PCc"/>
                 <constraint firstItem="V2v-5Y-l5L" firstAttribute="top" secondItem="lte-yM-eOI" secondAttribute="top" constant="10" id="BRx-d9-7Sa"/>
                 <constraint firstItem="44" firstAttribute="firstBaseline" secondItem="cLV-eE-1Po" secondAttribute="baseline" constant="20.5" symbolType="layoutAnchor" id="IKR-QK-ZWi"/>

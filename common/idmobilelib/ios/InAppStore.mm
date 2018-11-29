@@ -86,7 +86,7 @@ namespace {
 	typedef NSInteger productState_t;
 	
 	// This is the state of a product if it not found in the user's defaults.
-	const productState_t PRODUCT_NOT_FOUND = 0;
+	const productState_t __unused PRODUCT_NOT_FOUND = 0;
 		
 	// Information from this product has been requested, but has not been received yet.
 	const productState_t PRODUCT_WAIT_FOR_INFORMATION = 1;
