@@ -172,10 +172,13 @@ static boolean P_CheckForZDoomNodes(int lumpnum, int gl_lumpnum)
   const void *data;
 
   data = W_CacheLumpNum(lumpnum + ML_NODES);
+  assert( data );
   if (*(const int *)data == ZNOD)
     I_Error("P_CheckForZDoomNodes: ZDoom nodes not supported yet");
 
+    /* JDS Note: This will crash on maps without built nodes (where subsectors is 0 size) */
   data = W_CacheLumpNum(lumpnum + ML_SSECTORS);
+  assert( data );
   if (*(const int *)data == ZGLN)
     I_Error("P_CheckForZDoomNodes: ZDoom GL nodes not supported yet");
 

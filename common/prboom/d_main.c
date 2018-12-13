@@ -1213,7 +1213,9 @@ void iphoneAddPWADFiles(void);
     forceOldBsp = true;
   }
 
-  D_BuildBEXTables(); // haleyjd
+    if( !firstrun ) {
+        D_BuildBEXTables(); // haleyjd
+    }
 
   DoLooseFiles();  // Ty 08/29/98 - handle "loose" files on command line
   IdentifyVersion( iwad );
