@@ -122,25 +122,25 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLAY" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="434" userLabel="PlayLabel" customClass="idLabel">
-                            <rect key="frame" x="407.66666666666663" y="208" width="45" height="23"/>
+                            <rect key="frame" x="407.66666666666663" y="210" width="45" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="438" userLabel="SettingsLabel" customClass="idLabel">
-                            <rect key="frame" x="260.66666666666669" y="309" width="89" height="23"/>
+                            <rect key="frame" x="260.66666666666669" y="300" width="89" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="RESUME" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="432" userLabel="ResumeLabel" customClass="idLabel">
-                            <rect key="frame" x="12.666666666666657" y="208" width="75" height="23"/>
+                            <rect key="frame" x="12.666666666666657" y="210" width="75" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CONTROLS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="441" userLabel="ControlsLabel" customClass="idLabel">
-                            <rect key="frame" x="124.66666666666669" y="308" width="101" height="23"/>
+                            <rect key="frame" x="124.66666666666669" y="300" width="101" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -152,15 +152,15 @@
                         <constraint firstAttribute="height" constant="320" id="5Cg-wj-ejz"/>
                         <constraint firstItem="441" firstAttribute="centerX" secondItem="436" secondAttribute="centerX" id="5U0-j0-YMb"/>
                         <constraint firstItem="433" firstAttribute="leading" secondItem="436" secondAttribute="trailing" constant="30" id="63O-zd-eE9"/>
-                        <constraint firstItem="438" firstAttribute="firstBaseline" secondItem="433" secondAttribute="baseline" constant="27" symbolType="layoutAnchor" id="ARq-dr-iHN"/>
+                        <constraint firstItem="438" firstAttribute="top" secondItem="433" secondAttribute="bottom" id="ARq-dr-iHN"/>
                         <constraint firstItem="436" firstAttribute="centerY" secondItem="433" secondAttribute="centerY" id="DJ4-IA-hT4"/>
                         <constraint firstItem="433" firstAttribute="top" secondItem="t55-t3-EMq" secondAttribute="top" constant="200" id="FpY-Ea-92I"/>
                         <constraint firstItem="t55-t3-EMq" firstAttribute="trailing" secondItem="433" secondAttribute="trailing" constant="125" id="GjW-vL-VRT"/>
                         <constraint firstItem="436" firstAttribute="leading" secondItem="t55-t3-EMq" secondAttribute="leading" constant="125" id="RgO-RU-FF9"/>
-                        <constraint firstItem="439" firstAttribute="baseline" secondItem="432" secondAttribute="firstBaseline" constant="-16" id="T86-RW-ddP"/>
-                        <constraint firstItem="445" firstAttribute="baseline" secondItem="434" secondAttribute="firstBaseline" constant="-16" id="TCG-q9-7Qj"/>
+                        <constraint firstItem="439" firstAttribute="bottom" secondItem="432" secondAttribute="top" id="T86-RW-ddP"/>
+                        <constraint firstItem="445" firstAttribute="bottom" secondItem="434" secondAttribute="top" id="TCG-q9-7Qj"/>
                         <constraint firstItem="436" firstAttribute="top" secondItem="t55-t3-EMq" secondAttribute="top" constant="200" id="VVc-cK-egg"/>
-                        <constraint firstItem="441" firstAttribute="top" secondItem="436" secondAttribute="bottom" constant="8" symbolic="YES" id="WI5-bd-yvf"/>
+                        <constraint firstItem="441" firstAttribute="top" secondItem="436" secondAttribute="bottom" id="WI5-bd-yvf"/>
                         <constraint firstItem="t55-t3-EMq" firstAttribute="trailing" secondItem="445" secondAttribute="trailing" id="cpc-zw-gDS"/>
                         <constraint firstItem="439" firstAttribute="centerY" secondItem="t55-t3-EMq" secondAttribute="centerY" id="f26-fA-NSm"/>
                         <constraint firstAttribute="width" constant="480" id="h8d-hV-Sbp"/>
