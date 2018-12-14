@@ -10,7 +10,6 @@
 		133F3E7017F21C8700A12635 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F3E6F17F21C8700A12635 /* MainNavController.m */; };
 		138FC9BB17F0813400D94C5F /* doom_wads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 138FC9B917F0813400D94C5F /* doom_wads.cpp */; };
 		138FC9C917F216C300D94C5F /* base.iPack in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C617F2165D00D94C5F /* base.iPack */; };
-		138FC9CA17F216C300D94C5F /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C717F2165D00D94C5F /* doom.wad */; };
 		138FC9CB17F216C300D94C5F /* prboom.wad in Resources */ = {isa = PBXBuildFile; fileRef = 138FC9C817F2165D00D94C5F /* prboom.wad */; };
 		13E3CC5F17F236840075D40A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E3CC5E17F236840075D40A /* GameKit.framework */; };
 		13E3CC6417F237B80075D40A /* FJ_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E3CC6017F237B80075D40A /* FJ_76.png */; };
@@ -62,10 +61,6 @@
 		C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */; };
 		C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */; };
 		C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */; };
-		D05ECE651FC2992F0086978C /* doom2.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE641FC2992F0086978C /* doom2.wad */; };
-		D05ECE721FC2A6770086978C /* tnt.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE701FC2A6750086978C /* tnt.wad */; };
-		D05ECE731FC2A6770086978C /* plutonia.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE711FC2A6760086978C /* plutonia.wad */; };
-		D05ECE751FC2A73F0086978C /* spritx.wad in Resources */ = {isa = PBXBuildFile; fileRef = D05ECE741FC2A73F0086978C /* spritx.wad */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
@@ -103,7 +98,6 @@
 		138FC9B917F0813400D94C5F /* doom_wads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = doom_wads.cpp; sourceTree = "<group>"; };
 		138FC9BA17F0813400D94C5F /* doom_wads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doom_wads.h; sourceTree = "<group>"; };
 		138FC9C617F2165D00D94C5F /* base.iPack */ = {isa = PBXFileReference; lastKnownFileType = file; name = base.iPack; path = ../../base/base.iPack; sourceTree = "<group>"; };
-		138FC9C717F2165D00D94C5F /* doom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = doom.wad; path = ../../base/doom.wad; sourceTree = "<group>"; };
 		138FC9C817F2165D00D94C5F /* prboom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = prboom.wad; path = ../../base/prboom.wad; sourceTree = "<group>"; };
 		1391CE141882E5A30049671C /* libidmobilelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libidmobilelib.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libidmobilelib.a"; sourceTree = "<group>"; };
 		1391CE161882E5F40049671C /* libprboom.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprboom.a; path = "../../../../DerivedData/Build/Products/Debug-iphoneos/libprboom.a"; sourceTree = "<group>"; };
@@ -166,10 +160,8 @@
 		C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_114.png; sourceTree = "<group>"; };
 		C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_72.png; sourceTree = "<group>"; };
 		C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		D05ECE641FC2992F0086978C /* doom2.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = doom2.wad; sourceTree = "<group>"; };
-		D05ECE701FC2A6750086978C /* tnt.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = tnt.wad; sourceTree = "<group>"; };
-		D05ECE711FC2A6760086978C /* plutonia.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutonia.wad; sourceTree = "<group>"; };
-		D05ECE741FC2A73F0086978C /* spritx.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = spritx.wad; sourceTree = "<group>"; };
+		D04A158D21C3491D00697901 /* freedoom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = freedoom.wad; sourceTree = "<group>"; };
+		D04A158E21C3491D00697901 /* freedoom2.wad */ = {isa = PBXFileReference; lastKnownFileType = file; path = freedoom2.wad; sourceTree = "<group>"; };
 		D080FADE1FC0BCB000E71FF7 /* libprboom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprboom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libidmobilelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -242,11 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				138FC9C617F2165D00D94C5F /* base.iPack */,
-				138FC9C717F2165D00D94C5F /* doom.wad */,
-				D05ECE641FC2992F0086978C /* doom2.wad */,
-				D05ECE711FC2A6760086978C /* plutonia.wad */,
-				D05ECE701FC2A6750086978C /* tnt.wad */,
-				D05ECE741FC2A73F0086978C /* spritx.wad */,
+				D04A158D21C3491D00697901 /* freedoom.wad */,
+				D04A158E21C3491D00697901 /* freedoom2.wad */,
 				138FC9C817F2165D00D94C5F /* prboom.wad */,
 				C86CA86714B502C90057FF54 /* Icons & Defaults */,
 				C86CA86114B4FD230057FF54 /* Menus */,
@@ -499,13 +488,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
-				138FC9CA17F216C300D94C5F /* doom.wad in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
 				4364BF3F0F5CB25900F29317 /* dist.plist in Resources */,
 				C8D1CF6813DE1EB600F0EAC6 /* FJ_57.png in Resources */,
 				C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */,
-				D05ECE731FC2A6770086978C /* plutonia.wad in Resources */,
 				C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */,
 				C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */,
 				C81E104C13E1CCA000B1049A /* BackButton.png in Resources */,
@@ -522,11 +509,9 @@
 				C8792EDD13F5AFE6003D834F /* SubMenuButton_Highlighted.png in Resources */,
 				C8792EDE13F5AFE6003D834F /* SubMenuButton.png in Resources */,
 				D0C9049F21994D9F00FDC81A /* GALS.otf in Resources */,
-				D05ECE651FC2992F0086978C /* doom2.wad in Resources */,
 				D0C904A3219951DF00FDC81A /* Launch Screen.storyboard in Resources */,
 				13E3CC6517F237B80075D40A /* FJ_120.png in Resources */,
 				C87931EC13F610B9003D834F /* AdvancedButton_Highlighted.png in Resources */,
-				D05ECE751FC2A73F0086978C /* spritx.wad in Resources */,
 				C87931ED13F610B9003D834F /* AdvancedButton.png in Resources */,
 				C87931EE13F610B9003D834F /* Divide.png in Resources */,
 				C87931EF13F610B9003D834F /* LayoutDualButton_Highlighted.png in Resources */,
@@ -540,7 +525,6 @@
 				13E3CC6417F237B80075D40A /* FJ_76.png in Resources */,
 				C87931F913F610B9003D834F /* SliderSkull.png in Resources */,
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
-				D05ECE721FC2A6770086978C /* tnt.wad in Resources */,
 				D0D75343218E287000EB569E /* MainMenuView.xib in Resources */,
 				C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */,
 				C8012E7914B649DB00B0E213 /* CreditsMenuView.xib in Resources */,

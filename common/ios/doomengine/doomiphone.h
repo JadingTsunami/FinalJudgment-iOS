@@ -33,7 +33,7 @@
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
 #define PWAD_LIST_SEPARATOR ':'
-#define DEFAULT_IWAD "doom.wad"
+#define DEFAULT_IWAD "freedoom.wad"
 
 #include <string.h>
 #include <stdarg.h>

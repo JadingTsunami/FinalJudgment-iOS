@@ -82,10 +82,8 @@
                      nil];
     
     builtinIWADs = [[NSArray alloc] initWithObjects:
-                    @"doom.wad",
-                    @"doom2.wad",
-                    @"tnt.wad",
-                    @"plutonia.wad",
+                    @"freedoom.wad",
+                    @"freedoom2.wad",
                     nil];
     
     doom2Levels = [[NSArray alloc] initWithObjects:
@@ -174,8 +172,17 @@
     for (id dir in dirFiles) {
         
         NSString *value = (NSString *)dir;
+        boolean is_builtin = false;
+        /* Ignore built-in WADs (they won't be loaded anyway) */
+        for (id biwad in builtinIWADs) {
+            NSString *biwadNSStr = (NSString*)biwad;
+            if( [value caseInsensitiveCompare:biwadNSStr]==NSOrderedSame ) {
+                is_builtin = true;
+                break;
+            }
+        }
         
-        if ([[value pathExtension] caseInsensitiveCompare:@"wad"]==NSOrderedSame){
+        if (!is_builtin && [[value pathExtension] caseInsensitiveCompare:@"wad"]==NSOrderedSame){
             /* Sort out IWADs */
             NSString *path = [documentsDirectory stringByAppendingPathComponent:value];
             
