@@ -61,6 +61,8 @@
 		C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* FJ_114.png */; };
 		C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* FJ_72.png */; };
 		C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */; };
+		D04A158F21C3535B00697901 /* freedoom.wad in Resources */ = {isa = PBXBuildFile; fileRef = D04A158D21C3491D00697901 /* freedoom.wad */; };
+		D04A159021C3535B00697901 /* freedoom2.wad in Resources */ = {isa = PBXBuildFile; fileRef = D04A158E21C3491D00697901 /* freedoom2.wad */; };
 		D080FADD1FC0BCB000E71FF7 /* libprboom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FADE1FC0BCB000E71FF7 /* libprboom.a */; };
 		D080FADF1FC0BCB800E71FF7 /* libidmobilelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE01FC0BCB800E71FF7 /* libidmobilelib.a */; };
 		D08D084F1FC3E293003F09CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080FAE11FC15A7B00E71FF7 /* AVFoundation.framework */; };
@@ -487,6 +489,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04A158F21C3535B00697901 /* freedoom.wad in Resources */,
+				D04A159021C3535B00697901 /* freedoom2.wad in Resources */,
 				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
