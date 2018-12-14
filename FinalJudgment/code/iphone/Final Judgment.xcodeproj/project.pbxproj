@@ -71,6 +71,12 @@
 		D0C9049F21994D9F00FDC81A /* GALS.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0C9049E21994D9F00FDC81A /* GALS.otf */; };
 		D0C904A3219951DF00FDC81A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */; };
 		D0D75343218E287000EB569E /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D75345218E287000EB569E /* MainMenuView.xib */; };
+		D0EF64E021C369F100B5A5E1 /* ControlsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64DB21C369F000B5A5E1 /* ControlsMenuView~ipad.xib */; };
+		D0EF64E121C369F100B5A5E1 /* LegalMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64DC21C369F000B5A5E1 /* LegalMenuView~ipad.xib */; };
+		D0EF64E221C369F100B5A5E1 /* CreditsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64DD21C369F000B5A5E1 /* CreditsMenuView~ipad.xib */; };
+		D0EF64E321C369F100B5A5E1 /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64DE21C369F000B5A5E1 /* OpenGLView~ipad.xib */; };
+		D0EF64E421C369F100B5A5E1 /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64DF21C369F000B5A5E1 /* SettingsMenuView~ipad.xib */; };
+		D0EF64E721C3704700B5A5E1 /* MainMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EF64E521C3704700B5A5E1 /* MainMenuView~ipad.xib */; };
 		EDD2760511C2B19E004A9B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
 		EDD2760711C2B19E004A9B9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		EDD2760911C2B19E004A9B9B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
@@ -172,6 +178,12 @@
 		D0C9049E21994D9F00FDC81A /* GALS.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GALS.otf; sourceTree = "<group>"; };
 		D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D0D75344218E287000EB569E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenuView.xib; sourceTree = "<group>"; };
+		D0EF64DB21C369F000B5A5E1 /* ControlsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ControlsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		D0EF64DC21C369F000B5A5E1 /* LegalMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LegalMenuView~ipad.xib"; sourceTree = "<group>"; };
+		D0EF64DD21C369F000B5A5E1 /* CreditsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CreditsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		D0EF64DE21C369F000B5A5E1 /* OpenGLView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "OpenGLView~ipad.xib"; sourceTree = "<group>"; };
+		D0EF64DF21C369F000B5A5E1 /* SettingsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		D0EF64E621C3704700B5A5E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenuView~ipad.xib"; sourceTree = "<group>"; };
 		EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDD2760611C2B19E004A9B9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDD2760811C2B19E004A9B9B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -337,6 +349,7 @@
 		C86CA86114B4FD230057FF54 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				D0EF64DA21C3694D00B5A5E1 /* iPad */,
 				C8012E4B14B510BA00B0E213 /* iPhone */,
 				D0C904A2219951DF00FDC81A /* Launch Screen.storyboard */,
 			);
@@ -401,6 +414,19 @@
 			name = "About menus";
 			sourceTree = "<group>";
 		};
+		D0EF64DA21C3694D00B5A5E1 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				D0EF64DB21C369F000B5A5E1 /* ControlsMenuView~ipad.xib */,
+				D0EF64DD21C369F000B5A5E1 /* CreditsMenuView~ipad.xib */,
+				D0EF64DC21C369F000B5A5E1 /* LegalMenuView~ipad.xib */,
+				D0EF64DE21C369F000B5A5E1 /* OpenGLView~ipad.xib */,
+				D0EF64DF21C369F000B5A5E1 /* SettingsMenuView~ipad.xib */,
+				D0EF64E521C3704700B5A5E1 /* MainMenuView~ipad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,6 +484,7 @@
 				it,
 				de,
 				es,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -492,6 +519,7 @@
 				D04A158F21C3535B00697901 /* freedoom.wad in Resources */,
 				D04A159021C3535B00697901 /* freedoom2.wad in Resources */,
 				138FC9C917F216C300D94C5F /* base.iPack in Resources */,
+				D0EF64E121C369F100B5A5E1 /* LegalMenuView~ipad.xib in Resources */,
 				138FC9CB17F216C300D94C5F /* prboom.wad in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
 				4364BF3F0F5CB25900F29317 /* dist.plist in Resources */,
@@ -499,6 +527,7 @@
 				C8D1CF6A13DE1EF500F0EAC6 /* FJ_114.png in Resources */,
 				C8D1CF6C13DE1F0600F0EAC6 /* FJ_72.png in Resources */,
 				C8D1CF8613DF792D00F0EAC6 /* Default@2x.png in Resources */,
+				D0EF64E321C369F100B5A5E1 /* OpenGLView~ipad.xib in Resources */,
 				C81E104C13E1CCA000B1049A /* BackButton.png in Resources */,
 				C81E104D13E1CCA000B1049A /* Button.png in Resources */,
 				C81E104F13E1CCA000B1049A /* Logo.png in Resources */,
@@ -515,12 +544,14 @@
 				D0C9049F21994D9F00FDC81A /* GALS.otf in Resources */,
 				D0C904A3219951DF00FDC81A /* Launch Screen.storyboard in Resources */,
 				13E3CC6517F237B80075D40A /* FJ_120.png in Resources */,
+				D0EF64E021C369F100B5A5E1 /* ControlsMenuView~ipad.xib in Resources */,
 				C87931EC13F610B9003D834F /* AdvancedButton_Highlighted.png in Resources */,
 				C87931ED13F610B9003D834F /* AdvancedButton.png in Resources */,
 				C87931EE13F610B9003D834F /* Divide.png in Resources */,
 				C87931EF13F610B9003D834F /* LayoutDualButton_Highlighted.png in Resources */,
 				C87931F013F610B9003D834F /* LayoutDualButton.png in Resources */,
 				C87931F113F610B9003D834F /* LayoutSingleButton_Highlighted.png in Resources */,
+				D0EF64E721C3704700B5A5E1 /* MainMenuView~ipad.xib in Resources */,
 				C87931F213F610B9003D834F /* LayoutSingleButton.png in Resources */,
 				C87931F313F610B9003D834F /* LayoutWheelButton_Highlighted.png in Resources */,
 				C87931F413F610B9003D834F /* LayoutWheelButton.png in Resources */,
@@ -529,9 +560,11 @@
 				13E3CC6417F237B80075D40A /* FJ_76.png in Resources */,
 				C87931F913F610B9003D834F /* SliderSkull.png in Resources */,
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
+				D0EF64E421C369F100B5A5E1 /* SettingsMenuView~ipad.xib in Resources */,
 				D0D75343218E287000EB569E /* MainMenuView.xib in Resources */,
 				C8012E7414B646BD00B0E213 /* OpenGLView.xib in Resources */,
 				C8012E7914B649DB00B0E213 /* CreditsMenuView.xib in Resources */,
+				D0EF64E221C369F100B5A5E1 /* CreditsMenuView~ipad.xib in Resources */,
 				13E3CC6717F237B80075D40A /* FJ_152.png in Resources */,
 				C8012E7E14B6704500B0E213 /* ControlsMenuView.xib in Resources */,
 				C8012E8314B6709C00B0E213 /* SettingsMenuView.xib in Resources */,
@@ -592,6 +625,14 @@
 				D0D75344218E287000EB569E /* en */,
 			);
 			name = MainMenuView.xib;
+			sourceTree = "<group>";
+		};
+		D0EF64E521C3704700B5A5E1 /* MainMenuView~ipad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0EF64E621C3704700B5A5E1 /* en */,
+			);
+			name = "MainMenuView~ipad.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -167,6 +167,9 @@
     for(id biwad in builtinIWADs) {
         [self addWAD:biwad wadScroller:iwadScroller offset:iwadOffset iwad:true];
         iwadOffset += 25;
+        if( IS_IPAD ) {
+            iwadOffset += 25;
+        }
     }
     
     for (id dir in dirFiles) {
@@ -194,10 +197,16 @@
                     /* found an IWAD */
                     [self addWAD:value wadScroller:iwadScroller offset:iwadOffset iwad:true];
                     iwadOffset += 25;
+                    if( IS_IPAD ) {
+                        iwadOffset += 25;
+                    }
                 } else if ( memcmp( "PWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
                     /* PWAD, keep going */
                     [self addWAD:value wadScroller:pwadScroller offset:pwadOffset iwad:false];
                     pwadOffset += 25;
+                    if( IS_IPAD ) {
+                        pwadOffset += 25;
+                    }
                 } else {
                     /* neither IWAD nor PWAD; skip */
                     NSLog(@"Did not recognize the WAD: %@",value);
@@ -221,7 +230,11 @@
         [button addTarget:self action:@selector(pwadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     [button setTitle:wad forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
+    if( IS_IPAD ) {
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:32.0]];
+    } else {
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:16.0]];
+    }
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
@@ -237,7 +250,11 @@
     } else if ( [[[NSString stringWithUTF8String:doom_iwad] lastPathComponent] compare:wad options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             [button setSelected:(YES)];
     }
-    button.frame = CGRectMake(15, y, ((float)scroller.bounds.size.width)-15.0, 22.0);
+    if( IS_IPAD ) {
+        button.frame = CGRectMake(15, y, ((float)scroller.bounds.size.width)-30.0, 44.0);
+    } else {
+        button.frame = CGRectMake(15, y, ((float)scroller.bounds.size.width)-15.0, 22.0);
+    }
 
     [scroller addSubview:button];
 
