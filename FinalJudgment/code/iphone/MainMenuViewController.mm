@@ -47,7 +47,7 @@
     isHidden = YES;
     
     if( !didInit ) {
-        char full_iwad[1024];
+        char full_iwad[PATH_MAX];
                 
         I_FindFile( doom_iwad, ".wad", full_iwad );
         

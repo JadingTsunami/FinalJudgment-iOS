@@ -520,7 +520,7 @@ void S_ChangeMusic(int musicnum, int looping)
 {
   musicinfo_t *music;
   int music_file_failed; // cournia - if true load the default MIDI music
-  char music_filename[ 1024 ];  // cournia
+  char music_filename[ PATH_MAX ];  // cournia
 
   (void)music_file_failed;
   (void)music_filename;

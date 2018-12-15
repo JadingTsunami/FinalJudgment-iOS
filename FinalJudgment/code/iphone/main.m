@@ -23,7 +23,7 @@
 #include <unistd.h>
 #include <string.h>
 
-extern char iphoneAppDirectory[1024];
+extern char iphoneAppDirectory[PATH_MAX];
 extern int myargc;
 extern char **myargv;
 

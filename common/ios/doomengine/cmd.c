@@ -157,7 +157,7 @@ void	Cmd_ExecuteFile( const char *fullPathName ) {
 		Com_Printf( "Failed to open.\n" );
 		return;
 	}
-	char	line[1024];
+	char	line[MAX_STRING_CHARS];
 	while( fgets( line, sizeof( line ), f ) ) {
 		Cmd_ExecuteString( line );
 	}

@@ -192,7 +192,7 @@
             FILE *f = fopen([path UTF8String],"r");
             
             char wadtype[4];
-            if( f && fread( wadtype, sizeof(char), 4, f ) ) {
+            if( (f && fread( wadtype, sizeof(char), 4, f )) && (path.length <= PATH_MAX) ) {
                 if ( memcmp( "IWAD", &wadtype, sizeof(char)*4 ) == 0 ) {
                     /* found an IWAD */
                     [self addWAD:value wadScroller:iwadScroller offset:iwadOffset iwad:true];
@@ -211,9 +211,12 @@
                     /* neither IWAD nor PWAD; skip */
                     NSLog(@"Did not recognize the WAD: %@",value);
                 }
-                fclose(f);
             } else {
                 NSLog(@"Failed to open: %@; %d",value, errno);
+            }
+            
+            if ( f ) {
+                fclose(f);
             }
         }
     }

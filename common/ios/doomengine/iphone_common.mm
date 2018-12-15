@@ -63,7 +63,7 @@ void CommonSystemSetup( UIViewController * gameViewController ) {
 	paths = NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES);
 	NSString *appDirectory = [paths objectAtIndex:0];
 
-	static char iphoneAppDirectoryFromAPI[1024];
+	static char iphoneAppDirectoryFromAPI[PATH_MAX];
 	[appDirectory getCString: iphoneAppDirectoryFromAPI 
 							maxLength: sizeof( iphoneAppDirectoryFromAPI ) - 1
 							encoding: NSASCIIStringEncoding ];

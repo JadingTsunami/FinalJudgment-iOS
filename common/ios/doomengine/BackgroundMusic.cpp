@@ -485,7 +485,7 @@ OSStatus BackgroundTrackMgr::Stop(Boolean inStopAtEnd) {
 
 static BackgroundTrackMgr	sBackgroundTrackMgr;
 
-static char currentMusicName[1024];
+static char currentMusicName[PATH_MAX];
 
 void iphonePauseMusic() {
     if( music ) {
@@ -512,7 +512,7 @@ void iphoneStartMusic() {
 		// music is disabled
 		return;
 	}
-	char	fullName[1024];
+	char	fullName[PATH_MAX];
 	sprintf( fullName, "%s/base/music/d_%s.mp3", SysIphoneGetAppDir(), currentMusicName );
 	
 	printf( "Starting music '%s'\n", fullName );

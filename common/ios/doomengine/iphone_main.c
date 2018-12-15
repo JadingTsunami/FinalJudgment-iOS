@@ -407,7 +407,7 @@ void iphoneStartup() {
     // Check if our WADs were bad last time.
     {
         FILE    *fp;
-        char    path[1024];
+        char    path[PATH_MAX];
         snprintf( path, sizeof( path ), "%s/.abandon.ship", SysIphoneGetDocDir() );
         fp = fopen( path, "r" );
         if( fp ) {
@@ -501,7 +501,7 @@ void iphoneStartup() {
  ==================
 */
 void iphoneIWADSelect( const char* iwad ) {
-    char full_iwad[1024];
+    char full_iwad[PATH_MAX];
     
     I_FindFile( iwad, ".wad", full_iwad );
     
@@ -527,7 +527,7 @@ void iphoneIWADSelect( const char* iwad ) {
  */
 void iphonePWADAdd( const char* pwad  ) {
     
-    char full_pwad[1024];
+    char full_pwad[PATH_MAX];
     char* pwad_name;
     
     I_FindFile( pwad, ".wad", full_pwad );
@@ -638,8 +638,8 @@ void iphoneSanitizePWADs() {
     char* pwad = strtok(pwad_local, delim );
     
     while( pwad != NULL ) {
-        char pwad_path[1024] = { 0 };
-        char pwad_doc_path[1024];
+        char pwad_path[PATH_MAX] = { 0 };
+        char pwad_doc_path[PATH_MAX];
         char* pwad_file = strrchr(pwad,'/');
         
         /* no path */
@@ -744,7 +744,7 @@ void iphoneDoomStartup() {
  */
 void iphoneShutdown() {
 	FILE	*fp;
-	char	path[1024];
+	char	path[PATH_MAX];
 	cvar_t	*var;
 	char	buffer[1024];
     

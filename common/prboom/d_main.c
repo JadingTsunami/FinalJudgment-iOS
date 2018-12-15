@@ -1222,7 +1222,7 @@ void iphoneAddPWADFiles(void);
 
   // Load prboom.wad after IWAD but before everything else
   {
-    char data_wad_path[ 1024 ];
+    char data_wad_path[ PATH_MAX ];
     I_FindFile(PACKAGE ".wad", ".wad", data_wad_path );
 
     D_AddFile(data_wad_path, source_pre);
@@ -1457,7 +1457,7 @@ void iphoneAddPWADFiles(void);
     for (i=0; i<MAXLOADFILES*2; i++) {
       const char *fname = (i < MAXLOADFILES) ? wad_files[i]
   : deh_files[i - MAXLOADFILES];
-      char fpath[ 1024 ];
+      char fpath[ PATH_MAX ];
 
       if (!(fname && *fname)) continue;
       // Filename is now stored as a zero terminated string
@@ -1522,7 +1522,7 @@ void iphoneAddPWADFiles(void);
 
 	// Add any iphone pwads (for example, No Rest for the Living is a pwad).
     while(pwad && *pwad) {
-        char pwad_to_add[1024];
+        char pwad_to_add[PATH_MAX];
         char* pwadloc_end = strchr(pwad,PWAD_LIST_SEPARATOR);
         unsigned long i = 0;
         if( pwadloc_end ) {

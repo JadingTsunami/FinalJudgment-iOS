@@ -387,8 +387,8 @@ void I_Error(const char *error, ...)
         printf( " SAFE EXIT \n" );
         // it's likely our WADs are bad. Wipe them out next time.
         FILE    *fp;
-        char    path[1024];
-        char    buffer[1024];
+        char    path[PATH_MAX];
+        char    buffer[PATH_MAX];
         snprintf( path, sizeof( path ), "%s/.abandon.ship", SysIphoneGetDocDir() );
         fp = fopen( path, "w" );
         if( ! fp ) {
