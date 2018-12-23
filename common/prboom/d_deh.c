@@ -3115,3 +3115,209 @@ boolean deh_GetData(char *s, char *k, uint_64_t *l, char **strval, FILE *fpout)
 
   return(okrc);
 }
+
+/* Save/restore code */
+typedef struct {
+    deh_strs* deh_strlookup;
+    const char *sprnames[NUMSPRITES+1];
+    state_t states[NUMSTATES];
+    mobjinfo_t mobjinfo[NUMMOBJTYPES];
+    weaponinfo_t* weaponinfo[NUMWEAPONS];
+
+    // DOOM Par Times
+    int pars[4][10];
+
+    // DOOM II Par Times
+    int cpars[32];
+
+    // Misc other stuff
+    int initial_health;
+    int initial_bullets;
+    int maxhealth;
+    int max_armor;
+    int green_armor_class;
+    int blue_armor_class;
+    int max_soul;
+    int soul_health;
+    int mega_health;
+    int god_health;
+    int idfa_armor;
+    int idfa_armor_class;
+    int idkfa_armor;
+    int idkfa_armor_class;
+    int bfgcells;
+    int monsters_infight;
+    int maxammo[NUMAMMO];
+    int clipammo[NUMAMMO];
+    /* NOT supported/saved:
+     * S_Sfx
+     * S_Music
+     * cheats
+     */
+} deh_snapshot;
+
+static deh_snapshot g_DehSavedState;
+static bool g_save_initialized = false;
+
+void D_DehSave(void) {
+    if( !g_save_initialized ) {
+        g_save_initialized = true;
+        
+        /* this one is special and requires a malloc.
+         * the rest are fixed-size
+         */
+        g_DehSavedState.deh_strlookup = (deh_strs*)malloc(sizeof(deh_strs)*deh_numstrlookup);
+
+        /* check for malloc failure */
+        assert(g_DehSavedState.deh_strlookup);
+                
+        /* save each element off */
+        int i,j;
+
+        /* make a copy of each deh_strlookup element */
+        for( i = 0; i < deh_numstrlookup; i++ ) {
+            g_DehSavedState.deh_strlookup[i].ppstr = deh_strlookup[i].ppstr;
+            g_DehSavedState.deh_strlookup[i].lookup = deh_strlookup[i].lookup;
+        }
+
+        for( i = 0; i < NUMSPRITES+1; i++ ) {
+            g_DehSavedState.sprnames[i] = sprnames[i];
+        }
+
+        for( i = 0; i < NUMSTATES; i++ ) {
+            g_DehSavedState.states[i].sprite = states[i].sprite;
+            g_DehSavedState.states[i].frame = states[i].frame;
+            g_DehSavedState.states[i].tics = states[i].tics;
+            g_DehSavedState.states[i].action = states[i].action;
+            g_DehSavedState.states[i].nextstate = states[i].nextstate;
+            g_DehSavedState.states[i].misc1 = states[i].misc1;
+            g_DehSavedState.states[i].misc2 = states[i].misc2;
+        }
+
+        for( i = 0; i < NUMMOBJTYPES; i++ ) {
+            /* mobjinfo is a struct of ints, so shallow copy is OK */
+            memcpy( &g_DehSavedState.mobjinfo[i], &mobjinfo[i], sizeof(mobjinfo[i]) );
+        }
+
+        for( i = 0; i < NUMWEAPONS; i++ ) {
+            /* weaponinfo is a struct of ints (and one enum), so shallow copy is OK */
+            memcpy( &g_DehSavedState.weaponinfo[i], &weaponinfo[i], sizeof(weaponinfo[i]) );
+        }
+
+        for( i = 0; i < 4; i++ ) {
+            for( j = 0; j < 10; j++ ) {
+                g_DehSavedState.pars[i][j] = pars[i][j];
+            }
+        }
+
+        for( i = 0; i < 32; i++ ) {
+            g_DehSavedState.cpars[i] = cpars[i];
+        }
+
+        for( i = 0; i < NUMAMMO; i++ ) {
+            g_DehSavedState.maxammo[i] = maxammo[i];
+            g_DehSavedState.clipammo[i] = clipammo[i];
+        }
+
+        /* one-off saves */
+        g_DehSavedState.initial_health = initial_health;
+        g_DehSavedState.initial_bullets = initial_bullets;
+        g_DehSavedState.maxhealth = maxhealth;
+        g_DehSavedState.max_armor = max_armor;
+        g_DehSavedState.green_armor_class = green_armor_class;
+        g_DehSavedState.blue_armor_class = blue_armor_class;
+        g_DehSavedState.max_soul = max_soul;
+        g_DehSavedState.soul_health = soul_health;
+        g_DehSavedState.mega_health = mega_health;
+        g_DehSavedState.god_health = god_health;
+        g_DehSavedState.idfa_armor = idfa_armor;
+        g_DehSavedState.idfa_armor_class = idfa_armor_class;
+        g_DehSavedState.idkfa_armor = idkfa_armor;
+        g_DehSavedState.idkfa_armor_class = idkfa_armor_class;
+        g_DehSavedState.bfgcells = bfgcells;
+        g_DehSavedState.monsters_infight = monsters_infight;
+    }
+    /* Multiple calls to save do nothing */
+}
+
+void D_DehRestore(void) {
+    assert(g_save_initialized);
+
+    int i,j;
+    /* deh_strlookup restore is sensitive due to memory leak potential.
+     * Replacements are strdup'd and must be freed. */
+    for( i = 0; i < deh_numstrlookup; i++ ) {
+        /* Note this is a POINTER COMPARISON!
+         * If they aren't the same, it means we did strdup earlier. */
+        if( *g_DehSavedState.deh_strlookup[i].ppstr != *deh_strlookup[i].ppstr ) {
+            free( *deh_strlookup[i].ppstr );
+            /* restore the POINTER */
+            *deh_strlookup[i].ppstr = *g_DehSavedState.deh_strlookup[i].ppstr;
+        }
+        /* else they are the same, so do nothing,
+         * because we never change deh_strlookup[*].lookup */
+    }
+
+    for( i = 0; i < NUMSPRITES+1 && sprnames[i]; i++ ) {
+        /* this is another pointer comparison due to earlier strdup */
+        if( g_DehSavedState.sprnames[i] != sprnames[i] ) {
+            free( sprnames[i] );
+            sprnames[i] = g_DehSavedState.sprnames[i];
+        }
+    }
+
+    /* the rest are straight copies (no more strdups) */
+    for( i = 0; i < NUMSTATES; i++ ) {
+        states[i].sprite = g_DehSavedState.states[i].sprite;
+        states[i].frame = g_DehSavedState.states[i].frame;
+        states[i].tics = g_DehSavedState.states[i].tics;
+        states[i].action = g_DehSavedState.states[i].action;
+        states[i].nextstate = g_DehSavedState.states[i].nextstate;
+        states[i].misc1 = g_DehSavedState.states[i].misc1;
+        states[i].misc2 = g_DehSavedState.states[i].misc2;
+    }
+
+    for( i = 0; i < NUMMOBJTYPES; i++ ) {
+        /* mobjinfo is a struct of ints, so shallow copy is OK */
+        memcpy( &mobjinfo[i], &g_DehSavedState.mobjinfo[i], sizeof(g_DehSavedState.mobjinfo[i]) );
+    }
+
+    for( i = 0; i < NUMWEAPONS; i++ ) {
+        /* weaponinfo is a struct of ints (and one enum), so shallow copy is OK */
+        memcpy( &weaponinfo[i], &g_DehSavedState.weaponinfo[i], sizeof(g_DehSavedState.weaponinfo[i]) );
+    }
+
+    for( i = 0; i < 4; i++ ) {
+        for( j = 0; j < 10; j++ ) {
+            pars[i][j] = g_DehSavedState.pars[i][j];
+        }
+    }
+
+    for( i = 0; i < 32; i++ ) {
+        cpars[i] = g_DehSavedState.cpars[i];
+    }
+
+    for( i = 0; i < NUMAMMO; i++ ) {
+        maxammo[i] = g_DehSavedState.maxammo[i];
+        clipammo[i] = g_DehSavedState.clipammo[i];
+    }
+
+    /* one-off saves */
+    initial_health = g_DehSavedState.initial_health;
+    initial_bullets = g_DehSavedState.initial_bullets;
+    maxhealth = g_DehSavedState.maxhealth;
+    max_armor = g_DehSavedState.max_armor;
+    green_armor_class = g_DehSavedState.green_armor_class;
+    blue_armor_class = g_DehSavedState.blue_armor_class;
+    max_soul = g_DehSavedState.max_soul;
+    soul_health = g_DehSavedState.soul_health;
+    mega_health = g_DehSavedState.mega_health;
+    god_health = g_DehSavedState.god_health;
+    idfa_armor = g_DehSavedState.idfa_armor;
+    idfa_armor_class = g_DehSavedState.idfa_armor_class;
+    idkfa_armor = g_DehSavedState.idkfa_armor;
+    idkfa_armor_class = g_DehSavedState.idkfa_armor_class;
+    bfgcells = g_DehSavedState.bfgcells;
+    monsters_infight = g_DehSavedState.monsters_infight;
+}
+

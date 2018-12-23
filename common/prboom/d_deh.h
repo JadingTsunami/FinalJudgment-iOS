@@ -1118,4 +1118,8 @@ extern const char* savegamename;
 
 void D_BuildBEXTables(void);
 
+/* Save/restore functions to unload deh changes */
+void D_DehSave(void);
+void D_DehRestore(void);
+
 #endif
