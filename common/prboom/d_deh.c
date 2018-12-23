@@ -3215,7 +3215,7 @@ void D_DehSave(void) {
 
         /* make a copy of each deh_strlookup element */
         for( i = 0; i < deh_numstrlookup; i++ ) {
-            g_DehSavedState.deh_strlookup[i].ppstr = deh_strlookup[i].ppstr;
+            g_DehSavedState.deh_strlookup[i].ppstr = *deh_strlookup[i].ppstr;
             g_DehSavedState.deh_strlookup[i].lookup = deh_strlookup[i].lookup;
         }
 
@@ -3290,10 +3290,10 @@ void D_DehRestore(void) {
     for( i = 0; i < deh_numstrlookup; i++ ) {
         /* Note this is a POINTER COMPARISON!
          * If they aren't the same, it means we did strdup earlier. */
-        if( *g_DehSavedState.deh_strlookup[i].ppstr != *deh_strlookup[i].ppstr ) {
+        if( g_DehSavedState.deh_strlookup[i].ppstr != *deh_strlookup[i].ppstr ) {
             free( *deh_strlookup[i].ppstr );
             /* restore the POINTER */
-            *deh_strlookup[i].ppstr = *g_DehSavedState.deh_strlookup[i].ppstr;
+            *deh_strlookup[i].ppstr = g_DehSavedState.deh_strlookup[i].ppstr;
         }
         /* else they are the same, so do nothing,
          * because we never change deh_strlookup[*].lookup */

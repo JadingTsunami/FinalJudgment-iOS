@@ -1171,6 +1171,7 @@ void iphoneAddPWADFiles(void);
 /* JDC static */ void D_DoomMainSetup( const char * iwad, const char * pwad )
 {
   int p,slot;
+    static boolean deh_inited = false;
   
     numwadfiles = 0;
     R_FlushAllPatches();
@@ -1213,8 +1214,12 @@ void iphoneAddPWADFiles(void);
     forceOldBsp = true;
   }
 
-    if( !firstrun ) {
+    if( !deh_inited ) {
+        deh_inited = true;
         D_BuildBEXTables(); // haleyjd
+        D_DehSave();
+    } else {
+        D_DehRestore();
     }
 
   DoLooseFiles();  // Ty 08/29/98 - handle "loose" files on command line
@@ -1578,9 +1583,8 @@ void iphoneAddPWADFiles(void);
 
   // e6y 
   // option to disable automatic loading of dehacked-in-wad lump
-    /* JDS: FIXME: Remove Dehacked support for now until it can be reversed safely. */
   if (!M_CheckParm ("-nodeh"))
-    if (false && ((p = W_CheckNumForName("DEHACKED")) != -1)) // cph - add dehacked-in-a-wad support
+    if ((p = W_CheckNumForName("DEHACKED")) != -1) // cph - add dehacked-in-a-wad support
       ProcessDehFile(NULL, D_dehout(), p);
 
   V_InitColorTranslation(); //jff 4/24/98 load color translation lumps
