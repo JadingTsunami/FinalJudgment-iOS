@@ -994,6 +994,9 @@ static void deh_procBexSounds(DEHFILE *, FILE *, char *);
 static void deh_procBexMusic(DEHFILE *, FILE *, char *);
 static void deh_procBexSprites(DEHFILE *, FILE *, char *);
 
+/* dummy to read until blank line. used for un-implemented processing */
+static void deh_procDummy(DEHFILE *, FILE *);
+
 // Structure deh_block is used to hold the block names that can
 // be encountered, and the routines to use to decipher them
 
@@ -1359,8 +1362,11 @@ static actionf_t deh_codeptr[NUMSTATES];
 
 // haleyjd: support for BEX SPRITES, SOUNDS, and MUSIC
 char *deh_spritenames[NUMSPRITES + 1];
+
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
 char *deh_musicnames[NUMMUSIC + 1];
 char *deh_soundnames[NUMSFX + 1];
+#endif
 
 void D_BuildBEXTables(void)
 {
@@ -1374,6 +1380,7 @@ void D_BuildBEXTables(void)
       deh_spritenames[i] = strdup(sprnames[i]);
    deh_spritenames[NUMSPRITES] = NULL;
 
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
    for(i = 1; i < NUMMUSIC; i++)
       deh_musicnames[i] = strdup(S_music[i].name);
    deh_musicnames[0] = deh_musicnames[NUMMUSIC] = NULL;
@@ -1381,6 +1388,7 @@ void D_BuildBEXTables(void)
    for(i = 1; i < NUMSFX; i++)
       deh_soundnames[i] = strdup(S_sfx[i].name);
    deh_soundnames[0] = deh_soundnames[NUMSFX] = NULL;
+#endif
 }
 
 // ====================================================================
@@ -1977,9 +1985,11 @@ static void deh_procPointer(DEHFILE *fpin, FILE* fpout, char *line) // done
 //
 static void deh_procSounds(DEHFILE *fpin, FILE* fpout, char *line)
 {
-  assert( false || "Does the iOS version ever call this function? I hope not." );
+    /* JDS: not supported */
+    deh_procDummy(fpin, fpout);
+    return;
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
   (void)deh_sfxinfo;
-#if 0
   char key[DEH_MAXKEYLEN];
   char inbuffer[DEH_BUFFERMAX];
   uint_64_t value;      // All deh values are ints or longs
@@ -2273,6 +2283,10 @@ static void deh_procPars(DEHFILE *fpin, FILE* fpout, char *line) // extension
 //
 static void deh_procCheat(DEHFILE *fpin, FILE* fpout, char *line) // done
 {
+    /* JDS: Never support cheat overrides */
+    /* JDS: Not supported */
+    deh_procDummy( fpin, fpout );
+#if 0 
   char key[DEH_MAXKEYLEN];
   char inbuffer[DEH_BUFFERMAX];
   uint_64_t value;      // All deh values are ints or longs
@@ -2318,7 +2332,6 @@ static void deh_procCheat(DEHFILE *fpin, FILE* fpout, char *line) // done
                 // Ty 03/16/98 - change to use a strdup and orphan the original
                 // Also has the advantage of allowing length changes.
                 // strncpy(cheat[iy].cheat,p,strlen(cheat[iy].cheat));
-#if 0
                 {    // killough 9/12/98: disable cheats which are prefixes of this one
                   int i;
                   for (i=0; cheat[i].cheat; i++)
@@ -2328,7 +2341,6 @@ static void deh_procCheat(DEHFILE *fpin, FILE* fpout, char *line) // done
                                      strlen(cheat[i].cheat)) && i != iy)
           cheat[i].deh_modified = true;
                 }
-#endif
                 cheat[iy].cheat = strdup(p);
                 if (fpout) fprintf(fpout,
                                    "Assigned new cheat '%s' to cheat '%s'at index %d\n",
@@ -2337,6 +2349,7 @@ static void deh_procCheat(DEHFILE *fpin, FILE* fpout, char *line) // done
           }
       if (fpout) fprintf(fpout,"- %s\n",inbuffer);
     }
+#endif
   return;
 }
 
@@ -2428,6 +2441,15 @@ static void deh_procMisc(DEHFILE *fpin, FILE* fpout, char *line) // done
   return;
 }
 
+/* JDS: This has to be made global to allow save/restore */
+  // e6y
+  // Correction for DEHs which swap the values of two strings. For example:
+  // Text 4 4  Text 4 4;   Text 6 6      Text 6 6
+  // BOSSBOS2  BOS2BOSS;   RUNNINSTALKS  STALKSRUNNIN
+  // It corrects buggy behaviour on "All Hell is Breaking Loose" TC
+  // http://www.doomworld.com/idgames/index.php?id=6480
+static boolean sprnames_state[NUMSPRITES+1];
+
 // ====================================================================
 // deh_procText
 // Purpose: Handle DEH Text block
@@ -2449,15 +2471,11 @@ static void deh_procText(DEHFILE *fpin, FILE* fpout, char *line)
   boolean found = FALSE;  // to allow early exit once found
   char* line2 = NULL;   // duplicate line for rerouting
 
-  // e6y
-  // Correction for DEHs which swap the values of two strings. For example:
-  // Text 4 4  Text 4 4;   Text 6 6      Text 6 6
-  // BOSSBOS2  BOS2BOSS;   RUNNINSTALKS  STALKSRUNNIN
-  // It corrects buggy behaviour on "All Hell is Breaking Loose" TC
-  // http://www.doomworld.com/idgames/index.php?id=6480
-  static boolean sprnames_state[NUMSPRITES+1];
+
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
   static boolean S_sfx_state[NUMSFX];
   static boolean S_music_state[NUMMUSIC];
+#endif
 
   // Ty 04/11/98 - Included file may have NOTEXT skip flag set
   if (includenotext) // flag to skip included deh-style text
@@ -2529,6 +2547,7 @@ static void deh_procText(DEHFILE *fpin, FILE* fpout, char *line)
                              "Warning: Mismatched lengths from=%d, to=%d, used %d\n",
                              fromlen, tolen, usedlen);
         // Try sound effects entries - see sounds.c
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
         for (i=1; i<NUMSFX; i++)
           {
             // avoid short prefix erroneous match
@@ -2571,6 +2590,7 @@ static void deh_procText(DEHFILE *fpin, FILE* fpout, char *line)
                   }
               }
           }  // end !found test
+#endif
       }
 
   if (!found) // Nothing we want to handle here--see if strings can deal with it.
@@ -2887,6 +2907,8 @@ static void deh_procBexSounds(DEHFILE *fpin, FILE *fpout, char *line)
       }
 
       rover = 1;
+
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
       while(deh_soundnames[rover])
       {
 	 if(!strncasecmp(deh_soundnames[rover], key, 6))
@@ -2900,6 +2922,7 @@ static void deh_procBexSounds(DEHFILE *fpin, FILE *fpout, char *line)
 	 }
 	 rover++;
       }
+#endif
    }
 }
 
@@ -2946,6 +2969,8 @@ static void deh_procBexMusic(DEHFILE *fpin, FILE *fpout, char *line)
       }
 
       rover = 1;
+
+#if DEH_SOUNDS_AND_MUSIC_SUPPORTED
       while(deh_musicnames[rover])
       {
 	 if(!strncasecmp(deh_musicnames[rover], key, 6))
@@ -2959,6 +2984,7 @@ static void deh_procBexMusic(DEHFILE *fpin, FILE *fpout, char *line)
 	 }
 	 rover++;
       }
+#endif
    }
 }
 
@@ -3116,6 +3142,19 @@ boolean deh_GetData(char *s, char *k, uint_64_t *l, char **strval, FILE *fpout)
   return(okrc);
 }
 
+
+static void deh_procDummy(DEHFILE * fpin, FILE * fpout)
+{
+    /* JDS: adapted from unsupported sprite code */
+    char inbuffer[DEH_BUFFERMAX];
+
+    while (!dehfeof(fpin) && *inbuffer && (*inbuffer != ' ')) {
+        if (!dehfgets(inbuffer, sizeof(inbuffer), fpin)) break;
+        lfstrip(inbuffer);
+        if (!*inbuffer) break;
+    }
+}
+
 /* Save/restore code */
 typedef struct {
     deh_strs* deh_strlookup;
@@ -3240,6 +3279,8 @@ void D_DehSave(void) {
     /* Multiple calls to save do nothing */
 }
 
+
+
 void D_DehRestore(void) {
     assert(g_save_initialized);
 
@@ -3263,6 +3304,11 @@ void D_DehRestore(void) {
         if( g_DehSavedState.sprnames[i] != sprnames[i] ) {
             free( sprnames[i] );
             sprnames[i] = g_DehSavedState.sprnames[i];
+        }
+
+        /* reset sprite state to unmodified */
+        if( sprnames_state[i] ) {
+            sprnames_state[i] = false;
         }
     }
 
@@ -3319,5 +3365,9 @@ void D_DehRestore(void) {
     idkfa_armor_class = g_DehSavedState.idkfa_armor_class;
     bfgcells = g_DehSavedState.bfgcells;
     monsters_infight = g_DehSavedState.monsters_infight;
+
+    // Return some random globals to their default state
+    HelperThing = -1;
+    deh_pars = FALSE;
 }
 
