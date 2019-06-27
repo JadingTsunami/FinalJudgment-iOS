@@ -103,6 +103,8 @@ extern int mapcolor_enemy;    // enemy sprite color
 extern int mapcolor_frnd;     // friendly sprite color
 extern int mapcolor_hair;     // crosshair color
 extern int mapcolor_sngl;     // single player arrow color
+extern int mapcolor_exis;     // secret exit
+extern int mapcolor_asec;     // automap secret
 extern int mapcolor_plyr[4];  // colors for players in multiplayer
 extern int mapcolor_me;       // consoleplayer's chosen colour
 //jff 3/9/98

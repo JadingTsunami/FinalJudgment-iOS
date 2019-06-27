@@ -613,7 +613,7 @@ def_bool,ss_none}, // enables translucency
    def_colour,ss_auto,NULL,NULL}, // color used for teleporter lines
   {"mapcolor_secr", {&mapcolor_secr,NULL}, {252,NULL},0,255,  // purple
    def_colour,ss_auto,NULL,NULL}, // color used for lines around secret sectors
-  {"mapcolor_exit", {&mapcolor_exit,NULL}, {0,NULL},0,255,    // none
+  {"mapcolor_exit", {&mapcolor_exit,NULL}, {175,NULL},0,255,    // none
    def_colour,ss_auto,NULL,NULL}, // color used for exit lines
   {"mapcolor_unsn", {&mapcolor_unsn,NULL}, {104,NULL},0,255,  // dk gray
    def_colour,ss_auto,NULL,NULL}, // color used for lines not seen without computer map
@@ -633,6 +633,14 @@ def_bool,ss_none}, // enables translucency
    def_colour,ss_auto,NULL,NULL},
   {"mapcolor_frnd",   {&mapcolor_frnd,NULL}, {112,NULL},0,255,
    def_colour,ss_auto,NULL,NULL},
+
+   // secret exit
+  {"mapcolor_exis",   {&mapcolor_exis,NULL}, {197,NULL},0,255,
+   def_colour,ss_auto,NULL,NULL},
+   // automap secret line
+  {"mapcolor_asec",   {&mapcolor_asec,NULL}, {249,NULL},0,255,
+   def_colour,ss_auto,NULL,NULL},
+
   //jff 3/9/98 add option to not show secrets til after found
   {"map_secret_after", {&map_secret_after,NULL}, {0,NULL},0,1, // show secret after gotten
    def_bool,ss_auto,NULL,NULL}, // prevents showing secret sectors till after entered

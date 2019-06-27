@@ -80,6 +80,8 @@ int mapcolor_frnd;    // friendly sprite color
 int mapcolor_enemy;   // enemy sprite color
 int mapcolor_hair;    // crosshair color
 int mapcolor_sngl;    // single player arrow color
+int mapcolor_exis;    // secret exit
+int mapcolor_asec;    // automap secret
 int mapcolor_plyr[4] = { 112, 88, 64, 32 }; // colors for player arrows in multiplayer
 
 //jff 3/9/98 add option to not show secret sectors until entered
@@ -1124,7 +1126,7 @@ static void AM_drawWalls(void)
     // if line has been seen or IDDT has been used
     if (ddt_cheating || (lines[i].flags & ML_MAPPED))
     {
-      if ((lines[i].flags & ML_DONTDRAW) && !ddt_cheating)
+      if ((lines[i].flags & ML_DONTDRAW) && !ddt_cheating && !plr->powers[pw_allmap])
         continue;
       {
         /* cph - show keyed doors and lines */
@@ -1163,19 +1165,26 @@ static void AM_drawWalls(void)
       }
       if /* jff 4/23/98 add exit lines to automap */
         (
-          mapcolor_exit &&
-          (
+          mapcolor_exit && (
             lines[i].special==11 ||
             lines[i].special==52 ||
-            lines[i].special==197 ||
-            lines[i].special==51  ||
-            lines[i].special==124 ||
-            lines[i].special==198
-          )
-        ) {
-          AM_drawMline(&l, mapcolor_exit); /* exit line */
-          continue;
-        }
+            lines[i].special==197
+            )
+         )
+            {
+              AM_drawMline(&l, mapcolor_exit); /* exit line */
+              continue;
+            } else if (
+                       mapcolor_exis && (
+                lines[i].special==51 ||
+                lines[i].special==124 ||
+                lines[i].special==198
+                   )
+                )
+            {
+                AM_drawMline(&l, mapcolor_exis); /* secret exit line */
+                continue;
+            }
 
       if (!lines[i].backsector)
       {
@@ -1265,8 +1274,6 @@ static void AM_drawWalls(void)
     } // now draw the lines only visible because the player has computermap
     else if (plr->powers[pw_allmap]) // computermap visible lines
     {
-      if (!(lines[i].flags & ML_DONTDRAW)) // invisible flag lines do not show
-      {
         if
         (
           mapcolor_flat
@@ -1278,9 +1285,22 @@ static void AM_drawWalls(void)
           ||
           lines[i].backsector->ceilingheight
           != lines[i].frontsector->ceilingheight
-        )
-          AM_drawMline(&l, mapcolor_unsn);
-      }
+        ) {
+
+            if (mapcolor_secr && 
+                (
+                  (lines[i].frontsector && P_IsSecret(lines[i].frontsector)) ||
+                  (lines[i].backsector && P_IsSecret(lines[i].backsector))
+                 )
+                )
+            {
+                AM_drawMline(&l, mapcolor_asec); // line bounding secret sector
+            }
+            else
+            {
+                AM_drawMline(&l, mapcolor_unsn);
+            }
+        }
     }
   }
 }
