@@ -1553,7 +1553,7 @@ void P_SetupLevel(int episode, int map, int playermask, skill_t skill)
   }
 
   lumpnum = W_GetNumForName(lumpname);
-  gl_lumpnum = W_CheckNumForName(gl_lumpname); // figgi
+    gl_lumpnum = -1; // JDS: Never find gl lumps -- W_CheckNumForName(gl_lumpname); // figgi
 
   leveltime = 0; totallive = 0;
 
