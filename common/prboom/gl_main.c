@@ -2828,9 +2828,13 @@ void gld_DrawScene(player_t *player)
 		gld_BindTexture( gld_RegisterTexture( skytexture, true, true ) );
 		glColor4f( 0.5, 0.5, 0.5, 1.0 );	// native texture color, not double bright
 		glBegin(GL_TRIANGLE_STRIP);
-		glTexCoord2f( s, 1 ); glVertex3f(-1,y,0.999);
+        
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        
+		glTexCoord2f( s, 1.55 ); glVertex3f(-1,-1,0.999);
 		glTexCoord2f( s, 0 ); glVertex3f(-1,1,0.999);
-		glTexCoord2f( s+1, 1 ); glVertex3f(1,y,0.999);
+		glTexCoord2f( s+1, 1.55 ); glVertex3f(1,-1,0.999);
 		glTexCoord2f( s+1, 0 ); glVertex3f(1,1,0.999);
 		glEnd();
 		
