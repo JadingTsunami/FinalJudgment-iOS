@@ -7,6 +7,11 @@ Action-packed and inspired by the first-person shooters of past years, The Final
 
 The Final Judgment is capable of loading PrBoom-compatible [WAD files](https://en.wikipedia.org/wiki/Doom_WAD) that you find online. Load them using the Files app in your iPhone or iPad or by iTunes File Sharing to keep the fighting going.
 
+Frequently Asked Questions (FAQ)
+--------------------------------
+
+See the [Frequently Asked Questions](faq.html) page.
+
 Add-Ons
 -------
 
@@ -19,6 +24,8 @@ Not every WAD file will be compatible with The Final Judgment application. If an
 To load Add-Ons for The Final Judgment, copy a WAD file to the application's local files using [iTunes File Sharing](https://support.apple.com/en-us/HT201301) or [the Files app](https://support.apple.com/en-us/HT206481) on your iOS device.
 
 NOTE: The entirety of the content, behaviors and practices of Add-Ons is at the sole discretion of the Add-On's author(s). We assume no responsibility for any Add-Ons loaded into the application nor any changes made to game files in the application's folder. Use at your own risk.
+
+For additional details see the [FAQ](faq.html).
 
 Privacy
 -------
