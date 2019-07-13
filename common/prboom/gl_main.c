@@ -2887,6 +2887,10 @@ void gld_DrawScene(player_t *player)
       {
         if (count>=gld_drawinfo.drawitems[i].itemcount)
           continue;
+        /* JDS: skip midwalls until the end */
+        if ( k==GLDWF_M2S )
+            continue;
+
         if ( (gl_drawskys) && (k>=GLDWF_SKY) )
         {
 		  // Texture gen is not supported in OpenGL ES
@@ -2947,6 +2951,25 @@ void gld_DrawScene(player_t *player)
       }
       break;
 	default: break;
+    }
+  }
+
+  for (i=gld_drawinfo.num_drawitems; i>=0; i--)
+  {
+    switch (gld_drawinfo.drawitems[i].itemtype)
+    {
+    case GLDIT_WALL:
+      count=0;
+        for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
+          if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_M2S)
+          {
+            rendered_segs++;
+            count++;
+            gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
+          }
+      break;
+    default:
+      break;
     }
   }
 // JDC  glDisableClientState(GL_TEXTURE_COORD_ARRAY);
