@@ -304,21 +304,39 @@ void Map_f() {
     plyr->powers[pw_allmap] = !(plyr->powers[pw_allmap]);
 }
 
+const char* vol_min = "Very Low volume set.";
+const char* vol_med = "Low volume set.";
+const char* vol_reg = "Normal volume set.";
+
+#define MAX_VPOS 3
+const float vols[MAX_VPOS] = { 0.05, 0.10, 1.0 };
+const char* vols_msg[MAX_VPOS] = {
+    "Very Low volume set.",
+    "Low volume set.",
+    "Normal volume set."
+};
+
 void SndVolume_f() {
+    static unsigned int vpos = 0;
     if( Cmd_Argc() > 1 ) {
-        int volume = (int) atoi(Cmd_Argv(1));
+        float newvol = (float) atof(Cmd_Argv(1));
         
-        if( volume < 0 ) {
-            volume = 0;
+        newvol = MAX( 0, newvol );
+        newvol = MIN( 1, newvol );
+        
+        Cvar_SetValue( "s_sfxVolume", newvol );
+    } else {
+        
+        float nv = vols[vpos];
+        plyr->message = vols_msg[vpos];
+        vpos++;
+        
+        if ( vpos >= MAX_VPOS ) {
+            vpos = 0;
         }
         
-        if( volume > 127 ) {
-            volume = 127;
-        }
-        
-        S_SetSfxVolume(volume);
+        Cvar_SetValue( "s_sfxVolume", nv );
     }
-    // do nothing if insufficient arguments passed in
 }
 
 void ResetMaps_f() {
@@ -361,7 +379,7 @@ void iphoneStartup() {
 	Cmd_AddCommand( "god", God_f );
     Cmd_AddCommand( "c", Clip_f );
     Cmd_AddCommand( "m", Map_f );
-    Cmd_AddCommand( "snd", SndVolume_f );
+    Cmd_AddCommand( "s", SndVolume_f );
 
 	// register console variables
 	Cvar_Get( "version", va( "%3.1f %s %s", DOOM_IPHONE_VERSION, __DATE__, __TIME__ ), 0 );
