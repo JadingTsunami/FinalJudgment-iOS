@@ -640,7 +640,10 @@ def_bool,ss_none}, // enables translucency
    // automap secret line
   {"mapcolor_asec",   {&mapcolor_asec,NULL}, {249,NULL},0,255,
    def_colour,ss_auto,NULL,NULL},
-
+    // found secret line
+  {"mapcolor_secf",   {&mapcolor_secf,NULL}, {254,NULL},0,255,
+        def_colour,ss_auto,NULL,NULL},
+    
   //jff 3/9/98 add option to not show secrets til after found
   {"map_secret_after", {&map_secret_after,NULL}, {0,NULL},0,1, // show secret after gotten
    def_bool,ss_auto,NULL,NULL}, // prevents showing secret sectors till after entered

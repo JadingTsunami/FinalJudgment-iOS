@@ -82,6 +82,7 @@ int mapcolor_hair;    // crosshair color
 int mapcolor_sngl;    // single player arrow color
 int mapcolor_exis;    // secret exit
 int mapcolor_asec;    // automap secret
+int mapcolor_secf;    // found secret
 int mapcolor_plyr[4] = { 112, 88, 64, 32 }; // colors for player arrows in multiplayer
 
 //jff 3/9/98 add option to not show secret sectors until entered
@@ -1195,23 +1196,20 @@ static void AM_drawWalls(void)
       if (!lines[i].backsector)
       {
         // jff 1/10/98 add new color for 1S secret sector boundary
-        if (mapcolor_secr && //jff 4/3/98 0 is disable
-            (
-             (
-              map_secret_after &&
-              P_WasSecret(lines[i].frontsector) &&
-              !P_IsSecret(lines[i].frontsector)
-             )
-             ||
-             (
-              !map_secret_after &&
-              P_WasSecret(lines[i].frontsector)
-             )
-            )
-          )
-          AM_drawMline(&l, mapcolor_secr); // line bounding secret sector
-        else                               //jff 2/16/98 fixed bug
-          AM_drawMline(&l, mapcolor_wall); // special was cleared
+
+          if (mapcolor_secf && mapcolor_secr) {
+              if( P_WasSecret(lines[i].frontsector) && !P_IsSecret(lines[i].frontsector)) {
+                  /* already-found secret */
+                  AM_drawMline(&l, mapcolor_secf);
+              } else if( P_WasSecret(lines[i].frontsector) ) {
+                  AM_drawMline(&l, mapcolor_secr);
+              } else {
+                  AM_drawMline(&l, mapcolor_wall); // special was cleared
+              }
+          } else {
+              AM_drawMline(&l, mapcolor_wall); // special was cleared
+          }
+
       }
       else /* now for 2S lines */
       {
@@ -1240,28 +1238,31 @@ static void AM_drawWalls(void)
           AM_drawMline(&l, mapcolor_clsd);      // non-secret closed door
         } //jff 1/6/98 show secret sector 2S lines
         else if
-        (
-            mapcolor_secr && //jff 2/16/98 fixed bug
-            (                    // special was cleared after getting it
-              (map_secret_after &&
-               (
-                (P_WasSecret(lines[i].frontsector)
-                 && !P_IsSecret(lines[i].frontsector)) ||
-                (P_WasSecret(lines[i].backsector)
-                 && !P_IsSecret(lines[i].backsector))
+            (
+             (mapcolor_secf && mapcolor_secr) &&
+             (
+              (
+               (P_WasSecret(lines[i].frontsector)
+                && !P_IsSecret(lines[i].frontsector)) ||
+               (P_WasSecret(lines[i].backsector)
+                && !P_IsSecret(lines[i].backsector))
                )
               )
-              ||  //jff 3/9/98 add logic to not show secret til after entered
-              (   // if map_secret_after is true
-                !map_secret_after &&
-                 (P_WasSecret(lines[i].frontsector) ||
-                  P_WasSecret(lines[i].backsector))
-              )
-            )
-        )
-        {
-          AM_drawMline(&l, mapcolor_secr); // line bounding secret sector
-        } //jff 1/6/98 end secret sector line change
+             ) {
+                /* already-found secret */
+                AM_drawMline(&l, mapcolor_secf); // line bounding secret sector
+            }
+        else if(
+                (mapcolor_secf && mapcolor_secr) &&
+                (
+                 P_WasSecret(lines[i].frontsector) ||
+                 P_WasSecret(lines[i].backsector)
+                 )
+                ) {
+            /* secret but not yet found */
+            AM_drawMline(&l, mapcolor_secr);
+        }
+
         else if (lines[i].backsector->floorheight !=
                   lines[i].frontsector->floorheight)
         {
@@ -1293,7 +1294,7 @@ static void AM_drawWalls(void)
           != lines[i].frontsector->ceilingheight
         ) {
 
-            if (mapcolor_secr && 
+            if (mapcolor_asec &&
                 (
                   (lines[i].frontsector && P_IsSecret(lines[i].frontsector)) ||
                   (lines[i].backsector && P_IsSecret(lines[i].backsector))
