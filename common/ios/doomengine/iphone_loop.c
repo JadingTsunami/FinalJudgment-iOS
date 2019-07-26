@@ -1684,6 +1684,15 @@ void iphoneDrawScreen() {
 			}
 		} else if ( !menuactive && !demoplayback && usergame && gamestate == GS_LEVEL ) {
 			if ( players[consoleplayer].playerstate == PST_DEAD ) {
+                /* JDS: wait a half second before showing respawn buttons to avoid
+                 accidental tapping */
+#define WAIT_DEATHTICS (TICRATE)
+                static int deathtics = WAIT_DEATHTICS;
+                
+                if( deathtics > 0 ) {
+                    deathtics--;
+                }
+                
 				// when dead, only show the main menu con and the
 				// respawn / load game icons
 				if ( HandleButton( &huds.menu ) ) {
@@ -1691,7 +1700,7 @@ void iphoneDrawScreen() {
 					menuState = IPM_MAIN;
                     iphoneMainMenu();
 				}
-				if ( !deathmatch && !netgame ) {
+				if ( !deathmatch && !netgame && deathtics <= 0 ) {
 					static ibutton_t btnSaved;
 					static ibutton_t btnRespawn;
 					static ibutton_t btnGear;
@@ -1704,16 +1713,19 @@ void iphoneDrawScreen() {
 					}
 					
 					if ( HandleButton( &btnSaved ) ) {
+                        deathtics = WAIT_DEATHTICS;
 						StartSaveGame();
 					}
 					if ( HandleButton( &btnRespawn ) ) {
+                        deathtics = WAIT_DEATHTICS;
 					    players[consoleplayer].playerstate = PST_REBORN;	
 					}
 					if ( HandleButton( &btnGear ) ) {
+                        deathtics = WAIT_DEATHTICS;
 					    players[consoleplayer].playerstate = PST_REBORN;
 						addGear = true;
 					}
-				} else {
+				} else if( deathtics <= 0 ) {
 					static ibutton_t btnNetRespawn;
 					if ( !btnNetRespawn.texture ) {
 						// initial setup
