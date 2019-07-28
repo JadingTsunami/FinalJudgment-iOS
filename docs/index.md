@@ -38,6 +38,8 @@ Credits
 
 The Final Judgment is an independent effort; the credited elements below are not affiliated with The Final Judgment.
 
+All company names, product names, trademarks and/or registered trademarks are property of their respective owners. All company, product and/or service names used on this page are for identification purposes only. Use of these names, trademarks and/or brands does not imply endorsement nor affiliation.
+
 Credit and thanks:
 
 - id Software for the original Doom™ Classic source code
