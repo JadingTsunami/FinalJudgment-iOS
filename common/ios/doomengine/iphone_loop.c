@@ -1159,7 +1159,7 @@ void SwapBuffersAndTouches() {
 }
 
 float	weaponSelectDrawScale = 1.25f;
-void DrawWeapon(int weaponlump, int x, int y, int w, int h, int lightlevel)
+void DrawWeapon(int weaponlump, int x, int y, int w, int h, float lightlevel)
 {
 	GLTexture *gltexture;
 	float fU1,fU2,fV1,fV2;
@@ -1237,8 +1237,9 @@ SPR_SHT2
 
 void DrawWeaponSelect() {
 	player_t *player = &players[consoleplayer];
-	
+    
 	for ( int i = wp_fist ; i <= wp_supershotgun ; i++ ) {
+        float lightlevel = 1.0f;
 		int bx = i % 3;
 		int by = i / 3;
 		color4_t	color = { 0, 0, 255, 200 };
@@ -1266,6 +1267,7 @@ void DrawWeaponSelect() {
 			// don't have the weapon
 			color[0] = color[1] = color[2] = 50;
 			textColor[3] = 128;
+            lightlevel = 0.0f;
 		} else {
 			// selectable
 			color[0] = 255; color[1] = 255; color[2] = 255; color[3] = 255;
@@ -1275,6 +1277,7 @@ void DrawWeaponSelect() {
                 // have it, but out of ammo
                 color[0] = 255; color[1] = color[2] = 0;
                 textColor[3] = 128;
+                lightlevel=0.25f;
             }
 		}
 		
@@ -1312,7 +1315,7 @@ void DrawWeaponSelect() {
 		spritedef_t *sprdef = &sprites[weaponSprites[i]];		
 		if ( sprdef->spriteframes ) {	// restricted wads won't have all weapons
 			spriteframe_t *sprframe = &sprdef->spriteframes[0];
-			DrawWeapon( sprframe->lump[0] , x, y - 2, w, h, player->weaponowned[i] );
+			DrawWeapon( sprframe->lump[0] , x, y - 2, w, h, lightlevel );
 			
 			if ( selectable && TouchReleased( nx, ny, nw, nh ) ) {
 				drawWeaponSelect = false;
