@@ -3012,16 +3012,16 @@ void gld_DrawScene(player_t *player)
                     //qsort( (void*)gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], (gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex])/(sizeof(gld_drawinfo.sprites[0])), sizeof(gld_drawinfo.sprites[0]), sprite_comparator );
                     sprites_are_sorted = true;
                 }
+                glDepthMask(GL_FALSE);
+                glEnable(GL_ALPHA_TEST);
                 for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--) {
                     GLSprite* spr = &(gld_drawinfo.sprites[j+gld_drawinfo.drawitems[i].firstitemindex]);
                     if( spr && (spr->shadow || spr->trans) ) {
-                        glDepthMask(GL_FALSE);
-                        glEnable(GL_ALPHA_TEST);
                         gld_DrawSprite(spr);
                         rendered_vissprites++;
-                        glDepthMask(GL_TRUE);
                     }
                 }
+                glDepthMask(GL_TRUE);
                 break;
             default:
                 break;
