@@ -2788,6 +2788,14 @@ void gld_AddSprite(vissprite_t *vspr)
   gld_drawinfo.sprites[gld_drawinfo.num_sprites++]=sprite;
 }
 
+int sprite_comparator( const void *s1, const void *s2 )
+{
+    GLSprite* spr1 = (GLSprite*) s1;
+    GLSprite* spr2 = (GLSprite*) s2;
+
+    return ( spr2->scale - spr1->scale );
+}
+
 /*****************
  *               *
  * Draw          *
@@ -2797,6 +2805,7 @@ void gld_DrawScene(player_t *player)
 {
   int i,j,k,count;
   fixed_t max_scale;
+  bool sprites_are_sorted = false;
   
 	glDisable(GL_CULL_FACE);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -2893,39 +2902,52 @@ void gld_DrawScene(player_t *player)
 
         if ( (gl_drawskys) && (k>=GLDWF_SKY) )
         {
-		  // Texture gen is not supported in OpenGL ES
-		  #ifndef IPHONE
-          if (comp[comp_skymap] && gl_shared_texture_palette)
-            glDisable(GL_SHARED_TEXTURE_PALETTE_EXT);
-          glEnable(GL_TEXTURE_GEN_S);
-          glEnable(GL_TEXTURE_GEN_T);
-          glEnable(GL_TEXTURE_GEN_Q);
-		  #endif
-          glColor4fv(gl_whitecolor);
+            // Texture gen is not supported in OpenGL ES
+#ifndef IPHONE
+            if (comp[comp_skymap] && gl_shared_texture_palette)
+                glDisable(GL_SHARED_TEXTURE_PALETTE_EXT);
+            glEnable(GL_TEXTURE_GEN_S);
+            glEnable(GL_TEXTURE_GEN_T);
+            glEnable(GL_TEXTURE_GEN_Q);
+#endif
+            glColor4fv(gl_whitecolor);
         }
         for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
-          if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==k)
-          {
-            rendered_segs++;
-            count++;
-            gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
-          }
+            if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==k)
+            {
+                rendered_segs++;
+                count++;
+                gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
+            }
         if (gl_drawskys)
         {
-		  // Texture gen is not supported in OpenGL ES
-		  #ifndef IPHONE
-          glDisable(GL_TEXTURE_GEN_Q);
-          glDisable(GL_TEXTURE_GEN_T);
-          glDisable(GL_TEXTURE_GEN_S);
-          if (comp[comp_skymap] && gl_shared_texture_palette)
-            glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
-		  #endif
+            // Texture gen is not supported in OpenGL ES
+#ifndef IPHONE
+            glDisable(GL_TEXTURE_GEN_Q);
+            glDisable(GL_TEXTURE_GEN_T);
+            glDisable(GL_TEXTURE_GEN_S);
+            if (comp[comp_skymap] && gl_shared_texture_palette)
+                glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
+#endif
         }
       }
       break;
     case GLDIT_SPRITE:
       if (gl_sortsprites)
       {
+          if( !sprites_are_sorted ) {
+              qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+              sprites_are_sorted = true;
+          }
+
+        for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--) {
+            GLSprite* spr = &(gld_drawinfo.sprites[j+gld_drawinfo.drawitems[i].firstitemindex]);
+            if( spr && (spr->shadow || spr->trans) ) continue;
+            gld_DrawSprite(spr);
+            rendered_vissprites++;
+        }
+
+          /*
         do
         {
           max_scale=INT_MAX;
@@ -2943,6 +2965,7 @@ void gld_DrawScene(player_t *player)
             gld_drawinfo.sprites[k].scale=INT_MAX;
           }
         } while (max_scale!=INT_MAX);
+        */
       }
       else
       {
@@ -2954,24 +2977,57 @@ void gld_DrawScene(player_t *player)
     }
   }
 
-  for (i=gld_drawinfo.num_drawitems; i>=0; i--)
-  {
-    switch (gld_drawinfo.drawitems[i].itemtype)
+ 
+
+    for (i=gld_drawinfo.num_drawitems; i>=0; i--)
     {
-    case GLDIT_WALL:
-      count=0;
-        for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
-          if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_M2S)
-          {
-            rendered_segs++;
-            count++;
-            gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
-          }
-      break;
-    default:
-      break;
+        switch (gld_drawinfo.drawitems[i].itemtype)
+        {
+            case GLDIT_WALL:
+                count=0;
+                glAlphaFunc(GL_GREATER, 0.0f);
+                glEnable(GL_ALPHA_TEST);
+                for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
+                    if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_M2S)
+                    {
+                        rendered_segs++;
+                        count++;
+                        gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
+                    }
+                glAlphaFunc(GL_GEQUAL, 0.5f);
+                break;
+            default:
+                break;
+        }
     }
-  }
+    
+    for (i=gld_drawinfo.num_drawitems; i>=0; i--)
+    {
+        switch (gld_drawinfo.drawitems[i].itemtype)
+        {
+            case GLDIT_SPRITE:
+                
+                if( !sprites_are_sorted ) {
+                    qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+                    //qsort( (void*)gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], (gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex])/(sizeof(gld_drawinfo.sprites[0])), sizeof(gld_drawinfo.sprites[0]), sprite_comparator );
+                    sprites_are_sorted = true;
+                }
+                for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--) {
+                    GLSprite* spr = &(gld_drawinfo.sprites[j+gld_drawinfo.drawitems[i].firstitemindex]);
+                    if( spr && (spr->shadow || spr->trans) ) {
+                        glDepthMask(GL_FALSE);
+                        glEnable(GL_ALPHA_TEST);
+                        gld_DrawSprite(spr);
+                        rendered_vissprites++;
+                        glDepthMask(GL_TRUE);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
 // JDC  glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 // JDC  glDisableClientState(GL_VERTEX_ARRAY);
 }
