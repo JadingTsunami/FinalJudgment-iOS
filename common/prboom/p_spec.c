@@ -58,6 +58,7 @@
 #include "d_deh.h"
 #include "r_plane.h"
 #include "lprintf.h"
+#include "iphone_doom.h"
 
 //
 // Animating textures and planes
@@ -2231,6 +2232,7 @@ void P_PlayerInSpecialSector (player_t* player)
         player->secretcount++;
         player->message = s_GOTSECRET;
         sector->special = 0;
+        Sound_StartLocalSoundUninterruptable( "iphone/secret.wav" );
         break;
 
       case 11:

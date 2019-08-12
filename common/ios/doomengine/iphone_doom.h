@@ -474,6 +474,7 @@ extern int      levelFragLimitCount;
 
 void Sound_Init( void );
 void Sound_StartLocalSound( const char *sound );
+void Sound_StartLocalSoundUninterruptable( const char *sound );
 void Sound_StartLocalSoundAtVolume( const char *sound, float volume );
 
 void ShowSound();

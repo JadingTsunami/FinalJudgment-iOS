@@ -140,6 +140,7 @@ static ALCdevice *Device;
 
 #define MAX_CHANNELS		16
 static channel_t	s_channels[ MAX_CHANNELS ];
+static boolean uninterruptable_is_playing = false;
 
 cvar_t	*s_sfxVolume;
 
@@ -147,18 +148,35 @@ void Sound_StartLocalSound( const char *filename ) {
 	Sound_StartLocalSoundAtVolume( filename, 1.0f );
 }
 
+void Sound_StartLocalSoundUninterruptable( const char *sound ) {
+    channel_t *ch = &s_channels[ 0 ];
+    alSourceStop(ch->sourceName);
+    Sound_StartLocalSoundAtVolume( sound, 1.0f );
+    uninterruptable_is_playing = true;
+}
+
 void Sound_StartLocalSoundAtVolume( const char *filename, float volume ) {
-	pkWav_t	*sfx;
-	
+    //    printf( "sound:%s\n", filename );
+    // channel 0 is reserved for UI sounds, the other channels
+    // are for DOOM sounds
+    channel_t *ch = &s_channels[ 0 ];
+    
+    int state;
+    alGetSourcei( ch->sourceName, AL_SOURCE_STATE, &state );
+    if ( state == AL_PLAYING && uninterruptable_is_playing ) {
+        return;
+    } else {
+        uninterruptable_is_playing = false;
+    }
+    
+    pkWav_t	*sfx;
+    
 	sfx = PK_FindWav( filename );
 	if( ! sfx ) {
 		Com_Printf( "Sound_StartLocalSound: could not cache (%s)\n", filename );
 		return;
 	}
-//	printf( "sound:%s\n", filename );	
-	// channel 0 is reserved for UI sounds, the other channels
-	// are for DOOM sounds
-	channel_t *ch = &s_channels[ 0 ];
+
 	
 	ch->sfx = sfx;
 	ch->volume = s_sfxVolume->value * volume;
