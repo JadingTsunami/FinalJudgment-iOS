@@ -23,8 +23,6 @@
 #import <AudioToolbox/AudioServices.h>
 #include "doomiphone.h"
 #include "iphone_common.h"
-#include "ios/InAppStore.h"
-#include "ios/GameCenter.h"
 
 
 
@@ -91,7 +89,6 @@ touch_t		gameTouches[MAX_TOUCHES];
 - (void)applicationWillResignActive:(UIApplication *)application {
     inBackgroundProcess = YES;
     
-	idGameCenter::HandleMoveToBackground();
 	
 	// If we're in a multiplater game, and showing the OpenGL view,
 	// go back to the main menu since the multiplayer game is hosed.

@@ -28,7 +28,6 @@
 
 
 #include "doomiphone.h"
-#include "ios/GameCenter.h"
 
 // Only one game can be set up at a time on a given wireless segment, although
 // several independent games can be played.
@@ -147,8 +146,6 @@ void StartSaveGame() {
  =======================
  */ 
 void StartSinglePlayerGame( mapStart_t map ) {
-	// Disconnect from a multiplayer game
-	idGameCenter::DisconnectFromMatch();
 
 	playState.map = map;
 	playState.saveGameIsValid = true;	// assume we will save the game on exit

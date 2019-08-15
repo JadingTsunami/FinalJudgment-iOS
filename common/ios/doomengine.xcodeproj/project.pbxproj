@@ -13,8 +13,6 @@
 		3D2EC247148EBA8300273241 /* EASGlue.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D2EC245148EBA8300273241 /* EASGlue.c */; };
 		3D460D2914BCA5430078262C /* iphone_async.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D460D2814BCA5430078262C /* iphone_async.cpp */; };
 		3D460D4F14BCFBD40078262C /* iphone_glViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D460D4E14BCFBD40078262C /* iphone_glViewController.mm */; };
-		3D5BB94A14B79BFE00A9A7FB /* DoomGameCenterMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */; };
-		3D5BB94B14B79BFE00A9A7FB /* DoomGameCenterMatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */; };
 		3D7D555D14D1C53A00A0F1FF /* iphone_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D555C14D1C53900A0F1FF /* iphone_start.cpp */; };
 		3D80889A1492E2E8002D6CC3 /* iphone_common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D8088991492E2E7002D6CC3 /* iphone_common.mm */; };
 		3D80889C1492E378002D6CC3 /* iphone_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D80889B1492E378002D6CC3 /* iphone_common.h */; };
@@ -98,8 +96,6 @@
 		3D2EC245148EBA8300273241 /* EASGlue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EASGlue.c; sourceTree = "<group>"; };
 		3D460D2814BCA5430078262C /* iphone_async.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_async.cpp; sourceTree = "<group>"; };
 		3D460D4E14BCFBD40078262C /* iphone_glViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_glViewController.mm; sourceTree = "<group>"; };
-		3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomGameCenterMatch.h; sourceTree = "<group>"; };
-		3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoomGameCenterMatch.cpp; sourceTree = "<group>"; };
 		3D7D555C14D1C53900A0F1FF /* iphone_start.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_start.cpp; sourceTree = "<group>"; };
 		3D8088991492E2E7002D6CC3 /* iphone_common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_common.mm; sourceTree = "<group>"; };
 		3D80889B1492E378002D6CC3 /* iphone_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_common.h; sourceTree = "<group>"; };
@@ -279,8 +275,6 @@
 				3DE694681489B0850049CAA4 /* prboomInterface.c */,
 				3DE694691489B0850049CAA4 /* SoundEngine.cpp */,
 				3DE6946A1489B0850049CAA4 /* SoundEngine.h */,
-				3D5BB94814B79BFE00A9A7FB /* DoomGameCenterMatch.h */,
-				3D5BB94914B79BFE00A9A7FB /* DoomGameCenterMatch.cpp */,
 			);
 			path = doomengine;
 			sourceTree = "<group>";
@@ -306,7 +300,6 @@
 				3D80889C1492E378002D6CC3 /* iphone_common.h in Headers */,
 				C86CA85814B4F3C40057FF54 /* iphone_delegate.h in Headers */,
 				C86CA85A14B4F3C40057FF54 /* iphone_glViewController.h in Headers */,
-				3D5BB94A14B79BFE00A9A7FB /* DoomGameCenterMatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +337,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 3DE6942E1489AFDE0049CAA4;
@@ -428,7 +422,6 @@
 				3D80889A1492E2E8002D6CC3 /* iphone_common.mm in Sources */,
 				C82EE118149958A0003B9C74 /* BackgroundMusic.cpp in Sources */,
 				C86CA85914B4F3C40057FF54 /* iphone_delegate.mm in Sources */,
-				3D5BB94B14B79BFE00A9A7FB /* DoomGameCenterMatch.cpp in Sources */,
 				3D460D2914BCA5430078262C /* iphone_async.cpp in Sources */,
 				3D460D4F14BCFBD40078262C /* iphone_glViewController.mm in Sources */,
 				C8DB8AD014BDFBE80006467C /* iphone_sys.mm in Sources */,

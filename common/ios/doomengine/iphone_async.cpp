@@ -28,9 +28,6 @@
 
 
 #include "doomiphone.h"
-#include "DoomGameCenterMatch.h"
-
-#include "ios/GameCenter.h"
 
 typedef struct {
 	int	msecFromLast;
@@ -877,71 +874,6 @@ void iphoneAsyncTic() {
 		}
 		
 		
-		//---------------------------------
-		// Build server packets to send to clients
-		//
-		// Always send out the current command set over the network
-		// even if we didn't create a new command, in case we are just
-		// recovering from a lot of dropped packets.
-		//---------------------------------
-		if ( netgame && !netGameFailure ) {
-			// since we are sampling a shared wireless network, any of the player's
-			// latencies should be a good enough metric
-			stats->latency = packetSequence - netPlayers[1].pc.packetAcknowledge;
-
-			if ( ShouldSendPacket( &netPlayers[1].peer, stats->latency ) ) {
-				packetServer_t	gp;
-				memset( &gp, 0, sizeof( gp ) );
-				gp.packetType = PACKET_VERSION_SERVER;
-				gp.gameID = gameID;
-				gp.packetSequence = packetSequence++;
-				gp.maketic = maketic;
-				for ( int i = 0; i < MAXPLAYERS; ++i ) {
-					gp.playersInGame[i] = playeringame[i];
-				}
-				memcpy( gp.netcmds, netcmds, sizeof( gp.netcmds ) );
-				
-				//---------------------------------
-				// Send network packets to the clients
-				//---------------------------------
-				for ( int i = 1 ; i < MAXPLAYERS ; i++ ) {
-					if ( !playeringame[i] ) {
-						continue;
-					}
-					
-					netPlayer_t *np = &netPlayers[i];
-					
-					// only send over the ticcmd that this client needs
-					gp.starttic = np->pc.gametic;				
-					ticcmd_t *cmd_p = gp.netcmds;
-					for ( int j = gp.starttic ; j < gp.maketic ; j++ ) {
-						for ( int k = 0 ; k < MAXPLAYERS ; k++ ) {
-							if ( playeringame[k] ) {
-								*cmd_p++ = netcmds[k][j&BACKUPTICMASK];
-							}
-						}
-					}
-					long int	packetSize = (byte *)cmd_p - (byte *)&gp;
-					(void)packetSize;
-					
-					// use the most recent tic that both the client and
-					// server have run 
-					gp.consistancyTic = np->pc.gametic < gametic ? np->pc.gametic : gametic;
-					gp.consistancyTic--;
-					
-					for ( int j = 0 ; j < MAXPLAYERS ; j++ ) {
-						gp.consistancy[j] = consistancy[j][gp.consistancyTic&BACKUPTICMASK];
-					}
-					
-					gp.packetAcknowledge = np->pc.packetSequence;
-					gp.milliseconds = SysIphoneMilliseconds();
-					
-					// transmit the packet				
-					const std::string theClient = playerIndexToIDMap[i];
-					//idGameCenter::SendPacketToPlayerUnreliable( theClient, &gp, packetSize );
-				}
-			}
-		}
 	}
 	
 	stats->msecToExecute = SysIphoneMilliseconds() - now;
