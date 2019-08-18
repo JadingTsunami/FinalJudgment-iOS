@@ -2130,9 +2130,9 @@ static void gld_DrawWall(GLWall *wall)
   if (wall->flag>=GLDWF_SKY)
   {
       // Dont Draw Sky Walls.
+      glColorMask( 0, 0, 0, 0 );
   }
-  else
-  {
+
     gld_StaticLightAlpha(wall->light, wall->alpha);
     glBegin(GL_TRIANGLE_STRIP);
       glTexCoord2f(wall->ul,wall->vt); glVertex3f(wall->glseg->x1,wall->ytop,wall->glseg->z1);
@@ -2140,7 +2140,11 @@ static void gld_DrawWall(GLWall *wall)
       glTexCoord2f(wall->ur,wall->vt); glVertex3f(wall->glseg->x2,wall->ytop,wall->glseg->z2);
       glTexCoord2f(wall->ur,wall->vb); glVertex3f(wall->glseg->x2,wall->ybottom,wall->glseg->z2);
     glEnd();
-  }
+
+    if ( wall->flag == GLDWF_SKY ) {
+        glColorMask( 1, 1, 1, 1 );
+    }
+    
 }
 
 #define LINE seg->linedef
@@ -2853,9 +2857,33 @@ void gld_DrawScene(player_t *player)
 		glPopMatrix();
 	}
     
-    
-    
   rendered_visplanes = rendered_segs = rendered_vissprites = 0;
+    
+    /* draw skywalls first so flats and walls don't peek through */
+    for (i=gld_drawinfo.num_drawitems; i>=0; i--)
+    {
+        switch (gld_drawinfo.drawitems[i].itemtype)
+        {
+            case GLDIT_WALL:
+                count=0;
+ 
+                    if (count>=gld_drawinfo.drawitems[i].itemcount)
+                        continue;
+
+                    for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
+                        if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_SKY)
+                        {
+                            rendered_segs++;
+                            count++;
+                            gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
+                        }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
   for (i=gld_drawinfo.num_drawitems; i>=0; i--)
   {
     switch (gld_drawinfo.drawitems[i].itemtype)
@@ -2897,7 +2925,8 @@ void gld_DrawScene(player_t *player)
         if (count>=gld_drawinfo.drawitems[i].itemcount)
           continue;
         /* JDS: skip midwalls until the end */
-        if ( k==GLDWF_M2S )
+          /* JDS: skip sky walls because they are already drawn */
+        if ( k==GLDWF_M2S || k==GLDWF_SKY )
             continue;
 
         if ( (gl_drawskys) && (k>=GLDWF_SKY) )
