@@ -2141,7 +2141,7 @@ static void gld_DrawWall(GLWall *wall)
       glTexCoord2f(wall->ur,wall->vb); glVertex3f(wall->glseg->x2,wall->ybottom,wall->glseg->z2);
     glEnd();
 
-    if ( wall->flag == GLDWF_SKY ) {
+    if ( wall->flag >= GLDWF_SKY ) {
         glColorMask( 1, 1, 1, 1 );
     }
     
@@ -2869,9 +2869,14 @@ void gld_DrawScene(player_t *player)
  
                     if (count>=gld_drawinfo.drawitems[i].itemcount)
                         continue;
-
+                    if ( (gl_drawskys) && (k>=GLDWF_SKY) )
+                    {
+                        glColor4fv(gl_whitecolor);
+                    }
+                
                     for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
-                        if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_SKY)
+                        if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_SKY||
+                            gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==GLDWF_SKYFLIP)
                         {
                             rendered_segs++;
                             count++;
@@ -2926,21 +2931,9 @@ void gld_DrawScene(player_t *player)
           continue;
         /* JDS: skip midwalls until the end */
           /* JDS: skip sky walls because they are already drawn */
-        if ( k==GLDWF_M2S || k==GLDWF_SKY )
+        if ( k==GLDWF_M2S || k>=GLDWF_SKY )
             continue;
 
-        if ( (gl_drawskys) && (k>=GLDWF_SKY) )
-        {
-            // Texture gen is not supported in OpenGL ES
-#ifndef IPHONE
-            if (comp[comp_skymap] && gl_shared_texture_palette)
-                glDisable(GL_SHARED_TEXTURE_PALETTE_EXT);
-            glEnable(GL_TEXTURE_GEN_S);
-            glEnable(GL_TEXTURE_GEN_T);
-            glEnable(GL_TEXTURE_GEN_Q);
-#endif
-            glColor4fv(gl_whitecolor);
-        }
         for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
             if (gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex].flag==k)
             {
@@ -2948,17 +2941,6 @@ void gld_DrawScene(player_t *player)
                 count++;
                 gld_DrawWall(&gld_drawinfo.walls[j+gld_drawinfo.drawitems[i].firstitemindex]);
             }
-        if (gl_drawskys)
-        {
-            // Texture gen is not supported in OpenGL ES
-#ifndef IPHONE
-            glDisable(GL_TEXTURE_GEN_Q);
-            glDisable(GL_TEXTURE_GEN_T);
-            glDisable(GL_TEXTURE_GEN_S);
-            if (comp[comp_skymap] && gl_shared_texture_palette)
-                glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
-#endif
-        }
       }
       break;
     case GLDIT_SPRITE:
