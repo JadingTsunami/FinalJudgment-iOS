@@ -1059,6 +1059,10 @@ void AutomapControls() {
 	extern fixed_t  min_scale_mtof; // used to tell when to stop zooming out
 	extern fixed_t  max_scale_mtof; // used to tell when to stop zooming in
 	
+    extern boolean selecting_magic_sector;
+    
+    extern sector_t* magic_sector;
+    
 	static int prevX = -1, prevY = -1;
 	
 	// any touch not down in another control will
@@ -1077,8 +1081,12 @@ void AutomapControls() {
 			}
 		}
 	}
+#define HOLD_LIMIT (15)
+    static int holding;
 	if ( touchCount != 1 ) {
 		prevX = -1;
+        holding = 0;
+        selecting_magic_sector = false;
 	}
 	static int pinching;
 	if ( touchCount != 2 ) {
@@ -1091,7 +1099,31 @@ void AutomapControls() {
 		if ( prevX == -1 ) {
 			prevX = t->x;
 			prevY = t->y;
+
 		}
+
+        if ( t->x - prevX <= 2 && t->y - prevY <= 2 ) {
+            holding++;
+            if( holding >= HOLD_LIMIT && (players+consoleplayer)->powers[pw_allmap] ) {
+                
+                fixed_t tmapx = (m_x + m_w/2);
+                fixed_t tmapy = (m_y + m_h/2);
+                
+                selecting_magic_sector = true;
+                subsector_t* s = R_PointInSubsector(tmapx << FRACTOMAPBITS,tmapy << FRACTOMAPBITS);
+
+                if(s && s->sector) {
+                    magic_sector = s->sector;
+                } else {
+                    /* clear magic sector */
+                    magic_sector = NULL;
+                }
+            }
+        } else {
+            holding = 0;
+            selecting_magic_sector = false;
+        }
+
 		m_x -= ( t->x - prevX ) * (float)m_w / displaywidth;
 		m_y += ( t->y - prevY ) * (float)m_w / displaywidth;
 		m_x2 = m_x + m_w;
@@ -1135,7 +1167,9 @@ void AutomapControls() {
 		m_y = midyDoom - m_w * midy / displaywidth;
 		m_x2 = m_x + m_w;
 		m_y2 = m_y + m_h;
-	}
+    } else if( touchCount == 3 ) {
+        magic_sector = NULL;
+    }
 	
 }
 

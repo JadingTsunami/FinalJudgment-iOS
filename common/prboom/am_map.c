@@ -85,6 +85,8 @@ int mapcolor_asec;    // automap secret
 int mapcolor_secf;    // found secret
 int mapcolor_plyr[4] = { 112, 88, 64, 32 }; // colors for player arrows in multiplayer
 
+sector_t* magic_sector;
+
 //jff 3/9/98 add option to not show secret sectors until entered
 int map_secret_after;
 //jff 4/3/98 add symbols for "no-color" for disable and "black color" for black
@@ -543,6 +545,7 @@ void AM_Stop (void)
   automapmode &= ~am_active;
   ST_Responder(&st_notify);
   stopped = true;
+    magic_sector = NULL;
 }
 
 //
@@ -570,6 +573,7 @@ void AM_Start(void)
   }
   AM_initVariables();
   AM_loadPics();
+    magic_sector = NULL;
 }
 
 //
@@ -1112,11 +1116,63 @@ static int AM_DoorColor(int type)
 // jff 4/3/98 changed mapcolor_xxxx=0 as control to disable feature
 // jff 4/3/98 changed mapcolor_xxxx=-1 to disable drawing line completely
 //
+
+#define MAGIC_SECTOR_COLOR_TAGGED_MIN (168)
+#define MAGIC_SECTOR_COLOR_TAGGED_MAX (180)
+
+#define MAGIC_SECTOR_COLOR_UNTAGGED_MIN (80)
+#define MAGIC_SECTOR_COLOR_UNTAGGED_MAX (98)
+
+#define MAGIC_LINE_COLOR_MIN (112)
+#define MAGIC_LINE_COLOR_MAX (124)
+
+#define MAGIC_REFRESH_MAX (2)
+
 static void AM_drawWalls(void)
 {
   int i;
   static mline_t l;
 
+    static int magic_sector_color_pos = MAGIC_SECTOR_COLOR_TAGGED_MIN;
+    static int magic_line_color_pos = MAGIC_LINE_COLOR_MIN;
+    /* draw on first iteration */
+    static int magic_refresh = MAGIC_REFRESH_MAX-1;
+ 
+    
+    if( magic_sector ) {
+        magic_refresh++;
+        
+        if( magic_sector->tag ) {
+            magic_sector_color_pos = MAX( MAGIC_SECTOR_COLOR_TAGGED_MIN, magic_sector_color_pos );
+            magic_sector_color_pos = MIN( MAGIC_SECTOR_COLOR_TAGGED_MAX, magic_sector_color_pos );
+        } else {
+            magic_sector_color_pos = MAX( MAGIC_SECTOR_COLOR_UNTAGGED_MIN, magic_sector_color_pos );
+            magic_sector_color_pos = MIN( MAGIC_SECTOR_COLOR_UNTAGGED_MAX, magic_sector_color_pos );
+        }
+        
+        if( magic_refresh > MAGIC_REFRESH_MAX ) {
+            magic_refresh = 0;
+            magic_line_color_pos++;
+            magic_sector_color_pos++;
+            
+        }
+        
+        if( (magic_sector->tag && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_TAGGED_MAX) ) {
+            magic_sector_color_pos = MAGIC_SECTOR_COLOR_TAGGED_MIN;
+        } else if (!magic_sector->tag && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_UNTAGGED_MAX) {
+            magic_sector_color_pos = MAGIC_SECTOR_COLOR_UNTAGGED_MIN;
+        }
+        
+        if( magic_line_color_pos >= MAGIC_LINE_COLOR_MAX ) {
+            magic_line_color_pos = MAGIC_LINE_COLOR_MIN;
+        }
+    } else {
+        /* prep for next time */
+        magic_refresh = MAGIC_REFRESH_MAX-1;
+    }
+    
+    
+    
   // draw the unclipped visible portions of all lines
   for (i=0;i<numlines;i++)
   {
@@ -1309,6 +1365,26 @@ static void AM_drawWalls(void)
             }
         }
     }
+      
+      /* now, handle the magic sector */
+      if( magic_sector ) {
+        
+          if( lines[i].frontsector && lines[i].frontsector->iSectorID == magic_sector->iSectorID ||
+             lines[i].backsector && lines[i].backsector->iSectorID == magic_sector->iSectorID ) {
+              
+
+          /* draw */
+          AM_drawMline(&l, magic_sector_color_pos);
+          
+          }
+          
+          if( lines[i].tag > 0 && lines[i].tag == magic_sector->tag ) {
+              
+              /* draw */
+              AM_drawMline(&l, magic_line_color_pos);
+
+          }
+      }
   }
 }
 
@@ -1579,18 +1655,20 @@ inline static void AM_drawCrosshair(int color)
 {
   fline_t line;
 
-  line.a.x = (f_w/2)-1;
+  line.a.x = (f_w/2)-5;
   line.a.y = (f_h/2);
-  line.b.x = (f_w/2)+1;
+  line.b.x = (f_w/2)+5;
   line.b.y = (f_h/2);
   V_DrawLine(&line, color);
 
   line.a.x = (f_w/2);
-  line.a.y = (f_h/2)-1;
+  line.a.y = (f_h/2)-5;
   line.b.x = (f_w/2);
-  line.b.y = (f_h/2)+1;
+  line.b.y = (f_h/2)+5;
   V_DrawLine(&line, color);
 }
+
+boolean selecting_magic_sector;
 
 //
 // AM_Drawer()
@@ -1615,8 +1693,9 @@ void AM_Drawer (void)
 #ifdef IPHONE		
 	glColor4f( 1, 1, 1, 1 );	// without the crosshair, colors can get left incorre3ctly set
 	iphoneSet2D();		// JDC: not sure why this is necessary, but the status bar doesn't draw without it
-#else 	// JDC: I don't like the croshair on the map screen
-  AM_drawCrosshair(mapcolor_hair);   //jff 1/7/98 default crosshair color
+
+    if( selecting_magic_sector )
+        AM_drawCrosshair(mapcolor_hair);   //jff 1/7/98 default crosshair color
 #endif
   AM_drawMarks();
 }
