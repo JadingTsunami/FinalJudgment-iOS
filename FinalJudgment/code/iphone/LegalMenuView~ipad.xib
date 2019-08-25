@@ -55,6 +55,13 @@
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <mutableString key="text">The Final Judgment is an independent effort; the credited elements below are not affiliated with The Final Judgment.
 
+The Final Judgment app code is open source. The source code is released here: 
+https://github.com/JadingTsunami/FinalJudgment-iOS
+
+The Final Judgment
+Copyright (C) 2019
+
+
 All company names, product names, trademarks and/or registered trademarks are property of their respective owners. All company, product and/or service names used here are for identification purposes only. Use of these names, trademarks and/or brands does not imply endorsement or affiliation.
 
 Credit and thanks:
@@ -65,12 +72,6 @@ Credit and thanks:
     - https://freedoom.github.io/
 - Liberation Mono font group (licensed under the SIL Open Font License; see below for full license)
 - JohnnyW via TheRohans for MFi controller code (licensed under the GPL 2.0 per https://github.com/TheRohans/DOOM-IOS2/)
-
-The Final Judgment app code is open source. The source code is released here: 
-https://github.com/JadingTsunami/FinalJudgment-iOS
-
-The Final Judgment
-Copyright (C) 2019
 
 ==
 
