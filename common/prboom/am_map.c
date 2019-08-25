@@ -86,6 +86,7 @@ int mapcolor_secf;    // found secret
 int mapcolor_plyr[4] = { 112, 88, 64, 32 }; // colors for player arrows in multiplayer
 
 sector_t* magic_sector;
+short int magic_tag;
 
 //jff 3/9/98 add option to not show secret sectors until entered
 int map_secret_after;
@@ -546,6 +547,7 @@ void AM_Stop (void)
   ST_Responder(&st_notify);
   stopped = true;
     magic_sector = NULL;
+    magic_tag = 0;
 }
 
 //
@@ -574,6 +576,7 @@ void AM_Start(void)
   AM_initVariables();
   AM_loadPics();
     magic_sector = NULL;
+    magic_tag = 0;
 }
 
 //
@@ -1139,10 +1142,10 @@ static void AM_drawWalls(void)
     static int magic_refresh = MAGIC_REFRESH_MAX-1;
  
     
-    if( magic_sector ) {
+    if( magic_sector || magic_tag ) {
         magic_refresh++;
         
-        if( magic_sector->tag ) {
+        if( magic_tag || ( magic_sector && magic_sector->tag ) ) {
             magic_sector_color_pos = MAX( MAGIC_SECTOR_COLOR_TAGGED_MIN, magic_sector_color_pos );
             magic_sector_color_pos = MIN( MAGIC_SECTOR_COLOR_TAGGED_MAX, magic_sector_color_pos );
         } else {
@@ -1157,9 +1160,9 @@ static void AM_drawWalls(void)
             
         }
         
-        if( (magic_sector->tag && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_TAGGED_MAX) ) {
+        if( ((magic_tag || ( magic_sector && magic_sector->tag )) && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_TAGGED_MAX) ) {
             magic_sector_color_pos = MAGIC_SECTOR_COLOR_TAGGED_MIN;
-        } else if (!magic_sector->tag && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_UNTAGGED_MAX) {
+        } else if (!(magic_tag || ( magic_sector && magic_sector->tag )) && magic_sector_color_pos >= MAGIC_SECTOR_COLOR_UNTAGGED_MAX) {
             magic_sector_color_pos = MAGIC_SECTOR_COLOR_UNTAGGED_MIN;
         }
         
@@ -1367,18 +1370,19 @@ static void AM_drawWalls(void)
     }
       
       /* now, handle the magic sector */
-      if( magic_sector ) {
+      if( magic_sector || magic_tag ) {
         
-          if( lines[i].frontsector && lines[i].frontsector->iSectorID == magic_sector->iSectorID ||
-             lines[i].backsector && lines[i].backsector->iSectorID == magic_sector->iSectorID ) {
+          if( (lines[i].frontsector && ((magic_sector && lines[i].frontsector->iSectorID == magic_sector->iSectorID) || ((magic_tag > 0) && lines[i].frontsector->tag == magic_tag) ))
+                                       ||
+             (lines[i].backsector && ((magic_sector && lines[i].backsector->iSectorID == magic_sector->iSectorID) || ((magic_tag > 0) && lines[i].backsector->tag == magic_tag) ))
+              ) {
               
-
           /* draw */
           AM_drawMline(&l, magic_sector_color_pos);
           
           }
           
-          if( lines[i].tag > 0 && lines[i].tag == magic_sector->tag ) {
+          if( lines[i].tag > 0 && (lines[i].tag == magic_tag || (magic_sector && (lines[i].tag == magic_sector->tag) ) ) ) {
               
               /* draw */
               AM_drawMline(&l, magic_line_color_pos);

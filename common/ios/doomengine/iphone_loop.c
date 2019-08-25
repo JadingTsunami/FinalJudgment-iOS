@@ -1062,6 +1062,7 @@ void AutomapControls() {
     extern boolean selecting_magic_sector;
     
     extern sector_t* magic_sector;
+    extern short int magic_tag;
     
 	static int prevX = -1, prevY = -1;
 	
@@ -1081,7 +1082,7 @@ void AutomapControls() {
 			}
 		}
 	}
-#define HOLD_LIMIT (15)
+#define HOLD_LIMIT (35)
     static int holding;
 	if ( touchCount != 1 ) {
 		prevX = -1;
@@ -1114,9 +1115,38 @@ void AutomapControls() {
 
                 if(s && s->sector) {
                     magic_sector = s->sector;
+                    magic_tag = 0;
+                    
+#define MAGIC_LINE_DISTANCE_THRESHOLD (2 << MAPBITS)
+                    /* if we are close to a tagged line in the sector, choose it instead */
+                    float min_distance = MAGIC_LINE_DISTANCE_THRESHOLD;
+                    short int min_tag = 0;
+                    for( int i = 0; i < s->sector->linecount; i++ ) {
+                        line_t* l = s->sector->lines[i];
+                        if( l && (l->tag > 0) ) {
+                            if( l->v1 && l->v2 ) {
+                                float x1 = (l->v1->x >> FRACTOMAPBITS);
+                                float x2 = (l->v2->x >> FRACTOMAPBITS);
+                                float y1 = (l->v1->y >> FRACTOMAPBITS);
+                                float y2 = (l->v2->y >> FRACTOMAPBITS);
+                                float dist = fabs( (y2-y1)*tmapx - (x2-x1)*tmapy + x2*y1 - y2*x1 );
+                                dist /=  sqrtf( powf(y2-y1,2) + powf(x2-x1,2) );
+                                if( dist < min_distance ) {
+                                    min_distance = dist;
+                                    min_tag = l->tag;
+                                }
+                            }
+                        }
+                    }
+                    /* only pick the line if the crosshair is "close" to it */
+                    if( min_tag > 0 ) {
+                        magic_tag = min_tag;
+                        magic_sector = NULL;
+                    }
                 } else {
                     /* clear magic sector */
                     magic_sector = NULL;
+                    magic_tag = 0;
                 }
             }
         } else {
@@ -1169,6 +1199,7 @@ void AutomapControls() {
 		m_y2 = m_y + m_h;
     } else if( touchCount == 3 ) {
         magic_sector = NULL;
+        magic_tag = 0;
     }
 	
 }
