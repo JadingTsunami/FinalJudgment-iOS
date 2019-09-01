@@ -1282,20 +1282,6 @@ static void AM_drawWalls(void)
         { // teleporters
           AM_drawMline(&l, mapcolor_tele);
         }
-        else if (lines[i].flags & ML_SECRET)    // secret door
-        {
-          AM_drawMline(&l, mapcolor_wall);      // wall color
-        }
-        else if
-        (
-            mapcolor_clsd &&
-            !(lines[i].flags & ML_SECRET) &&    // non-secret closed door
-            ((lines[i].backsector->floorheight==lines[i].backsector->ceilingheight) ||
-            (lines[i].frontsector->floorheight==lines[i].frontsector->ceilingheight))
-        )
-        {
-          AM_drawMline(&l, mapcolor_clsd);      // non-secret closed door
-        } //jff 1/6/98 show secret sector 2S lines
         else if
             (
              (mapcolor_secf && mapcolor_secr) &&
@@ -1321,7 +1307,20 @@ static void AM_drawWalls(void)
             /* secret but not yet found */
             AM_drawMline(&l, mapcolor_secr);
         }
-
+        else if (lines[i].flags & ML_SECRET)    // secret door
+        {
+            AM_drawMline(&l, mapcolor_wall);      // wall color
+        }
+        else if
+            (
+             mapcolor_clsd &&
+             !(lines[i].flags & ML_SECRET) &&    // non-secret closed door
+             ((lines[i].backsector->floorheight==lines[i].backsector->ceilingheight) ||
+              (lines[i].frontsector->floorheight==lines[i].frontsector->ceilingheight))
+             )
+        {
+            AM_drawMline(&l, mapcolor_clsd);      // non-secret closed door
+        } //jff 1/6/98 show secret sector 2S lines
         else if (lines[i].backsector->floorheight !=
                   lines[i].frontsector->floorheight)
         {

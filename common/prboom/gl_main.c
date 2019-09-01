@@ -2809,7 +2809,7 @@ void gld_DrawScene(player_t *player)
 {
   int i,j,k,count;
   fixed_t max_scale;
-  bool sprites_are_sorted = false;
+    bool sprites_are_sorted = false;
   
 	glDisable(GL_CULL_FACE);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -2947,7 +2947,9 @@ void gld_DrawScene(player_t *player)
       if (gl_sortsprites)
       {
           if( !sprites_are_sorted ) {
-              qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+              //qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+              qsort( (void*)gld_drawinfo.sprites, gld_drawinfo.num_sprites, sizeof(GLSprite), sprite_comparator );
+              
               sprites_are_sorted = true;
           }
 
@@ -3019,7 +3021,8 @@ void gld_DrawScene(player_t *player)
             case GLDIT_SPRITE:
                 
                 if( !sprites_are_sorted ) {
-                    qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+                    //qsort( (void*)&gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], gld_drawinfo.drawitems[i].itemcount, sizeof(GLSprite), sprite_comparator );
+                    qsort( (void*)gld_drawinfo.sprites, gld_drawinfo.num_sprites, sizeof(GLSprite), sprite_comparator );
                     //qsort( (void*)gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex], (gld_drawinfo.sprites[gld_drawinfo.drawitems[i].firstitemindex])/(sizeof(gld_drawinfo.sprites[0])), sizeof(gld_drawinfo.sprites[0]), sprite_comparator );
                     sprites_are_sorted = true;
                 }
